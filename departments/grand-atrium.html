@@ -5,15 +5,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0b1019">
-  <title>The Grand Atrium | The Grand Library</title>
+  <title>The Grand Atrium | The Grand Library of the Realms</title>
+  <meta name="description" content="Explore the Grand Atrium, the public heart and living directory of the Grand Library of the Realms.">
+
   <style>
     :root {
       --night: #0b1019;
-      --panel: #141d2b;
+      --panel: #131b29;
+      --panel-light: #192537;
       --gold: #c3a46b;
       --parchment: #e9ddc4;
-      --muted: #b0b0b0;
-      --line: #403a30;
+      --muted: #aaa9a5;
+      --line: #39382f;
+      --blue: #5686c5;
     }
 
     * { box-sizing: border-box; }
@@ -25,7 +29,7 @@
       background: var(--night);
       color: var(--parchment);
       font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.8;
+      line-height: 1.7;
     }
 
     a {
@@ -33,29 +37,43 @@
       text-decoration: none;
     }
 
-    .nav {
+    .navigation {
+      min-height: 74px;
+      padding: 18px 7%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 20px;
-      padding: 20px 7%;
       border-bottom: 1px solid var(--line);
+      background: var(--night);
     }
 
     .brand {
       color: var(--gold);
-      font-size: 12px;
+      font-size: 14px;
       letter-spacing: 2px;
       text-transform: uppercase;
     }
 
-    .nav a:hover, .back:hover { color: var(--gold); }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      color: #d0c9bc;
+    }
 
-    .hero {
-      padding: 105px 24px 100px;
+    .nav-links a:hover,
+    .back-link:hover {
+      color: var(--gold);
+    }
+
+    .page-hero {
+      padding: 90px 24px 65px;
       text-align: center;
       background:
-        radial-gradient(ellipse at 50% 20%, #293247, #131b29 55%, #0b1019 100%);
+        radial-gradient(ellipse at 50% 25%, #293247 0%, #131b29 42%, #0b1019 82%);
       border-bottom: 1px solid var(--line);
     }
 
@@ -68,25 +86,294 @@
     }
 
     h1 {
-      margin: 20px 0;
-      font-size: clamp(43px, 7vw, 76px);
+      max-width: 900px;
+      margin: 20px auto;
+      font-size: clamp(42px, 7vw, 76px);
       font-weight: normal;
-      line-height: 1.1;
+      line-height: 1.08;
     }
 
-    .hero p {
-      max-width: 560px;
-      margin: 0 auto 28px;
+    .page-hero p {
+      max-width: 670px;
+      margin: 0 auto 24px;
       color: #d1c8b8;
+      font-size: 17px;
+    }
+
+    .breadcrumbs {
+      margin-top: 28px;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+    }
+
+    .breadcrumbs a { color: var(--gold); }
+
+    .page-content {
+      max-width: 1150px;
+      margin: auto;
+      padding: 65px 28px 90px;
+    }
+
+    .section-heading {
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    h2 {
+      margin: 8px 0;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: normal;
+      line-height: 1.2;
+    }
+
+    .intro {
+      max-width: 700px;
+      margin: 12px auto;
+      color: var(--muted);
+    }
+
+    .map-frame {
+      padding: 12px;
+      border: 1px solid #746344;
+      background: #111823;
+      box-shadow: 0 20px 60px #0006;
+    }
+
+    .map-inner {
+      overflow: hidden;
+      border: 1px solid #4b4638;
+      background:
+        radial-gradient(ellipse at center, #253043 0%, #141d2b 65%, #0d131d 100%);
+    }
+
+    .map-topline {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 13px 16px;
+      border-bottom: 1px solid #494436;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .map-scroll {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .atrium-map {
+      display: block;
+      width: 100%;
+      min-width: 520px;
+      height: auto;
+    }
+
+    .map-help {
+      padding: 14px 18px;
+      border-top: 1px solid #494436;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+    }
+
+    .map-help strong { color: var(--gold); }
+
+    .map-links {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .map-link {
+      padding: 17px;
+      border: 1px solid var(--line);
+      background: #111823;
+      color: var(--parchment);
+      font-size: 14px;
+      transition: border-color .2s, background .2s;
+    }
+
+    .map-link:hover {
+      border-color: var(--gold);
+      background: var(--panel);
+    }
+
+    .map-link span {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .directory-section {
+      padding-top: 85px;
+      scroll-margin-top: 25px;
+    }
+
+    .directory-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .directory-card {
+      display: block;
+      padding: 27px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, #172131, #101722);
+      transition: transform .2s, border-color .2s;
+    }
+
+    .directory-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--gold);
+    }
+
+    .number {
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    h3 {
+      margin: 10px 0;
+      font-size: 23px;
+      font-weight: normal;
+    }
+
+    .directory-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .directory-card ul {
+      padding-left: 20px;
+      color: #d1c8b8;
+      font-size: 13px;
+    }
+
+    .text-link {
+      display: inline-block;
+      margin-top: 8px;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .access-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    .access-card {
+      padding: 24px;
+      border: 1px solid var(--line);
+      background: #111823;
+    }
+
+    .access-card h3 { font-size: 20px; }
+
+    .access-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .access-label {
+      display: inline-block;
+      padding: 4px 8px;
+      border: 1px solid #6c644d;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .principle {
+      margin-top: 28px;
+      padding: 25px;
+      border-left: 2px solid var(--gold);
+      background: #101722;
+      color: #d1c8b8;
+    }
+
+    .principle strong { color: var(--gold); }
+
+    .connections {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    .connection {
+      padding: 22px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, #172131, #101722);
+    }
+
+    .connection h3 { font-size: 19px; }
+
+    .connection p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .fantasy-note {
+      margin-top: 25px;
+      padding: 28px;
+      border: 1px solid #514733;
+      background:
+        radial-gradient(ellipse at top right, #263047, #111823 70%);
+    }
+
+    .fantasy-note h3 {
+      margin-top: 0;
+      color: var(--gold);
+    }
+
+    .fantasy-note p {
+      margin-bottom: 0;
+      color: #d1c8b8;
+      font-size: 14px;
+    }
+
+    .closing {
+      margin-top: 80px;
+      padding: 45px 24px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+      background: #101722;
+    }
+
+    .closing p {
+      max-width: 650px;
+      margin: 15px auto 25px;
+      color: var(--muted);
     }
 
     .button {
       display: inline-block;
-      padding: 10px 23px;
+      padding: 12px 22px;
       border: 1px solid var(--gold);
-      font-size: 11px;
-      letter-spacing: 1px;
-      transition: .2s;
+      color: var(--parchment);
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      transition: background .2s, color .2s;
     }
 
     .button:hover {
@@ -94,213 +381,552 @@
       color: var(--night);
     }
 
-    main {
-      max-width: 1050px;
-      margin: auto;
-      padding: 65px 25px;
-    }
-
-    .section { margin-bottom: 70px; }
-
-    h2 {
-      margin: 10px 0 18px;
-      font-size: clamp(27px, 4vw, 38px);
-      font-weight: normal;
-    }
-
-    .intro {
-      max-width: 760px;
-      color: #c1c0ba;
-      font-size: 17px;
-    }
-
-    .divider {
-      width: 80px;
-      margin: 24px 0;
-      border: 0;
-      border-top: 1px solid var(--gold);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 28px;
-    }
-
-    .card {
-      display: block;
-      padding: 25px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      transition: transform .2s, border-color .2s;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      border-color: var(--gold);
-    }
-
-    .symbol {
-      color: var(--gold);
-      font-size: 26px;
-    }
-
-    h3 {
-      margin: 10px 0;
-      font-size: 21px;
-      font-weight: normal;
-    }
-
-    .card p {
-      margin-bottom: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .note {
-      padding: 28px;
-      border-left: 2px solid var(--gold);
-      background: #111925;
-      color: #c8c2b5;
-    }
-
-    .back {
-      display: inline-block;
-      margin-top: 12px;
-      color: var(--gold);
-      font-size: 13px;
-    }
-
     footer {
-      padding: 30px 20px;
-      border-top: 1px solid var(--line);
-      text-align: center;
+      padding: 35px 20px;
       color: var(--muted);
+      text-align: center;
       font-size: 12px;
     }
 
     footer span { color: var(--gold); }
 
-    @media (max-width: 650px) {
-      .grid { grid-template-columns: 1fr; }
-      .nav { flex-direction: column; }
-      .hero { padding: 75px 20px; }
+    @media (max-width: 760px) {
+      .navigation {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .nav-links { justify-content: center; }
+
+      .page-hero { padding: 65px 20px 50px; }
+
+      .page-content { padding: 45px 18px 65px; }
+
+      .directory-grid,
+      .access-grid,
+      .connections,
+      .map-links {
+        grid-template-columns: 1fr;
+      }
+
+      .map-frame { padding: 6px; }
+
+      .directory-section { padding-top: 60px; }
     }
   </style>
 </head>
+
 <body>
 
-  <header class="nav">
+  <header class="navigation">
     <a class="brand" href="../index.html">✦ The Grand Library</a>
-    <a class="back" href="../index.html">← Return to the homepage</a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#departments">Departments</a>
+      <a href="../index.html#peoples">Peoples & Cultures</a>
+      <a href="../characters/">Characters</a>
+      <a href="../index.html#archives">Archives</a>
+    </nav>
   </header>
 
-  <section class="hero">
-    <span class="eyebrow">The heart of the institution</span>
-    <h1>The Grand Atrium</h1>
-    <p>The threshold to all knowledge. The meeting place of countless paths.</p>
-    <a class="button" href="#explore">BEGIN YOUR VISIT ↓</a>
-  </section>
-
   <main>
-    <section class="section">
-      <span class="eyebrow">Welcome, seeker of knowledge</span>
-      <h2>Every journey begins somewhere.</h2>
-      <hr class="divider">
-      <p class="intro">
-        The Grand Atrium is the central meeting point of the
-        Grand Library of the Realms. From here, corridors,
-        bridges, staircases and enchanted passages connect
-        an institution vast enough to resemble a city.
+    <section class="page-hero">
+      <span class="eyebrow">District I · The Scholar's Quarter</span>
+      <h1>The Grand Atrium</h1>
+      <p>
+        The public heart of the institution. A monumental crossroads where
+        visitors find their bearings, seek knowledge and begin their journey
+        through the countless districts of the Library.
       </p>
-      <p class="intro">
-        Scholars arrive in search of forgotten truths. Travellers
-        seek the histories of distant kingdoms. Librarians pass
-        between departments, carrying knowledge from one
-        corner of the world to another.
-      </p>
-    </section>
-
-    <section class="section" id="explore">
-      <span class="eyebrow">Your first steps</span>
-      <h2>Explore the Atrium</h2>
-      <p>Choose a destination to begin your journey.</p>
-
-      <div class="grid">
-        <a class="card" href="#visitor-services">
-          <span class="symbol">✧</span>
-          <h3>Visitor Services</h3>
-          <p>Reception, orientation, enquiries and assistance for every visitor.</p>
-        </a>
-
-        <a class="card" href="#directory">
-          <span class="symbol">⌘</span>
-          <h3>The Grand Directory</h3>
-          <p>Discover the departments, buildings and reading rooms of the institution.</p>
-        </a>
-
-        <a class="card" href="#galleries">
-          <span class="symbol">♜</span>
-          <h3>Public Galleries</h3>
-          <p>Exhibitions, public collections and treasures from across the realms.</p>
-        </a>
-
-        <a class="card" href="#hidden-paths">
-          <span class="symbol">⚿</span>
-          <h3>Paths Beyond</h3>
-          <p>Discover the connections between the library's many buildings.</p>
-        </a>
+      <div class="breadcrumbs">
+        <a href="../index.html">The Grand Library</a> / The Grand Atrium
       </div>
     </section>
 
-    <section class="section" id="visitor-services">
-      <span class="eyebrow">For every visitor</span>
-      <h2>Visitor Services</h2>
-      <p class="intro">
-        The librarians of the Atrium help visitors find their way,
-        identify useful collections and understand the rules of the library.
+    <div class="page-content">
+
+      <section id="map">
+        <div class="section-heading">
+          <span class="eyebrow">The architectural directory</span>
+          <h2>Find Your Way</h2>
+          <p class="intro">
+            Explore the principal spaces of the Atrium. This is an introductory
+            schematic; the exact floor plan and connections will develop as
+            the Library grows.
+          </p>
+        </div>
+
+        <div class="map-frame">
+          <div class="map-inner">
+            <div class="map-topline">
+              <span>Official visitor directory</span>
+              <span>Plan I · Grand Atrium</span>
+            </div>
+
+            <div class="map-scroll">
+              <svg class="atrium-map" viewBox="0 0 900 520"
+                   role="img" aria-labelledby="map-title map-description"
+                   xmlns="http://www.w3.org/2000/svg">
+                <title id="map-title">Interactive directory of the Grand Atrium</title>
+                <desc id="map-description">Select a labelled area to jump to its directory entry. The map is schematic and not to scale.</desc>
+
+                <defs>
+                  <pattern id="mapGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+                    <path d="M24 0H0V24" fill="none" stroke="#c3a46b" stroke-opacity=".08" stroke-width=".6"/>
+                  </pattern>
+                  <linearGradient id="hall" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#29364a"/>
+                    <stop offset="1" stop-color="#141e2c"/>
+                  </linearGradient>
+                </defs>
+
+                <rect width="900" height="520" fill="url(#mapGrid)"/>
+                <rect x="24" y="24" width="852" height="472" fill="none" stroke="#c3a46b" stroke-opacity=".45"/>
+                <rect x="33" y="33" width="834" height="454" fill="none" stroke="#c3a46b" stroke-opacity=".18"/>
+
+                <!-- North compass -->
+                <g transform="translate(825 80)" text-anchor="middle" font-family="Georgia,serif">
+                  <circle r="27" fill="none" stroke="#c3a46b" stroke-opacity=".65"/>
+                  <path d="M0 -20L6 0L0 20L-6 0Z" fill="#c3a46b" fill-opacity=".8"/>
+                  <path d="M-20 0H20M0 -27V27" stroke="#c3a46b" stroke-opacity=".5"/>
+                  <text x="0" y="-36" fill="#e9ddc4" font-size="10">N</text>
+                </g>
+
+                <!-- Gallery routes -->
+                <g fill="none" stroke="#c3a46b" stroke-width="2" stroke-opacity=".7">
+                  <path d="M450 176V115H280V91"/>
+                  <path d="M450 344V403H275V430"/>
+                  <path d="M565 260H675V176H730"/>
+                  <path d="M335 260H230V176H165"/>
+                  <path d="M230 358H294V344H335"/>
+                  <path d="M565 344H615V358H670"/>
+                </g>
+
+                <g fill="#c3a46b">
+                  <circle cx="450" cy="115" r="4"/>
+                  <circle cx="275" cy="403" r="4"/>
+                  <circle cx="675" cy="260" r="4"/>
+                  <circle cx="230" cy="260" r="4"/>
+                  <circle cx="294" cy="358" r="4"/>
+                  <circle cx="615" cy="358" r="4"/>
+                </g>
+
+                <!-- Northern gallery -->
+                <a href="#connections" aria-label="Explore the galleries and connections">
+                  <rect x="365" y="55" width="170" height="70" fill="url(#hall)" stroke="#c3a46b" stroke-width="1.5"/>
+                  <rect x="380" y="68" width="140" height="44" fill="none" stroke="#c3a46b" stroke-opacity=".4"/>
+                  <text x="450" y="84" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="1">NORTH GALLERY</text>
+                  <text x="450" y="101" fill="#e9ddc4" font-size="13" text-anchor="middle">To the Great Halls</text>
+                </a>
+
+                <!-- Public reading rooms -->
+                <a href="#reading" aria-label="Explore public reading and consultation">
+                  <rect x="55" y="120" width="175" height="112" fill="url(#hall)" stroke="#c3a46b" stroke-width="1.5"/>
+                  <rect x="67" y="132" width="151" height="88" fill="none" stroke="#c3a46b" stroke-opacity=".4"/>
+                  <text x="142" y="158" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="1">PUBLIC READING</text>
+                  <text x="142" y="176" fill="#e9ddc4" font-size="14" text-anchor="middle">Reading Rooms</text>
+                  <text x="142" y="196" fill="#a5a9b3" font-size="10" text-anchor="middle">Quiet study · Open access</text>
+                </a>
+
+                <!-- Orientation -->
+                <a href="#orientation" aria-label="Explore orientation and the living directory">
+                  <rect x="670" y="120" width="175" height="112" fill="url(#hall)" stroke="#c3a46b" stroke-width="1.5"/>
+                  <rect x="682" y="132" width="151" height="88" fill="none" stroke="#c3a46b" stroke-opacity=".4"/>
+                  <text x="757" y="158" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="1">ORIENTATION</text>
+                  <text x="757" y="176" fill="#e9ddc4" font-size="14" text-anchor="middle">Living Directory</text>
+                  <text x="757" y="196" fill="#a5a9b3" font-size="10" text-anchor="middle">Maps · Information</text>
+                </a>
+
+                <!-- Central Atrium -->
+                <a href="#welcome" aria-label="Explore the Grand Atrium and reception">
+                  <rect x="335" y="176" width="230" height="168" fill="url(#hall)" stroke="#c3a46b" stroke-width="2.5"/>
+                  <rect x="347" y="188" width="206" height="144" fill="none" stroke="#c3a46b" stroke-opacity=".55"/>
+                  <rect x="361" y="202" width="178" height="116" fill="none" stroke="#c3a46b" stroke-opacity=".3" stroke-dasharray="4 5"/>
+                  <circle cx="450" cy="258" r="46" fill="none" stroke="#c3a46b" stroke-opacity=".75" stroke-width="1.5"/>
+                  <circle cx="450" cy="258" r="34" fill="none" stroke="#c3a46b" stroke-opacity=".4"/>
+                  <path d="M450 218L460 258L450 298L440 258Z" fill="#c3a46b" fill-opacity=".65"/>
+                  <path d="M410 258H490M450 218V298" stroke="#c3a46b" stroke-opacity=".65"/>
+                  <text x="450" y="237" fill="#e9ddc4" font-size="10" text-anchor="middle" letter-spacing="1.5">THE</text>
+                  <text x="450" y="315" fill="#c3a46b" font-size="12" text-anchor="middle" letter-spacing="2">GRAND ATRIUM</text>
+                </a>
+
+                <!-- South plaza -->
+                <a href="#connections" aria-label="Explore the public plazas and connections">
+                  <rect x="365" y="403" width="170" height="70" fill="url(#hall)" stroke="#c3a46b" stroke-width="1.5"/>
+                  <rect x="380" y="416" width="140" height="44" fill="none" stroke="#c3a46b" stroke-opacity=".4"/>
+                  <text x="450" y="433" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="1">SOUTH PLAZA</text>
+                  <text x="450" y="451" fill="#e9ddc4" font-size="13" text-anchor="middle">Public Gathering</text>
+                </a>
+
+                <!-- Reception -->
+                <a href="#welcome" aria-label="Explore reception and visitor services">
+                  <rect x="55" y="302" width="175" height="112" fill="url(#hall)" stroke="#c3a46b" stroke-width="1.5"/>
+                  <rect x="67" y="314" width="151" height="88" fill="none" stroke="#c3a46b" stroke-opacity=".4"/>
+                  <text x="142" y="340" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="1">WELCOME</text>
+                  <text x="142" y="359" fill="#e9ddc4" font-size="14" text-anchor="middle">Reception</text>
+                  <text x="142" y="379" fill="#a5a9b3" font-size="10" text-anchor="middle">Visitor services</text>
+                </a>
+
+                <!-- Other districts -->
+                <a href="#connections" aria-label="Explore connections to other districts">
+                  <rect x="670" y="302" width="175" height="112" fill="url(#hall)" stroke="#c3a46b" stroke-width="1.5"/>
+                  <rect x="682" y="314" width="151" height="88" fill="none" stroke="#c3a46b" stroke-opacity=".4"/>
+                  <text x="757" y="340" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="1">BEYOND THE ATRIUM</text>
+                  <text x="757" y="359" fill="#e9ddc4" font-size="14" text-anchor="middle">Other Districts</text>
+                  <text x="757" y="379" fill="#a5a9b3" font-size="10" text-anchor="middle">Galleries · Bridges</text>
+                </a>
+
+                <text x="55" y="462" fill="#a5a9b3" font-size="9" letter-spacing="1.5">SCHEMATIC DIRECTORY · NOT TO SCALE</text>
+                <text x="845" y="462" fill="#a5a9b3" font-size="9" text-anchor="end" letter-spacing="1.5">DISTRICT I</text>
+              </svg>
+            </div>
+
+            <div class="map-help">
+              <strong>How to use this map:</strong>
+              select a labelled area to jump to its entry below. On smaller
+              screens, scroll horizontally to explore the full plan.
+            </div>
+          </div>
+        </div>
+
+        <div class="map-links">
+          <a class="map-link" href="#welcome">
+            <span>01 · Arrival</span>
+            Reception & Welcome
+          </a>
+          <a class="map-link" href="#orientation">
+            <span>02 · Find your way</span>
+            Orientation & Directory
+          </a>
+          <a class="map-link" href="#reading">
+            <span>03 · Consultation</span>
+            Public Reading Rooms
+          </a>
+          <a class="map-link" href="#services">
+            <span>04 · Assistance</span>
+            Visitor Services
+          </a>
+          <a class="map-link" href="#access">
+            <span>05 · Permissions</span>
+            Access & Security
+          </a>
+          <a class="map-link" href="#connections">
+            <span>06 · Beyond</span>
+            Galleries & Connections
+          </a>
+        </div>
+      </section>
+
+      <section class="directory-section" id="welcome">
+        <div class="section-heading">
+          <span class="eyebrow">01 · Arrival</span>
+          <h2>Reception & Welcome</h2>
+          <p class="intro">
+            The first point of contact for visitors entering the Library.
+            The reception is placed to one side of the Atrium, preserving
+            the central axis and the monumental view through the hall.
+          </p>
+        </div>
+
+        <div class="directory-grid">
+          <article class="directory-card">
+            <span class="number">PUBLIC SERVICE</span>
+            <h3>Visitor Reception</h3>
+            <p>
+              A staffed welcome desk for directions, general enquiries and
+              help navigating the institution.
+            </p>
+            <ul>
+              <li>First-time visitor guidance</li>
+              <li>Visitor registration where required</li>
+              <li>Information about opening hours and public events</li>
+              <li>Assistance for visitors with different access needs</li>
+            </ul>
+          </article>
+
+          <article class="directory-card">
+            <span class="number">A PLACE TO BEGIN</span>
+            <h3>The Welcome Hall</h3>
+            <p>
+              An open area beside reception where visitors can pause,
+              meet companions, consult the directory or wait for a guide.
+            </p>
+            <ul>
+              <li>Meeting point for guided visits</li>
+              <li>Public notices and event announcements</li>
+              <li>Seating and accessible circulation routes</li>
+              <li>Direct access to the main galleries</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="directory-section" id="orientation">
+        <div class="section-heading">
+          <span class="eyebrow">02 · Find your way</span>
+          <h2>Orientation & the Living Directory</h2>
+          <p class="intro">
+            The Library is too vast to navigate through memory alone.
+            Its directory combines physical signs, catalogues, maps and
+            a carefully limited network of enchantments.
+          </p>
+        </div>
+
+        <div class="directory-grid">
+          <article class="directory-card">
+            <span class="number">INFORMATION</span>
+            <h3>The Directory Chamber</h3>
+            <p>
+              A public information point for finding collections,
+              departments, staff offices, facilities and routes.
+            </p>
+            <ul>
+              <li>Printed and digital directories</li>
+              <li>Catalogue access terminals</li>
+              <li>Route planning between buildings</li>
+              <li>Information about access requirements</li>
+            </ul>
+          </article>
+
+          <article class="directory-card">
+            <span class="number">FANTASTICAL SYSTEM</span>
+            <h3>The Living Directory</h3>
+            <p>
+              A magical guidance network that can illuminate routes,
+              translate selected signs and adapt directions to a visitor's
+              physical needs when reliable information is available.
+            </p>
+            <ul>
+              <li>Multilingual signs and spoken guidance</li>
+              <li>Routes that avoid stairs or unsuitable passages</li>
+              <li>Warnings when a route is closed or restricted</li>
+              <li>Non-magical maps and staff assistance as alternatives</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="fantasy-note">
+          <h3>Limits of the enchantment</h3>
+          <p>
+            The Living Directory does not read minds, grant permissions or
+            reveal restricted collections. Ancient wards, damaged routes and
+            unstable magical conditions may interrupt it. In protected
+            historical areas, the system can be deliberately limited to
+            avoid harming the building or its collections.
+          </p>
+        </div>
+      </section>
+
+      <section class="directory-section" id="reading">
+        <div class="section-heading">
+          <span class="eyebrow">03 · Consultation</span>
+          <h2>Public Reading Rooms</h2>
+          <p class="intro">
+            Spaces for reading, research and quiet study, open according to
+            the rules of each room and the needs of its collections.
+          </p>
+        </div>
+
+        <div class="directory-grid">
+          <article class="directory-card">
+            <span class="number">OPEN ACCESS</span>
+            <h3>The General Reading Hall</h3>
+            <p>
+              A welcoming study space for consulting general collections,
+              taking notes and working independently.
+            </p>
+            <ul>
+              <li>Individual study desks</li>
+              <li>Shared tables for collaborative work</li>
+              <li>Reading lamps and quiet areas</li>
+              <li>Spaces adapted to different bodies and senses</li>
+            </ul>
+          </article>
+
+          <article class="directory-card">
+            <span class="number">CONSULTATION WITH CONDITIONS</span>
+            <h3>The Reference Rooms</h3>
+            <p>
+              Rooms for materials that require additional supervision,
+              specialist guidance or careful handling.
+            </p>
+            <ul>
+              <li>Reference works and specialist catalogues</li>
+              <li>Supervised consultation where necessary</li>
+              <li>Support from subject specialists</li>
+              <li>Clear rules for handling sensitive materials</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="directory-section" id="services">
+        <div class="section-heading">
+          <span class="eyebrow">04 · Assistance</span>
+          <h2>Visitor Services</h2>
+          <p class="intro">
+            The Atrium is not only a passageway. It is also the place where
+            visitors can ask questions, request support and discover how
+            to participate in the life of the Library.
+          </p>
+        </div>
+
+        <div class="directory-grid">
+          <article class="directory-card">
+            <span class="number">HELP & GUIDANCE</span>
+            <h3>Information and Reference Desk</h3>
+            <p>
+              Staff help visitors locate information, use catalogues,
+              identify relevant collections and find the right specialist.
+            </p>
+            <ul>
+              <li>General enquiries</li>
+              <li>Research guidance and referrals</li>
+              <li>Help using library systems</li>
+              <li>Directions to services in other districts</li>
+            </ul>
+          </article>
+
+          <article class="directory-card">
+            <span class="number">COMMUNITY & PARTICIPATION</span>
+            <h3>Public Programme Desk</h3>
+            <p>
+              Information about guided tours, exhibitions, lectures,
+              workshops and activities taking place across the Library.
+            </p>
+            <ul>
+              <li>Event schedules and registration</li>
+              <li>Guided tour meeting point</li>
+              <li>Reading groups and public lectures</li>
+              <li>Information about accessible activities</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="directory-section" id="access">
+        <div class="section-heading">
+          <span class="eyebrow">05 · Permissions</span>
+          <h2>Access & Security</h2>
+          <p class="intro">
+            Access rules protect people, collections and research without
+            turning the Library into a fortress. Restrictions must have a
+            clear purpose and apply fairly to all visitors.
+          </p>
+        </div>
+
+        <div class="access-grid">
+          <article class="access-card">
+            <span class="access-label">Open</span>
+            <h3>Public Areas</h3>
+            <p>
+              The Atrium, public plazas, general directories, designated
+              reading rooms and open cultural activities.
+            </p>
+          </article>
+
+          <article class="access-card">
+            <span class="access-label">Registered</span>
+            <h3>Supervised Access</h3>
+            <p>
+              Certain consultation rooms, specialist services and materials
+              that require registration, an appointment or staff supervision.
+            </p>
+          </article>
+
+          <article class="access-card">
+            <span class="access-label">Restricted</span>
+            <h3>Protected Areas</h3>
+            <p>
+              Heritage storage, private archives, delicate laboratories and
+              dangerous or protected collections requiring specific permission.
+            </p>
+          </article>
+        </div>
+
+        <div class="principle">
+          <strong>The principle of equal access:</strong>
+          access decisions depend on the needs of a service, the condition
+          of an item and justified safety requirements — never on a visitor's
+          species, wealth, ancestry or social prestige. Necessary adaptations
+          for different bodies, senses and forms of communication are part
+          of the Library's ordinary design.
+        </div>
+      </section>
+
+      <section class="directory-section" id="connections">
+        <div class="section-heading">
+          <span class="eyebrow">06 · Beyond the Atrium</span>
+          <h2>Galleries, Plazas & Connections</h2>
+          <p class="intro">
+            The Atrium is the starting point of a much larger living city:
+            a network of buildings accumulated over centuries, connected
+            by covered passages, bridges, stairs and public squares.
+          </p>
+        </div>
+
+        <div class="connections">
+          <article class="connection">
+            <span class="number">THE PLAZAS</span>
+            <h3>Public Gathering Spaces</h3>
+            <p>
+              Open areas for meeting, exhibitions, announcements, public
+              ceremonies and activities that bring different communities together.
+            </p>
+          </article>
+
+          <article class="connection">
+            <span class="number">THE GALLERIES</span>
+            <h3>Covered Passages</h3>
+            <p>
+              Corridors, stairways, bridges and elevated walkways linking
+              buildings from different periods and architectural traditions.
+            </p>
+          </article>
+
+          <article class="connection">
+            <span class="number">THE HISTORICAL COMPLEXES</span>
+            <h3>Buildings Across the Ages</h3>
+            <p>
+              Former halls, converted residences, monumental archives and
+              newer structures incorporated into the growing institution.
+            </p>
+          </article>
+        </div>
+
+        <div class="fantasy-note">
+          <h3>A city within a library</h3>
+          <p>
+            A visitor may cross a medieval stone gallery, pass beneath a
+            Victorian iron bridge and emerge into a modern public square
+            without ever leaving the Library. Some connections are obvious;
+            others have been forgotten, sealed, rebuilt or altered by magic.
+            The public directory records safe routes, while the existence
+            of every hidden passage is not necessarily disclosed.
+          </p>
+        </div>
+      </section>
+
+    </div>
+
+    <section class="closing">
+      <span class="eyebrow">Your journey begins here</span>
+      <h2>Every path leads to a question.</h2>
+      <p>
+        Return to the main directory, explore the Library's departments
+        or continue into the worlds and cultures preserved within its halls.
+      </p>
+      <a class="button" href="../index.html#departments">EXPLORE THE DEPARTMENTS ↗</a>
+      <p>
+        <a class="back-link" href="../index.html">← Return to the main entrance</a>
       </p>
     </section>
-
-    <section class="section" id="directory">
-      <span class="eyebrow">A city of knowledge</span>
-      <h2>The Grand Directory</h2>
-      <p class="intro">
-        The institution contains countless halls, archives,
-        laboratories and reading rooms. Its directory guides
-        visitors through the known routes between them.
-      </p>
-      <a class="button" href="../index.html#departments">VIEW THE DEPARTMENTS ↗</a>
-    </section>
-
-    <section class="section" id="galleries">
-      <span class="eyebrow">Knowledge on display</span>
-      <h2>Public Galleries</h2>
-      <p class="intro">
-        Exhibitions celebrate the history, discoveries and cultures
-        of the many peoples whose knowledge is preserved here.
-      </p>
-    </section>
-
-    <section class="section" id="hidden-paths">
-      <span class="eyebrow">An unfinished map</span>
-      <h2>Paths Beyond</h2>
-      <div class="note">
-        Not every corridor appears on the official directory.
-        Some staircases lead to forgotten floors. Others end at
-        doors whose keys have been lost for centuries.
-        <br><br>
-        <em>Somewhere beneath the Atrium, an old passage remains sealed.</em>
-      </div>
-    </section>
-
-    <a class="back" href="../index.html">← Return to the Grand Library</a>
   </main>
 
   <footer>
     <p><span>✦ The Grand Library of the Realms ✦</span></p>
     <p>Keeper of Knowledge Across the Ages</p>
+    <p>District I · The Scholar's Quarter</p>
   </footer>
 
 </body>
