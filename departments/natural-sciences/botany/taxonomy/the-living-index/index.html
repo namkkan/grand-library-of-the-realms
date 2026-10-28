@@ -106,6 +106,80 @@ h1 {
 .taxonomy-table th { background: rgba(112,79,43,.16); }
 .taxonomy-table tr:nth-child(even) { background: rgba(112,79,43,.06); }
 
+
+/* OPEN BOOK LAYOUT */
+@media (min-width: 1000px) {
+  main { width: min(1500px, 96%); }
+  main > section.chapter-text {
+    width: 100%;
+    min-height: 920px;
+    margin: 70px auto;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0;
+    align-items: stretch;
+  }
+  main > section.chapter-text::before {
+    content: "";
+    display: block;
+    grid-column: 1;
+    grid-row: 1;
+    min-height: 920px;
+    background:
+      radial-gradient(ellipse at 50% 45%, rgba(255,255,255,.55), transparent 55%),
+      linear-gradient(90deg, #dfcba5, #f8efd9 18%, #f4e9d1 82%, #e8d7b6);
+    border: 1px solid #b9a078;
+    border-right: 0;
+    box-shadow: inset -18px 0 25px -24px rgba(57,39,20,.8), 0 12px 30px rgba(0,0,0,.25);
+  }
+  main > section.chapter-text > * {
+    grid-column: 2;
+    padding-left: clamp(28px, 3vw, 52px);
+    padding-right: clamp(28px, 3vw, 52px);
+  }
+  main > section.chapter-text > h2:first-child {
+    padding-top: clamp(32px, 4vw, 60px);
+    margin-top: 0;
+  }
+  main > section.chapter-text > :last-child {
+    padding-bottom: 55px;
+  }
+  main > section.chapter-text {
+    background:
+      linear-gradient(90deg, transparent 49.8%, rgba(70,48,25,.28) 50%, rgba(255,255,255,.18) 50.25%, transparent 50.8%);
+  }
+  main > section.chapter-text h2 {
+    margin-top: 0;
+  }
+  main > section.chapter-text .back-to-top {
+    display: inline-block;
+    margin: 25px 0 35px;
+  }
+}
+@media (max-width: 999px) {
+  main > section.chapter-text {
+    margin: 34px auto;
+    padding: clamp(24px, 5vw, 42px);
+  }
+}
+
+
+.verso-blank { display: none; }
+@media (min-width: 1000px) {
+  .verso-blank {
+    display: block;
+    height: 1px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+}
+
 /* PARCHMENT PAGES */
 
 main > section {
@@ -498,6 +572,7 @@ main > section.chapter-text > p:nth-of-type(2)::first-letter {
   </section>
 
   <!-- CHAPTER 1 -->
+  <div class="verso-blank" aria-hidden="true" data-before="chapter-1"></div>
   <section id="chapter-1" class="chapter-text">
     <h2>1. The Need to Classify Plant Life</h2>
     <p>A botanist returning from an expedition rarely brings home a complete account of what she has seen. More often, she returns with a collection of specimens, a field journal full of hurried observations, several questions that could not be answered on site, and the uncomfortable suspicion that the most interesting plant was the one she failed to collect.</p>
@@ -658,6 +733,7 @@ main > section.chapter-text > p:nth-of-type(2)::first-letter {
 
   <!-- FUTURE CHAPTERS: ADD TEXT INSIDE EACH SECTION WHEN READY -->
 
+  <div class="verso-blank" aria-hidden="true" data-before="chapter-2"></div>
   <section id="chapter-2">
 
   <h2>2. A History of Plant Taxonomy in the Realms</h2>
@@ -868,6 +944,7 @@ main > section.chapter-text > p:nth-of-type(2)::first-letter {
 </section>
 
 
+  <div class="verso-blank" aria-hidden="true" data-before="chapter-4"></div>
   <section id="chapter-4">
 
   <h2>3. Principles of Botanical Identification</h2>
@@ -1076,6 +1153,7 @@ main > section.chapter-text > p:nth-of-type(2)::first-letter {
     <p><a class="back-to-top" href="#top">↑ Return to the beginning</a></p>
   </section>
 
+  <div class="verso-blank" aria-hidden="true" data-before="chapter-5"></div>
   <section id="chapter-5" class="chapter-text">
     <h2>5. The Taxonomic Hierarchy</h2>
     <p class="volume-note">THE LIVING INDEX · VOLUME I: PRINCIPLES AND METHODS</p>
@@ -1186,6 +1264,7 @@ main > section.chapter-text > p:nth-of-type(2)::first-letter {
   </section>
 
 
+  <div class="verso-blank" aria-hidden="true" data-before="chapter-6"></div>
   <section id="chapter-6" class="chapter-text">
     <h2>6. Nomenclature and Scientific Names</h2>
     <p class="volume-note">On the names by which plants are known, recorded, and sometimes misunderstood.</p>
@@ -1301,46 +1380,55 @@ main > section.chapter-text > p:nth-of-type(2)::first-letter {
       <p><a class="back-to-top" href="#top">↑ Return to the beginning</a></p>
   </section>
 
+  <div class="verso-blank" aria-hidden="true" data-before="chapter-7"></div>
   <section id="chapter-7">
     <h2>7. Plant Morphology Applied to Identification</h2>
     <p class="volume-note">Chapter awaiting its text.</p>
   </section>
 
+  <div class="verso-blank" aria-hidden="true" data-before="chapter-8"></div>
   <section id="chapter-8">
     <h2>7. Methods of Observation and Description</h2>
     <p class="volume-note">Chapter awaiting its text.</p>
   </section>
 
+  <div class="verso-blank" aria-hidden="true" data-before="chapter-9"></div>
   <section id="chapter-9">
     <h2>8. Reference Specimens and Herbaria</h2>
     <p class="volume-note">Chapter awaiting its text.</p>
   </section>
 
+  <div class="verso-blank" aria-hidden="true" data-before="chapter-10"></div>
   <section id="chapter-10">
     <h2>9. Variation, Hybrids and Contested Species</h2>
     <p class="volume-note">Chapter awaiting its text.</p>
   </section>
 
+  <div class="verso-blank" aria-hidden="true" data-before="chapter-11"></div>
   <section id="chapter-11">
     <h2>10. Classifying Plants from Different Ecosystems</h2>
     <p class="volume-note">Chapter awaiting its text.</p>
   </section>
 
+  <div class="verso-blank" aria-hidden="true" data-before="chapter-12"></div>
   <section id="chapter-12">
     <h2>11. Taxonomy of Magical and Anomalous Species</h2>
     <p class="volume-note">Chapter awaiting its text.</p>
   </section>
 
+  <div class="verso-blank" aria-hidden="true" data-before="chapter-13"></div>
   <section id="chapter-13">
     <h2>12. How to Document an Unknown Species</h2>
     <p class="volume-note">Chapter awaiting its text.</p>
   </section>
 
+  <div class="verso-blank" aria-hidden="true" data-before="chapter-14"></div>
   <section id="chapter-14">
     <h2>13. Common Errors and Scientific Controversies</h2>
     <p class="volume-note">Chapter awaiting its text.</p>
   </section>
 
+  <div class="verso-blank" aria-hidden="true" data-before="chapter-15"></div>
   <section id="chapter-15">
     <h2>14. Glossary, Indexes and Illustrated Plates</h2>
     <p class="volume-note">Chapter awaiting its text.</p>
