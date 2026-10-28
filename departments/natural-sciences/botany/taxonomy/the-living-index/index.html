@@ -322,6 +322,14 @@ main > section.chapter-text > p:nth-of-type(2)::first-letter {
 }
 #bibliographic-record .detail-label { font-weight: 700; }
 
+/* Plain paper background for the complete bibliographic card */
+#bibliographic-record {
+  background: var(--paper-light) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* Keep the About card's existing parchment treatment */
 @media (max-width: 700px) { .front-matter-grid { grid-template-columns: 1fr; gap: 28px; margin: 32px auto; } }
 
 </style>
@@ -399,21 +407,21 @@ main > section.chapter-text > p:nth-of-type(2)::first-letter {
     <p class="volume-note">Volume I · Principles and Methods of Classification</p>
     <div class="contents">
       <ol>
-        <li><a href="#preface">0. Preface by the Author</a></li>
-        <li><a href="#chapter-1">1. The Need to Classify Plant Life</a></li>
-        <li><a href="#chapter-2">2. A History of Plant Taxonomy in the Realms</a></li>
-        <li><a href="#chapter-4">3. Principles of Botanical Identification</a></li>
-        <li><a href="#chapter-5">4. Taxonomic Hierarchies: Kingdom, Division, Class, Order, Family, Genus and Species</a></li>
-        <li><a href="#chapter-6">5. Nomenclature and the Formation of Scientific Names</a></li>
-        <li><a href="#chapter-7">6. Plant Morphology Applied to Identification</a></li>
-        <li><a href="#chapter-8">7. Methods of Observation and Description</a></li>
-        <li><a href="#chapter-9">8. Reference Specimens and Herbaria</a></li>
-        <li><a href="#chapter-10">9. Variation, Hybrids and Contested Species</a></li>
-        <li><a href="#chapter-11">10. Classifying Plants from Different Ecosystems</a></li>
-        <li><a href="#chapter-12">11. Taxonomy of Magical and Anomalous Species</a></li>
-        <li><a href="#chapter-13">12. How to Document an Unknown Species</a></li>
-        <li><a href="#chapter-14">13. Common Errors and Scientific Controversies</a></li>
-        <li><a href="#chapter-15">14. Glossary, Indexes and Illustrated Plates</a></li>
+        <li><a href="#preface">Preface by the Author</a></li>
+        <li><a href="#chapter-1">The Need to Classify Plant Life</a></li>
+        <li><a href="#chapter-2">A History of Plant Taxonomy in the Realms</a></li>
+        <li><a href="#chapter-4">Principles of Botanical Identification</a></li>
+        <li><a href="#chapter-5">Taxonomic Hierarchies: Kingdom, Division, Class, Order, Family, Genus and Species</a></li>
+        <li><a href="#chapter-6">Nomenclature and the Formation of Scientific Names</a></li>
+        <li><a href="#chapter-7">Plant Morphology Applied to Identification</a></li>
+        <li><a href="#chapter-8">Methods of Observation and Description</a></li>
+        <li><a href="#chapter-9">Reference Specimens and Herbaria</a></li>
+        <li><a href="#chapter-10">Variation, Hybrids and Contested Species</a></li>
+        <li><a href="#chapter-11">Classifying Plants from Different Ecosystems</a></li>
+        <li><a href="#chapter-12">Taxonomy of Magical and Anomalous Species</a></li>
+        <li><a href="#chapter-13">How to Document an Unknown Species</a></li>
+        <li><a href="#chapter-14">Common Errors and Scientific Controversies</a></li>
+        <li><a href="#chapter-15">Glossary, Indexes and Illustrated Plates</a></li>
       </ol>
     </div>
   </section>
