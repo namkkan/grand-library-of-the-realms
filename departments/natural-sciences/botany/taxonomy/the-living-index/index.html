@@ -15,13 +15,13 @@
   --border: rgba(200,169,107,.38);
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
 body {
   margin: 0;
   background: var(--navy);
   color: var(--cream);
   font-family: Georgia, "Times New Roman", serif;
-  line-height: 1.75;
+  line-height: 1.85;
 }
 header {
   padding: 22px 7%;
@@ -30,6 +30,7 @@ header {
 }
 a { color: var(--gold); }
 header a { text-decoration: none; }
+header a:hover { color: var(--cream); }
 main {
   width: min(950px, 88%);
   margin: auto;
@@ -71,20 +72,28 @@ h1 {
   color: var(--gold);
   letter-spacing: 1px;
 }
-.edition {
-  color: var(--muted);
-  font-size: .9rem;
-}
-section { margin-top: 42px; }
+.edition { color: var(--muted); font-size: .9rem; }
+section { margin-top: 55px; }
 h2 {
   color: var(--gold);
   font-size: 1.7rem;
-  margin-bottom: 14px;
+  line-height: 1.35;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
 }
+h3 {
+  color: var(--gold);
+  font-size: 1.25rem;
+  line-height: 1.45;
+  margin-top: 36px;
+  margin-bottom: 12px;
+}
+p { margin: 0 0 20px; }
 .rule {
   height: 1px;
   background: var(--border);
-  margin: 26px 0;
+  margin: 35px 0;
 }
 .details {
   display: grid;
@@ -95,6 +104,7 @@ h2 {
   padding: 16px 18px;
   background: var(--navy-light);
   border: 1px solid var(--border);
+  overflow-wrap: anywhere;
 }
 .detail-label {
   display: block;
@@ -116,11 +126,18 @@ h2 {
   text-decoration: none;
   color: var(--cream);
 }
-.contents a:hover { color: var(--gold); }
+.contents a:hover,
+.contents a:focus { color: var(--gold); }
 .volume-note {
   color: var(--muted);
   font-style: italic;
   font-size: .95rem;
+}
+.chapter-text { overflow-wrap: break-word; }
+.author-signature {
+  margin-top: 35px;
+  color: var(--gold);
+  font-style: italic;
 }
 footer {
   border-top: 1px solid var(--border);
@@ -129,34 +146,45 @@ footer {
   color: var(--muted);
   font-size: .85rem;
 }
+.back-to-top {
+  display: inline-block;
+  margin-top: 18px;
+  text-decoration: none;
+  font-size: .9rem;
+}
 @media (max-width: 560px) {
   .details { grid-template-columns: 1fr; }
   .book-header { padding: 32px 16px; }
   .contents { padding: 18px; }
+  main { width: 90%; padding-top: 28px; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.15rem; }
 }
 </style>
 </head>
 <body>
+
 <header>
-  <a href="../index.html">← Return to Plant Taxonomy & Classification</a>
+  <a href="../index.html">← Return to Plant Taxonomy &amp; Classification</a>
 </header>
 
-<main>
+<main id="top">
+
   <div class="book-header">
     <div class="eyebrow">Grand Library Press · Botanical Collection</div>
     <div class="symbol">✦</div>
     <h1>THE LIVING INDEX</h1>
-    <p class="subtitle">A Taxonomist's Guide to the Flora of the Known Realms</p>
-    <div class="author">ELOWEN THORNE</div>
+    <p class="subtitle">A Taxonomist’s Guide to the Flora of the Known Realms</p>
+    <div class="author">PROFESSOR ELOWEN THORNE</div>
     <p class="edition">Third Revised Edition</p>
   </div>
 
-  <section>
+  <section id="bibliographic-record">
     <h2>Bibliographic Record</h2>
     <div class="details">
       <div class="detail">
         <span class="detail-label">Author</span>
-        <span class="detail-value">Elowen Thorne</span>
+        <span class="detail-value">Professor Elowen Thorne</span>
       </div>
       <div class="detail">
         <span class="detail-label">Publisher</span>
@@ -164,7 +192,7 @@ footer {
       </div>
       <div class="detail">
         <span class="detail-label">Edition</span>
-        <span class="detail-value">Third revised edition</span>
+        <span class="detail-value">Third Revised Edition</span>
       </div>
       <div class="detail">
         <span class="detail-label">Volume</span>
@@ -176,16 +204,16 @@ footer {
       </div>
       <div class="detail">
         <span class="detail-label">Section</span>
-        <span class="detail-value">Plant Taxonomy & Classification</span>
+        <span class="detail-value">Plant Taxonomy &amp; Classification</span>
       </div>
     </div>
   </section>
 
-  <section>
+  <section id="about">
     <h2>About This Work</h2>
     <p class="description">
       The Living Index is a systematic guide to the identification, naming and
-      classification of plant life throughout the known realms. It introduces
+      classification of plant life throughout the Known Realms. It introduces
       the principles used by botanical scholars to describe species, compare
       specimens, organise collections and record the extraordinary diversity
       of the world's flora.
@@ -202,35 +230,270 @@ footer {
     <h2>Table of Contents</h2>
     <p class="volume-note">Volume I · Principles and Methods of Classification</p>
     <div class="contents">
-    <ol>
-  <li><a href="#preface">Preface by the Author</a></li>
-  <li><a href="#chapter-1">The Need to Classify Plant Life</a></li>
-  <li><a href="#chapter-2">History of Plant Taxonomy in the Realms</a></li>
-  <li><a href="#chapter-3">Principles of Botanical Identification</a></li>
-  <li><a href="#chapter-4">Taxonomic Hierarchies</a></li>
-  <li><a href="#chapter-5">Nomenclature and Scientific Names</a></li>
-  <li><a href="#chapter-6">Plant Morphology</a></li>
-  <li><a href="#chapter-7">Methods of Observation and Description</a></li>
-  <li><a href="#chapter-8">Reference Specimens and Herbaria</a></li>
-  <li><a href="#chapter-9">Variation, Hybrids and Contested Species</a></li>
-  <li><a href="#chapter-10">Plants from Different Ecosystems</a></li>
-  <li><a href="#chapter-11">Magical and Anomalous Species</a></li>
-  <li><a href="#chapter-12">Documenting an Unknown Species</a></li>
-  <li><a href="#chapter-13">Common Errors and Scientific Controversies</a></li>
-  <li><a href="#chapter-14">Glossary, Indexes and Illustrated Plates</a></li>
-</ol>
+      <ol>
+        <li><a href="#preface">Preface by the Author</a></li>
+        <li><a href="#chapter-1">The Need to Classify Plant Life</a></li>
+        <li><a href="#chapter-2">History of Plant Taxonomy in the Realms</a></li>
+        <li><a href="#chapter-3">Principles of Botanical Identification</a></li>
+        <li><a href="#chapter-4">Taxonomic Hierarchies: Kingdom, Division, Class, Order, Family, Genus and Species</a></li>
+        <li><a href="#chapter-5">Nomenclature and the Formation of Scientific Names</a></li>
+        <li><a href="#chapter-6">Plant Morphology Applied to Identification</a></li>
+        <li><a href="#chapter-7">Methods of Observation and Description</a></li>
+        <li><a href="#chapter-8">Reference Specimens and Herbaria</a></li>
+        <li><a href="#chapter-9">Variation, Hybrids and Contested Species</a></li>
+        <li><a href="#chapter-10">Classifying Plants from Different Ecosystems</a></li>
+        <li><a href="#chapter-11">Taxonomy of Magical and Anomalous Species</a></li>
+        <li><a href="#chapter-12">How to Document an Unknown Species</a></li>
+        <li><a href="#chapter-13">Common Errors and Scientific Controversies</a></li>
+        <li><a href="#chapter-14">Glossary, Indexes and Illustrated Plates</a></li>
+      </ol>
     </div>
   </section>
 
-  <section id="preface">
-    <h2>Preface by the Author</h2>
-    <p class="volume-note">The text of this section will be added when the manuscript is prepared.</p>
+  <!-- PREFACE -->
+  <section id="preface" class="chapter-text">
+    <h2>Preface</h2>
+    <p class="volume-note">From the author's preface to the third revised edition.</p>
+
+    <p>There are few errors in natural philosophy more persistent than the belief that a thing, once named, has been understood.</p>
+
+    <p>A botanist encounters a flower growing between the stones of a ruined observatory. She records its height, the arrangement of its leaves, the number of petals, the colour of its pollen, and the character of its roots. She compares these observations with existing descriptions, determines its nearest relatives, assigns it a place within the accepted hierarchy, and enters its name into the appropriate register. Her work is careful. Her conclusions are justified. Her discovery is worthy of publication.</p>
+
+    <p>And yet, when she closes her notebook, the flower remains almost entirely unknown.</p>
+
+    <p>She may understand how it grows, but not why it blooms only beneath a cloudless night sky. She may know the structure of its roots, but not why those roots avoid the graves of certain kings. She may have established, beyond reasonable dispute, that it belongs to a particular family, while remaining unable to explain the faint sound it produces when winter approaches.</p>
+
+    <p>This is not a failure of taxonomy. It is a reminder of its proper limits.</p>
+
+    <p>The purpose of classification is not to exhaust the mysteries of the living world, but to establish a reliable means by which those mysteries may be studied. We classify so that observations may be compared, discoveries communicated, errors corrected, and knowledge accumulated beyond the limits of a single lifetime. A name allows one scholar to speak meaningfully to another, even when they have never stood upon the same soil or breathed the same air.</p>
+
+    <p>Without such a system, the botanist of the southern marshes might describe a plant unknown to the northern mountains, unaware that another scholar had already documented the same species beneath a different name. A physician might prepare a remedy from a familiar herb, while an unfamiliar regional variety, bearing a similar appearance, possesses entirely different properties. A collector might catalogue a rare flowering vine as an ornamental curiosity, failing to recognise that its disappearance would threaten the survival of several creatures dependent upon it.</p>
+
+    <p>Classification does not prevent every such mistake. It makes their discovery, discussion, and eventual correction possible.</p>
+
+    <p>This volume has been prepared in the belief that the flora of the Known Realms deserves a system of study equal to its extraordinary diversity. From the grasses that survive upon wind-scoured plateaus to the immense trees whose crowns obscure the oldest forest roads; from the salt-tolerant reeds of the western coasts to the pale subterranean growths found beneath abandoned cities, plant life occupies environments of remarkable variety. Some species are familiar to generations of rural communities, while others have been encountered only once, recorded in a traveller’s journal, and never reliably observed again.</p>
+
+    <p>Between these extremes lies a vast body of knowledge: incomplete, unevenly distributed, and too often inaccessible beyond the regions in which it was first gathered.</p>
+
+    <p>The Grand Library possesses collections assembled over centuries by explorers, gardeners, physicians, natural philosophers, agriculturalists, archivists, and scholars whose names have survived only in the margins of their notebooks. Its herbaria preserve specimens gathered from distant provinces. Its archives contain descriptions written in languages no longer spoken. Its botanical gardens maintain living examples of species that have vanished from their native habitats. Its catalogues preserve both the conclusions of celebrated authorities and the corrections of those who followed them.</p>
+
+    <p>These collections are invaluable. They are not, however, infallible.</p>
+
+    <p>An old specimen may have been incorrectly identified. A respected naturalist may have mistaken a seasonal form for a separate species. A plant recorded as extinct may continue to grow in a valley inaccessible for half the year. A local name may refer to several unrelated organisms, while a single species may possess a dozen names across different territories. Such difficulties are not peculiar to botanical study. They are the ordinary consequences of attempting to describe a living world through incomplete observations and imperfect records.</p>
+
+    <p>The scholar must therefore approach inherited knowledge with both gratitude and suspicion.</p>
+
+    <p>No authority, however distinguished, should be exempt from examination. No classification should be preserved merely because it is old. No observation should be dismissed solely because it contradicts an established description. Where the evidence is uncertain, uncertainty must be recorded. Where specimens disagree, the disagreement must be investigated. Where a species cannot yet be placed with confidence, it is preferable to leave its position unresolved than to manufacture certainty for the sake of a tidy catalogue.</p>
+
+    <p>A well-maintained index should make ignorance visible as readily as knowledge.</p>
+
+    <p>The present edition has been revised to reflect new collections, corrected identifications, disputed classifications, and several discoveries that have required the reconsideration of long-standing assumptions. Particular attention has been given to the relationship between preserved specimens and living plants, to the documentation of variation within species, and to the study of organisms whose characteristics do not conform neatly to the categories established by earlier botanists.</p>
+
+    <p>The latter subject requires a word of caution.</p>
+
+    <p>Across the Realms, some plants exhibit properties that remain poorly understood. Certain species respond to forms of magical influence; others produce unusual light, alter their growth in response to nearby organisms, or display behaviours that challenge conventional distinctions between growth, movement, and response. These phenomena deserve careful investigation. They do not justify abandoning the ordinary principles of botanical observation.</p>
+
+    <p>A luminous leaf is still a leaf, provided its structure warrants the term. A root that grows against gravity must be described as accurately as one that follows it. A plant altered by magical exposure should be compared with unaffected specimens wherever possible. The unfamiliar is not made more intelligible by removing it from systematic study, nor does an unexplained property excuse the observer from recording what can be established.</p>
+
+    <p>Magic is one influence among the many that may shape the life of a plant. It is not a universal explanation for every phenomenon that escapes our understanding.</p>
+
+    <p>Indeed, some of the most remarkable botanical discoveries in the history of the Grand Library have proved, upon closer examination, to require no extraordinary explanation at all. Unusual colours have arisen from ordinary variations in pigment. Apparent nocturnal movement has been traced to changes in temperature and moisture. A reputedly prophetic flowering season has been found to coincide with the migration of a particular insect. These corrections have not diminished the wonders concerned. They have revealed them more clearly.</p>
+
+    <p>I have spent thirty-two years studying, collecting, comparing, and occasionally misidentifying the flora of the Known Realms. I have returned to sites where I once believed I had completed my work, only to discover that I had overlooked an entire population. I have rejected conclusions that once seemed certain, and defended others long after the evidence had begun to turn against them. More than once, a student has drawn my attention to something I had failed to notice.</p>
+
+    <p>I consider these experiences among the most valuable parts of my education.</p>
+
+    <p>The botanist who cannot admit error will eventually cease to learn. The botanist who assumes that every question must have an immediate answer will mistake haste for progress. And the botanist who sees the natural world merely as a collection of specimens to be named will overlook the relationships that make each specimen meaningful.</p>
+
+    <p>A plant does not exist independently of its surroundings. Its form is shaped by soil, water, climate, competition, disease, and countless other conditions. Its survival may depend upon an insect, a migrating animal, a particular pattern of seasonal rainfall, or the continued existence of a neighbouring species. To understand a plant is to begin studying the web of circumstances in which it lives. Classification provides the framework for that study; it cannot replace it.</p>
+
+    <p>For this reason, The Living Index should not be read as a final catalogue of the world’s vegetation. No such catalogue can yet be written, and I doubt that one will ever be completed in any permanent sense. New species will be found. Old descriptions will be corrected. Populations will change, habitats will disappear, and organisms once thought impossible will be encountered by observers sufficiently fortunate—or sufficiently attentive—to recognise them.</p>
+
+    <p>This book is instead intended as a common foundation: a guide to the principles, methods, and records through which botanical knowledge may be organised and advanced.</p>
+
+    <p>The chapters that follow address the identification of plants, the construction of taxonomic groups, the use of scientific names, the examination of morphological characters, and the preservation of reference specimens. They consider the difficulties posed by variation, hybridisation, unfamiliar environments, and anomalous growth. They also examine the responsibilities of those who collect and describe the living world, particularly when their work may influence the preservation of rare species or the communities that depend upon them.</p>
+
+    <p>Wherever possible, I have distinguished established observations from hypotheses, and hypotheses from conjecture. Readers will find references to disputed cases throughout the text. These have been retained deliberately. A scientific record that conceals disagreement may appear orderly, but it is less useful than one that makes the boundaries of current knowledge plain.</p>
+
+    <p>I ask only that the reader bring to this work three habits of mind: patience in observation, precision in description, and humility in conclusion.</p>
+
+    <p>Look closely before deciding what you see. Record what you observe rather than what you expected to find. Compare before assigning a name. Preserve the evidence upon which your conclusions depend. And when the world presents something that does not fit your understanding, resist the temptation to force it into a familiar shape.</p>
+
+    <p>The purpose of an index is to help us find what we seek.</p>
+
+    <p>The purpose of a living index is to remind us that there will always be more to find.</p>
+
+    <div class="author-signature">
+      <p>Professor Elowen Thorne</p>
+      <p>Senior Taxonomist, Department of Botany<br>
+      Grand Library of the Realms</p>
+    </div>
+
+    <a class="back-to-top" href="#top">↑ Return to the beginning</a>
   </section>
 
-  <section id="chapter-1">
+  <!-- CHAPTER 1 -->
+  <section id="chapter-1" class="chapter-text">
     <h2>1. The Need to Classify Plant Life</h2>
-    <p class="volume-note">Chapter awaiting its text.</p>
+    <p class="volume-note">Professor Elowen Thorne</p>
+
+    <p>A botanist returning from an expedition rarely brings home a complete account of what she has seen. More often, she returns with a collection of specimens, a field journal full of hurried observations, several questions that could not be answered on site, and the uncomfortable suspicion that the most interesting plant was the one she failed to collect.</p>
+
+    <p>The work begins in earnest after the journey.</p>
+
+    <p>Leaves are examined beside earlier collections. Measurements are checked against the notes. Drawings are compared with specimens preserved in the herbarium. Names found in old regional catalogues are traced through successive editions, sometimes leading to a description that appears to match the plant, sometimes to an entirely different organism. What seemed straightforward in the field can occupy weeks of study.</p>
+
+    <p>This is the ordinary business of botanical classification. It is less dramatic than discovering an unknown forest, but without it, much of what is discovered would remain little more than an anecdote.</p>
+
+    <h3>1.1. A common language for the study of plants</h3>
+
+    <p>The first difficulty in studying plants is not always recognising them. It is establishing that different people are talking about the same organism.</p>
+
+    <p>In the villages along the western coast, a low-growing plant with thick, silvery leaves is commonly called sea’s ear. Inland, the same name is used for a small fungus that grows on fallen branches. In one province, widow’s herb refers to a plant traditionally placed upon graves; in another, the name belongs to an unrelated species used to dye mourning cloth.</p>
+
+    <p>These names are not necessarily incorrect. They belong to local traditions and often carry information that a formal scientific name does not. A village name may tell us when a plant flowers, which animals feed upon it, or how it has been used for generations. The difficulty arises when a name is treated as though it identifies one species everywhere.</p>
+
+    <p>For this reason, botanists require a system of naming that can be used across regions and languages. A scholar examining a specimen in the northern archives must be able to compare it with a description written by someone who collected it on the opposite side of the Realms. The two researchers may use different languages and have no knowledge of each other’s customs, yet their observations must remain comparable.</p>
+
+    <p>Scientific names provide this shared reference. They do not replace local names, nor should they be used to dismiss the knowledge of those who have lived among a plant for generations. Rather, they allow that knowledge to be recorded alongside observations made elsewhere, provided the identity of the organism has been established with sufficient confidence.</p>
+
+    <p>A name is useful only when its meaning can be traced to a particular organism or taxonomic group. The name alone is not proof of identity.</p>
+
+    <p>I once examined a collection of dried leaves sent to the Grand Library by a provincial physician. Every packet bore the same name, and the accompanying letter assured us that the contents had been gathered from a single species. On examination, however, the collection proved to contain three distinct plants. Two were closely related; the third belonged to a different family altogether. All three had been gathered under the same local name because their leaves possessed a similar bitterness.</p>
+
+    <p>The physician had not been careless. He had recorded the plants according to the knowledge available to him. The error arose because the name was assumed to be more precise than it was.</p>
+
+    <p>The lesson is a simple one: botanical communication must rest upon identifiable evidence, not merely upon agreement over words.</p>
+
+    <h3>1.2. Recognition, identification and classification</h3>
+
+    <p>These three activities are closely connected, but they are not interchangeable.</p>
+
+    <p>Recognition is the first impression that a plant resembles something already known. An experienced gardener may recognise a familiar group of plants from the shape of its leaves or the manner in which its stems grow. Such judgement can be remarkably reliable, but it remains an initial assessment.</p>
+
+    <p>Identification is the process of determining which known plant a particular specimen represents. This requires comparison with descriptions, identification keys, illustrations and reference specimens. A botanist may recognise that a plant belongs to a familiar group while remaining unable to distinguish it from two or three closely related species.</p>
+
+    <p>Classification places identified organisms into a wider system of groups. It asks not only what a plant is called, but which other plants it should be grouped with and which characteristics justify that placement.</p>
+
+    <p>Consider three shrubs collected from different elevations along the same mountain range. All possess narrow leaves and small white flowers. At first glance, they might appear to be varieties of a single species. Closer examination reveals differences in the arrangement of their flowers, the structure of their fruits and the form of their seeds. Further evidence may show that two are closely related, while the third belongs to a separate lineage that happens to grow under similar conditions.</p>
+
+    <p>The initial resemblance was real. The conclusion drawn from it was premature.</p>
+
+    <p>Plants can look alike without being close relatives. Conversely, members of the same species may differ considerably when they grow in different environments. Sunlight, moisture, soil conditions, age and seasonal changes can all affect a plant’s appearance. The taxonomist must learn which differences are useful for distinguishing species and which reflect ordinary variation.</p>
+
+    <p>This is one reason why identification should not be based upon a single character whenever several can be examined. The shape of a leaf may be informative, but its value increases when considered alongside the flowers, fruits, stems, growth habit and other available evidence.</p>
+
+    <p>In some groups, the decisive differences are so small that they cannot be seen without magnification. In others, the reproductive structures are known only from a handful of specimens. There are also plants that cannot be identified confidently when collected outside their flowering season. In such cases, a responsible botanist records the uncertainty rather than assigning a name simply to complete the catalogue.</p>
+
+    <p>The distinction matters. An incorrect identification may be repeated in subsequent books, copied into medicinal records and accepted by researchers who have never examined the original specimen. Once this happens, a single mistake can become difficult to separate from the accumulated body of knowledge.</p>
+
+    <h3>1.3. Why plants are grouped together</h3>
+
+    <p>A list of individual species would be of limited use if every plant had to be studied independently. Classification allows botanists to recognise patterns and apply knowledge gained from one organism to the investigation of others.</p>
+
+    <p>The simplest groups are often practical ones. Trees, shrubs, herbs, climbers and aquatic plants are familiar categories based largely upon growth form and habitat. They are useful when describing vegetation, planning a collection or finding a plant in the field. A gardener searching for climbing species, for example, does not need to begin by consulting every flowering plant in the catalogue.</p>
+
+    <p>These categories have limits. A plant may grow as a shrub in an exposed mountain valley and become a small tree in a sheltered forest. Some species change their growth form with age, while others cannot be placed neatly into a single category. Practical groupings help organise observations, but they do not necessarily represent the deeper relationships between plants.</p>
+
+    <p>Formal botanical classification attempts to arrange organisms according to a broader understanding of their similarities, differences and relationships. The resulting hierarchy allows a species to be considered at several levels: alongside its closest relatives, within its genus, within its family, and among larger groups of plants.</p>
+
+    <p>The value of this arrangement becomes apparent when a new specimen is discovered.</p>
+
+    <p>Suppose an expedition returns with a flowering plant whose fruit is unknown to the Grand Library. Its leaves, stem structure and reproductive organs resemble those of a well-studied genus. If that placement is supported by sufficient evidence, the botanist gains a useful starting point. Existing descriptions can guide further examination, and the known characteristics of related plants can suggest which features deserve particular attention.</p>
+
+    <p>This does not mean that the new species must behave exactly like its relatives. A relationship is not a guarantee of identical properties. It is a framework for comparison.</p>
+
+    <p>The distinction is particularly important when a plant is being considered for medicinal, agricultural or conservation purposes. Similarity may provide a reason to investigate a possible use, but it cannot establish that the use is safe or effective. Those conclusions require evidence of their own.</p>
+
+    <p>Classification narrows the field of inquiry. It does not remove the need for inquiry.</p>
+
+    <h3>1.4. Classification as a record of relationships</h3>
+
+    <p>For much of botanical history, scholars grouped plants according to the characters that were easiest to observe. The shape of a leaf, the colour of a flower or the number of stamens could provide a convenient means of separating one group from another. Such systems were often practical and sometimes remarkably successful, particularly when the plants concerned were well known.</p>
+
+    <p>Yet visible resemblance can be misleading.</p>
+
+    <p>Two unrelated plants growing in dry, exposed country may develop similar small leaves because both must limit water loss. Plants that live in darkness may lose pigmentation. Those growing in marshes may develop comparable structures for surviving in saturated soil. The same environmental pressures can produce similar features in organisms that are not especially close relatives.</p>
+
+    <p>The reverse is equally troublesome. Closely related plants may develop very different forms as they adapt to contrasting habitats.</p>
+
+    <p>A classification based entirely upon outward appearance can therefore group unrelated species together or separate species that share a more recent common ancestry.</p>
+
+    <p>Modern botanical study draws upon a wider range of evidence. Morphology remains essential, but it may be considered alongside anatomy, development, reproductive biology, ecological information and, where suitable material is available, molecular evidence. No single source of information is sufficient for every group. The value lies in determining whether independent lines of evidence support the same conclusion.</p>
+
+    <p>The records held by the Grand Library illustrate this problem particularly well. Among the older collections are several plants historically grouped together because their flowers possess five prominent lobes. Later examinations revealed considerable differences in their internal structures and reproductive development. In some cases, the original group was divided; in others, apparently distinct groups were brought together after closer study.</p>
+
+    <p>Such revisions can be inconvenient. Labels must be amended, catalogue entries cross-referenced, and older publications interpreted according to the classifications used at the time. Researchers may disagree about the boundaries of a group even when they agree upon most of the evidence.</p>
+
+    <p>Nevertheless, a classification must remain open to correction.</p>
+
+    <p>The purpose of grouping plants is not to preserve the arrangement that is easiest to remember. It is to provide an increasingly useful account of the relationships supported by the available evidence.</p>
+
+    <h3>1.5. The practical consequences of a name</h3>
+
+    <p>Taxonomy is sometimes regarded as an academic pursuit concerned chiefly with terminology. This view is difficult to maintain when one considers the consequences of confusing two species.</p>
+
+    <p>In medicine, the identity of a plant may determine whether a preparation is useful, ineffective or dangerous. A remedy described in an old text may refer to a species that no longer grows in the region where the text is being consulted. A substitute may have acquired the same common name without possessing the same chemical properties. Before conclusions can be drawn about its use, the plants must be identified separately.</p>
+
+    <p>Agriculture presents similar difficulties. A crop’s wild relatives may contain useful traits, including resistance to local diseases or tolerance of poor soils. Identifying these relatives accurately can help researchers determine which populations deserve further study. An incorrectly identified specimen may send months of work in the wrong direction.</p>
+
+    <p>Conservation depends upon reliable identification as well. A survey cannot establish the distribution of a rare species if the plants recorded under its name include several unrelated organisms. Nor can the disappearance of a population be confirmed simply because a familiar plant has not been seen in its expected location. The original identification, the survey methods and the condition of the habitat must all be considered.</p>
+
+    <p>Within the Grand Library, classification has an additional responsibility. Collections must be organised so that specimens can be found, compared and examined by future researchers. A preserved plant without reliable documentation is of limited value. Its appearance may still be interesting, but the circumstances of its collection may be impossible to recover.</p>
+
+    <p>For this reason, the identification of a specimen should be accompanied by records of its origin, collection date, habitat, collector and the person responsible for its identification. Where uncertainty remains, that uncertainty should be made explicit. Later scholars may possess better reference material or methods unavailable to the original collector.</p>
+
+    <p>The specimen must be allowed to outlive the conclusion drawn from it.</p>
+
+    <p>A label may be corrected. A catalogue may be reorganised. The preserved evidence should remain available for examination whenever its condition permits.</p>
+
+    <h3>1.6. What classification cannot tell us</h3>
+
+    <p>There is a temptation, particularly among inexperienced naturalists, to treat a classification as though it were a complete description of the organism. Once a plant has been placed in its proper family and genus, they assume that its important characteristics have been established.</p>
+
+    <p>The assumption is understandable. A well-constructed classification gives order to an otherwise bewildering diversity. It allows unfamiliar plants to be approached through familiar groups and provides a sense that the subject is becoming manageable.</p>
+
+    <p>But a place in the hierarchy is not a complete account of a living thing.</p>
+
+    <p>A taxonomic description may tell us how a plant differs from its relatives. It may establish the structure of its reproductive organs, the range of its known distribution and the conditions under which it has been collected. It cannot, by itself, explain every aspect of its ecology, the full range of its chemical properties or the way its population will respond to a changing environment.</p>
+
+    <p>Nor should the absence of an explanation be taken as evidence that a plant possesses extraordinary properties.</p>
+
+    <p>The archives contain numerous reports of plants believed to move towards particular individuals, bloom in anticipation of distant events or change their appearance in the presence of certain emotions. Some reports remain unresolved. Others have been traced to ordinary environmental responses, misidentification or errors in observation. A few concern organisms whose behaviour deserves further study, although the evidence is not yet sufficient to establish the explanation offered by the original witness.</p>
+
+    <p>The correct response is neither immediate belief nor automatic dismissal. It is to determine what was actually observed, under what conditions, and whether the observation can be repeated or independently verified.</p>
+
+    <p>The same standard should apply whether the plant is an ordinary roadside herb or a species that has never been encountered outside a sealed chamber beneath the oldest district of the Grand Library.</p>
+
+    <p>Unusual organisms do not require less careful study than familiar ones. They require more.</p>
+
+    <h3>1.7. An unfinished catalogue</h3>
+
+    <p>No botanical catalogue can claim to represent the entire flora of the Known Realms. Even within well-surveyed regions, small species may be overlooked, seasonal plants may remain dormant for years, and organisms confined to specialised habitats may escape notice. Beyond the established routes of travel lie territories whose vegetation has been described only in fragments.</p>
+
+    <p>The collections of the Grand Library are extensive, but their extent should not be confused with completeness. They reflect the history of exploration as much as the distribution of plant life. Some regions have been studied repeatedly because they are accessible or economically important. Others are represented by a handful of specimens collected by travellers who lacked the time or equipment to investigate them properly.</p>
+
+    <p>There are also gaps that cannot be filled simply by sending another expedition. Certain plants are difficult to preserve. Others produce flowers or fruits only under particular conditions. Some grow in places where collection is dangerous, prohibited or ecologically irresponsible. In such cases, drawings, photographs, detailed field notes and observations of living populations may provide information that a pressed specimen cannot.</p>
+
+    <p>The methods must suit the organism and the question being asked.</p>
+
+    <p>A catalogue should also distinguish between a plant that has not been found recently and one that is known to have disappeared. It should separate a species confirmed by examined specimens from one reported only in a traveller’s account. It should record disputed identifications rather than allowing them to pass unnoticed into later editions.</p>
+
+    <p>These distinctions may make a catalogue less tidy. They make it more trustworthy.</p>
+
+    <p>The work of classification is consequently never finished. Each generation inherits the specimens, descriptions and disagreements of those who came before it. Some conclusions survive scrutiny; others must be revised. New evidence may change the position of a species or reveal that what was once considered a single organism comprises several distinct forms.</p>
+
+    <p>There is no shame in such revisions. The greater error would be to preserve an outdated conclusion merely because it has become familiar.</p>
+
+    <p>The task of the taxonomist is to give the living world an order that can be examined, questioned and improved. A good classification makes it easier to recognise what is known, to identify what remains uncertain, and to decide where further study is most needed.</p>
+
+    <p>It is not a fence placed around nature. It is a means of finding our way through it.</p>
+
+    <p class="author-signature">End of Chapter 1</p>
+    <a class="back-to-top" href="#top">↑ Return to the beginning</a>
   </section>
+
+  <!-- FUTURE CHAPTERS: ADD TEXT INSIDE EACH SECTION WHEN READY -->
 
   <section id="chapter-2">
     <h2>2. History of Plant Taxonomy in the Realms</h2>
@@ -243,7 +506,7 @@ footer {
   </section>
 
   <section id="chapter-4">
-    <h2>4. Taxonomic Hierarchies</h2>
+    <h2>4. Taxonomic Hierarchies: Kingdom, Division, Class, Order, Family, Genus and Species</h2>
     <p class="volume-note">Chapter awaiting its text.</p>
   </section>
 
@@ -299,10 +562,13 @@ footer {
 
   <div class="rule"></div>
   <p><a href="../index.html">← Back to the book collection</a></p>
+  <p><a class="back-to-top" href="#top">↑ Return to the beginning</a></p>
+
 </main>
 
 <footer>
   The Grand Library of the Realms · Grand Library Press
 </footer>
+
 </body>
 </html>
