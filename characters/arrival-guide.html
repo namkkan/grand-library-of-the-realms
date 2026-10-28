@@ -1,0 +1,592 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>The Arrival Guide | The Grand Library of the Realms</title>
+
+  <meta name="description" content="Meet the Arrival Guide, a curious Mycelium-born who welcomes visitors to the Grand Library of the Realms.">
+
+  <style>
+    :root {
+      --navy: #101a2b;
+      --navy-light: #19273b;
+      --navy-soft: #223249;
+      --gold: #c5a66b;
+      --gold-light: #e1c994;
+      --parchment: #eee5d2;
+      --muted: #b7b5b0;
+      --line: rgba(197, 166, 107, 0.32);
+      --burgundy: #783d45;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--navy);
+      color: var(--parchment);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.75;
+    }
+
+    a {
+      color: var(--gold-light);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: white;
+    }
+
+    .site-header {
+      padding: 20px 7%;
+      border-bottom: 1px solid var(--line);
+      background: rgba(10, 17, 29, 0.7);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .site-name {
+      color: var(--gold-light);
+      font-size: 0.95rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .back-link {
+      font-size: 0.9rem;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 45px 7% 90px;
+    }
+
+    .breadcrumbs {
+      margin-bottom: 35px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .breadcrumbs span {
+      margin: 0 8px;
+      color: var(--gold);
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.75rem;
+      margin-bottom: 12px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+      gap: 55px;
+      align-items: center;
+      margin-bottom: 75px;
+    }
+
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
+
+    h1 {
+      color: var(--gold-light);
+      font-size: clamp(2.6rem, 5vw, 4.5rem);
+      line-height: 1.08;
+      font-weight: normal;
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 25px;
+    }
+
+    .intro {
+      font-size: 1.08rem;
+      max-width: 590px;
+    }
+
+    .portrait {
+      min-height: 420px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(
+          ellipse at center,
+          rgba(120, 61, 69, 0.24),
+          transparent 70%
+        ),
+        var(--navy-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+      position: relative;
+    }
+
+    .portrait::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(197, 166, 107, 0.2);
+      pointer-events: none;
+    }
+
+    .portrait-inner {
+      max-width: 230px;
+      color: var(--muted);
+    }
+
+    .portrait-symbol {
+      font-size: 3rem;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .portrait-label {
+      display: block;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.8rem;
+      margin-bottom: 8px;
+    }
+
+    .portrait-note {
+      font-size: 0.85rem;
+    }
+
+    .quick-facts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .fact {
+      padding: 15px 17px;
+      border-left: 2px solid var(--gold);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .fact-label {
+      display: block;
+      color: var(--muted);
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      margin-bottom: 3px;
+    }
+
+    .fact-value {
+      color: var(--parchment);
+      font-size: 0.95rem;
+    }
+
+    .section {
+      padding: 35px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .section-number {
+      color: var(--gold);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+    }
+
+    h2 {
+      color: var(--gold-light);
+      font-size: 1.7rem;
+      font-weight: normal;
+      margin-bottom: 0;
+    }
+
+    h3 {
+      color: var(--gold-light);
+      font-size: 1.1rem;
+      font-weight: normal;
+      margin-bottom: 10px;
+    }
+
+    .section p {
+      max-width: 790px;
+      color: #d6d0c5;
+    }
+
+    .two-columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 35px;
+    }
+
+    .detail-card {
+      padding: 25px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.025);
+      transition: background 0.25s, border-color 0.25s;
+    }
+
+    .detail-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--gold);
+    }
+
+    .detail-card p {
+      margin-bottom: 0;
+    }
+
+    .signature-item {
+      color: var(--gold-light);
+      font-style: italic;
+    }
+
+    .quote-section {
+      margin: 35px 0 55px;
+      padding: 42px 30px;
+      text-align: center;
+      background: var(--navy-light);
+      border-top: 1px solid var(--gold);
+      border-bottom: 1px solid var(--gold);
+    }
+
+    blockquote {
+      max-width: 750px;
+      margin: 0 auto;
+      color: var(--gold-light);
+      font-size: clamp(1.35rem, 3vw, 2rem);
+      line-height: 1.55;
+      font-style: italic;
+    }
+
+    .quote-credit {
+      margin-top: 20px;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .species-note {
+      padding: 25px;
+      background: rgba(120, 61, 69, 0.12);
+      border: 1px solid rgba(120, 61, 69, 0.6);
+    }
+
+    .species-note p {
+      margin-bottom: 0;
+    }
+
+    .page-navigation {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 55px;
+      padding-top: 25px;
+      border-top: 1px solid var(--line);
+    }
+
+    .page-navigation a {
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    .page-navigation a:hover {
+      transform: translateX(3px);
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 25px 7%;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 760px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .portrait {
+        min-height: 330px;
+      }
+
+      .two-columns {
+        grid-template-columns: 1fr;
+      }
+
+      .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      main {
+        padding-top: 30px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .quick-facts {
+        grid-template-columns: 1fr;
+      }
+
+      .breadcrumbs {
+        line-height: 2;
+      }
+
+      .quote-section {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-name" href="../index.html">
+        The Grand Library of the Realms
+      </a>
+
+      <a class="back-link" href="../departments/welcome-arrival.html">
+        ← Welcome & Arrival
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span>/</span>
+      <a href="../departments/welcome-arrival.html">Welcome & Arrival</a>
+      <span>/</span>
+      The Arrival Guide
+    </nav>
+
+    <section class="hero">
+
+      <div class="hero-content">
+        <p class="eyebrow">Character Archive · District I</p>
+
+        <h1>The Arrival Guide</h1>
+
+        <p class="subtitle">
+          Welcome & Arrival · District of Knowledge
+        </p>
+
+        <p class="intro">
+          An eccentric, endlessly curious host who welcomes newcomers
+          to the Grand Library of the Realms. They know its entrances
+          and public routes remarkably well, although a simple question
+          can easily turn into a conversation that lasts half an hour.
+        </p>
+
+        <div class="quick-facts">
+
+          <div class="fact">
+            <span class="fact-label">Species</span>
+            <span class="fact-value">Mycelium-born</span>
+          </div>
+
+          <div class="fact">
+            <span class="fact-label">Presentation</span>
+            <span class="fact-value">Androgynous</span>
+          </div>
+
+          <div class="fact">
+            <span class="fact-label">Occupation</span>
+            <span class="fact-value">Arrival Guide</span>
+          </div>
+
+          <div class="fact">
+            <span class="fact-label">Disposition</span>
+            <span class="fact-value">Curious & welcoming</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="portrait" aria-label="Portrait illustration to be added">
+        <div class="portrait-inner">
+          <span class="portrait-symbol" aria-hidden="true">✳</span>
+          <span class="portrait-label">Portrait Pending</span>
+          <p class="portrait-note">
+            An original illustration of the Arrival Guide will be
+            placed here.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="section" id="appearance">
+
+      <div class="section-heading">
+        <span class="section-number">01</span>
+        <h2>Appearance</h2>
+      </div>
+
+      <p>
+        The Arrival Guide has a distinctly mushroom-like appearance,
+        paired with the carefully assembled elegance of Victorian
+        clothing. Their outfit combines a burgundy coat, a cream
+        waistcoat and an antique monocle attached to a delicate
+        brass chain.
+      </p>
+
+      <p>
+        Their appearance is unusual even by the standards of a library
+        populated by many different peoples. They wear their eccentricity
+        with confidence and seem entirely at home among the Library's
+        endless corridors.
+      </p>
+
+      <p class="signature-item">
+        Signature item: an antique monocle with a delicate brass chain.
+      </p>
+
+    </section>
+
+    <section class="section" id="personality">
+
+      <div class="section-heading">
+        <span class="section-number">02</span>
+        <h2>Personality & Habits</h2>
+      </div>
+
+      <div class="two-columns">
+
+        <article class="detail-card">
+          <h3>Always Curious</h3>
+          <p>
+            Every traveller is a potential conversation. The Arrival
+            Guide loves discovering where visitors have come from,
+            what they are looking for and what brought them to the
+            Grand Library in the first place.
+          </p>
+        </article>
+
+        <article class="detail-card">
+          <h3>Prone to Rambling</h3>
+          <p>
+            Directions are rarely just directions. A question about
+            the nearest reading room might lead to a story about an
+            unusual staircase, an unexpected detour or a fascinating
+            visitor from years ago.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+    <section class="section" id="duties">
+
+      <div class="section-heading">
+        <span class="section-number">03</span>
+        <h2>Role in the Library</h2>
+      </div>
+
+      <p>
+        The Arrival Guide works in Welcome & Arrival, within the
+        District of Knowledge. Their task is to help visitors
+        orient themselves, understand the public areas and find
+        the right entrance, service or route for their needs.
+      </p>
+
+      <p>
+        They are particularly useful to first-time visitors, who
+        can find the Library's scale overwhelming. The Arrival
+        Guide knows the public routes remarkably well and can
+        usually point travellers in the right direction, even if
+        the explanation takes considerably longer than expected.
+      </p>
+
+    </section>
+
+    <section class="section" id="species">
+
+      <div class="section-heading">
+        <span class="section-number">04</span>
+        <h2>Among the Mycelium-born</h2>
+      </div>
+
+      <div class="species-note">
+        <h3>A People Yet to Be Documented</h3>
+        <p>
+          The Arrival Guide belongs to the Mycelium-born, a people
+          whose biology, varieties, communities and traditions will
+          be explored in a dedicated species archive.
+          This character's personality and habits are their own;
+          they do not necessarily represent the entire species.
+        </p>
+      </div>
+
+    </section>
+
+    <section class="quote-section">
+      <blockquote>
+        “Welcome, welcome! Now, where have you travelled from?
+        Oh, never mind, tell me on the way!”
+      </blockquote>
+
+      <p class="quote-credit">
+        — The Arrival Guide
+      </p>
+    </section>
+
+    <nav class="page-navigation" aria-label="Page navigation">
+      <a href="../departments/welcome-arrival.html">
+        ← Return to Welcome & Arrival
+      </a>
+
+      <a href="../index.html">
+        Return to the Library Home →
+      </a>
+    </nav>
+
+  </main>
+
+  <footer>
+    The Grand Library of the Realms
+    <br>
+    District I · The District of Knowledge
+  </footer>
+
+</body>
+</html>
