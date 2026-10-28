@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plant Taxonomy & Classification | The Grand Library</title>
+<style>
+:root {
+  --navy: #101c2c;
+  --navy-light: #192b40;
+  --gold: #c8a96b;
+  --cream: #f0e6d2;
+  --muted: #b9b5aa;
+  --border: rgba(200,169,107,.38);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--navy);
+  color: var(--cream);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.7;
+}
+header {
+  padding: 22px 7%;
+  border-bottom: 1px solid var(--border);
+  background: #0b1421;
+}
+header a, .back-link {
+  color: var(--gold);
+  text-decoration: none;
+}
+header a:hover, .back-link:hover { text-decoration: underline; }
+main {
+  width: min(1100px, 88%);
+  margin: auto;
+  padding: 55px 0 75px;
+}
+.eyebrow {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: .76rem;
+}
+h1 {
+  color: var(--gold);
+  font-size: clamp(2.2rem, 5vw, 3.7rem);
+  line-height: 1.15;
+  margin: 12px 0;
+}
+.intro {
+  max-width: 700px;
+  color: var(--muted);
+  margin-bottom: 38px;
+}
+.rule {
+  height: 1px;
+  background: var(--border);
+  margin: 28px 0;
+}
+.books {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+.book {
+  min-height: 290px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--navy-light);
+  border: 1px solid var(--border);
+  color: var(--cream);
+  text-decoration: none;
+  transition: transform .2s, border-color .2s;
+}
+a.book:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+}
+.book-number {
+  color: var(--gold);
+  font-size: .78rem;
+  letter-spacing: 2px;
+}
+.book-cover {
+  min-height: 125px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  background: #111f30;
+  color: var(--gold);
+  font-size: 2.5rem;
+  margin: 18px 0;
+}
+.book h2 {
+  font-size: 1.35rem;
+  line-height: 1.3;
+  margin: 0 0 8px;
+}
+.book p {
+  color: var(--muted);
+  font-size: .92rem;
+  margin: 0;
+}
+.reserved {
+  opacity: .7;
+  border-style: dashed;
+}
+.reserved .book-cover { color: #777f89; }
+footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 7%;
+  text-align: center;
+  color: var(--muted);
+  font-size: .85rem;
+}
+@media (max-width: 760px) {
+  .books { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  main { padding-top: 38px; }
+}
+@media (max-width: 480px) {
+  .books { grid-template-columns: 1fr; }
+  .book { min-height: 250px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <a href="../index.html">← Return to the Department of Botany</a>
+</header>
+
+<main>
+  <div class="eyebrow">Natural Sciences · Botany</div>
+  <h1>Plant Taxonomy & Classification</h1>
+  <p class="intro">
+    The study of plant diversity, identification, naming and classification.
+    These shelves preserve the knowledge used to recognise the flora of the
+    known realms, from familiar species to plants that challenge established
+    scientific principles.
+  </p>
+
+  <div class="rule"></div>
+
+  <div class="books">
+    <a class="book" href="the-living-index/index.html">
+      <div>
+        <div class="book-number">VOLUME 001</div>
+        <div class="book-cover">✦</div>
+        <h2>The Living Index</h2>
+        <p>A Taxonomist's Guide to the Flora of the Known Realms</p>
+      </div>
+      <p>Elowen Thorne · Third revised edition →</p>
+    </a>
+
+    <div class="book reserved">
+      <div>
+        <div class="book-number">VOLUME 002</div>
+        <div class="book-cover">◇</div>
+        <h2>Uncatalogued Volume</h2>
+        <p>This place is reserved for a future work.</p>
+      </div>
+      <p>Awaiting its place on the shelves</p>
+    </div>
+
+    <div class="book reserved">
+      <div>
+        <div class="book-number">VOLUME 003</div>
+        <div class="book-cover">◇</div>
+        <h2>Uncatalogued Volume</h2>
+        <p>This place is reserved for a future work.</p>
+      </div>
+      <p>Awaiting its place on the shelves</p>
+    </div>
+
+    <div class="book reserved">
+      <div>
+        <div class="book-number">VOLUME 004</div>
+        <div class="book-cover">◇</div>
+        <h2>Uncatalogued Volume</h2>
+        <p>This place is reserved for a future work.</p>
+      </div>
+      <p>Awaiting its place on the shelves</p>
+    </div>
+
+    <div class="book reserved">
+      <div>
+        <div class="book-number">VOLUME 005</div>
+        <div class="book-cover">◇</div>
+        <h2>Uncatalogued Volume</h2>
+        <p>This place is reserved for a future work.</p>
+      </div>
+      <p>Awaiting its place on the shelves</p>
+    </div>
+
+    <div class="book reserved">
+      <div>
+        <div class="book-number">VOLUME 006</div>
+        <div class="book-cover">◇</div>
+        <h2>Uncatalogued Volume</h2>
+        <p>This place is reserved for a future work.</p>
+      </div>
+      <p>Awaiting its place on the shelves</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  The Grand Library of the Realms · Natural Sciences
+</footer>
+</body>
+</html>
