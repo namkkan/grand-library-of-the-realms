@@ -97,6 +97,15 @@ h1 {
 
 .edition { color: var(--muted); font-size: .9rem; }
 
+.chapter-author { text-align: right; font-style: italic; color: var(--ink-soft); margin: 24px 0; }
+.rank-list { columns: 2; padding-left: 2rem; }
+.record-card { margin: 30px 0; padding: 24px; background: linear-gradient(135deg, var(--paper-dark), var(--paper-light)); border: 1px solid #b9a078; box-shadow: inset 0 0 24px rgba(122,83,39,.08); }
+.record-card h4 { margin-top: 6px; font-size: 1.5rem; }
+.taxonomy-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+.taxonomy-table th, .taxonomy-table td { text-align: left; padding: 9px 12px; border: 1px solid rgba(112,79,43,.3); }
+.taxonomy-table th { background: rgba(112,79,43,.16); }
+.taxonomy-table tr:nth-child(even) { background: rgba(112,79,43,.06); }
+
 /* PARCHMENT PAGES */
 
 main > section {
@@ -394,7 +403,7 @@ main > section.chapter-text > p:nth-of-type(2)::first-letter {
         <li><a href="#chapter-1">The Need to Classify Plant Life</a></li>
         <li><a href="#chapter-2">A History of Plant Taxonomy in the Realms</a></li>
         <li><a href="#chapter-4">Principles of Botanical Identification</a></li>
-        <li><a href="#chapter-5">Taxonomic Hierarchies: Kingdom, Division, Class, Order, Family, Genus and Species</a></li>
+        <li><a href="#chapter-5">The Taxonomic Hierarchy</a></li>
         <li><a href="#chapter-6">Nomenclature and the Formation of Scientific Names</a></li>
         <li><a href="#chapter-7">Plant Morphology Applied to Identification</a></li>
         <li><a href="#chapter-8">Methods of Observation and Description</a></li>
@@ -1075,9 +1084,117 @@ main > section.chapter-text > p:nth-of-type(2)::first-letter {
 <p>No single part of the plant is guaranteed to provide the answer. Identification depends upon assembling the available evidence and determining which combination of characters most reliably distinguishes the specimen from related organisms.</p>
 </section>
 
-  <section id="chapter-5">
-    <h2>4. Taxonomic Hierarchies: Kingdom, Division, Class, Order, Family, Genus and Species</h2>
-    <p class="volume-note">Chapter awaiting its text.</p>
+  <section id="chapter-5" class="chapter-text">
+    <h2>5. The Taxonomic Hierarchy</h2>
+    <p class="volume-note">THE LIVING INDEX · VOLUME I: PRINCIPLES AND METHODS</p>
+    <p class="chapter-author">Professor Elowen Thorne</p>
+
+    <p>A specimen arrives at the Grand Library without a label. It is a flowering plant, collected somewhere in the eastern territories, though the accompanying notes provide no more precise location. Its leaves are narrow and leathery, its stem woody at the base, and its flowers arranged in clusters at the ends of the branches.</p>
+    <p>The first question is not necessarily its species.</p>
+    <p>Perhaps the specimen can be assigned to a familiar family. Perhaps its reproductive structures allow a more precise identification, placing it within a particular genus. Only after comparison with the relevant descriptions and reference specimens might it be possible to establish the species.</p>
+    <p>Each conclusion narrows the field of possibilities. Each depends upon the evidence supporting the previous one.</p>
+    <p>This is the purpose of the taxonomic hierarchy: to arrange organisms into nested groups, from broad categories containing many kinds of plants to narrower groups representing increasingly specific sets of organisms.</p>
+    <p>The hierarchy is not merely a convenient filing system. Modern classifications aim to reflect relationships between organisms, using available morphological, anatomical, developmental and molecular evidence. Group boundaries may be revised when new evidence becomes available, but the hierarchy provides a shared framework in which those revisions can be recorded.</p>
+
+    <h3>5.1. Understanding the hierarchy</h3>
+    <p>The principal taxonomic ranks traditionally used in botanical classification, from broadest to narrowest, are:</p>
+    <ol class="rank-list">
+      <li>Kingdom</li><li>Division</li><li>Class</li><li>Order</li><li>Family</li><li>Genus</li><li>Species</li>
+    </ol>
+    <p>In botanical literature, <em>division</em> is traditionally used where other branches of biology often use <em>phylum</em>. Both terms refer to the same general rank. Intermediate ranks, such as subclass, subfamily and subgenus, may be used when a more detailed classification is required.</p>
+    <p>A taxonomic rank is a category. A <em>taxon</em> is the actual group assigned to that category. Family, for example, is a rank; a particular named family is a taxon. The name of a group, the category to which it belongs and the organisms included within it are related, but they are not interchangeable.</p>
+
+    <h3>5.2. Kingdom</h3>
+    <p>The kingdom is one of the broadest traditional ranks in biological classification. It gathers large groups of organisms that share fundamental characteristics and occupy distinct positions within the wider classification of life.</p>
+    <p>In a conventional botanical classification, plants are assigned to the kingdom <em>Plantae</em>. The exact limits of the plant kingdom depend upon the classification system being used, particularly when algae and historically associated groups are considered. For this volume, the term refers to the plant kingdom adopted by the Grand Library's current botanical catalogue.</p>
+    <p>A small annual herb, a flowering tree, a fern and a moss differ considerably in structure and life cycle, yet they can all be placed within Plantae under the classification used here. The rank is too broad to identify most individual specimens; its importance lies in establishing their broadest placement.</p>
+    <p>Within the Known Realms, the Department of Botany also maintains separate catalogues for organisms that resemble plants but whose biological classification remains disputed. A stationary organism is not necessarily a plant, nor does the possession of leaf-like structures establish membership of Plantae. Such cases require examination rather than assumption.</p>
+
+    <h3>5.3. Division</h3>
+    <p>A division separates the kingdom into broader groups of plants that share important characteristics of structure, reproduction or evolutionary history. The rank is useful for distinguishing major groups that differ in fundamental biology: flowering plants, conifers, ferns and mosses, for example, have different reproductive structures and life cycles.</p>
+    <p>Traditional plant divisions have changed over time, and modern classifications do not always organise these groups in precisely the same way. A botanist should consult the classification adopted by the relevant catalogue rather than assume that every historical division remains universally accepted.</p>
+    <p>In the Grand Library's archives, older specimens sometimes bear division names no longer used in the current register. Such labels should not be altered without preserving the original determination. Historical names can help trace how a classification developed. A division contains classes, each of which contains orders, and so on down the hierarchy.</p>
+
+    <h3>5.4. Class</h3>
+    <p>A class groups related orders within a broader taxonomic unit. The classification reflects relationships that extend beyond the features used to identify an individual family or genus. Organisms within one class may differ considerably in appearance, size and habitat while sharing a position within a wider classification.</p>
+    <p>A common mistake is to assume that every member of a class must closely resemble every other member. This is not the purpose of the rank. A class is a broad grouping, not a description of a single physical form. Nor do taxonomic ranks guarantee that their groups contain equal numbers of organisms or equivalent levels of diversity.</p>
+    <p>For practical identification, botanists often work at lower ranks. Classes become particularly useful when organising large collections, comparing major groups or studying the broader history of plant diversity.</p>
+
+    <h3>5.5. Order</h3>
+    <p>An order brings together related families. It allows botanists to recognise broader relationships that may not be immediately apparent from individual species. Two families may contain plants with different growth forms and habitats while sharing characteristics that support their placement within the same order.</p>
+    <p>Orders are useful in research and collection management. Higher-level groupings allow related families to be considered together and help researchers navigate large bodies of information.</p>
+    <p>In botanical nomenclature, names of orders commonly end in <em>-ales</em>. This ending is a useful clue when reading scientific literature, but the name's rank should be checked whenever there is doubt. An ending alone does not prove that a proposed classification is correct; it indicates the rank at which the name is used under the relevant rules.</p>
+
+    <h3>5.6. Family</h3>
+    <p>The family is one of the most useful ranks for the working botanist. A family contains one or more genera grouped on the basis of shared characteristics and relationships. Many families can be recognised through combinations of features involving flowers, fruits, leaves or other structures. Familiarity with these patterns can greatly narrow the possibilities when identifying an unknown specimen.</p>
+    <p>A family may contain herbs, shrubs, climbers and trees. Its members may occupy different habitats and vary considerably in appearance. What unites them is not a requirement to look alike, but the evidence supporting their placement within the same taxonomic group.</p>
+    <p>In the botanical naming system used for plants, family names commonly end in <em>-aceae</em>. Real-world examples include Rosaceae, the rose family, and Fabaceae, the legume family.</p>
+    <p>The Grand Library uses the family as an important organisational level within its reference collection. Researchers unfamiliar with a species can begin by establishing its family and consulting the descriptions, illustrations and identification keys available for that group. Even if flowers or fruits are missing, family-level placement may provide a meaningful starting point.</p>
+    <p>Family resemblance should not be treated as proof that every member possesses the same medicinal, ecological or agricultural properties. Relatedness can suggest questions for further investigation, but it does not replace evidence about an individual species.</p>
+
+    <h3>5.7. Genus</h3>
+    <p>A genus groups closely related species within a single taxonomic unit. Species belonging to the same genus may share a distinctive combination of structural characteristics, although their appearance can vary considerably.</p>
+    <p>The limits of a genus are not always straightforward. Taxonomists may disagree about whether a group should be divided into several genera or retained as one larger genus. Such disagreements should be resolved through examination of evidence, not by counting species or judging how convenient a name may be.</p>
+    <p>Genus names form the first part of a plant's scientific name. They begin with a capital letter and are conventionally italicised in print. In the real botanical name <em>Quercus robur</em>, <em>Quercus</em> is the genus, while the second word identifies the species within it.</p>
+    <p>Within the Grand Library's collections, genus-level catalogues provide a convenient place to compare descriptions, illustrations and specimens of related species. If the evidence establishes the genus but not the species, the record should reflect that limit rather than supply an unsupported specific name.</p>
+
+    <h3>5.8. Species</h3>
+    <p>The species is the basic unit of the principal taxonomic hierarchy. In everyday language, the word may suggest a clearly defined kind of plant whose members all look alike. In practice, species can be difficult to delimit. Individuals within a species may differ considerably, while separate species can share many characteristics.</p>
+    <p>There is no single species definition that resolves every case. The ability to reproduce with one another is relevant to many organisms, but it is not a universal test for plants. Some plants reproduce without fertilisation; others hybridise with related species, and some are known only from incomplete or preserved material.</p>
+    <p>Botanists therefore use combinations of evidence to determine whether a group should be treated as a species. These may include morphology, reproductive biology, genetics, ecological differences and evolutionary relationships. The appropriate evidence varies between groups.</p>
+    <p>Consider two plants found along the same river. Both have narrow leaves and clusters of pale flowers. One produces small, dry fruits that split at maturity; the other produces fleshy fruits containing several seeds. If these differences remain consistent across sufficient specimens and are supported by other evidence, they may help establish that the plants represent separate species. The conclusion cannot rest on fruit alone, but the example shows how several characters combine to distinguish related organisms.</p>
+    <p>A species name does not guarantee that every individual will display every characteristic described for it. Descriptions are based on the observed range of variation and may need revision when new populations are studied. A taxonomist should consider both typical characteristics and the limits of variation documented within a species.</p>
+
+    <h3>5.9. Ranks below species</h3>
+    <p>The principal hierarchy does not end when a species has been identified. Some species contain recognisable groups of populations that differ consistently. When those differences are considered taxonomically significant, botanists may recognise ranks below species, such as subspecies, variety or form.</p>
+    <p>These categories are not interchangeable, and their use depends upon the nature of the differences and the conventions adopted by the relevant taxonomic treatment. A subspecies may be recognised when a distinct population possesses consistent characteristics; a variety may identify a recognised group with particular distinguishing features. A form is often used for a more limited variation, although practices differ among groups and traditions.</p>
+    <p>Such ranks should not be created merely because two plants look slightly different. A difference in colour, for example, may reflect ordinary variation, environmental conditions or a temporary developmental stage. Before assigning a rank, the botanist must determine whether the difference is consistent and whether recognising it contributes meaningfully to the classification.</p>
+    <p>The Grand Library's catalogue includes older cases in which separate varieties were later found to fall within the ordinary variation of a single species. Other cases required the opposite correction: what had been treated as one variable species was found to contain distinct populations deserving further recognition. Classification is a process of evaluating evidence, not merely adding levels to the hierarchy.</p>
+
+    <h3>5.10. Taxa, ranks and the problem of boundaries</h3>
+    <p>A <em>taxon</em> is a recognised group of organisms at any rank. A particular named genus is a taxon; so is a particular named species. The rank indicates the category assigned to the group, while the taxon is the group itself.</p>
+    <p>Suppose a genus is divided into two genera after new evidence shows that its species belong to separate evolutionary lineages. The species may remain recognised as distinct, but their placement in the hierarchy changes. Their names may also require revision to reflect their new generic assignments.</p>
+    <p>Alternatively, two genera may be united when the evidence supports treating them as a single group. Names and catalogue records may need updating, while the original publications and identifications remain part of the historical record.</p>
+    <p>Such changes can be disruptive for libraries and researchers. Indexes must be revised, specimens relabelled or annotated, and older literature cross-referenced. Yet maintaining an accurate classification is preferable to preserving a structure that no longer reflects the best available evidence.</p>
+    <p>The ranks themselves also have limitations. A family does not necessarily contain the same number of genera as another family, nor does a genus always represent the same degree of diversity as every other genus. The hierarchy is a system of nested categories, not a scale in which every level contains equivalent quantities of biological difference.</p>
+    <p>Rank should not be treated as a measure of importance. A species is not less worthy of study because it belongs to a small genus, and a large family is not necessarily more significant than a small one. Classification clarifies relationships; it does not establish a hierarchy of value.</p>
+
+    <h3>5.11. A worked example from the Grand Library</h3>
+    <p>The following example illustrates how a hypothetical plant might be placed within the hierarchy. The species and taxonomic names below are invented for the botanical records of the Known Realms.</p>
+    <p>The plant, provisionally called the blue lanternflower, was collected from shaded ravines in the eastern territories. It has woody stems, paired leaves and clusters of blue, bell-shaped flowers. Mature specimens produce dry fruits containing several small seeds. After comparison with the Grand Library's reference collections, the botanists assign it to a newly described genus within an established family.</p>
+    <div class="record-card">
+      <p class="eyebrow">Invented example · Grand Library of the Realms</p>
+      <h4><em>Caeruleoluma vesperis</em></h4>
+      <p><strong>Common name:</strong> Blue lanternflower</p>
+      <p>A woody flowering plant of shaded ravines, distinguished by paired leaves and clusters of blue, bell-shaped flowers.</p>
+      <table class="taxonomy-table">
+        <thead><tr><th>Rank</th><th>Assigned group</th></tr></thead>
+        <tbody>
+          <tr><td>Kingdom</td><td><em>Plantae</em></td></tr>
+          <tr><td>Division</td><td>Magnoliophyta</td></tr>
+          <tr><td>Class</td><td>Magnoliopsida</td></tr>
+          <tr><td>Order</td><td>Vesperales</td></tr>
+          <tr><td>Family</td><td>Lanternaceae</td></tr>
+          <tr><td>Genus</td><td><em>Caeruleoluma</em></td></tr>
+          <tr><td>Species</td><td><em>Caeruleoluma vesperis</em></td></tr>
+        </tbody>
+      </table>
+      <p class="volume-note">The higher ranks in this example are invented or adapted for the fictional catalogue and do not represent a scientifically validated classification.</p>
+    </div>
+    <p>The example demonstrates that a species name is not an isolated label. It belongs to a sequence of broader groups, each placing the plant within a larger classification. If future research revealed that the blue lanternflower belonged to a different genus, its position would change. The specimen, its collection records and the evidence supporting its original identification would remain important even if its accepted name did not.</p>
+
+    <h3>5.12. The hierarchy as a working tool</h3>
+    <p>The taxonomic hierarchy is often taught as a sequence to memorise. Knowing the ranks in the correct order is useful, but memorisation alone does not explain why the system matters.</p>
+    <p>For the botanist in the field, the hierarchy provides a way to express the level of certainty reached during identification. A specimen may be recognisable as a member of a family even when its genus remains uncertain. A genus may be established while the species cannot be determined because necessary reproductive structures are missing.</p>
+    <p>For the curator, the hierarchy helps organise collections and link related records. For the researcher, it allows observations about one species to be compared with evidence from related groups. For the taxonomist, it provides a structure that can be revised as understanding improves.</p>
+    <p>A classification should not be treated as permanent merely because it is neatly arranged. Nor should it be dismissed as arbitrary because its boundaries sometimes change. The hierarchy is a tool for expressing relationships, and its quality depends upon the evidence and reasoning used to establish them.</p>
+    <p>The ranks give us a language in which to discuss the organisation of plant diversity. They do not remove the need to examine the plants themselves. When a specimen reaches the Department of Botany, the first task is to determine what the available evidence supports. The botanist may arrive at a species, a genus, a family or a broader group. Each can be a useful result, provided the conclusion is recorded honestly.</p>
+    <p>It is better to know the limits of an identification than to possess a name that cannot be defended.</p>
+    <p class="chapter-author">Professor Elowen Thorne<br>Senior Taxonomist, Department of Botany<br>Grand Library of the Realms</p>
+    <div class="rule"></div>
+    <p class="volume-note">END OF CHAPTER 5</p>
+    <h3>Editorial note</h3>
+    <p>In the next chapter, we will turn to botanical nomenclature: how scientific names are formed, why they are written in two parts, what a taxonomic synonym is, and how cases are resolved when a single plant has received several names. The hierarchy studied here will provide the foundation for understanding those questions.</p>
   </section>
 
   <section id="chapter-6">
