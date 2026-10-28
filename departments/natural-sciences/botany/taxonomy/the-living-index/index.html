@@ -1389,6 +1389,7 @@ const left=spread.querySelector('.book-page.left'),right=spread.querySelector('.
 const prev=document.getElementById('book-prev'),next=document.getElementById('book-next'),status=document.getElementById('book-page-status');
 const sources=Array.from(document.querySelectorAll('main > section.chapter-text, main > section[id^="chapter-"]'));
 const pages=[];
+const pageTargets={};
 const measure=document.createElement('div');
 measure.style.cssText='position:absolute;left:-10000px;top:0;width:calc(min(590px, 50vw) - 104px);visibility:hidden;';
 document.body.appendChild(measure);
@@ -1398,13 +1399,24 @@ const blocks=Array.from(section.children).filter(el=>!el.classList.contains('bac
 if(!blocks.length)return;
 if(pages.length%2===0)addPage([],true,'');
 let chunk=[],height=0;
-blocks.forEach(block=>{
-const clone=block.cloneNode(true);measure.appendChild(clone);
-const h=clone.getBoundingClientRect().height+24;measure.removeChild(clone);
-if(chunk.length&&height+h>670){addPage(chunk,false,section.querySelector('h2')?.textContent||'');chunk=[];height=0;}
-chunk.push(block.cloneNode(true));height+=Math.min(h,670);
-});
-if(chunk.length)addPage(chunk,false,section.querySelector('h2')?.textContent||'');
+const flush=()=>{if(chunk.length){addPage(chunk,false,section.querySelector('h2')?.textContent||'');chunk=[];height=0;}};
+for(let i=0;i<blocks.length;i++){
+let block=blocks[i];
+let group=[block];
+// Keep subsection headings with the first paragraph that follows, so a heading never sits alone at the foot of a page.
+if(/^H[2-4]$/.test(block.tagName)&&blocks[i+1]&&blocks[i+1].tagName==='P'){
+group.push(blocks[++i]);
+}
+const clones=group.map(node=>node.cloneNode(true));
+let groupHeight=0;
+clones.forEach(clone=>{measure.appendChild(clone);groupHeight+=clone.getBoundingClientRect().height+12;measure.removeChild(clone);});
+if(chunk.length&&height+groupHeight>670)flush();
+if(block.id)pageTargets[block.id]=pages.length;
+group.forEach(node=>{if(node.id)pageTargets[node.id]=pages.length;chunk.push(node.cloneNode(true));});
+height+=Math.min(groupHeight,670);
+}
+flush();
+if(section.id)pageTargets[section.id]=Math.max(0,pages.length-1);
 if(pages.length%2===0)addPage([],true,'');
 });
 if(pages.length&&pages[pages.length-1].blank)pages.pop();
@@ -1427,6 +1439,16 @@ function turn(dir){const step=window.innerWidth<=800?1:2;index=Math.max(0,Math.m
 prev.addEventListener('click',()=>turn(-1));next.addEventListener('click',()=>turn(1));
 spread.querySelector('.left-edge').addEventListener('click',()=>turn(-1));spread.querySelector('.right-edge').addEventListener('click',()=>turn(1));
 window.addEventListener('resize',render);
+document.querySelectorAll('#contents a[href^="#"]').forEach(link=>{
+link.addEventListener('click',event=>{
+const target=link.getAttribute('href').slice(1);
+const targetIndex=pageTargets[target];
+if(targetIndex===undefined)return;
+event.preventDefault();
+index=window.innerWidth<=800?targetIndex:Math.floor(targetIndex/2)*2;
+render();
+});
+});
 sources.forEach(s=>s.style.display='none');render();measure.remove();
 })();
 </script>
