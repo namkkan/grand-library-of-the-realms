@@ -1,0 +1,577 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sapphiron | Grand Library of the Realms</title>
+
+<style>
+:root {
+  --night: #0b1019;
+  --panel: #121b29;
+  --panel-light: #182436;
+  --gold: #c3a46b;
+  --gold-dim: #786747;
+  --parchment: #e9ddc4;
+  --muted: #a5a9b3;
+  --blue: #5686c5;
+  --line: rgba(195,164,107,.3);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 80% 0%, #182b46 0%, transparent 42%),
+    var(--night);
+  color: var(--parchment);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.75;
+}
+
+a { color: var(--gold); }
+
+a:hover { color: #f0d9a6; }
+
+.topbar {
+  padding: 16px 7%;
+  border-bottom: 1px solid var(--line);
+  background: rgba(7,11,18,.8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.topbar nav {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.topbar nav a {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.hero {
+  padding: 90px 8% 75px;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "✧";
+  position: absolute;
+  right: 10%;
+  top: 12%;
+  color: rgba(86,134,197,.18);
+  font-size: 220px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+h1 {
+  font-size: clamp(46px, 8vw, 86px);
+  font-weight: normal;
+  line-height: 1.05;
+  margin: 18px 0;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 19px;
+  max-width: 650px;
+}
+
+.hero-note {
+  margin-top: 32px;
+  padding-left: 18px;
+  border-left: 2px solid var(--blue);
+  max-width: 560px;
+  color: #c6d5e9;
+  font-style: italic;
+}
+
+.status {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 6px 12px;
+  border: 1px solid var(--gold-dim);
+  color: var(--gold);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.layout {
+  max-width: 1200px;
+  margin: auto;
+  padding: 50px 7%;
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 48px;
+}
+
+.sidebar {
+  align-self: start;
+  position: sticky;
+  top: 24px;
+  border: 1px solid var(--line);
+  background: rgba(18,27,41,.7);
+  padding: 24px;
+}
+
+.sidebar h3 {
+  font-size: 12px;
+  color: var(--gold);
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 0;
+}
+
+.sidebar a {
+  display: block;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(195,164,107,.12);
+  color: var(--parchment);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.sidebar a:hover { color: var(--blue); }
+
+section { scroll-margin-top: 25px; }
+
+.section-label {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: normal;
+  margin: 4px 0 20px;
+}
+
+h3 {
+  font-weight: normal;
+  color: var(--gold);
+}
+
+.content-section {
+  padding-bottom: 42px;
+  margin-bottom: 42px;
+  border-bottom: 1px solid var(--line);
+}
+
+.content-section p { color: #d2c8b6; }
+
+.quote {
+  margin: 28px 0;
+  padding: 20px 25px;
+  border-left: 2px solid var(--blue);
+  background: linear-gradient(90deg, rgba(86,134,197,.1), transparent);
+  font-size: 18px;
+  font-style: italic;
+  color: #d7e3f3;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.fact {
+  padding: 17px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+
+.fact small {
+  display: block;
+  color: var(--gold);
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  margin-bottom: 5px;
+}
+
+.fact span { font-size: 14px; }
+
+.notice {
+  padding: 20px 22px;
+  border: 1px solid rgba(86,134,197,.4);
+  background: rgba(86,134,197,.07);
+}
+
+.notice h3 { margin-top: 0; }
+
+.related-card {
+  display: block;
+  padding: 24px;
+  border: 1px solid var(--line);
+  background: linear-gradient(135deg, var(--panel-light), var(--panel));
+  text-decoration: none;
+  transition: border-color .2s, transform .2s;
+}
+
+.related-card:hover {
+  border-color: var(--blue);
+  transform: translateY(-2px);
+}
+
+.related-card .symbol {
+  font-size: 27px;
+  color: var(--blue);
+}
+
+.related-card h3 { margin: 6px 0; }
+
+.related-card p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 25px;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 28px 7%;
+  color: var(--muted);
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: .5px;
+}
+
+@media (max-width: 760px) {
+  .layout { grid-template-columns: 1fr; gap: 28px; }
+  .sidebar { position: static; }
+  .facts { grid-template-columns: 1fr; }
+  .hero { padding-top: 65px; }
+  .hero::after { right: -20px; top: 15%; font-size: 150px; }
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <a class="brand" href="../../index.html">✧ Grand Library of the Realms</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../grand-atrium.html">Grand Atrium</a>
+    <a href="../peoples/kenku.html">Kenku Archive</a>
+  </nav>
+</header>
+
+<header class="hero">
+  <div class="eyebrow">Individual Record · Reader Registry</div>
+  <h1>Sapphiron</h1>
+  <div class="subtitle">Independent Alchemist · Registered Reader · Seeker of Knowledge</div>
+
+  <div class="hero-note">
+    Some mysteries survive longer than the people who carry them.
+  </div>
+
+  <div class="status">Registered Reader · External Collaborator</div>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <h3>Record Index</h3>
+    <a href="#overview">01 — Overview</a>
+    <a href="#profile">02 — Personal Record</a>
+    <a href="#library">03 — Library Association</a>
+    <a href="#research">04 — Research & Alchemy</a>
+    <a href="#residence">05 — Residence</a>
+    <a href="#pendant">06 — The Sapphire Pendant</a>
+    <a href="#species">07 — Species Archive</a>
+  </aside>
+
+  <main>
+
+    <section class="content-section" id="overview">
+      <div class="section-label">Record 001 · Introduction</div>
+      <h2>Overview</h2>
+
+      <p>
+        Sapphiron is a kenku wizard and independent alchemist who lives
+        near the city surrounding the Grand Library of the Realms.
+        A quiet, curious scholar, he devotes much of his time to the
+        study of magic, transmutation and the natural properties of
+        unusual materials.
+      </p>
+
+      <p>
+        Although he is a familiar presence in the Library's reading
+        rooms and collections, he is not a member of its official staff.
+        He maintains his independence, pursuing his own investigations
+        and sharing selected findings with the institution.
+      </p>
+
+      <div class="quote">
+        "Knowledge is worth pursuing, even when the answer leads to
+        another question."
+      </div>
+    </section>
+
+    <section class="content-section" id="profile">
+      <div class="section-label">Personal Information</div>
+      <h2>Personal Record</h2>
+
+      <div class="facts">
+        <div class="fact">
+          <small>Species</small>
+          <span>Kenku</span>
+        </div>
+        <div class="fact">
+          <small>Known Age</small>
+          <span>Over one thousand years</span>
+        </div>
+        <div class="fact">
+          <small>Height</small>
+          <span>Approximately 1.50 m</span>
+        </div>
+        <div class="fact">
+          <small>Weight</small>
+          <span>Approximately 20 kg</span>
+        </div>
+        <div class="fact">
+          <small>Occupation</small>
+          <span>Independent Alchemist and Wizard</span>
+        </div>
+        <div class="fact">
+          <small>Specialisation</small>
+          <span>Transmutation and Alchemy</span>
+        </div>
+        <div class="fact">
+          <small>Affiliation</small>
+          <span>Registered Reader of the Grand Library</span>
+        </div>
+        <div class="fact">
+          <small>Residence</small>
+          <span>Ancient Forest, outside the city</span>
+        </div>
+      </div>
+
+      <h3>Appearance</h3>
+      <p>
+        Sapphiron has dark crow-like plumage whose subtle iridescence
+        changes with the light. His eyes are blue, a colour that seems
+        to have found its way into almost every corner of his life.
+        He wears no mask and has no hair; his natural features remain
+        unobscured.
+      </p>
+
+      <p>
+        Among his most recognisable possessions is a sapphire pendant
+        worn close to his chest. It is an object he never removes.
+      </p>
+
+      <h3>Temperament</h3>
+      <p>
+        Reserved and introspective, Sapphiron often prefers the company
+        of books, experiments and quiet places. His shyness should not
+        be mistaken for indifference: curiosity draws him towards
+        unfamiliar knowledge, and he can be unexpectedly kind to those
+        who earn his trust.
+      </p>
+
+      <p>
+        He avoids physical confrontation whenever possible and favours
+        observation, preparation and magic over violence. Despite his
+        solitary habits, he remains deeply interested in the world
+        beyond his cabin.
+      </p>
+    </section>
+
+    <section class="content-section" id="library">
+      <div class="section-label">Institutional Association</div>
+      <h2>A Reader, Not an Employee</h2>
+
+      <p>
+        Sapphiron holds a reader's registration with the Grand Library
+        of the Realms. He visits to consult its collections, pursue
+        research and study subjects that cannot easily be explored
+        in isolation.
+      </p>
+
+      <p>
+        From time to time, he contributes observations, experimental
+        results and discoveries that may be useful to the Library's
+        scholars. These contributions are received in his capacity
+        as an independent collaborator, not as an official librarian
+        or member of staff.
+      </p>
+
+      <div class="notice">
+        <h3>Registry Note</h3>
+        <p>
+          Institutional status: external reader and occasional
+          contributor. No official appointment is recorded.
+        </p>
+      </div>
+    </section>
+
+    <section class="content-section" id="research">
+      <div class="section-label">Fields of Study</div>
+      <h2>Research & Alchemy</h2>
+
+      <p>
+        Sapphiron's principal interests are alchemy, transmutation,
+        magical theory and the properties of rare or unusual materials.
+        His work often begins with the gathering and examination of
+        ingredients collected in the surrounding forest.
+      </p>
+
+      <p>
+        He records his observations carefully and approaches unfamiliar
+        phenomena with patience. Not every experiment yields a useful
+        result, but even an unsuccessful attempt may reveal something
+        worth preserving.
+      </p>
+
+      <h3>Known Fields</h3>
+      <ul>
+        <li>Alchemy and experimental mixtures</li>
+        <li>Transmutation magic</li>
+        <li>Rare botanical and mineral materials</li>
+        <li>Magical phenomena and unexplained properties</li>
+        <li>Independent scholarly research</li>
+      </ul>
+
+      <p>
+        His current investigations remain independent of any formal
+        Library department.
+      </p>
+    </section>
+
+    <section class="content-section" id="residence">
+      <div class="section-label">Place of Residence</div>
+      <h2>The Cabin in the Ancient Forest</h2>
+
+      <p>
+        Beyond the city, among the trees of an ancient forest,
+        Sapphiron lives in a modest wooden cabin. It is a quiet,
+        practical place, built around the needs of someone who spends
+        his days reading, gathering materials and experimenting.
+      </p>
+
+      <p>
+        Inside, shelves of books share the space with alchemical
+        equipment, carefully stored ingredients and handwritten notes.
+        Deep blue accents appear throughout the cabin: a blue lamp,
+        small personal objects and feathers that catch the light.
+      </p>
+
+      <p>
+        The cabin is not a grand tower or a wizard's fortress.
+        It is a home: private, familiar and deliberately removed
+        from the constant activity of the city.
+      </p>
+    </section>
+
+    <section class="content-section" id="pendant">
+      <div class="section-label">Personal Object · Unresolved Record</div>
+      <h2>The Sapphire Pendant</h2>
+
+      <p>
+        Sapphiron wears a sapphire pendant that he never removes.
+        Its deep blue stone is one of the few personal possessions
+        that appears to remain constantly with him.
+      </p>
+
+      <p>
+        The pendant is connected to a promise. The circumstances
+        surrounding that promise, its intended meaning and the
+        identity of anyone else involved have not been established
+        in this public record.
+      </p>
+
+      <div class="notice">
+        <h3>Unresolved</h3>
+        <p>
+          The meaning of the promise remains undisclosed.
+          No further conclusion should be drawn from the available
+          information.
+        </p>
+      </div>
+
+      <p>
+        For now, the pendant remains a personal matter rather than
+        a subject of the Library's official investigations.
+      </p>
+    </section>
+
+    <section class="content-section" id="species">
+      <div class="section-label">Related Archive</div>
+      <h2>Explore His Species</h2>
+
+      <p>
+        Sapphiron is one individual within a much wider and more
+        varied people. To learn about kenku biology, language,
+        customs and communities, consult the general species record.
+      </p>
+
+      <a class="related-card" href="../peoples/kenku.html">
+        <div class="symbol">✧</div>
+        <h3>The Kenku Archive →</h3>
+        <p>
+          Species overview · Biology · Communication · Culture ·
+          Communities and occupations
+        </p>
+      </a>
+
+      <a class="back-link" href="../../index.html">
+        ← Return to the Grand Library
+      </a>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  The Grand Library of the Realms · Individual Records
+  <br>
+  Some entries remain incomplete by design.
+</footer>
+
+</body>
+</html>
