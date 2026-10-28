@@ -125,6 +125,12 @@ h1 {
 .book-page .record-card{margin:8px 0;padding:10px}
 .book-page .taxonomy-table{width:100%;font-size:.78rem;line-height:1.25;margin:8px 0;table-layout:fixed}
 .book-page .taxonomy-table th,.book-page .taxonomy-table td{padding:5px 6px;overflow-wrap:anywhere;vertical-align:top}
+.book-page .field-guide-list{display:flex;flex-direction:column;gap:6px;margin:10px 0 14px}
+.book-page .field-guide-item{display:grid;grid-template-columns:minmax(115px,.7fr) minmax(0,1.6fr);gap:10px;padding:8px 10px;border:1px solid rgba(112,79,43,.24);background:rgba(255,250,235,.28);break-inside:avoid}
+.book-page .field-guide-item strong{font-size:.86rem;color:#65502e}
+.book-page .field-guide-item p{margin:0;text-align:left;font-size:.86rem;line-height:1.35}
+.book-page .taxonomy-table{display:none}
+@media(max-width:800px){.book-page .field-guide-item{grid-template-columns:1fr;gap:3px}}
 .book-page .field-record-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:12px;align-items:start}
 .book-page .field-record-layout .field-record-notes p{margin-bottom:6px;text-align:left}
 .book-page .field-record-layout .field-record-data{min-width:0}
@@ -1423,20 +1429,17 @@ main > section.chapter-text > p:nth-of-type(2)::first-letter {
     <p>Flower colour may fade during drying. A scent may vanish. A leaf may lose its natural position. A plant that grew in standing water may be pressed flat and stored in a cabinet without any visible indication of its original surroundings. The notebook preserves these observations.</p>
     <p>Each specimen or observation should be linked to a unique identifier. The number must be recorded in the notebook and on the associated specimen label, photograph, or container. It should not be reused for a different collection.</p>
     <p>A field record normally includes the following information:</p>
-    <table class="taxonomy-table">
-      <thead><tr><th>Record field</th><th>Information to include</th></tr></thead>
-      <tbody>
-        <tr><td>Collection number</td><td>A unique identifier for the collection or observation.</td></tr>
-        <tr><td>Collector</td><td>Name of the person responsible for the record.</td></tr>
-        <tr><td>Date and time</td><td>When the observation or collection took place.</td></tr>
-        <tr><td>Locality</td><td>A precise description of the place, with coordinates when available.</td></tr>
-        <tr><td>Habitat</td><td>Soil, moisture, light exposure, terrain, and surrounding vegetation.</td></tr>
-        <tr><td>Plant description</td><td>Growth habit, measurements, leaves, flowers, fruits, and other relevant features.</td></tr>
-        <tr><td>Developmental stage</td><td>Budding, flowering, fruiting, dormant, or another observed stage.</td></tr>
-        <tr><td>Associated observations</td><td>Pollinators, neighbouring plants, damage, scent, colour changes, or unusual behaviour.</td></tr>
-        <tr><td>Identification</td><td>Current identification, confidence level, and unresolved questions.</td></tr>
-      </tbody>
-    </table>
+    <div class="field-guide-list">
+      <div class="field-guide-item"><strong>Collection number</strong><p>A unique identifier for the collection or observation.</p></div>
+      <div class="field-guide-item"><strong>Collector</strong><p>Name of the person responsible for the record.</p></div>
+      <div class="field-guide-item"><strong>Date and time</strong><p>When the observation or collection took place.</p></div>
+      <div class="field-guide-item"><strong>Locality</strong><p>A precise description of the place, with coordinates when available.</p></div>
+      <div class="field-guide-item"><strong>Habitat</strong><p>Soil, moisture, light exposure, terrain, and surrounding vegetation.</p></div>
+      <div class="field-guide-item"><strong>Plant description</strong><p>Growth habit, measurements, leaves, flowers, fruits, and other relevant features.</p></div>
+      <div class="field-guide-item"><strong>Developmental stage</strong><p>Budding, flowering, fruiting, dormant, or another observed stage.</p></div>
+      <div class="field-guide-item"><strong>Associated observations</strong><p>Pollinators, neighbouring plants, damage, scent, colour changes, or unusual behaviour.</p></div>
+      <div class="field-guide-item"><strong>Identification</strong><p>Current identification, confidence level, and unresolved questions.</p></div>
+    </div>
     <p>Not every field is relevant to every specimen, and the absence of information should not be concealed. If the roots were not examined, write that they were not examined. If the exact collection time is unknown, record the uncertainty rather than inventing a value.</p>
     <p>The notebook should be written as close to the time of observation as possible. Notes reconstructed several days later tend to lose details and merge separate events into a single remembered impression.</p>
     <p>A useful entry is specific enough that another botanist could understand the circumstances without having accompanied the expedition. “Small plant near stream” is a poor locality description. “Approximately twelve paces east of the old stone footbridge, growing in saturated soil beneath the northern bank” is more useful, provided the landmarks and measurements are recorded accurately.</p>
@@ -1587,9 +1590,133 @@ main > section.chapter-text > p:nth-of-type(2)::first-letter {
     <p>Write down what happened. Record how you know it happened. Leave room for what you have not yet understood.</p>
   </section>
 
-  <section id="chapter-9">
-    <h2>8. Reference Specimens and Herbaria</h2>
-    <p class="volume-note">Chapter awaiting its text.</p>
+  <section id="chapter-9" class="chapter-text">
+    <h2>9. Reference Specimens and Herbaria</h2>
+    <p class="volume-note"><em>On the preservation of botanical evidence, the care of collections, and the quiet responsibility of keeping a plant available to those who have not yet learned its name.</em></p>
+
+    <h3>9.1. What Is a Herbarium?</h3>
+    <p>A herbarium is a collection of preserved plant specimens assembled for study, comparison, and reference. It may begin with a few pressed plants between sheets of paper; in a major institution, it becomes an organised archive of botanical evidence gathered over generations.</p>
+    <p>The Grand Library's Central Herbarium occupies three interconnected halls on the eastern side of the Department of Botany. Its oldest specimens predate the department itself. They were collected by physicians, royal gardeners, travelling scholars, agricultural surveyors, and people whose names appear nowhere beyond their field notebooks.</p>
+    <p>The collection is not arranged according to beauty or fame. A rare orchid may rest beside a modest grass, and a celebrated botanist's specimen may be stored several cabinets away from one gathered by an unknown apprentice. Their positions follow the catalogue system. A herbarium is not a gallery of curiosities; it is a working scientific resource.</p>
+    <p>Preserved specimens allow researchers to revisit earlier identifications, compare plants from different regions, investigate changes in morphology, and document a species' former distribution. A specimen gathered for a study of medicinal plants may later prove essential to the description of an unrecognised species. Its value depends on preservation and on the information that accompanies it.</p>
+    <p>A plant without a reliable record is a plant whose history may be impossible to recover.</p>
+
+    <h3>9.2. The Specimen as Evidence</h3>
+    <p>A description tells us what an observer recorded; an illustration represents appearance; a field notebook preserves circumstances and observations. A specimen offers something different: physical material that another researcher can examine independently.</p>
+    <p>A specimen collected to support a scientific study is commonly called a <em>voucher specimen</em>. It provides a physical reference for the observations or conclusions associated with it. In the Grand Library, voucher specimens are especially important when documenting medicinal plants, newly recorded populations, unusual ecological relationships, and uncertain identifications.</p>
+    <p>The presence of a specimen does not guarantee that a conclusion is correct. The plant may have been misidentified, the label may contain an error, or the material may not represent the full variation of a species. A well-documented specimen nevertheless makes mistakes easier to recognise and correct. Without physical evidence, a disputed identification can become a contest between authorities; with evidence, the disagreement can be returned to the plant itself.</p>
+    <p>A specimen represents an individual or a collection event, not a species in every circumstance. It cannot establish by itself how common a plant is, how long it lives, or how its appearance changes through a season. Those questions require additional specimens, field observations, experiments, and other evidence.</p>
+
+    <h3>9.3. From the Field to the Collection</h3>
+    <p>Preparation begins before a plant reaches the laboratory. The collector must consider whether collection is justified, whether photographs and non-destructive observations will suffice, and whether permission is required. When collection is appropriate, the material should preserve as many useful diagnostic features as possible: a flowering branch may be more informative than a handful of leaves, while the roots of a small herb may be essential to identification.</p>
+    <p>The collector records the specimen number, locality, date, habitat, and relevant observations before these details are lost. Each gathering receives a unique identifier that follows the material through pressing, drying, identification, mounting, and storage.</p>
+    <p>The preparators of the Grand Library follow a rule that seems obvious until it is broken: never allow an unlabelled specimen to become separated from the record that identifies it. A beautiful specimen without a reliable locality or collection history may remain useful for morphological study, but it is far less useful for understanding distribution or ecology.</p>
+
+    <h3>9.4. Pressing and Drying</h3>
+    <p>For many vascular plants, the familiar preservation method is pressing followed by drying. The plant is arranged between absorbent papers, with layers that encourage air circulation, then held under enough pressure to flatten it without crushing diagnostic structures.</p>
+    <p>Leaves are spread where possible; flowers are positioned so their important features remain visible; and overlapping parts are adjusted to reveal useful characters. If the specimen is too large for one sheet, portions may be folded carefully or divided across several sheets, provided their relationship is documented.</p>
+    <p>Drying must be sufficiently rapid to limit mould and deterioration. Once dry, the specimen may be mounted on durable archival paper and secured with suitable adhesive, linen strips, or thread. Detached seeds or fragments may be kept in an attached packet. Labels, paper, adhesives, and inks must be chosen with long-term stability in mind.</p>
+    <p>Not every plant suits this method. Succulent tissues may collapse, fleshy fruits can be difficult to press, and delicate flowers may lose important structures. Dried fragments, separately preserved fruits, fluid-preserved material, microscopic preparations, or photographs may be used alongside the main specimen. No single technique answers every botanical question.</p>
+
+    <h3>9.5. The Label: A Second Specimen</h3>
+    <p>A herbarium sheet is incomplete without its label. Experienced botanists often read the label before examining the plant, because it establishes the circumstances in which the specimen was collected.</p>
+    <div class="field-guide-list">
+      <div class="field-guide-item"><strong>Identity</strong><p>The name used when collected or identified; later determinations are recorded separately.</p></div>
+      <div class="field-guide-item"><strong>Collector and number</strong><p>The person who gathered the material and the number assigned to that gathering.</p></div>
+      <div class="field-guide-item"><strong>Date and locality</strong><p>When and where it was collected, described precisely enough to distinguish the site.</p></div>
+      <div class="field-guide-item"><strong>Habitat and observations</strong><p>Growing conditions and features that may disappear during preservation, such as colour, scent, or growth habit.</p></div>
+      <div class="field-guide-item"><strong>Institutional record</strong><p>The herbarium holding the specimen and the identifier used to retrieve its catalogue entry.</p></div>
+    </div>
+    <p>Historical labels may give only a region, a month, and a name no longer in use. A curator may infer a likely locality from a collector's journal or historical maps, but the reconstruction must be recorded as an inference rather than silently added to the original label.</p>
+    <p>At the Grand Library, the original label is never replaced merely because its information has become inconvenient. Corrections and later identifications are attached as separate annotations. A label is not a decorative caption; it is the record that allows the plant to speak beyond the place and time in which it was gathered.</p>
+
+    <h3>9.6. Accession Numbers and the Collection Register</h3>
+    <p>Every specimen accepted into the permanent collection receives an accession record linking the physical material to its collection history, preparation method, current identification, storage location, and any restrictions on access.</p>
+    <p>A collector's number identifies a gathering within the collector's own sequence. An institutional accession number links the material to the receiving herbarium's records. One gathering may produce duplicate specimens deposited in separate institutions; each is managed independently, while the records preserve their shared origin.</p>
+    <div class="record-card">
+      <p class="eyebrow">Grand Library · Central Herbarium</p>
+      <h4>Accession GLH-1842-0671</h4>
+      <p><strong>Current determination:</strong> <em>Vitraluma palustris</em>, Glass-marsh lanternflower</p>
+      <p><strong>Collector's number:</strong> E. Thorne 214</p>
+      <p><strong>Locality:</strong> Eastern Glass Marsh, lower reed terraces</p>
+      <p><strong>Collection date:</strong> 18th day of the Rainmoot, Year 612</p>
+      <p><strong>Record history:</strong> Originally identified provisionally as <em>Luma palustris</em>; revised after comparative examination.</p>
+      <p><strong>Associated materials:</strong> Two pressed flowering stems, one fruit packet, field notebook entry, and three habitat illustrations.</p>
+      <p><strong>Status:</strong> Identification accepted provisionally; reproductive material requires further comparison.</p>
+    </div>
+    <p>The current name does not erase earlier names. Recording previous determinations allows researchers to discover how a specimen has been interpreted and why those interpretations changed. The register must also make the specimen physically locatable. If the catalogue identifies an item that no one can find, the collection has failed in one of its most basic duties.</p>
+
+    <h3>9.7. How a Herbarium Is Organised</h3>
+    <p>There is no single arrangement suitable for every herbarium. The Grand Library uses a primarily taxonomic arrangement for its main collection, while historical holdings, regional materials, and specimens requiring special conditions have additional catalogue distinctions.</p>
+    <div class="field-guide-list">
+      <div class="field-guide-item"><strong>General Herbarium</strong><p>The main collection of dried and mounted vascular plants, used for routine identification and comparison.</p></div>
+      <div class="field-guide-item"><strong>Historical Herbarium</strong><p>Early collections, original field materials, and specimens associated with significant expeditions.</p></div>
+      <div class="field-guide-item"><strong>Cryptogamic Collection</strong><p>Mosses, liverworts, ferns, and other groups that may require specialised preparation or storage.</p></div>
+      <div class="field-guide-item"><strong>Fluid-Preserved Collection</strong><p>Selected flowers, fruits, and other plant material stored in suitable preservative solutions.</p></div>
+      <div class="field-guide-item"><strong>Reference Collection</strong><p>Frequently consulted material for teaching and routine comparisons, reducing handling of fragile historical specimens.</p></div>
+    </div>
+    <p>The boundaries are practical rather than absolute. A tree may be documented through a pressed branch, bark, seeds, photographs, and a wood specimen. These components must remain linked in the records even when their storage requirements differ. A well-organised herbarium is a system that connects an object with its history and the knowledge accumulated around it.</p>
+
+    <h3>9.8. Conservation: Keeping the Collection Usable</h3>
+    <p>Preservation does not end when a specimen has dried and been mounted. Paper becomes brittle, adhesives fail, labels detach, insects damage plant material, and changes in temperature or humidity accelerate deterioration. Cabinets must be inspected, environmental conditions monitored, and specimens examined for damage.</p>
+    <p>A dried plant may look robust, yet leaves and flowers can fracture under pressure. Researchers are trained to support sheets properly, avoid touching fragile parts, and return folders to their correct positions. A loose fragment should not be discarded merely because its original position is unclear; it may belong in an attached packet or require investigation.</p>
+    <p>Historical materials demand restraint. Replacing an old sheet with fresh paper may improve its appearance but remove evidence of handling or separate the plant from earlier annotations. The Grand Library follows a principle established after an unfortunate incident in its western cabinets: nothing is repaired merely to make it look new. The aim is to preserve the specimen, its records, and its usefulness.</p>
+    <p>Pest management relies on prevention, inspection, and appropriate treatment. Suspect specimens are isolated and assessed rather than returned immediately to general storage. When conservation succeeds, its work is often invisible: a specimen remains available for decades or centuries without drawing attention to the conditions that made its survival possible.</p>
+
+    <h3>9.9. Ethical Collection and the Limits of Ownership</h3>
+    <p>The existence of a herbarium does not justify collecting every plant that interests a botanist. Some species are rare, geographically restricted, or vulnerable to disturbance. Others grow in protected habitats or on land where permission is required. Even when a plant is not formally protected, removing a substantial portion of a small population may be irresponsible.</p>
+    <p>Before collecting, researchers must consider whether permission is needed, whether the population can withstand removal, and whether the question can be answered through less damaging means. A photograph or detailed field description may suffice for some questions; for others, physical material is essential. The decision should follow the research need, not the collector's desire to possess an unusual specimen.</p>
+    <p>Botanical collections also have histories shaped by unequal access to land, knowledge, and authority. Some specimens were gathered without local consent or removed from places where collection was contested. A modern institution can document provenance, acknowledge contributors, review claims of ownership, and avoid repeating those practices. Where local knowledge is shared, its source and any conditions on its use should be recorded carefully.</p>
+    <p>A collection is only one part of conservation. Removing a plant from a threatened habitat may preserve evidence of its existence, but it does not preserve the living population or the relationships that sustain it. The best herbarium is not the one that has taken the most. It is the one that has preserved useful evidence with the least unnecessary harm.</p>
+
+    <h3>9.10. Loans, Exchanges, and Shared Collections</h3>
+    <p>No herbarium contains every plant a researcher may need. Institutions therefore share information and, under suitable conditions, lend specimens. A researcher studying a difficult genus may need material held in several countries, each with its own catalogue and handling requirements.</p>
+    <p>A formal loan identifies the material and purpose of the study and establishes responsibility for safe handling and return. Rare, fragile, or historically significant specimens may be excluded from physical loans; high-resolution images or supervised access may be offered instead.</p>
+    <p>Duplicates from a single gathering can be deposited in different institutions. Each becomes an independent physical reference, while the records preserve their common origin. Exchange must never become indiscriminate transfer: legality, conservation concerns, source institutions' rights, and restrictions on sensitive material remain relevant.</p>
+    <p>Every outgoing loan at the Grand Library is recorded, and each returned specimen is checked. Damage in transit is documented rather than concealed. The purpose is not to discourage research, but to ensure the same material remains available after the current study has ended. Knowledge grows through comparison; collections must be shared carefully enough that comparison remains possible.</p>
+
+    <h3>9.11. Digitisation: The Collection Beyond the Cabinets</h3>
+    <p>A specimen can be studied only by those who can access it, physically or through a reliable representation. Travel may be expensive or impossible, and fragile material cannot withstand repeated handling. Digitisation helps address both problems.</p>
+    <p>The Grand Library's programme produces high-resolution images linked to catalogue records. A useful digital specimen includes the complete sheet, label, accession number, annotations, and, where necessary, close views of small features. An image without reliable locality, collector, or specimen identity loses much of its scientific value.</p>
+    <p>Digital records allow comparisons across institutions and make patterns in leaf shape, flowering time, distribution, or past identifications easier to investigate. Yet an image cannot reveal every feature. It may not show leaf thickness, surface texture, internal fruit structure, or the arrangement of minute floral parts. Colour can also be affected by lighting, preservation, and imaging.</p>
+    <p>Digital records are access points to evidence, not proof that physical examination is unnecessary. The physical specimen remains the primary object; its digital representation makes the collection more accessible.</p>
+
+    <h3>9.12. Living Collections and Seed Archives</h3>
+    <p>A herbarium cannot preserve every aspect of a plant's life. Living collections allow researchers to observe growth, flowering, reproduction, and responses to environmental conditions. Seed collections may preserve material for future research, restoration, or propagation, although success depends on the species, seed viability, storage conditions, and quality of the records.</p>
+    <p>Other collections may include pollen, wood, DNA samples, preserved tissues, or cultures maintained under controlled conditions. Each captures a different kind of evidence. A pressed specimen may be linked to seeds from the same population, a living plant grown from a documented accession, and photographs taken during flowering.</p>
+    <p>These forms of evidence are complementary, not interchangeable. A cultivated plant may grow differently from one in its natural habitat; a seed sample may not preserve the population's full genetic diversity; and a pressed specimen cannot show how a plant responds to drought or how its flowers open during a day. A good institution understands what each collection can—and cannot—tell us.</p>
+
+    <h3>9.13. The Glass-Marsh Specimen</h3>
+    <p>Among the Grand Library's most frequently consulted records is a specimen of <em>Vitraluma palustris</em>, collected from the eastern Glass Marsh during the late winter of Year 612. Two flowering stems lie diagonally across the sheet, their leaves spread to reveal both surfaces. A small packet contains detached fruits. The label is faded at the edges, and a second annotation has been attached above it.</p>
+    <p>The original collector described the flowers as pale blue in daylight, becoming faintly luminous after dusk. This observation remains in the field record, not as an established property of the species. The mounted specimen cannot confirm the reported change, and no later study has reproduced it under controlled conditions.</p>
+    <p>For decades, the plant was catalogued provisionally as <em>Luma palustris</em>. A later examination of its floral structure suggested a distinct genus, and the determination was revised. The original name remains visible in the record history.</p>
+    <p>Comparisons with material from three other marshes raised further questions. Some plants attributed to <em>Vitraluma palustris</em> have narrower leaves; others produce fruits with a different number of chambers. These differences may represent ordinary variation, environmental effects, or more than one closely related species. The accession remains open for further study.</p>
+    <p>Textbooks often favour examples with clean conclusions: a plant is collected, examined, and correctly named. Such examples teach procedure, but they can misrepresent research. Sometimes the most useful specimen is the one that refuses to fit neatly into a category. The Glass-Marsh collection matters because different researchers can examine the same evidence, challenge earlier interpretations, and identify what should be studied next.</p>
+
+    <h3>9.14. What a Preserved Plant Cannot Tell Us</h3>
+    <p>A herbarium specimen records a plant at a particular moment. Colours may fade, petals collapse, and scents disappear. A plant that changes shape in response to light, temperature, or touch may be preserved in only one state. Relationships with the environment must often be reconstructed from field notes, photographs, and other observations.</p>
+    <p>Reports of unusual plants require the same care. If a plant was seen glowing at night, the collector should record the conditions, duration, apparent intensity, and whether the event was repeated. If a leaf moved when touched, that movement should be distinguished from wind, temperature, or the handling itself. A specimen may help establish identity, but it cannot prove every claim made about behaviour.</p>
+    <blockquote><p><em>The herbarium preserves what we were able to bring back. It does not preserve everything we saw, and it cannot preserve what we failed to notice.</em></p></blockquote>
+    <p>The remark is often quoted by students. The surrounding note is less elegant and more useful: missing information should be acknowledged in the record, not supplied later by imagination. A herbarium cannot promise that nothing will be forgotten. It can make surviving evidence traceable, interpretable, and open to examination.</p>
+
+    <h3>9.15. Principles for the Care of Reference Specimens</h3>
+    <div class="field-guide-list">
+      <div class="field-guide-item"><strong>Keep specimen and record together.</strong><p>An unidentified sheet may remain valuable; an untraceable sheet loses much of its usefulness.</p></div>
+      <div class="field-guide-item"><strong>Preserve identification history.</strong><p>Record revisions and disagreements rather than erasing earlier determinations.</p></div>
+      <div class="field-guide-item"><strong>Choose suitable methods.</strong><p>A pressed sheet is not appropriate for every plant or research question.</p></div>
+      <div class="field-guide-item"><strong>Handle according to condition.</strong><p>Fragile material requires care; uncertain repairs belong with trained collection staff.</p></div>
+      <div class="field-guide-item"><strong>Collect responsibly.</strong><p>Scientific value does not excuse unnecessary harm to rare species or vulnerable habitats.</p></div>
+      <div class="field-guide-item"><strong>Share with accountability.</strong><p>Loans, exchanges, and digital access must respect conditions and restrictions.</p></div>
+      <div class="field-guide-item"><strong>Record uncertainty honestly.</strong><p>A provisional identification is better than unsupported certainty.</p></div>
+      <div class="field-guide-item"><strong>Keep collections useful.</strong><p>Material must remain discoverable, interpretable, and accessible for further study.</p></div>
+    </div>
+
+    <h3>Closing Remarks</h3>
+    <p>The oldest specimens in the Grand Library are often the quietest objects in the department. Their leaves are brown, their flowers have lost their colour, and their labels are written in hands no living member of staff can recognise. They do not announce their importance.</p>
+    <p>Yet each records an encounter between a person and a plant. Someone found it, decided it was worth preserving, and made an effort to ensure that another person could examine it later. Sometimes that effort was careful and successful; sometimes the locality was vague, the specimen incomplete, or the name incorrect. Even then, the material may retain information its collector never understood.</p>
+    <p>The task of the herbarium is not to turn every specimen into a perfect record. It is to protect the evidence that survives, document its limits, and make it available for new questions. A collection is not the whole of nature. It is a record of our attempts to study nature, with all the gaps, revisions, and discoveries those attempts involve.</p>
+    <p>When I walk through the Central Herbarium, I do not think of the cabinets as a storehouse of finished knowledge. I think of them as a room full of unfinished conversations. A label disagrees with a later determination. A leaf suggests a relationship not yet investigated. A specimen collected in a vanished marsh raises questions about a landscape that no longer exists.</p>
+    <p>The work of classification begins with observation, but it does not end when a name has been written on a label. It continues whenever someone opens a cabinet, removes a sheet, and looks again.</p>
   </section>
 
   <section id="chapter-10">
@@ -1668,10 +1795,10 @@ group.push(blocks[++i]);
 const clones=group.map(node=>node.cloneNode(true));
 let groupHeight=0;
 clones.forEach(clone=>{measure.appendChild(clone);groupHeight+=clone.getBoundingClientRect().height+12;measure.removeChild(clone);});
-if(chunk.length&&height+groupHeight>520)flush();
+if(chunk.length&&height+groupHeight>460)flush();
 if(block.id)pageTargets[block.id]=pages.length;
 group.forEach(node=>{if(node.id)pageTargets[node.id]=pages.length;chunk.push(node.cloneNode(true));});
-height+=Math.min(groupHeight,520);
+height+=Math.min(groupHeight,460);
 }
 flush();
 if(section.id)pageTargets[section.id]=Math.max(0,pages.length-1);
