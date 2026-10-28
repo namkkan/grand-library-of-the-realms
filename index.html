@@ -7,6 +7,7 @@
   <meta name="theme-color" content="#0b1019">
   <title>The Grand Library of the Realms</title>
   <meta name="description" content="An extraordinary library preserving the knowledge of every realm.">
+
   <style>
     :root {
       --night: #0b1019;
@@ -62,17 +63,55 @@
 
     .nav-links a:hover { color: var(--gold); }
 
+    /* HOMEPAGE WELCOME */
+
     .hero {
-      padding: 80px 7% 85px;
+      position: relative;
+      min-height: 590px;
+      padding: 110px 7% 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      text-align: center;
       background:
-        radial-gradient(ellipse at 50% 20%, #293247 0%, #131b29 42%, #0b1019 82%);
+        radial-gradient(ellipse at 50% 42%, #30394d 0%, #172131 38%, #0b1019 78%);
       border-bottom: 1px solid var(--line);
     }
 
-    .hero-heading {
-      max-width: 900px;
-      margin: 0 auto 42px;
-      text-align: center;
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      width: min(560px, 75vw);
+      height: min(560px, 75vw);
+      border: 1px solid #c3a46b22;
+      transform: translate(-50%, -50%) rotate(45deg);
+      pointer-events: none;
+    }
+
+    .hero::before { top: 50%; }
+
+    .hero::after {
+      width: min(440px, 62vw);
+      height: min(440px, 62vw);
+      border-color: #c3a46b30;
+      transform: translate(-50%, -50%) rotate(22.5deg);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+    }
+
+    .ornament {
+      display: block;
+      margin: 0 auto 25px;
+      color: var(--gold);
+      font-size: 34px;
+      line-height: 1;
     }
 
     .eyebrow {
@@ -84,92 +123,29 @@
     }
 
     h1 {
-      max-width: 850px;
-      margin: 20px auto;
-      font-size: clamp(42px, 7vw, 78px);
+      margin: 24px auto;
+      font-size: clamp(43px, 7vw, 82px);
       font-weight: normal;
       line-height: 1.08;
     }
 
-    .hero-heading p {
-      max-width: 540px;
+    .hero-description {
+      max-width: 530px;
       margin: 0 auto;
       color: #d1c8b8;
-      font-size: 17px;
-    }
-
-    .map-frame {
-      position: relative;
-      max-width: 1120px;
-      margin: auto;
-      padding: 15px;
-      border: 1px solid #746344;
-      background: #111823;
-      box-shadow: 0 25px 75px #0008;
-    }
-
-    .map-inner {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid #4b4638;
-      background:
-        radial-gradient(ellipse at center, #253043 0%, #141d2b 65%, #0d131d 100%);
-    }
-
-    .map-topline {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 8px;
-      padding: 13px 17px;
-      border-bottom: 1px solid #494436;
-      color: var(--gold);
-      font-family: Arial, sans-serif;
-      font-size: 9px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .map-scroll {
-      width: 100%;
-      overflow-x: auto;
-    }
-
-    .atrium-map {
-      display: block;
-      width: 100%;
-      min-width: 520px;
-      height: auto;
-    }
-
-    .map-caption {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      padding: 18px 20px;
-      border-top: 1px solid #494436;
-      background: #101722;
-    }
-
-    .map-caption p {
-      margin: 0;
-      color: #c2b9a8;
-      font-size: 13px;
-    }
-
-    .map-caption strong {
-      display: block;
-      margin-bottom: 3px;
-      color: var(--parchment);
       font-size: 18px;
-      font-weight: normal;
+    }
+
+    .hero-motto {
+      margin: 18px auto 32px;
+      color: var(--muted);
+      font-size: 14px;
+      font-style: italic;
     }
 
     .button {
       display: inline-block;
-      padding: 12px 22px;
+      padding: 13px 24px;
       border: 1px solid var(--gold);
       color: var(--parchment);
       font-family: Arial, sans-serif;
@@ -184,14 +160,16 @@
       color: var(--night);
     }
 
-    .map-note {
-      margin: 14px auto 0;
+    .hero-footnote {
+      margin-top: 27px;
       color: #9296a0;
       font-family: Arial, sans-serif;
-      font-size: 10px;
-      letter-spacing: 1px;
-      text-align: center;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
+
+    /* GENERAL SECTIONS */
 
     .section {
       max-width: 1180px;
@@ -294,13 +272,9 @@
 
       .nav-links { justify-content: center; }
 
-      .hero { padding: 60px 5% 65px; }
-
-      .map-frame { padding: 7px; }
-
-      .map-caption {
-        align-items: flex-start;
-        flex-direction: column;
+      .hero {
+        min-height: 520px;
+        padding: 85px 6%;
       }
 
       .grid { grid-template-columns: 1fr; }
@@ -309,6 +283,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <header class="navigation">
@@ -323,157 +298,43 @@
   </header>
 
   <main>
+
+    <!-- HOMEPAGE: WELCOME ONLY, NO MAP -->
+
     <section class="hero" id="home">
-      <div class="hero-heading">
+      <div class="hero-content">
+        <span class="ornament">✦</span>
         <span class="eyebrow">A sanctuary of knowledge</span>
+
         <h1>The Grand Library<br>of the Realms</h1>
-        <p>All knowledge has a home. Not every secret has a key.</p>
+
+        <p class="hero-description">
+          A city of knowledge where countless worlds meet,
+          forgotten histories endure, and every question
+          may lead to another world.
+        </p>
+
+        <p class="hero-motto">
+          All knowledge has a home. Not every secret has a key.
+        </p>
+
+        <a class="button" href="departments/grand-atrium.html">
+          ENTER THE GRAND ATRIUM ↗
+        </a>
+
+        <p class="hero-footnote">
+          Explore · Discover · Preserve · Understand
+        </p>
       </div>
-
-      <div class="map-frame">
-        <div class="map-inner">
-          <div class="map-topline">
-            <span>Atlas of the Grand Library</span>
-            <span>District I · The Scholar's Quarter</span>
-          </div>
-
-          <div class="map-scroll">
-            <svg class="atrium-map" viewBox="0 0 900 520"
-                 role="img" aria-labelledby="map-title map-description"
-                 xmlns="http://www.w3.org/2000/svg">
-              <title id="map-title">The Grand Atrium — architectural directory</title>
-              <desc id="map-description">A decorative architectural map showing the central atrium, reception, public galleries, reading rooms and routes to the wider library.</desc>
-
-              <defs>
-                <pattern id="paperGrid" width="24" height="24" patternUnits="userSpaceOnUse">
-                  <path d="M24 0H0V24" fill="none" stroke="#c3a46b" stroke-opacity=".08" stroke-width=".6"/>
-                </pattern>
-                <linearGradient id="hallFill" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#29364a"/>
-                  <stop offset="1" stop-color="#141e2c"/>
-                </linearGradient>
-              </defs>
-
-              <rect width="900" height="520" fill="url(#paperGrid)"/>
-              <rect x="24" y="24" width="852" height="472" fill="none" stroke="#c3a46b" stroke-opacity=".45"/>
-              <rect x="33" y="33" width="834" height="454" fill="none" stroke="#c3a46b" stroke-opacity=".18"/>
-
-              <!-- Compass -->
-              <g transform="translate(825 80)" text-anchor="middle" font-family="Georgia,serif">
-                <circle r="27" fill="none" stroke="#c3a46b" stroke-opacity=".65"/>
-                <path d="M0 -20L6 0L0 20L-6 0Z" fill="#c3a46b" fill-opacity=".8"/>
-                <path d="M-20 0H20M0 -27V27" stroke="#c3a46b" stroke-opacity=".5"/>
-                <text x="0" y="-36" fill="#e9ddc4" font-size="10">N</text>
-              </g>
-
-              <!-- Connecting galleries -->
-              <g fill="none" stroke="#c3a46b" stroke-width="2" stroke-opacity=".7">
-                <path d="M450 176V115H280V91"/>
-                <path d="M450 344V403H275V430"/>
-                <path d="M565 260H675V176H730"/>
-                <path d="M335 260H230V176H165"/>
-              </g>
-              <g fill="#c3a46b">
-                <circle cx="450" cy="115" r="4"/>
-                <circle cx="275" cy="403" r="4"/>
-                <circle cx="675" cy="260" r="4"/>
-                <circle cx="230" cy="260" r="4"/>
-              </g>
-
-              <!-- North gallery -->
-              <g>
-                <rect x="365" y="55" width="170" height="70" rx="2" fill="url(#hallFill)" stroke="#c3a46b" stroke-width="1.5"/>
-                <path d="M380 68H520V112H380Z" fill="none" stroke="#c3a46b" stroke-opacity=".4"/>
-                <text x="450" y="84" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="1.5">NORTH GALLERY</text>
-                <text x="450" y="101" fill="#e9ddc4" font-size="13" text-anchor="middle">To the Great Halls</text>
-              </g>
-
-              <!-- West reading rooms -->
-              <g>
-                <rect x="55" y="120" width="175" height="112" fill="url(#hallFill)" stroke="#c3a46b" stroke-width="1.5"/>
-                <path d="M67 132H218V220H67Z" fill="none" stroke="#c3a46b" stroke-opacity=".4"/>
-                <text x="142" y="158" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="1">PUBLIC READING</text>
-                <text x="142" y="176" fill="#e9ddc4" font-size="14" text-anchor="middle">Reading Rooms</text>
-                <text x="142" y="196" fill="#a5a9b3" font-size="10" text-anchor="middle">Quiet study · Open access</text>
-              </g>
-
-              <!-- East orientation -->
-              <g>
-                <rect x="670" y="120" width="175" height="112" fill="url(#hallFill)" stroke="#c3a46b" stroke-width="1.5"/>
-                <path d="M682 132H833V220H682Z" fill="none" stroke="#c3a46b" stroke-opacity=".4"/>
-                <text x="757" y="158" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="1">ORIENTATION</text>
-                <text x="757" y="176" fill="#e9ddc4" font-size="14" text-anchor="middle">Living Directory</text>
-                <text x="757" y="196" fill="#a5a9b3" font-size="10" text-anchor="middle">Maps · Information</text>
-              </g>
-
-              <!-- Main atrium -->
-              <g>
-                <rect x="335" y="176" width="230" height="168" fill="url(#hallFill)" stroke="#c3a46b" stroke-width="2.5"/>
-                <rect x="347" y="188" width="206" height="144" fill="none" stroke="#c3a46b" stroke-opacity=".55" stroke-width="1"/>
-                <rect x="361" y="202" width="178" height="116" fill="none" stroke="#c3a46b" stroke-opacity=".3" stroke-dasharray="4 5"/>
-                <circle cx="450" cy="258" r="46" fill="none" stroke="#c3a46b" stroke-opacity=".75" stroke-width="1.5"/>
-                <circle cx="450" cy="258" r="34" fill="none" stroke="#c3a46b" stroke-opacity=".4"/>
-                <path d="M450 218L460 258L450 298L440 258Z" fill="#c3a46b" fill-opacity=".65"/>
-                <path d="M410 258H490M450 218V298" stroke="#c3a46b" stroke-opacity=".65"/>
-                <text x="450" y="237" fill="#e9ddc4" font-size="10" text-anchor="middle" letter-spacing="1.5">THE</text>
-                <text x="450" y="315" fill="#c3a46b" font-size="12" text-anchor="middle" letter-spacing="2">GRAND ATRIUM</text>
-              </g>
-
-              <!-- South plaza -->
-              <g>
-                <rect x="365" y="403" width="170" height="70" fill="url(#hallFill)" stroke="#c3a46b" stroke-width="1.5"/>
-                <path d="M380 416H520V460H380Z" fill="none" stroke="#c3a46b" stroke-opacity=".4"/>
-                <text x="450" y="433" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="1">SOUTH PLAZA</text>
-                <text x="450" y="451" fill="#e9ddc4" font-size="13" text-anchor="middle">Public Gathering</text>
-              </g>
-
-              <!-- Reception -->
-              <g>
-                <rect x="55" y="302" width="175" height="112" fill="url(#hallFill)" stroke="#c3a46b" stroke-width="1.5"/>
-                <path d="M67 314H218V402H67Z" fill="none" stroke="#c3a46b" stroke-opacity=".4"/>
-                <text x="142" y="340" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="1">WELCOME</text>
-                <text x="142" y="359" fill="#e9ddc4" font-size="14" text-anchor="middle">Reception</text>
-                <text x="142" y="379" fill="#a5a9b3" font-size="10" text-anchor="middle">Visitor services</text>
-              </g>
-
-              <!-- Other districts -->
-              <g>
-                <rect x="670" y="302" width="175" height="112" fill="url(#hallFill)" stroke="#c3a46b" stroke-width="1.5"/>
-                <path d="M682 314H833V402H682Z" fill="none" stroke="#c3a46b" stroke-opacity=".4"/>
-                <text x="757" y="340" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="1">BEYOND THE ATRIUM</text>
-                <text x="757" y="359" fill="#e9ddc4" font-size="14" text-anchor="middle">Other Districts</text>
-                <text x="757" y="379" fill="#a5a9b3" font-size="10" text-anchor="middle">Galleries · Bridges</text>
-              </g>
-
-              <!-- Side connections -->
-              <path d="M230 358H294V344H335" fill="none" stroke="#c3a46b" stroke-width="2" stroke-opacity=".7"/>
-              <path d="M565 344H615V358H670" fill="none" stroke="#c3a46b" stroke-width="2" stroke-opacity=".7"/>
-              <circle cx="294" cy="358" r="4" fill="#c3a46b"/>
-              <circle cx="615" cy="358" r="4" fill="#c3a46b"/>
-
-              <text x="55" y="462" fill="#a5a9b3" font-size="9" letter-spacing="1.5">SCHEMATIC DIRECTORY · NOT TO SCALE</text>
-              <text x="845" y="462" fill="#a5a9b3" font-size="9" text-anchor="end" letter-spacing="1.5">DISTRICT I</text>
-            </svg>
-          </div>
-
-          <div class="map-caption">
-            <p>
-              <strong>The Grand Atrium</strong>
-              A crossroads of knowledge, history and countless worlds.
-            </p>
-            <a class="button" href="departments/grand-atrium.html">OPEN THE ATRIUM DIRECTORY ↗</a>
-          </div>
-        </div>
-      </div>
-
-      <p class="map-note">CROSS THE THRESHOLD · CONSULT THE DIRECTORY · FOLLOW YOUR CURIOSITY</p>
     </section>
 
     <section class="section" id="departments">
       <div class="section-heading">
         <span class="eyebrow">A guide to the halls</span>
         <h2>Where will your curiosity lead?</h2>
-        <p class="intro">Seven paths into an institution that holds the knowledge of countless realms.</p>
+        <p class="intro">
+          Seven paths into an institution that holds the knowledge of countless realms.
+        </p>
       </div>
 
       <div class="grid">
@@ -537,8 +398,11 @@
       <div class="section-heading">
         <span class="eyebrow">Beyond the written word</span>
         <h2>Peoples of the Realms</h2>
-        <p class="intro">Many voices, countless traditions, and entire worlds waiting to be understood.</p>
+        <p class="intro">
+          Many voices, countless traditions, and entire worlds waiting to be understood.
+        </p>
       </div>
+
       <div class="grid">
         <a class="card" href="peoples/kenku.html">
           <span class="symbol">✧</span>
@@ -546,12 +410,14 @@
           <p>Keepers of curiosities, collectors of knowledge and echoes of countless voices.</p>
           <span class="discover">Open field notes ↗</span>
         </a>
+
         <a class="card" href="peoples/sirens.html">
           <span class="symbol">≈</span>
           <h3>The Sirens</h3>
           <p>Many marine cultures, shaped by the depths, currents and shores of their worlds.</p>
           <span class="discover">Open field notes ↗</span>
         </a>
+
         <a class="card" href="peoples/fairies.html">
           <span class="symbol">❋</span>
           <h3>The Fair Folk</h3>
@@ -565,7 +431,9 @@
       <div class="section-heading">
         <span class="eyebrow">Fragments of memory</span>
         <h2>The National Archives</h2>
-        <p class="intro">Manuscripts, chronicles, maps and records preserved across the ages.</p>
+        <p class="intro">
+          Manuscripts, chronicles, maps and records preserved across the ages.
+        </p>
       </div>
     </section>
 
@@ -573,7 +441,9 @@
       <div class="section-heading">
         <span class="eyebrow">Above and beyond</span>
         <h2>Celestial Studies</h2>
-        <p class="intro">Explore the heavens through star charts, celestial records and astronomical discoveries.</p>
+        <p class="intro">
+          Explore the heavens through star charts, celestial records and astronomical discoveries.
+        </p>
       </div>
     </section>
 
@@ -581,7 +451,9 @@
       <div class="section-heading">
         <span class="eyebrow">Observe. Question. Understand.</span>
         <h2>Natural Philosophy</h2>
-        <p class="intro">The study of living things, matter, medicine and the wonders of the natural world.</p>
+        <p class="intro">
+          The study of living things, matter, medicine and the wonders of the natural world.
+        </p>
       </div>
     </section>
 
@@ -589,7 +461,9 @@
       <div class="section-heading">
         <span class="eyebrow">Knowledge carries responsibility</span>
         <h2>Arcane Arts & Alchemy</h2>
-        <p class="intro">A place for magical theory, alchemical research and the careful study of enchanted objects.</p>
+        <p class="intro">
+          A place for magical theory, alchemical research and the careful study of enchanted objects.
+        </p>
       </div>
     </section>
 
@@ -597,9 +471,12 @@
       <div class="section-heading">
         <span class="eyebrow">Access by permission only</span>
         <h2>Restricted Collections</h2>
-        <p class="intro">Some knowledge must be approached with care. The doors remain closed until their secrets can be safely studied.</p>
+        <p class="intro">
+          Some knowledge must be approached with care. The doors remain closed until their secrets can be safely studied.
+        </p>
       </div>
     </section>
+
   </main>
 
   <footer>
