@@ -764,7 +764,7 @@ main > section.chapter-text > p:nth-of-type(2)::first-letter {
   <p>At the Grand Library, the oldest surviving botanical cabinet contains plants gathered during the reign of Queen Maereth III. Several specimens remain identifiable, although their labels refer to administrative boundaries that no longer exist. Others bear names that cannot be matched with any modern description. One packet contains nothing but a fragment of stem and a handwritten note reading:</p>
 
   <blockquote>
-    <p>Found growing from the roof of the western tower. Not planted by us.</p>
+    <p><em>Found growing from the roof of the western tower. Not planted by us.</em></p>
   </blockquote>
 
   <p>The tower itself was demolished two centuries ago.</p>
@@ -1402,6 +1402,13 @@ let chunk=[],height=0;
 const flush=()=>{if(chunk.length){addPage(chunk,false,section.querySelector('h2')?.textContent||'');chunk=[];height=0;}};
 for(let i=0;i<blocks.length;i++){
 let block=blocks[i];
+// An illustration plate occupies its own full page, leaving room for the user's finished artwork.
+if(block.matches('figure.botanical-plate')){
+flush();
+addPage([block.cloneNode(true)],false,section.querySelector('h2')?.textContent||'');
+if(block.id)pageTargets[block.id]=pages.length-1;
+continue;
+}
 let group=[block];
 // Keep subsection headings with the first paragraph that follows, so a heading never sits alone at the foot of a page.
 if(/^H[2-4]$/.test(block.tagName)&&blocks[i+1]&&blocks[i+1].tagName==='P'){
