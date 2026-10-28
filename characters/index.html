@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Discover the characters, scholars, travellers and mysterious inhabitants connected to the Grand Library of the Realms.">
+<title>Character Archive | Grand Library of the Realms</title>
+
+<style>
+:root {
+  --night: #0b1019;
+  --panel: #121b29;
+  --panel-light: #192638;
+  --gold: #c3a46b;
+  --gold-dim: #786747;
+  --parchment: #e9ddc4;
+  --muted: #a5a9b3;
+  --blue: #5686c5;
+  --line: rgba(195,164,107,.3);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 80% 0%, #182b46 0%, transparent 42%),
+    var(--night);
+  color: var(--parchment);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.7;
+}
+
+a { color: var(--gold); }
+
+a:hover { color: #f0d9a6; }
+
+header {
+  padding: 16px 7%;
+  border-bottom: 1px solid var(--line);
+  background: rgba(7,11,18,.85);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  text-decoration: none;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 11px;
+}
+
+nav {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--parchment);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 11px;
+}
+
+.hero {
+  padding: 85px 8% 65px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(120deg, rgba(18,27,41,.6), transparent);
+}
+
+.eyebrow {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 11px;
+}
+
+h1 {
+  font-size: clamp(42px, 7vw, 76px);
+  font-weight: normal;
+  line-height: 1.1;
+  margin: 18px 0;
+}
+
+.hero p {
+  max-width: 650px;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+main {
+  max-width: 1150px;
+  margin: auto;
+  padding: 55px 7%;
+}
+
+.intro {
+  max-width: 750px;
+  margin-bottom: 45px;
+}
+
+.section-title {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 15px;
+  margin-bottom: 28px;
+}
+
+.section-title h2 {
+  font-weight: normal;
+  font-size: 29px;
+  margin: 0;
+}
+
+.section-title p {
+  color: var(--muted);
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.character-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  padding: 28px;
+  text-decoration: none;
+  color: var(--parchment);
+  background:
+    linear-gradient(145deg, rgba(86,134,197,.08), transparent 65%),
+    var(--panel);
+  border: 1px solid var(--line);
+  transition: transform .2s, border-color .2s, background .2s;
+}
+
+.character-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--blue);
+  background-color: var(--panel-light);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 10px;
+}
+
+.card-symbol {
+  font-size: 35px;
+  color: var(--blue);
+  margin-top: 22px;
+}
+
+.character-card h3 {
+  font-size: 30px;
+  font-weight: normal;
+  margin: 5px 0;
+  color: var(--parchment);
+}
+
+.role {
+  font-size: 13px;
+  color: var(--gold);
+  font-style: italic;
+}
+
+.character-card p {
+  color: #b9bdc7;
+  font-size: 14px;
+  flex-grow: 1;
+}
+
+.card-link {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-top: 15px;
+}
+
+.empty-card {
+  min-height: 250px;
+  padding: 28px;
+  border: 1px dashed var(--gold-dim);
+  background: rgba(18,27,41,.35);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.empty-card .symbol {
+  color: var(--gold-dim);
+  font-size: 32px;
+}
+
+.empty-card h3 {
+  font-size: 20px;
+  font-weight: normal;
+  color: var(--gold);
+  margin-bottom: 5px;
+}
+
+.empty-card p {
+  color: var(--muted);
+  font-size: 13px;
+  max-width: 240px;
+}
+
+.note {
+  margin-top: 45px;
+  padding: 24px;
+  border-left: 2px solid var(--gold);
+  background: rgba(195,164,107,.06);
+}
+
+.note h3 {
+  margin-top: 0;
+  color: var(--gold);
+  font-weight: normal;
+}
+
+.note p {
+  color: var(--muted);
+  margin-bottom: 0;
+}
+
+.back {
+  display: inline-block;
+  margin-top: 35px;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+footer {
+  padding: 28px 7%;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+@media (max-width: 650px) {
+  .archive-grid { grid-template-columns: 1fr; }
+  .hero { padding-top: 60px; }
+  nav { gap: 13px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="brand" href="../index.html">✧ Grand Library of the Realms</a>
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../departments/grand-atrium.html">Departments</a>
+    <a href="../peoples/kenku.html">Peoples & Cultures</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">Central Catalogue · Personal Records</div>
+  <h1>Character Archive</h1>
+  <p>
+    A growing register of the individuals who inhabit, visit and
+    shape the world surrounding the Grand Library of the Realms.
+    Scholars, wanderers, alchemists and others whose stories deserve
+    a place in the archive.
+  </p>
+</section>
+
+<main>
+
+  <div class="intro">
+    <div class="section-title">
+      <h2>Registered Individuals</h2>
+      <p>Personal records · Biographies · Known affiliations</p>
+    </div>
+
+    <p>
+      Every individual has a story beyond the information preserved
+      in these records. Some are well documented; others remain
+      a collection of fragments, observations and unanswered questions.
+    </p>
+  </div>
+
+  <section>
+    <div class="section-title">
+      <h2>Available Records</h2>
+      <p>Open an individual file to explore their known history.</p>
+    </div>
+
+    <div class="archive-grid">
+
+      <a class="character-card" href="sapphiron.html">
+        <div class="card-top">
+          <span>Record No. 001</span>
+          <span>Available</span>
+        </div>
+
+        <div class="card-symbol">✧</div>
+
+        <h3>Sapphiron</h3>
+
+        <div class="role">Kenku · Wizard · Independent Alchemist</div>
+
+        <p>
+          A solitary scholar with a passion for alchemy, transmutation
+          and the pursuit of knowledge. Registered as a reader of the
+          Grand Library, he occasionally contributes the findings
+          of his independent research.
+        </p>
+
+        <div class="card-link">Open personal record →</div>
+      </a>
+
+      <div class="empty-card">
+        <div class="symbol">✧</div>
+        <h3>Record Uncatalogued</h3>
+        <p>
+          A new individual may one day be entered into the register.
+          Their story has yet to be recorded.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="note">
+    <h3>A Note on the Archive</h3>
+    <p>
+      These records reflect the information currently known to the
+      Library. Missing details do not necessarily indicate an absence
+      of history. Some things have simply not yet been discovered.
+    </p>
+  </div>
+
+  <a class="back" href="../index.html">← Return to the Grand Library</a>
+
+</main>
+
+<footer>
+  The Grand Library of the Realms · Central Character Catalogue
+  <br>
+  Every story begins somewhere.
+</footer>
+
+</body>
+</html>
