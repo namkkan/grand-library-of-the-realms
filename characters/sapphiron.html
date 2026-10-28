@@ -34,7 +34,6 @@ body {
 }
 
 a { color: var(--gold); }
-
 a:hover { color: #f0d9a6; }
 
 .topbar {
@@ -69,28 +68,50 @@ a:hover { color: #f0d9a6; }
   text-decoration: none;
 }
 
+/* CABECERA Y RETRATO */
+
 .hero {
-  padding: 90px 8% 75px;
+  padding: 75px 8%;
   border-bottom: 1px solid var(--line);
   position: relative;
   overflow: hidden;
 }
 
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.hero-text {
+  flex: 1 1 0;
+  min-width: 0;
+  text-align: left;
+}
+
 .sapphiron-portrait {
   display: block;
-  width: 220px;
-  max-width: 80%;
+  width: auto;
   height: auto;
-  margin: 24px 40px 24px auto;
-  border: 2px solid #c3a46b;
+  max-width: 35%;
+  max-height: 340px;
+  object-fit: contain;
+  flex: 0 1 auto;
+  margin: 0;
+  border: 2px solid var(--gold);
   border-radius: 12px;
-  box-shadow: 0 0 25px rgba(80, 130, 200, 0.25);
+  box-shadow: 0 0 25px rgba(80,130,200,.25);
 }
 
 .hero::after {
   content: "✧";
   position: absolute;
-  right: 10%;
+  right: 8%;
   top: 12%;
   color: rgba(86,134,197,.18);
   font-size: 220px;
@@ -290,12 +311,70 @@ footer {
   letter-spacing: .5px;
 }
 
+/* ADAPTACIÓN A MÓVILES */
+
 @media (max-width: 760px) {
-  .layout { grid-template-columns: 1fr; gap: 28px; }
-  .sidebar { position: static; }
-  .facts { grid-template-columns: 1fr; }
-  .hero { padding-top: 65px; }
-  .hero::after { right: -20px; top: 15%; font-size: 150px; }
+  .hero {
+    padding: 55px 7%;
+  }
+
+  .hero-content {
+    gap: 22px;
+    align-items: center;
+  }
+
+  .sapphiron-portrait {
+    max-width: 38%;
+    max-height: 260px;
+  }
+
+  h1 {
+    font-size: clamp(38px, 9vw, 58px);
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .hero-note {
+    margin-top: 22px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .sidebar {
+    position: static;
+  }
+
+  .facts {
+    grid-template-columns: 1fr;
+  }
+
+  .hero::after {
+    right: -20px;
+    top: 15%;
+    font-size: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .sapphiron-portrait {
+    max-width: 70%;
+    max-height: 300px;
+    align-self: center;
+  }
+
+  .hero-text {
+    width: 100%;
+  }
 }
 </style>
 </head>
@@ -306,28 +385,34 @@ footer {
   <a class="brand" href="../index.html">✧ Grand Library of the Realms</a>
   <nav>
     <a href="../index.html">Home</a>
-    <a href="../grand-atrium.html">Grand Atrium</a>
+    <a href="../departments/grand-atrium.html">Grand Atrium</a>
     <a href="../peoples/kenku.html">Kenku Archive</a>
   </nav>
 </header>
 
 <header class="hero">
-  <div class="eyebrow">Individual Record · Reader Registry</div>
-  <h1>Sapphiron</h1>
-  
-<img
-  src="sapphiron.png"
-  alt="Portrait of Sapphiron, an ancient kenku alchemist"
-  class="sapphiron-portrait"
->
+  <div class="hero-content">
 
-  <div class="subtitle">Independent Alchemist · Registered Reader · Seeker of Knowledge</div>
+    <div class="hero-text">
+      <div class="eyebrow">Individual Record · Reader Registry</div>
+      <h1>Sapphiron</h1>
 
-  <div class="hero-note">
-    Some mysteries survive longer than the people who carry them.
+      <div class="subtitle">Independent Alchemist · Registered Reader · Seeker of Knowledge</div>
+
+      <div class="hero-note">
+        Some mysteries survive longer than the people who carry them.
+      </div>
+
+      <div class="status">Registered Reader · External Collaborator</div>
+    </div>
+
+    <img
+      src="sapphiron.png"
+      alt="Portrait of Sapphiron, an ancient kenku alchemist"
+      class="sapphiron-portrait"
+    >
+
   </div>
-
-  <div class="status">Registered Reader · External Collaborator</div>
 </header>
 
 <div class="layout">
@@ -577,7 +662,7 @@ footer {
         </p>
       </a>
 
-      <a class="back-link" href="../../index.html">
+      <a class="back-link" href="../index.html">
         ← Return to the Grand Library
       </a>
     </section>
