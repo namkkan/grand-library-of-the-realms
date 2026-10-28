@@ -213,7 +213,6 @@
       border-color: var(--gold);
     }
 
-    /* Smaller symbols for a page with many sections */
     .symbol {
       display: block;
       color: var(--gold);
@@ -242,57 +241,6 @@
       font-size: 10px;
       letter-spacing: 1px;
       text-transform: uppercase;
-    }
-
-    /* Natural Sciences departments */
-    .department-intro {
-      max-width: 760px;
-      margin: 0 auto 35px;
-      color: var(--muted);
-      text-align: center;
-    }
-
-    .department-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .department-card {
-      min-height: 0;
-      padding: 23px;
-    }
-
-    .department-number {
-      display: block;
-      margin-bottom: 7px;
-      color: var(--gold);
-      font-family: Arial, sans-serif;
-      font-size: 10px;
-      letter-spacing: 2px;
-    }
-
-    .department-card h3 {
-      margin-top: 4px;
-      font-size: 21px;
-    }
-
-    .department-card .translation {
-      margin-top: -3px;
-      color: var(--gold);
-      font-style: italic;
-      font-size: 13px;
-    }
-
-    .department-card .facilities {
-      padding-top: 12px;
-      border-top: 1px solid var(--line);
-      font-size: 12px;
-    }
-
-    .department-card .facilities strong {
-      color: var(--parchment);
-      font-weight: normal;
     }
 
     .quote {
@@ -332,8 +280,7 @@
         padding: 85px 6%;
       }
 
-      .grid,
-      .department-grid {
+      .grid {
         grid-template-columns: 1fr;
       }
 
@@ -394,8 +341,8 @@
         <h2>The Library Districts</h2>
         <p class="intro">
           A vast institution of knowledge, memory and discovery.
-          Each path leads to a different field of study, a different
-          collection, or a different corner of the realms.
+          Each district leads to a different field of study,
+          a different collection, or a different corner of the realms.
         </p>
       </div>
 
@@ -408,11 +355,11 @@
           <span class="discover">Explore this field ↗</span>
         </a>
 
-        <a class="card" href="#sciences">
+        <a class="card" href="departments/natural-sciences/index.html">
           <span class="symbol">❧</span>
-          <h3>Natural Philosophy</h3>
-          <p>Plants, animals, minerals, ecosystems and the wonders of the natural world.</p>
-          <span class="discover">Explore this field ↗</span>
+          <h3>Natural Sciences</h3>
+          <p>Plants, animals, minerals and the many wonders of the natural world.</p>
+          <span class="discover">Enter the district ↗</span>
         </a>
 
         <a class="card" href="#archives">
@@ -519,7 +466,7 @@
       </div>
     </section>
 
-    <!-- NATURAL PHILOSOPHY: EIGHT DEPARTMENTS -->
+    <!-- NATURAL PHILOSOPHY -->
 
     <section class="section" id="sciences">
       <div class="section-heading">
@@ -531,134 +478,9 @@
           reveal the extraordinary diversity of nature, including species
           and environments unknown to ordinary science.
         </p>
-      </div>
-
-      <p class="department-intro">
-        Eight departments investigate the natural world, from the smallest
-        living organisms to the forces that shape entire planets.
-      </p>
-
-      <div class="department-grid">
-
-        <article class="card department-card">
-          <span class="department-number">DEPARTMENT 01</span>
-          <h3>Department of Botany</h3>
-          <p class="translation">Botánica</p>
-          <p>
-            Studies plants, trees, algae, fungi and other forms of plant
-            life. Research includes medicinal species, magical flora,
-            plant ecosystems and vegetation from unknown worlds.
-          </p>
-          <p class="facilities">
-            <strong>Facilities:</strong> Greenhouses, experimental gardens,
-            herbarium and seed bank.
-          </p>
-        </article>
-
-        <article class="card department-card">
-          <span class="department-number">DEPARTMENT 02</span>
-          <h3>Department of Zoology</h3>
-          <p class="translation">Zoología</p>
-          <p>
-            Investigates animals, fantastical creatures and their behaviour.
-            Documents anatomy, reproduction, migration, feeding and
-            relationships between species.
-          </p>
-          <p class="facilities">
-            <strong>Facilities:</strong> Zoological archive, anatomy rooms,
-            wildlife observatories and temporary care centres.
-          </p>
-        </article>
-
-        <article class="card department-card">
-          <span class="department-number">DEPARTMENT 03</span>
-          <h3>Department of Geology and Mineralogy</h3>
-          <p class="translation">Geología y mineralogía</p>
-          <p>
-            Studies the composition, structure and history of planets,
-            mountains, caves and minerals. Extraordinary crystals are
-            catalogued and examined under safe conditions.
-          </p>
-          <p class="facilities">
-            <strong>Facilities:</strong> Mineral collection, analysis
-            laboratory, fossil archive and specimen chambers.
-          </p>
-        </article>
-
-        <article class="card department-card">
-          <span class="department-number">DEPARTMENT 04</span>
-          <h3>Department of Aquatic and Marine Sciences</h3>
-          <p class="translation">Ciencias acuáticas y marinas</p>
-          <p>
-            Studies oceans, rivers, lakes, currents, underwater ecosystems
-            and aquatic species. Works alongside marine communities and
-            researchers exploring the depths.
-          </p>
-          <p class="facilities">
-            <strong>Facilities:</strong> Research aquariums, underwater
-            observatory, sample laboratory and habitats adapted to aquatic life.
-          </p>
-        </article>
-
-        <article class="card department-card">
-          <span class="department-number">DEPARTMENT 05</span>
-          <h3>Department of Astronomy and Cosmology</h3>
-          <p class="translation">Astronomía y cosmología</p>
-          <p>
-            Investigates stars, moons, planets, solar systems and the
-            structure of the universe. Compares astronomical phenomena
-            across worlds and records extraordinary celestial events.
-          </p>
-          <p class="facilities">
-            <strong>Facilities:</strong> Observatories, planetarium,
-            star-chart archive and calculation rooms.
-          </p>
-        </article>
-
-        <article class="card department-card">
-          <span class="department-number">DEPARTMENT 06</span>
-          <h3>Department of Ecology and Environmental Studies</h3>
-          <p class="translation">Ecología y ciencias ambientales</p>
-          <p>
-            Studies ecosystems, food webs, biodiversity, climates and
-            the effects of different civilisations on their environments.
-          </p>
-          <p class="facilities">
-            <strong>Facilities:</strong> Experimental biomes, observation
-            stations and environmental change archive.
-          </p>
-        </article>
-
-        <article class="card department-card">
-          <span class="department-number">DEPARTMENT 07</span>
-          <h3>Department of Anatomy and Life Sciences</h3>
-          <p class="translation">Anatomía y ciencias de la vida</p>
-          <p>
-            Documents the biological and anatomical diversity of living
-            beings. Investigates tissues, organs, life cycles and adaptations
-            while respecting the autonomy and rights of conscious beings.
-          </p>
-          <p class="facilities">
-            <strong>Facilities:</strong> Laboratories, anatomical collections,
-            microscopy rooms and comparative archives.
-          </p>
-        </article>
-
-        <article class="card department-card">
-          <span class="department-number">DEPARTMENT 08</span>
-          <h3>Department of Meteorology and Natural Phenomena</h3>
-          <p class="translation">Meteorología y fenómenos naturales</p>
-          <p>
-            Records climates, storms, winds, earthquakes and unusual
-            natural phenomena. Compares environmental conditions across
-            different realms and worlds.
-          </p>
-          <p class="facilities">
-            <strong>Facilities:</strong> Weather station, atmospheric
-            simulation chambers and extreme phenomena archive.
-          </p>
-        </article>
-
+        <a class="button" href="departments/natural-sciences/index.html">
+          DISCOVER NATURAL SCIENCES ↗
+        </a>
       </div>
     </section>
 
