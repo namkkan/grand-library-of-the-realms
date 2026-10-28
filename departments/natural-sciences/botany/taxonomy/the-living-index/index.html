@@ -5,14 +5,113 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Living Index | The Grand Library of the Realms</title>
+  
+/* ===== PARCHMENT PAPER EFFECT ===== */
+
+main > section {
+  position: relative;
+  max-width: 790px;
+  margin: 55px auto;
+  padding: clamp(28px, 5vw, 64px);
+  color: var(--ink);
+
+  background:
+    radial-gradient(ellipse at 12% 8%, rgba(255,255,255,.48), transparent 38%),
+    radial-gradient(ellipse at 90% 88%, rgba(151,105,51,.12), transparent 42%),
+    repeating-linear-gradient(0deg, rgba(112,79,43,.025) 0px, rgba(112,79,43,.025) 1px, transparent 1px, transparent 4px),
+    linear-gradient(105deg, var(--paper-dark), var(--paper-light) 22%, #f4e9d1 70%, #e8d7b6);
+
+  border: 1px solid #b9a078;
+  box-shadow: 0 12px 30px rgba(0,0,0,.25), inset 0 0 35px rgba(122,83,39,.10);
+}
+
+main > section h2 {
+  color: #554326;
+  border-bottom: 1px solid rgba(112,79,43,.4);
+}
+
+main > section h3 {
+  color: #65502e;
+}
+
+main > section p {
+  color: var(--ink);
+}
+
+main > section .volume-note,
+main > section .description {
+  color: var(--ink-soft);
+}
+
+main > section .author-signature {
+  color: #72532c;
+}
+
+main > section .contents {
+  background: rgba(164,128,75,.10);
+  border: 1px solid rgba(112,79,43,.35);
+}
+
+main > section .contents a {
+  color: #443521;
+}
+
+main > section .contents a:hover,
+main > section .contents a:focus {
+  color: #8b642e;
+}
+
+main > section .detail {
+  background: rgba(164,128,75,.10);
+  border: 1px solid rgba(112,79,43,.25);
+  color: var(--ink);
+}
+
+main > section .detail-label {
+  color: #76572e;
+}
+
+main > section .detail-value {
+  color: var(--ink);
+}
+
+main > section a {
+  color: #795a2e;
+}
+
+main > section.chapter-text > p:nth-of-type(2)::first-letter {
+  float: left;
+  font-size: 3.4em;
+  line-height: .85;
+  padding: 5px 8px 0 0;
+  color: #80602f;
+}
+
+@media (max-width: 560px) {
+  main > section {
+    padding: 26px 21px;
+    margin: 32px auto;
+  }
+
+  main > section.chapter-text > p:nth-of-type(2)::first-letter {
+    font-size: 2.8em;
+  }
+}
+
 <style>
 :root {
+  :root {
   --navy: #101c2c;
   --navy-light: #192b40;
   --gold: #c8a96b;
-  --cream: #f0e6d2;
+  --cream: #f1e5c9;
+  --paper-light: #f8efd9;
+  --paper-dark: #dfcba5;
+  --ink: #352b20;
+  --ink-soft: #65533e;
   --muted: #b9b5aa;
   --border: rgba(200,169,107,.38);
+}
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 24px; }
