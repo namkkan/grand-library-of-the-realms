@@ -308,6 +308,20 @@ main > section.chapter-text > p:nth-of-type(2)::first-letter {
 #about, #about h2, #about p.description { color: #302719; }
 #bibliographic-record .detail-label { font-weight: 700; }
 #bibliographic-record .detail-value, #about p.description { opacity: 1; }
+
+/* Ensure all bibliographic metadata stays readable on parchment */
+#bibliographic-record .details,
+#bibliographic-record .detail,
+#bibliographic-record .detail-label,
+#bibliographic-record .detail-value,
+#bibliographic-record .detail-label *,
+#bibliographic-record .detail-value * {
+  color: #302719 !important;
+  -webkit-text-fill-color: #302719 !important;
+  opacity: 1 !important;
+}
+#bibliographic-record .detail-label { font-weight: 700; }
+
 @media (max-width: 700px) { .front-matter-grid { grid-template-columns: 1fr; gap: 28px; margin: 32px auto; } }
 
 </style>
