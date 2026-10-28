@@ -1402,7 +1402,7 @@ function addPage(nodes,blank,title){pages.push({nodes,blank,title});}
 sources.forEach(section=>{
 const blocks=Array.from(section.children).filter(el=>!el.classList.contains('back-to-top'));
 if(!blocks.length)return;
-if(pages.length%2===1)addPage([],true,'');
+if(pages.length%2===0)addPage([],true,'');
 let chunk=[],height=0;
 blocks.forEach(block=>{
 const clone=block.cloneNode(true);measure.appendChild(clone);
@@ -1411,7 +1411,7 @@ if(chunk.length&&height+h>650){addPage(chunk,false,section.querySelector('h2')?.
 chunk.push(block.cloneNode(true));height+=Math.min(h,650);
 });
 if(chunk.length)addPage(chunk,false,section.querySelector('h2')?.textContent||'');
-if(pages.length%2===1)addPage([],true,'');
+if(pages.length%2===0)addPage([],true,'');
 });
 if(pages.length&&pages[pages.length-1].blank)pages.pop();
 reader.style.display='block';
