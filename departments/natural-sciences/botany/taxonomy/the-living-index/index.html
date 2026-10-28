@@ -116,10 +116,14 @@ h1 {
 .book-page{min-width:0;height:760px;padding:clamp(24px,3vw,52px);color:var(--ink);background:linear-gradient(100deg,#e4d2b0,#f8efd9 15%,#f5e9d0 82%,#e3d0ac);border:1px solid #b9a078;box-shadow:0 12px 30px rgba(0,0,0,.28),inset 0 0 30px rgba(122,83,39,.08);overflow:hidden;position:relative}
 .book-page.left{border-right:0;box-shadow:inset -18px 0 22px -24px #49341e,0 12px 30px rgba(0,0,0,.28)}
 .book-page.right{border-left:0;box-shadow:inset 18px 0 22px -24px #49341e,0 12px 30px rgba(0,0,0,.28)}
-.book-page-content{height:100%;overflow:hidden}
-.book-page h2{color:#554326;border-bottom-color:rgba(112,79,43,.4);font-size:1.5rem}
-.book-page h3{color:#65502e;font-size:1.08rem;margin-top:20px}
-.book-page p{color:var(--ink);text-align:justify;line-height:1.62;margin-bottom:12px}
+.book-page-content{height:100%;overflow:hidden;font-size:.94rem;line-height:1.48}
+.book-page h2{color:#554326;border-bottom-color:rgba(112,79,43,.4);font-size:1.35rem;line-height:1.25;margin-top:0;margin-bottom:12px}
+.book-page h3{color:#65502e;font-size:1rem;line-height:1.3;margin-top:14px;margin-bottom:8px}
+.book-page p{color:var(--ink);text-align:justify;line-height:1.48;margin-bottom:9px}
+.book-page ul,.book-page ol{padding-left:1.25rem;margin:8px 0 12px}
+.book-page li{line-height:1.4;margin-bottom:5px}
+.book-page .record-card{margin:14px 0;padding:14px}
+.book-page .rule{margin:16px 0}
 .book-page .back-to-top{display:none}
 .book-page-number{position:absolute;bottom:12px;left:0;right:0;text-align:center;color:#8c7555;font-size:.8rem}
 .book-edge{position:absolute;top:0;bottom:0;width:8%;border:0;background:transparent;cursor:pointer;z-index:2}
@@ -1431,7 +1435,7 @@ const sources=Array.from(document.querySelectorAll('main > section.chapter-text,
 const pages=[];
 const pageTargets={};
 const measure=document.createElement('div');
-measure.style.cssText='position:absolute;left:-10000px;top:0;width:calc(min(590px, 50vw) - 104px);visibility:hidden;';
+measure.style.cssText='position:absolute;left:-10000px;top:0;width:calc(min(590px, 50vw) - 104px);font-size:.94rem;line-height:1.48;visibility:hidden;';
 document.body.appendChild(measure);
 function addPage(nodes,blank,title){pages.push({nodes,blank,title});}
 sources.forEach(section=>{
@@ -1457,10 +1461,10 @@ group.push(blocks[++i]);
 const clones=group.map(node=>node.cloneNode(true));
 let groupHeight=0;
 clones.forEach(clone=>{measure.appendChild(clone);groupHeight+=clone.getBoundingClientRect().height+12;measure.removeChild(clone);});
-if(chunk.length&&height+groupHeight>670)flush();
+if(chunk.length&&height+groupHeight>610)flush();
 if(block.id)pageTargets[block.id]=pages.length;
 group.forEach(node=>{if(node.id)pageTargets[node.id]=pages.length;chunk.push(node.cloneNode(true));});
-height+=Math.min(groupHeight,670);
+height+=Math.min(groupHeight,610);
 }
 flush();
 if(section.id)pageTargets[section.id]=Math.max(0,pages.length-1);
