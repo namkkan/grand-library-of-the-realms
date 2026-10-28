@@ -162,6 +162,7 @@ main > section h3 { color: #65502e; }
 p { margin: 0 0 20px; }
 
 main > section p { color: var(--ink); }
+main > section.chapter-text p { text-align: justify; text-justify: inter-word; }
 
 .rule {
   height: 1px;
@@ -299,6 +300,12 @@ main > section.chapter-text > p:nth-of-type(2)::first-letter {
 .botanical-plate figcaption { margin-top: .8rem; font-size: .85rem; line-height: 1.6; color: #756449; }
 .botanical-plate figcaption strong { color: #55442e; }
 @media (max-width: 600px) { .botanical-plate { padding: .6rem; } .illustration-space { min-height: 200px; } }
+
+.front-matter-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: stretch; margin: 55px auto; }
+.front-matter-grid > section { position: relative; margin: 0; min-width: 0; padding: clamp(22px, 3vw, 38px); color: var(--ink); background: radial-gradient(ellipse at 12% 8%, rgba(255,255,255,.48), transparent 38%), radial-gradient(ellipse at 90% 88%, rgba(151,105,51,.12), transparent 42%), repeating-linear-gradient(0deg, rgba(112,79,43,.025) 0px, rgba(112,79,43,.025) 1px, transparent 1px, transparent 4px), linear-gradient(105deg, var(--paper-dark), var(--paper-light) 22%, #f4e9d1 70%, #e8d7b6); border: 1px solid #b9a078; box-shadow: 0 12px 30px rgba(0,0,0,.25), inset 0 0 35px rgba(122,83,39,.10); }
+.front-matter-grid > section h2 { color: #554326; border-bottom-color: rgba(112,79,43,.4); font-size: 1.45rem; }
+@media (max-width: 700px) { .front-matter-grid { grid-template-columns: 1fr; gap: 28px; margin: 32px auto; } }
+
 </style>
 
 </head>
@@ -319,6 +326,7 @@ main > section.chapter-text > p:nth-of-type(2)::first-letter {
     <p class="edition">Third Revised Edition</p>
   </div>
 
+  <div class="front-matter-grid">
   <section id="bibliographic-record">
     <h2>Bibliographic Record</h2>
     <div class="details">
@@ -349,6 +357,7 @@ main > section.chapter-text > p:nth-of-type(2)::first-letter {
     </div>
   </section>
 
+
   <section id="about">
     <h2>About This Work</h2>
     <p class="description">
@@ -365,6 +374,7 @@ main > section.chapter-text > p:nth-of-type(2)::first-letter {
       whose properties do not fit comfortably within established classifications.
     </p>
   </section>
+  </div>
 
   <section id="contents">
     <h2>Table of Contents</h2>
