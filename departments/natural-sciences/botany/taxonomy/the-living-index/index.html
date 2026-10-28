@@ -301,7 +301,7 @@ main > section.chapter-text > p:nth-of-type(2)::first-letter {
 .botanical-plate figcaption strong { color: #55442e; }
 @media (max-width: 600px) { .botanical-plate { padding: .6rem; } .illustration-space { min-height: 200px; } }
 
-.front-matter-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: stretch; margin: 55px auto; }
+.front-matter-grid { display: flex; flex-direction: column; gap: 28px; margin: 55px auto; }
 .front-matter-grid > section { position: relative; margin: 0; min-width: 0; padding: clamp(22px, 3vw, 38px); color: var(--ink); background: radial-gradient(ellipse at 12% 8%, rgba(255,255,255,.48), transparent 38%), radial-gradient(ellipse at 90% 88%, rgba(151,105,51,.12), transparent 42%), repeating-linear-gradient(0deg, rgba(112,79,43,.025) 0px, rgba(112,79,43,.025) 1px, transparent 1px, transparent 4px), linear-gradient(105deg, var(--paper-dark), var(--paper-light) 22%, #f4e9d1 70%, #e8d7b6); border: 1px solid #b9a078; box-shadow: 0 12px 30px rgba(0,0,0,.25), inset 0 0 35px rgba(122,83,39,.10); }
 .front-matter-grid > section h2 { color: #302719; border-bottom-color: rgba(112,79,43,.4); font-size: 1.45rem; }
 #bibliographic-record, #bibliographic-record h2, #bibliographic-record .detail-label, #bibliographic-record .detail-value { color: #302719; }
@@ -330,7 +330,7 @@ main > section.chapter-text > p:nth-of-type(2)::first-letter {
 }
 
 /* Keep the About card's existing parchment treatment */
-@media (max-width: 700px) { .front-matter-grid { grid-template-columns: 1fr; gap: 28px; margin: 32px auto; } }
+@media (max-width: 700px) { .front-matter-grid { gap: 24px; margin: 32px auto; } }
 
 </style>
 
