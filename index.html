@@ -21,7 +21,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -42,7 +41,7 @@
       align-items: center;
       gap: 20px;
       border-bottom: 1px solid var(--line);
-      background: #0b1019;
+      background: var(--night);
     }
 
     .brand {
@@ -63,8 +62,6 @@
 
     .nav-links a:hover { color: var(--gold); }
 
-    /* HOMEPAGE WELCOME */
-
     .hero {
       position: relative;
       min-height: 590px;
@@ -74,8 +71,12 @@
       justify-content: center;
       overflow: hidden;
       text-align: center;
-      background:
-        radial-gradient(ellipse at 50% 42%, #30394d 0%, #172131 38%, #0b1019 78%);
+      background: radial-gradient(
+        ellipse at 50% 42%,
+        #30394d 0%,
+        #172131 38%,
+        #0b1019 78%
+      );
       border-bottom: 1px solid var(--line);
     }
 
@@ -169,8 +170,6 @@
       text-transform: uppercase;
     }
 
-    /* GENERAL SECTIONS */
-
     .section {
       max-width: 1180px;
       margin: auto;
@@ -189,7 +188,7 @@
     }
 
     .intro {
-      max-width: 620px;
+      max-width: 680px;
       margin: 12px auto;
       color: var(--muted);
     }
@@ -203,31 +202,36 @@
     .card {
       display: block;
       min-height: 220px;
-      padding: 27px;
+      padding: 24px;
       background: linear-gradient(145deg, #172131, #101722);
       border: 1px solid var(--line);
       transition: transform .2s, border-color .2s;
     }
 
     .card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-3px);
       border-color: var(--gold);
     }
 
+    /* Smaller symbols for a page with many sections */
     .symbol {
+      display: block;
       color: var(--gold);
-      font-size: 31px;
+      font-size: 20px;
+      line-height: 1.4;
     }
 
     .card h3 {
-      margin: 15px 0 8px;
-      font-size: 22px;
+      margin: 10px 0 8px;
+      font-size: 20px;
       font-weight: normal;
+      line-height: 1.35;
     }
 
     .card p {
       color: var(--muted);
-      font-size: 14px;
+      font-size: 13px;
+      line-height: 1.7;
     }
 
     .card .discover {
@@ -235,9 +239,60 @@
       margin-top: 10px;
       color: var(--gold);
       font-family: Arial, sans-serif;
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 1px;
       text-transform: uppercase;
+    }
+
+    /* Natural Sciences departments */
+    .department-intro {
+      max-width: 760px;
+      margin: 0 auto 35px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .department-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .department-card {
+      min-height: 0;
+      padding: 23px;
+    }
+
+    .department-number {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    .department-card h3 {
+      margin-top: 4px;
+      font-size: 21px;
+    }
+
+    .department-card .translation {
+      margin-top: -3px;
+      color: var(--gold);
+      font-style: italic;
+      font-size: 13px;
+    }
+
+    .department-card .facilities {
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      font-size: 12px;
+    }
+
+    .department-card .facilities strong {
+      color: var(--parchment);
+      font-weight: normal;
     }
 
     .quote {
@@ -277,7 +332,10 @@
         padding: 85px 6%;
       }
 
-      .grid { grid-template-columns: 1fr; }
+      .grid,
+      .department-grid {
+        grid-template-columns: 1fr;
+      }
 
       .section { padding: 60px 20px; }
     }
@@ -290,7 +348,7 @@
     <a class="brand" href="#home">✦ The Grand Library</a>
     <nav class="nav-links" aria-label="Main navigation">
       <a href="#home">Home</a>
-      <a href="#departments">Departments</a>
+      <a href="#departments">Library Districts</a>
       <a href="#peoples">Peoples & Cultures</a>
       <a href="characters/">Characters</a>
       <a href="#archives">Archives</a>
@@ -299,7 +357,7 @@
 
   <main>
 
-    <!-- HOMEPAGE: WELCOME ONLY, NO MAP -->
+    <!-- HOMEPAGE WELCOME -->
 
     <section class="hero" id="home">
       <div class="hero-content">
@@ -328,49 +386,54 @@
       </div>
     </section>
 
+    <!-- LIBRARY DISTRICTS -->
+
     <section class="section" id="departments">
       <div class="section-heading">
-        <span class="eyebrow">A guide to the halls</span>
-        <h2>Where will your curiosity lead?</h2>
+        <span class="eyebrow">Explore the institution</span>
+        <h2>The Library Districts</h2>
         <p class="intro">
-          Seven paths into an institution that holds the knowledge of countless realms.
+          A vast institution of knowledge, memory and discovery.
+          Each path leads to a different field of study, a different
+          collection, or a different corner of the realms.
         </p>
       </div>
 
       <div class="grid">
+
         <a class="card" href="#celestial">
           <span class="symbol">☾</span>
           <h3>Celestial Studies</h3>
           <p>Star charts, lunar calendars and the mysteries of the heavens.</p>
-          <span class="discover">Discover the collection ↗</span>
+          <span class="discover">Explore this field ↗</span>
         </a>
 
         <a class="card" href="#sciences">
           <span class="symbol">❧</span>
           <h3>Natural Philosophy</h3>
-          <p>Botany, medicine, minerals and the wonders of the natural world.</p>
-          <span class="discover">Discover the collection ↗</span>
+          <p>Plants, animals, minerals, ecosystems and the wonders of the natural world.</p>
+          <span class="discover">Explore this field ↗</span>
         </a>
 
         <a class="card" href="#archives">
           <span class="symbol">♜</span>
           <h3>Histories of the Realms</h3>
           <p>Ancient kingdoms, forgotten cities and the chronicles they left behind.</p>
-          <span class="discover">Discover the collection ↗</span>
+          <span class="discover">Explore this field ↗</span>
         </a>
 
         <a class="card" href="#arcane">
           <span class="symbol">✧</span>
           <h3>Arcane Arts & Alchemy</h3>
-          <p>Grimoires, magical disciplines and the study of enchanted things.</p>
-          <span class="discover">Discover the collection ↗</span>
+          <p>Magical disciplines, alchemical research and the study of enchanted things.</p>
+          <span class="discover">Explore this field ↗</span>
         </a>
 
         <a class="card" href="#peoples">
           <span class="symbol">♧</span>
           <h3>Peoples & Cultures</h3>
           <p>The languages, traditions and communities of the many realms.</p>
-          <span class="discover">Discover the collection ↗</span>
+          <span class="discover">Explore this field ↗</span>
         </a>
 
         <a class="card" href="departments/grand-atrium.html">
@@ -386,6 +449,7 @@
           <p>Sealed records, dangerous artefacts and forbidden knowledge.</p>
           <span class="discover">Approach with caution ↗</span>
         </a>
+
       </div>
     </section>
 
@@ -393,6 +457,8 @@
       <span class="eyebrow">The library remembers</span>
       <p>“Every civilisation leaves a trace. Every forgotten truth waits to be found.”</p>
     </section>
+
+    <!-- PEOPLES AND CULTURES -->
 
     <section class="section" id="peoples">
       <div class="section-heading">
@@ -404,6 +470,7 @@
       </div>
 
       <div class="grid">
+
         <a class="card" href="peoples/kenku.html">
           <span class="symbol">✧</span>
           <h3>The Kenku</h3>
@@ -424,8 +491,11 @@
           <p>Capricious, playful and unpredictable inhabitants of the faerie realms.</p>
           <span class="discover">Open field notes ↗</span>
         </a>
+
       </div>
     </section>
+
+    <!-- NATIONAL ARCHIVES -->
 
     <section class="section" id="archives">
       <div class="section-heading">
@@ -437,6 +507,8 @@
       </div>
     </section>
 
+    <!-- CELESTIAL STUDIES -->
+
     <section class="section" id="celestial">
       <div class="section-heading">
         <span class="eyebrow">Above and beyond</span>
@@ -447,15 +519,150 @@
       </div>
     </section>
 
+    <!-- NATURAL PHILOSOPHY: EIGHT DEPARTMENTS -->
+
     <section class="section" id="sciences">
       <div class="section-heading">
-        <span class="eyebrow">Observe. Question. Understand.</span>
+        <span class="eyebrow">Observe · Question · Understand</span>
         <h2>Natural Philosophy</h2>
         <p class="intro">
-          The study of living things, matter, medicine and the wonders of the natural world.
+          The study of living things, matter, ecosystems and the natural
+          phenomena of countless worlds. Here, observation and research
+          reveal the extraordinary diversity of nature, including species
+          and environments unknown to ordinary science.
         </p>
       </div>
+
+      <p class="department-intro">
+        Eight departments investigate the natural world, from the smallest
+        living organisms to the forces that shape entire planets.
+      </p>
+
+      <div class="department-grid">
+
+        <article class="card department-card">
+          <span class="department-number">DEPARTMENT 01</span>
+          <h3>Department of Botany</h3>
+          <p class="translation">Botánica</p>
+          <p>
+            Studies plants, trees, algae, fungi and other forms of plant
+            life. Research includes medicinal species, magical flora,
+            plant ecosystems and vegetation from unknown worlds.
+          </p>
+          <p class="facilities">
+            <strong>Facilities:</strong> Greenhouses, experimental gardens,
+            herbarium and seed bank.
+          </p>
+        </article>
+
+        <article class="card department-card">
+          <span class="department-number">DEPARTMENT 02</span>
+          <h3>Department of Zoology</h3>
+          <p class="translation">Zoología</p>
+          <p>
+            Investigates animals, fantastical creatures and their behaviour.
+            Documents anatomy, reproduction, migration, feeding and
+            relationships between species.
+          </p>
+          <p class="facilities">
+            <strong>Facilities:</strong> Zoological archive, anatomy rooms,
+            wildlife observatories and temporary care centres.
+          </p>
+        </article>
+
+        <article class="card department-card">
+          <span class="department-number">DEPARTMENT 03</span>
+          <h3>Department of Geology and Mineralogy</h3>
+          <p class="translation">Geología y mineralogía</p>
+          <p>
+            Studies the composition, structure and history of planets,
+            mountains, caves and minerals. Extraordinary crystals are
+            catalogued and examined under safe conditions.
+          </p>
+          <p class="facilities">
+            <strong>Facilities:</strong> Mineral collection, analysis
+            laboratory, fossil archive and specimen chambers.
+          </p>
+        </article>
+
+        <article class="card department-card">
+          <span class="department-number">DEPARTMENT 04</span>
+          <h3>Department of Aquatic and Marine Sciences</h3>
+          <p class="translation">Ciencias acuáticas y marinas</p>
+          <p>
+            Studies oceans, rivers, lakes, currents, underwater ecosystems
+            and aquatic species. Works alongside marine communities and
+            researchers exploring the depths.
+          </p>
+          <p class="facilities">
+            <strong>Facilities:</strong> Research aquariums, underwater
+            observatory, sample laboratory and habitats adapted to aquatic life.
+          </p>
+        </article>
+
+        <article class="card department-card">
+          <span class="department-number">DEPARTMENT 05</span>
+          <h3>Department of Astronomy and Cosmology</h3>
+          <p class="translation">Astronomía y cosmología</p>
+          <p>
+            Investigates stars, moons, planets, solar systems and the
+            structure of the universe. Compares astronomical phenomena
+            across worlds and records extraordinary celestial events.
+          </p>
+          <p class="facilities">
+            <strong>Facilities:</strong> Observatories, planetarium,
+            star-chart archive and calculation rooms.
+          </p>
+        </article>
+
+        <article class="card department-card">
+          <span class="department-number">DEPARTMENT 06</span>
+          <h3>Department of Ecology and Environmental Studies</h3>
+          <p class="translation">Ecología y ciencias ambientales</p>
+          <p>
+            Studies ecosystems, food webs, biodiversity, climates and
+            the effects of different civilisations on their environments.
+          </p>
+          <p class="facilities">
+            <strong>Facilities:</strong> Experimental biomes, observation
+            stations and environmental change archive.
+          </p>
+        </article>
+
+        <article class="card department-card">
+          <span class="department-number">DEPARTMENT 07</span>
+          <h3>Department of Anatomy and Life Sciences</h3>
+          <p class="translation">Anatomía y ciencias de la vida</p>
+          <p>
+            Documents the biological and anatomical diversity of living
+            beings. Investigates tissues, organs, life cycles and adaptations
+            while respecting the autonomy and rights of conscious beings.
+          </p>
+          <p class="facilities">
+            <strong>Facilities:</strong> Laboratories, anatomical collections,
+            microscopy rooms and comparative archives.
+          </p>
+        </article>
+
+        <article class="card department-card">
+          <span class="department-number">DEPARTMENT 08</span>
+          <h3>Department of Meteorology and Natural Phenomena</h3>
+          <p class="translation">Meteorología y fenómenos naturales</p>
+          <p>
+            Records climates, storms, winds, earthquakes and unusual
+            natural phenomena. Compares environmental conditions across
+            different realms and worlds.
+          </p>
+          <p class="facilities">
+            <strong>Facilities:</strong> Weather station, atmospheric
+            simulation chambers and extreme phenomena archive.
+          </p>
+        </article>
+
+      </div>
     </section>
+
+    <!-- ARCANE ARTS -->
 
     <section class="section" id="arcane">
       <div class="section-heading">
@@ -467,12 +674,15 @@
       </div>
     </section>
 
+    <!-- RESTRICTED COLLECTIONS -->
+
     <section class="section" id="restricted">
       <div class="section-heading">
         <span class="eyebrow">Access by permission only</span>
         <h2>Restricted Collections</h2>
         <p class="intro">
-          Some knowledge must be approached with care. The doors remain closed until their secrets can be safely studied.
+          Some knowledge must be approached with care. The doors remain
+          closed until their secrets can be safely studied.
         </p>
       </div>
     </section>
