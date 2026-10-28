@@ -1,0 +1,715 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1019">
+  <title>Welcome &amp; Arrival | The Grand Library of the Realms</title>
+  <meta name="description" content="Discover Welcome and Arrival, the threshold between the outside world and the city of knowledge.">
+
+  <style>
+    :root {
+      --night: #0b1019;
+      --panel: #131b29;
+      --panel-light: #192537;
+      --gold: #c3a46b;
+      --parchment: #e9ddc4;
+      --muted: #aaa9a5;
+      --line: #39382f;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--night);
+      color: var(--parchment);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .navigation {
+      min-height: 74px;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      border-bottom: 1px solid var(--line);
+      background: var(--night);
+    }
+
+    .brand {
+      color: var(--gold);
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      color: #d0c9bc;
+    }
+
+    .nav-links a:hover,
+    .back-link:hover {
+      color: var(--gold);
+    }
+
+    .page-hero {
+      padding: 90px 24px 65px;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 25%, #293247 0%, #131b29 42%, #0b1019 82%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 20px auto;
+      font-size: clamp(42px, 7vw, 76px);
+      font-weight: normal;
+      line-height: 1.08;
+    }
+
+    .page-hero p {
+      max-width: 700px;
+      margin: 0 auto 24px;
+      color: #d1c8b8;
+      font-size: 17px;
+    }
+
+    .breadcrumbs {
+      margin-top: 28px;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+    }
+
+    .breadcrumbs a { color: var(--gold); }
+
+    .page-content {
+      max-width: 1050px;
+      margin: auto;
+      padding: 65px 28px 90px;
+    }
+
+    .section-heading {
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    h2 {
+      margin: 8px 0;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: normal;
+      line-height: 1.2;
+    }
+
+    h3 {
+      margin: 8px 0 12px;
+      font-size: 23px;
+      font-weight: normal;
+    }
+
+    .intro {
+      max-width: 740px;
+      margin: 12px auto;
+      color: var(--muted);
+    }
+
+    .section {
+      padding-top: 55px;
+      scroll-margin-top: 25px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      padding: 26px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, #172131, #101722);
+    }
+
+    .number {
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .card p,
+    .card li {
+      color: #d1c8b8;
+      font-size: 14px;
+    }
+
+    .card ul { padding-left: 20px; }
+
+    .note {
+      margin-top: 22px;
+      padding: 25px;
+      border-left: 2px solid var(--gold);
+      background: #101722;
+      color: #d1c8b8;
+    }
+
+    .note strong { color: var(--gold); }
+
+    .staff-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: #101722;
+    }
+
+    .staff-table th,
+    .staff-table td {
+      padding: 15px;
+      text-align: left;
+      vertical-align: top;
+      border: 1px solid var(--line);
+    }
+
+    .staff-table th {
+      color: var(--gold);
+      font-weight: normal;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .staff-table td {
+      font-size: 14px;
+      color: #d1c8b8;
+    }
+
+    .staff-table td:first-child {
+      color: var(--parchment);
+    }
+
+    .closing {
+      margin-top: 20px;
+      padding: 45px 24px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+      background: #101722;
+    }
+
+    .closing p {
+      max-width: 650px;
+      margin: 15px auto 25px;
+      color: var(--muted);
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 22px;
+      border: 1px solid var(--gold);
+      color: var(--parchment);
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      transition: background .2s, color .2s;
+    }
+
+    .button:hover {
+      background: var(--gold);
+      color: var(--night);
+    }
+
+    footer {
+      padding: 35px 20px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    footer span { color: var(--gold); }
+
+    @media (max-width: 760px) {
+      .navigation {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .nav-links { justify-content: center; }
+
+      .page-hero { padding: 65px 20px 50px; }
+
+      .page-content { padding: 45px 18px 65px; }
+
+      .grid { grid-template-columns: 1fr; }
+
+      .staff-table th,
+      .staff-table td {
+        padding: 10px;
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="navigation">
+    <a class="brand" href="../index.html">✦ The Grand Library</a>
+
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#departments">Departments</a>
+      <a href="../index.html#peoples">Peoples &amp; Cultures</a>
+      <a href="../characters/">Characters</a>
+      <a href="grand-atrium.html">Find Your Way</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="page-hero">
+      <span class="eyebrow">District I · The Scholar's Quarter · 01</span>
+
+      <h1>Welcome &amp; Arrival</h1>
+
+      <p>
+        The threshold between the outside world and the city of knowledge.
+        This is where the journey begins — before reception, catalogues
+        or the great crossroads of the Atrium.
+      </p>
+
+      <div class="breadcrumbs">
+        <a href="../index.html">The Grand Library</a> /
+        <a href="grand-atrium.html">The Grand Atrium</a> /
+        Welcome &amp; Arrival
+      </div>
+    </section>
+
+    <div class="page-content">
+
+      <!-- 01 · PURPOSE -->
+
+      <section>
+        <div class="section-heading">
+          <span class="eyebrow">01 · Purpose</span>
+          <h2>A Threshold, Not a Checkpoint</h2>
+
+          <p class="intro">
+            Welcome &amp; Arrival is the first space a visitor encounters
+            when entering the Grand Library of the Realms. It is not yet
+            reception or the information centre: it is the transition
+            between the outside world and the Library's immense shared
+            world of knowledge.
+          </p>
+        </div>
+
+        <div class="grid">
+
+          <article class="card">
+            <span class="number">Wonder</span>
+            <h3>A Sense of Awe</h3>
+            <p>
+              The visitor understands that they have entered somewhere
+              extraordinary: an institution shaped by centuries of
+              expansion, exchange and discovery.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="number">Welcome</span>
+            <h3>A Place for Everyone</h3>
+            <p>
+              Every visitor should be able to feel welcome, regardless
+              of species, homeland, language, social status or prior
+              knowledge.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="number">Orientation</span>
+            <h3>A Clear Next Step</h3>
+            <p>
+              Even a first-time visitor should understand where they are
+              and how to continue safely towards the Atrium and its
+              public services.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="number">Architecture</span>
+            <h3>Centuries in One Entrance</h3>
+            <p>
+              Medieval doors, Gothic structures, Victorian details,
+              ancient stonework, worked metal and discreet magic show
+              that the entrance has been transformed over centuries
+              rather than built all at once.
+            </p>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- 02 · VISITOR JOURNEY -->
+
+      <section class="section">
+        <div class="section-heading">
+          <span class="eyebrow">02 · The visitor journey</span>
+          <h2>From the Outside World to the Library</h2>
+
+          <p class="intro">
+            Arrival should feel natural and understandable. Visitors
+            can pause, look around and ask for help without being forced
+            immediately into registration or a formal procedure.
+          </p>
+        </div>
+
+        <div class="grid">
+
+          <article class="card">
+            <span class="number">First</span>
+            <h3>The Entrance Threshold</h3>
+            <p>
+              Visitors cross the monumental doors and enter a space
+              that marks the transition into the Library. Physical signs
+              identify the public entrance and accessible routes.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="number">Then</span>
+            <h3>The Arrival Area</h3>
+            <p>
+              Visitors can stop, meet companions, use the facilities,
+              consult signs or ask an Arrival Steward for initial
+              directions.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="number">Next</span>
+            <h3>Orientation</h3>
+            <p>
+              Signs and staff help visitors identify the Grand Atrium,
+              the public directory and the route appropriate to their
+              destination.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="number">Finally</span>
+            <h3>Into the Grand Atrium</h3>
+            <p>
+              Visitors who need more detailed information continue to
+              the Atrium, where the main directory and specialist
+              visitor services are located.
+            </p>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- 03 · STAFF -->
+
+      <section class="section" id="staff">
+        <div class="section-heading">
+          <span class="eyebrow">03 · Personnel</span>
+          <h2>The Arrival Team</h2>
+
+          <p class="intro">
+            These are institutional roles, not species-based jobs.
+            Staff may come from any people or realm, and specialisation
+            depends on training and experience.
+          </p>
+        </div>
+
+        <table class="staff-table">
+          <thead>
+            <tr>
+              <th>Position</th>
+              <th>Function</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Welcome Stewards</td>
+              <td>Welcome arriving visitors and offer initial help or directions.</td>
+            </tr>
+
+            <tr>
+              <td>Arrival Attendants</td>
+              <td>Manage visitor flow, keep routes clear and help prevent crowding.</td>
+            </tr>
+
+            <tr>
+              <td>Accessibility Guides</td>
+              <td>Assist visitors with different physical, sensory, communication or mobility needs.</td>
+            </tr>
+
+            <tr>
+              <td>Multilingual Hosts</td>
+              <td>Help in commonly used languages and arrange interpreters when needed.</td>
+            </tr>
+
+            <tr>
+              <td>Threshold Wardens</td>
+              <td>Monitor entrance safety and respond to incidents while treating ordinary visitors respectfully.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note">
+          <strong>Equal opportunity:</strong>
+          a siren might specialise in supporting aquatic visitors, a
+          kenku might know many languages, and a human might be an
+          accessibility expert. These are examples of possible
+          specialisations, not rules about what any people can do.
+        </div>
+      </section>
+
+      <!-- 04 · FACILITIES -->
+
+      <section class="section" id="facilities">
+        <div class="section-heading">
+          <span class="eyebrow">04 · Facilities</span>
+          <h2>Facilities &amp; Immediate Assistance</h2>
+
+          <p class="intro">
+            The threshold should help people pause, recover from their
+            journey and prepare to enter the Library without forcing
+            them to disclose unnecessary personal information.
+          </p>
+        </div>
+
+        <div class="grid">
+
+          <article class="card">
+            <span class="number">Rest &amp; Comfort</span>
+            <h3>Waiting Areas</h3>
+            <ul>
+              <li>Benches and seats in different sizes and heights</li>
+              <li>Meeting points for companions and groups</li>
+              <li>Water fountains and refill points</li>
+              <li>Coatroom and space for wet clothing or travel equipment</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <span class="number">Access &amp; Communication</span>
+            <h3>Clear Ways Through</h3>
+            <ul>
+              <li>Visual, tactile, audible and multilingual signs</li>
+              <li>Step-free entrances and routes for different mobility needs</li>
+              <li>Space to pause without blocking the main flow</li>
+              <li>Non-magical signs that remain usable if enchantments fail</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <span class="number">Immediate Support</span>
+            <h3>Help When Needed</h3>
+            <ul>
+              <li>A small first-aid and immediate-assistance point</li>
+              <li>Staff able to call medical or specialist help</li>
+              <li>Procedures for lost visitors and separated groups</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <span class="number">Special Arrivals</span>
+            <h3>Authorised Portals</h3>
+            <ul>
+              <li>A designated arrival area for visitors using authorised portals</li>
+              <li>Portals may not open spontaneously inside the public entrance</li>
+              <li>Portal arrivals follow the same public routes and equal-access rules</li>
+            </ul>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- 05 · FANTASTICAL FEATURES -->
+
+      <section class="section" id="fantasy">
+        <div class="section-heading">
+          <span class="eyebrow">05 · Fantastical features</span>
+          <h2>Magic with Clear Limits</h2>
+
+          <p class="intro">
+            The entrance uses magic to support welcome and orientation,
+            never to replace consent, accessibility or human assistance.
+          </p>
+        </div>
+
+        <div class="grid">
+
+          <article class="card">
+            <span class="number">The Main Entrance</span>
+            <h3>The Doors of a Thousand Thresholds</h3>
+            <p>
+              The great doors preserve inscriptions from peoples who
+              have contributed to the Library across its history.
+              The inscriptions do not magically change language;
+              visitors can activate an accessible translation when
+              they need one.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="number">Wayfinding</span>
+            <h3>The Rose of Routes</h3>
+            <p>
+              A monumental compass set into the floor points towards
+              the Library's principal districts rather than north.
+              If a gallery is closed, the wayfinding system indicates
+              a safe alternative.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="number">Lighting</span>
+            <h3>The Welcome Lanterns</h3>
+            <p>
+              The lanterns adjust to ambient light and can be dimmed
+              for visitors sensitive to bright illumination. They
+              do not read emotions or thoughts and are not a
+              surveillance system.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="number">Reliability</span>
+            <h3>Ordinary Systems Remain</h3>
+            <p>
+              Physical evacuation signs and staff procedures remain
+              available if magic fails. No visitor should be left
+              without a safe route because an enchantment is unavailable.
+            </p>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- 06 · RULES -->
+
+      <section class="section" id="rules">
+        <div class="section-heading">
+          <span class="eyebrow">06 · Rules &amp; limits</span>
+          <h2>What This Space Does — and Does Not Do</h2>
+
+          <p class="intro">
+            Welcome &amp; Arrival is public, but its role is deliberately
+            limited so visitors know where to go next.
+          </p>
+        </div>
+
+        <div class="grid">
+
+          <article class="card">
+            <span class="number">Public Access</span>
+            <h3>Open and Welcoming</h3>
+            <p>
+              The space is open during general public hours. Entering
+              the Library does not automatically require registration,
+              and staff should not collect unnecessary personal information.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="number">Safe Arrival</span>
+            <h3>Controlled Portal Access</h3>
+            <p>
+              Spontaneous portals are not permitted to open directly
+              into the entrance. Service doors and restricted-area
+              access points remain outside public routes.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="number">Fair Treatment</span>
+            <h3>No Preferred Peoples</h3>
+            <p>
+              No species, realm, language, ancestry or social class
+              receives preferential treatment. Access adaptations
+              are part of ordinary service.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="number">Emergencies</span>
+            <h3>Keep a Way Through</h3>
+            <p>
+              Staff may temporarily close an entrance during an
+              emergency, but should provide alternative routes
+              whenever it is safe and possible.
+            </p>
+          </article>
+
+        </div>
+
+        <div class="note">
+          <strong>Scope:</strong>
+          registration for specific collections, specialist consultation
+          and permission to enter restricted areas are handled by the
+          relevant services elsewhere in the Library. Welcome &amp;
+          Arrival gets people safely inside and helps them find their
+          next destination.
+        </div>
+      </section>
+
+    </div>
+
+    <section class="closing">
+      <span class="eyebrow">Continue your journey</span>
+      <h2>The Library Opens Before You.</h2>
+
+      <p>
+        Move onward to the Grand Atrium, where the public directory
+        and the routes into the wider Library begin.
+      </p>
+
+      <a class="button" href="grand-atrium.html">
+        RETURN TO FIND YOUR WAY ↗
+      </a>
+
+      <p>
+        <a class="back-link" href="../index.html">
+          ← Return to the main entrance
+        </a>
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p><span>✦ The Grand Library of the Realms ✦</span></p>
+    <p>Keeper of Knowledge Across the Ages</p>
+    <p>District I · The Scholar's Quarter · Welcome &amp; Arrival</p>
+  </footer>
+
+</body>
+</html>
