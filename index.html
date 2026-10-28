@@ -1,0 +1,394 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1019">
+  <title>The Grand Library of the Realms</title>
+  <meta name="description" content="An extraordinary library preserving the knowledge of every realm.">
+  <style>
+    :root {
+      --night: #0b1019;
+      --panel: #131b29;
+      --gold: #c3a46b;
+      --parchment: #e9ddc4;
+      --muted: #aaa9a5;
+      --line: #39382f;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--night);
+      color: var(--parchment);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .navigation {
+      min-height: 74px;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      border-bottom: 1px solid var(--line);
+      background: #0b1019;
+    }
+
+    .brand {
+      color: var(--gold);
+      font-size: 15px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      color: #d0c9bc;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .hero {
+      min-height: 600px;
+      padding: 100px 24px 90px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 25%, #293247 0%, #131b29 38%, #0b1019 76%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 850px;
+      margin: 25px auto;
+      font-size: clamp(42px, 7vw, 82px);
+      font-weight: normal;
+      line-height: 1.08;
+    }
+
+    .hero p {
+      max-width: 510px;
+      margin: 0 auto 32px;
+      color: #d1c8b8;
+      font-size: 17px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 25px;
+      border: 1px solid var(--gold);
+      color: var(--parchment);
+      font-size: 12px;
+      letter-spacing: 1px;
+      transition: background .2s, color .2s;
+    }
+
+    .button:hover {
+      background: var(--gold);
+      color: var(--night);
+    }
+
+    .section {
+      max-width: 1180px;
+      margin: auto;
+      padding: 85px 28px;
+    }
+
+    .section-heading {
+      margin-bottom: 38px;
+      text-align: center;
+    }
+
+    h2 {
+      margin: 8px 0;
+      font-size: clamp(29px, 4vw, 43px);
+      font-weight: normal;
+    }
+
+    .intro {
+      max-width: 620px;
+      margin: 12px auto;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      min-height: 220px;
+      padding: 27px;
+      background: linear-gradient(145deg, #172131, #101722);
+      border: 1px solid var(--line);
+      transition: transform .2s, border-color .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+    }
+
+    .symbol {
+      color: var(--gold);
+      font-size: 31px;
+    }
+
+    .card h3 {
+      margin: 15px 0 8px;
+      font-size: 22px;
+      font-weight: normal;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .card .discover {
+      display: inline-block;
+      margin-top: 10px;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .quote {
+      padding: 65px 24px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+      background: #101722;
+    }
+
+    .quote p {
+      max-width: 720px;
+      margin: auto;
+      font-size: clamp(22px, 3vw, 34px);
+      font-style: italic;
+    }
+
+    footer {
+      padding: 35px 20px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    footer span { color: var(--gold); }
+
+    @media (max-width: 760px) {
+      .navigation {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .nav-links { justify-content: center; }
+
+      .grid { grid-template-columns: 1fr; }
+
+      .hero { min-height: 510px; padding-top: 75px; }
+
+      .section { padding: 60px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navigation">
+    <a class="brand" href="#home">✦ The Grand Library</a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#departments">Departments</a>
+      <a href="#peoples">Peoples & Cultures</a>
+      <a href="#archives">Archives</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <span class="eyebrow">A sanctuary of knowledge</span>
+      <h1>The Grand Library<br>of the Realms</h1>
+      <p>All knowledge has a home. Not every secret has a key.</p>
+      <a class="button" href="#departments">ENTER THE LIBRARY&nbsp; ↗</a>
+      <p style="margin-top:35px;font-size:10px;letter-spacing:3px;color:#b49a68">
+        CROSS THE THRESHOLD. FOLLOW YOUR CURIOSITY.
+      </p>
+    </section>
+
+    <section class="section" id="departments">
+      <div class="section-heading">
+        <span class="eyebrow">A guide to the halls</span>
+        <h2>Where will your curiosity lead?</h2>
+        <p class="intro">Seven paths into an institution that holds the knowledge of countless realms.</p>
+      </div>
+
+      <div class="grid">
+        <a class="card" href="#celestial">
+          <span class="symbol">☾</span>
+          <h3>Celestial Studies</h3>
+          <p>Star charts, lunar calendars and the mysteries of the heavens.</p>
+          <span class="discover">Discover the collection ↗</span>
+        </a>
+
+        <a class="card" href="#sciences">
+          <span class="symbol">❧</span>
+          <h3>Natural Philosophy</h3>
+          <p>Botany, medicine, minerals and the wonders of the natural world.</p>
+          <span class="discover">Discover the collection ↗</span>
+        </a>
+
+        <a class="card" href="#archives">
+          <span class="symbol">♜</span>
+          <h3>Histories of the Realms</h3>
+          <p>Ancient kingdoms, forgotten cities and the chronicles they left behind.</p>
+          <span class="discover">Discover the collection ↗</span>
+        </a>
+
+        <a class="card" href="#arcane">
+          <span class="symbol">✧</span>
+          <h3>Arcane Arts & Alchemy</h3>
+          <p>Grimoires, magical disciplines and the study of enchanted things.</p>
+          <span class="discover">Discover the collection ↗</span>
+        </a>
+
+        <a class="card" href="#peoples">
+          <span class="symbol">♧</span>
+          <h3>Peoples & Cultures</h3>
+          <p>The languages, traditions and communities of the many realms.</p>
+          <span class="discover">Discover the collection ↗</span>
+        </a>
+
+        <a class="card" href="#atrium">
+          <span class="symbol">⌂</span>
+          <h3>The Grand Atrium</h3>
+          <p>Begin your journey at the heart of the institution.</p>
+          <span class="discover">Enter the atrium ↗</span>
+        </a>
+
+        <a class="card" href="#restricted">
+          <span class="symbol">⚿</span>
+          <h3>Restricted Collections</h3>
+          <p>Sealed records, dangerous artefacts and forbidden knowledge.</p>
+          <span class="discover">Approach with caution ↗</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="quote">
+      <span class="eyebrow">The library remembers</span>
+      <p>“Every civilisation leaves a trace. Every forgotten truth waits to be found.”</p>
+    </section>
+
+    <section class="section" id="atrium">
+      <div class="section-heading">
+        <span class="eyebrow">The heart of the institution</span>
+        <h2>The Grand Atrium</h2>
+        <p class="intro">Your journey begins here. Find your way through the halls, consult the directory and discover what lies beyond the public galleries.</p>
+        <a class="button" href="departments/grand-atrium.html">EXPLORE THE ATRIUM ↗</a>
+      </div>
+    </section>
+
+    <section class="section" id="peoples">
+      <div class="section-heading">
+        <span class="eyebrow">Beyond the written word</span>
+        <h2>Peoples of the Realms</h2>
+        <p class="intro">Many voices, countless traditions, and entire worlds waiting to be understood.</p>
+      </div>
+      <div class="grid">
+        <a class="card" href="peoples/kenku.html">
+          <span class="symbol">✧</span>
+          <h3>The Kenku</h3>
+          <p>Keepers of curiosities, collectors of knowledge and echoes of countless voices.</p>
+          <span class="discover">Open field notes ↗</span>
+        </a>
+        <a class="card" href="peoples/sirens.html">
+          <span class="symbol">≈</span>
+          <h3>The Sirens</h3>
+          <p>Many marine cultures, shaped by the depths, currents and shores of their worlds.</p>
+          <span class="discover">Open field notes ↗</span>
+        </a>
+        <a class="card" href="peoples/fairies.html">
+          <span class="symbol">❋</span>
+          <h3>The Fair Folk</h3>
+          <p>Capricious, playful and unpredictable inhabitants of the faerie realms.</p>
+          <span class="discover">Open field notes ↗</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="archives">
+      <div class="section-heading">
+        <span class="eyebrow">Fragments of memory</span>
+        <h2>The National Archives</h2>
+        <p class="intro">Manuscripts, chronicles, maps and records preserved across the ages.</p>
+      </div>
+    </section>
+
+    <section class="section" id="celestial">
+      <div class="section-heading">
+        <span class="eyebrow">Above and beyond</span>
+        <h2>Celestial Studies</h2>
+        <p class="intro">Explore the heavens through star charts, celestial records and astronomical discoveries.</p>
+      </div>
+    </section>
+
+    <section class="section" id="sciences">
+      <div class="section-heading">
+        <span class="eyebrow">Observe. Question. Understand.</span>
+        <h2>Natural Philosophy</h2>
+        <p class="intro">The study of living things, matter, medicine and the wonders of the natural world.</p>
+      </div>
+    </section>
+
+    <section class="section" id="arcane">
+      <div class="section-heading">
+        <span class="eyebrow">Knowledge carries responsibility</span>
+        <h2>Arcane Arts & Alchemy</h2>
+        <p class="intro">A place for magical theory, alchemical research and the careful study of enchanted objects.</p>
+      </div>
+    </section>
+
+    <section class="section" id="restricted">
+      <div class="section-heading">
+        <span class="eyebrow">Access by permission only</span>
+        <h2>Restricted Collections</h2>
+        <p class="intro">Some knowledge must be approached with care. The doors remain closed until their secrets can be safely studied.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><span>✦ The Grand Library of the Realms ✦</span></p>
+    <p>Keeper of Knowledge Across the Ages</p>
+    <p>Worldbuilding project · Created with curiosity</p>
+  </footer>
+
+</body>
+</html>
