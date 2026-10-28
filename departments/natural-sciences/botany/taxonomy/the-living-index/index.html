@@ -682,8 +682,6 @@ main > section.chapter-text > p:nth-of-type(2)::first-letter {
     <p>The task of the taxonomist is to give the living world an order that can be examined, questioned and improved. A good classification makes it easier to recognise what is known, to identify what remains uncertain, and to decide where further study is most needed.</p>
 
     <p>It is not a fence placed around nature. It is a means of finding our way through it.</p>
-
-    <p class="author-signature">End of Chapter 1</p>
     <a class="back-to-top" href="#top">↑ Return to the beginning</a>
   </section>
 
@@ -892,8 +890,6 @@ main > section.chapter-text > p:nth-of-type(2)::first-letter {
   <p>The answers are rarely the same.</p>
 
   <p><em>From the working papers of Professor Elowen Thorne, Department of Botany, Grand Library of the Realms.</em></p>
-
-  <p class="chapter-end">End of Chapter 2</p>
     
     <a class="back-to-top" href="#top">↑ Return to the beginning</a>
 </section>
@@ -1212,7 +1208,6 @@ main > section.chapter-text > p:nth-of-type(2)::first-letter {
     <p>The ranks give us a language in which to discuss the organisation of plant diversity. They do not remove the need to examine the plants themselves. When a specimen reaches the Department of Botany, the first task is to determine what the available evidence supports. The botanist may arrive at a species, a genus, a family or a broader group. Each can be a useful result, provided the conclusion is recorded honestly.</p>
     <p>It is better to know the limits of an identification than to possess a name that cannot be defended.</p>
     <div class="rule"></div>
-    <p class="volume-note">END OF CHAPTER 5</p>
       <p><a class="back-to-top" href="#top">↑ Return to the beginning</a></p>
   </section>
 
@@ -1328,7 +1323,6 @@ main > section.chapter-text > p:nth-of-type(2)::first-letter {
     <p>When a name changes, the evidence should not be lost. When a name remains unchanged, the evidence should still be examined.</p>
     <p>That is the standard by which the Department of Botany maintains its register, and the standard by which every scientific name in this volume should be read.</p>
     <div class="rule"></div>
-    <p class="volume-note">END OF CHAPTER 6</p>
       <p><a class="back-to-top" href="#top">↑ Return to the beginning</a></p>
   </section>
 
@@ -1396,7 +1390,7 @@ const prev=document.getElementById('book-prev'),next=document.getElementById('bo
 const sources=Array.from(document.querySelectorAll('main > section.chapter-text, main > section[id^="chapter-"]'));
 const pages=[];
 const measure=document.createElement('div');
-measure.style.cssText='position:absolute;left:-10000px;top:0;width:440px;visibility:hidden;';
+measure.style.cssText='position:absolute;left:-10000px;top:0;width:calc(min(590px, 50vw) - 104px);visibility:hidden;';
 document.body.appendChild(measure);
 function addPage(nodes,blank,title){pages.push({nodes,blank,title});}
 sources.forEach(section=>{
@@ -1407,8 +1401,8 @@ let chunk=[],height=0;
 blocks.forEach(block=>{
 const clone=block.cloneNode(true);measure.appendChild(clone);
 const h=clone.getBoundingClientRect().height+24;measure.removeChild(clone);
-if(chunk.length&&height+h>650){addPage(chunk,false,section.querySelector('h2')?.textContent||'');chunk=[];height=0;}
-chunk.push(block.cloneNode(true));height+=Math.min(h,650);
+if(chunk.length&&height+h>670){addPage(chunk,false,section.querySelector('h2')?.textContent||'');chunk=[];height=0;}
+chunk.push(block.cloneNode(true));height+=Math.min(h,670);
 });
 if(chunk.length)addPage(chunk,false,section.querySelector('h2')?.textContent||'');
 if(pages.length%2===0)addPage([],true,'');
