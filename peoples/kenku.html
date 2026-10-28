@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Kenku | Grand Library of the Realms</title>
+  <style>
+    :root {
+      --night: #0b1019;
+      --panel: #151e2c;
+      --gold: #c3a46b;
+      --parchment: #e9ddc4;
+      --muted: #b7b6b1;
+      --line: #403a30;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--night);
+      color: var(--parchment);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.8;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    a:hover { color: var(--gold); }
+
+    header {
+      padding: 20px 7%;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand, .eyebrow {
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      padding: 95px 25px;
+      text-align: center;
+      background: radial-gradient(ellipse at top, #283143, #111925 60%, #0b1019);
+      border-bottom: 1px solid var(--line);
+    }
+
+    h1 {
+      margin: 18px 0 8px;
+      font-size: clamp(50px, 8vw, 86px);
+      font-weight: normal;
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      color: var(--gold);
+      font-style: italic;
+      font-size: 18px;
+    }
+
+    .hero p {
+      max-width: 590px;
+      margin: 20px auto;
+      color: #d0c8bb;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 210px minmax(0, 760px);
+      gap: 55px;
+      max-width: 1200px;
+      margin: auto;
+      padding: 65px 28px;
+    }
+
+    aside {
+      align-self: start;
+      position: sticky;
+      top: 20px;
+      border-left: 1px solid var(--gold);
+      padding: 12px 20px;
+    }
+
+    aside p {
+      color: var(--gold);
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    aside a {
+      display: block;
+      margin: 13px 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    section { margin-bottom: 65px; }
+
+    h2 {
+      margin: 10px 0 18px;
+      font-size: clamp(28px, 4vw, 38px);
+      font-weight: normal;
+      line-height: 1.25;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      color: var(--gold);
+      font-size: 19px;
+      font-weight: normal;
+    }
+
+    .lead {
+      color: #d1c9ba;
+      font-size: 17px;
+    }
+
+    .muted { color: var(--muted); }
+
+    .rule {
+      width: 65px;
+      border: 0;
+      border-top: 1px solid var(--gold);
+      margin: 24px 0;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 25px 0;
+    }
+
+    .fact, .card {
+      padding: 20px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+
+    .fact span {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .fact p, .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .note {
+      padding: 22px;
+      background: #111925;
+      border-left: 2px solid var(--gold);
+      color: #d1c9ba;
+    }
+
+    .card {
+      display: block;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .card:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    .card .tag {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    .arrow {
+      display: block;
+      margin-top: 16px;
+      color: var(--gold);
+      font-size: 12px;
+    }
+
+    footer {
+      padding: 30px 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    @media (max-width: 760px) {
+      .layout { grid-template-columns: 1fr; gap: 25px; }
+      aside { position: static; }
+      aside a { display: inline-block; margin-right: 15px; }
+      .facts { grid-template-columns: 1fr; }
+      header { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="brand" href="../index.html">✦ The Grand Library of the Realms</a>
+  <a href="../index.html">← Home</a>
+</header>
+
+<div class="hero">
+  <span class="eyebrow">Department of Peoples & Cultures</span>
+  <h1>The Kenku</h1>
+  <div class="subtitle">Keepers of echoes, collectors of wonders.</div>
+  <p>
+    A people of feather, memory and curiosity.
+    Their voices carry the sounds of the world;
+    their collections preserve the things others overlook.
+  </p>
+</div>
+
+<div class="layout">
+
+  <aside>
+    <p>FIELD INDEX</p>
+    <a href="#overview">Overview</a>
+    <a href="#biology">Biology</a>
+    <a href="#communication">Communication</a>
+    <a href="#culture">Culture & Society</a>
+    <a href="#occupations">Occupations</a>
+    <a href="#individuals">Notable Individuals</a>
+  </aside>
+
+  <main>
+
+    <section id="overview">
+      <span class="eyebrow">01 · General classification</span>
+      <h2>A familiar silhouette, an extraordinary mind.</h2>
+      <hr class="rule">
+      <p class="lead">
+        Kenku are intelligent, avian humanoids known for their
+        curiosity, sociability and remarkable ability to imitate sound.
+        They form close communities, develop varied personal interests
+        and maintain a special fondness for knowledge and music.
+      </p>
+
+      <div class="facts">
+        <div class="fact">
+          <span>Appearance</span>
+          Raven-like humanoids
+        </div>
+        <div class="fact">
+          <span>Transformation</span>
+          Capable of becoming ordinary crows
+        </div>
+        <div class="fact">
+          <span>Communication</span>
+          Native sound-language and vocal imitation
+        </div>
+        <div class="fact">
+          <span>Social structure</span>
+          Small, close-knit communities
+        </div>
+      </div>
+
+      <div class="note">
+        <em>
+          “A sound is never merely a sound. It is a memory of
+          somewhere, someone, or something that once existed.”
+        </em>
+        <p class="muted">— Anonymous note in the cultural archives</p>
+      </div>
+    </section>
+
+    <section id="biology">
+      <span class="eyebrow">02 · Form & physiology</span>
+      <h2>Between two forms</h2>
+      <p>
+        In their usual form, kenku possess an anthropomorphic avian
+        anatomy: feathers, beaks, wings and other features reminiscent
+        of crows and ravens. Their wings are functional, allowing flight.
+      </p>
+      <p>
+        They can also transform into ordinary crows, adopting the
+        appearance and scale of the familiar bird.
+      </p>
+      <p>
+        Their plumage is predominantly dark. Depending on the angle
+        and quality of light, their feathers may reveal subtle
+        iridescent blues, purples and greens. Individual differences
+        are more apparent in the shape of the beak, the eyes and
+        other small anatomical details.
+      </p>
+      <p>
+        Their natural lifespan remains undocumented. Exceptionally
+        long-lived individuals are known, although millennia of life
+        are not considered typical of the species.
+      </p>
+    </section>
+
+    <section id="communication">
+      <span class="eyebrow">03 · Language & sound</span>
+      <h2>A voice of their own</h2>
+      <p>
+        Kenku possess their own voices, generally low and resonant,
+        and communicate through a native language built around sounds.
+        Its structure and vocabulary remain subjects of ongoing study.
+      </p>
+      <p>
+        They are also natural mimics. A kenku can reproduce voices,
+        animal calls and environmental sounds with extraordinary
+        precision. This ability is an innate trait, not a sign that
+        the speaker lacks an identity or an original voice.
+      </p>
+      <div class="note">
+        <strong>Research status:</strong> The phonetics, grammar
+        and regional variations of the kenku language have yet
+        to be fully documented by the Library.
+      </div>
+    </section>
+
+    <section id="culture">
+      <span class="eyebrow">04 · Communities & customs</span>
+      <h2>Many voices, many ways of life</h2>
+      <p>
+        Kenku commonly live in small communities and value the
+        company of their own kind. Mutual respect and social bonds
+        are important, but no single custom defines every community.
+      </p>
+      <p>
+        Curiosity is widespread, as is a love of music and learning.
+        Many kenku collect small objects, trinkets and curiosities.
+        The meaning of a collection is personal: one individual
+        might treasure unusual stones, another discarded keys,
+        old instruments, fragments of writing or curious sounds.
+      </p>
+      <p>
+        They are often shy when first meeting strangers, yet many
+        become warm and sociable once trust has been established.
+        Kenku generally interact well with other peoples, although
+        attitudes towards outsiders vary between communities.
+      </p>
+      <p>
+        Kindness should not be mistaken for forgetfulness.
+        A serious betrayal or act of cruelty may be remembered
+        for a very long time, and some kenku will retaliate
+        when threatened or harmed.
+      </p>
+    </section>
+
+    <section id="occupations">
+      <span class="eyebrow">05 · Professions & pursuits</span>
+      <h2>Knowledge takes many forms</h2>
+      <p>
+        Kenku can be found among librarians, musicians, explorers,
+        researchers, artisans and travellers. Their curiosity and
+        ability to reproduce sounds can be useful in many pursuits.
+      </p>
+      <p>
+        Some individuals also turn to theft, but this is an
+        individual choice rather than an inherent feature
+        of kenku identity.
+      </p>
+      <p>
+        There is no universal kenku profession, and communities
+        differ in their traditions, skills and relationships
+        with the wider world.
+      </p>
+    </section>
+
+    <section id="individuals">
+      <span class="eyebrow">06 · Individual records</span>
+      <h2>Known individuals</h2>
+      <p>
+        A species cannot be understood through general descriptions
+        alone. The Library maintains individual records to document
+        the distinct lives, interests and histories of its inhabitants.
+      </p>
+
+      <a class="card" href="../characters/sapphiron.html">
+        <span class="tag">REGISTERED READER · INDEPENDENT ALCHEMIST</span>
+        <h3>Sapphiron</h3>
+        <p>
+          A reclusive kenku wizard and alchemist who lives in an
+          ancient forest near the Library. His exceptional longevity
+          and fragmented memories remain subjects of personal inquiry.
+        </p>
+        <span class="arrow">OPEN INDIVIDUAL RECORD ↗</span>
+      </a>
+    </section>
+
+    <a href="../index.html">← Return to the Grand Library</a>
+
+  </main>
+</div>
+
+<footer>
+  <p style="color:#c3a46b">✦ The Grand Library of the Realms ✦</p>
+  <p>Department of Peoples & Cultures · Ethnographic Archive</p>
+</footer>
+
+</body>
+</html>
