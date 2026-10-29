@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Library Catalogue · All Books | The Grand Library of the Realms</title>
+  <style>
+    :root{--night:#111a28;--panel:#1a2735;--panel2:#202f3d;--gold:#b8d2df;--parchment:#e6e5dc;--muted:#b5bdc0;--line:#879ba155}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 85% 0%,#263c4a 0%,transparent 38%),var(--night);color:var(--parchment);font:16px/1.65 Georgia,serif}
+    header,footer{padding:18px clamp(18px,5vw,70px);border-bottom:1px solid var(--line);background:#111a28cc}
+    .brand{color:var(--gold);text-decoration:none;letter-spacing:.08em;font-size:.9rem}
+    main{width:min(1100px,92%);margin:0 auto;padding:44px 0 70px}
+    .eyebrow,.label{color:var(--gold);text-transform:uppercase;letter-spacing:.14em;font:11px Arial,sans-serif}
+    h1,h2,h3{font-weight:normal;line-height:1.2}h1{font-size:clamp(2.3rem,6vw,4rem);margin:.5rem 0 1rem}h2{font-size:1.8rem;color:var(--gold);margin:0 0 12px}
+    .intro{max-width:720px;color:var(--muted);font-size:1.05rem}
+    .orientation{margin:28px 0 42px;padding:20px;border:1px solid var(--line);border-radius:12px;background:#182532}
+    .orientation-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.orientation-links a,.back{display:inline-block;padding:8px 12px;border:1px solid var(--line);border-radius:6px;color:var(--gold);text-decoration:none;font:12px Arial,sans-serif}
+    .orientation-links a:hover,.back:hover{background:#263c4a}
+    .group{margin:38px 0}.group-heading{display:flex;justify-content:space-between;gap:16px;align-items:baseline;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:16px}
+    .group-heading p{color:var(--muted);font-size:.9rem;margin:0}
+    .books{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+    .book{display:block;padding:20px;border:1px solid var(--line);border-radius:10px;background:linear-gradient(145deg,#202f3d,#172330);color:inherit;text-decoration:none;transition:transform .2s,border-color .2s}
+    .book:hover,.book:focus-visible{transform:translateY(-2px);border-color:var(--gold)}
+    .book .label{display:block;margin-bottom:10px}.book h3{font-size:1.35rem;margin:0 0 9px;color:var(--parchment)}.book p{margin:0;color:var(--muted);font-size:.93rem}.open{display:block;margin-top:18px;color:var(--gold);font:11px Arial,sans-serif;letter-spacing:.08em}
+    footer{border-top:1px solid var(--line);border-bottom:0;text-align:center;color:var(--muted);font-size:.8rem}
+  </style>
+</head>
+<body>
+  <header><a class="brand" href="../index.html">✦ THE GRAND LIBRARY OF THE REALMS</a></header>
+  <main>
+    <span class="eyebrow">The Grand Catalogue · Collection Overview</span>
+    <h1>All Books & Records</h1>
+    <p class="intro">A library-wide overview of the books and study archives currently available to explore. Browse the collection as a whole, or use the department links below to find your way through the Library.</p>
+
+    <nav class="orientation" aria-label="Department orientation">
+      <span class="eyebrow">Need help finding your way?</span>
+      <h2>Explore by Department</h2>
+      <p class="intro">Departments organise the Library by field of knowledge. Start with a department if you want context, or choose any book below to open it directly.</p>
+      <div class="orientation-links">
+        <a href="../departments/natural-sciences/index.html">Natural Sciences ↗</a>
+        <a href="../departments/natural-sciences/botany/index.html">Botany ↗</a>
+        <a href="../index.html#wayfinding-map">Find Your Way · Main Map ↗</a>
+      </div>
+    </nav>
+
+    <section class="group" aria-labelledby="natural-sciences-title">
+      <div class="group-heading"><h2 id="natural-sciences-title">Natural Sciences</h2><p>Department directory · <a style="color:var(--gold)" href="../departments/natural-sciences/index.html">The Departments ↗</a></p></div>
+      <div class="books">
+        <a class="book" href="../departments/natural-sciences/botany/taxonomy/the-living-index/">
+          <span class="label">Botany · Taxonomy & Classification</span><h3>The Living Index</h3>
+          <p>Professor Elowen Thorne's botanical reference to plant naming, taxonomy and classification.</p><span class="open">OPEN BOOK ↗</span>
+        </a>
+        <a class="book" href="../departments/natural-sciences/botany/seeds/seed-morphology-classification/">
+          <span class="label">Botany · Seeds & Plant Propagation</span><h3>Seed Morphology & Classification</h3>
+          <p>A field guide to identifying and comparing food, garden and vegetable seeds.</p><span class="open">OPEN BOOK ↗</span>
+        </a>
+        <a class="book" href="../departments/natural-sciences/botany/seeds/tree-seeds-cycle-of-growth/">
+          <span class="label">Botany · Seeds & Plant Propagation</span><h3>Tree Seeds & the Cycle of Growth</h3>
+          <p>A botanical study archive of tree seeds, their development, dormancy and germination.</p><span class="open">OPEN ARCHIVE ↗</span>
+        </a>
+      </div>
+    </section>
+    <p><a class="back" href="../index.html">← Return to the Grand Library</a></p>
+  </main>
+  <footer><p>✦ The Grand Library of the Realms ✦</p><p>All knowledge has a home. Not every secret has a key.</p></footer>
+</body>
+</html>
