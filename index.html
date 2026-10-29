@@ -495,6 +495,22 @@
     .wayfinding-node:hover, .wayfinding-node:focus-visible { border-color: var(--gold); transform: translateY(-2px); }
     .wayfinding-node[aria-pressed="true"] { border-color: var(--gold); background: #29354a; box-shadow: 0 0 0 2px #c3a46b24, 0 0 22px #c3a46b18; }
     .wayfinding-node[hidden] { display: none; }
+
+    /* The Grand Atrium sits at the centre: the map's main orientation point. */
+    @media (min-width: 701px) {
+      .wayfinding-map { grid-template-areas: "arcane histories natural" "restricted atrium celestial" ". peoples ."; }
+      .wayfinding-node[data-place="arcane"] { grid-area: arcane; }
+      .wayfinding-node[data-place="histories"] { grid-area: histories; }
+      .wayfinding-node[data-place="natural"] { grid-area: natural; }
+      .wayfinding-node[data-place="restricted"] { grid-area: restricted; }
+      .wayfinding-node[data-place="atrium"] { grid-area: atrium; min-height: 118px; align-self: stretch; background: linear-gradient(145deg,#294a36,#1b3828); border: 2px solid var(--gold); box-shadow: 0 0 0 4px #c3a46b18, 0 0 28px #c3a46b20; font-size: 15px; letter-spacing: .3px; }
+      .wayfinding-node[data-place="atrium"] span { font-size: 29px; color: #e3cb98; }
+      .wayfinding-node[data-place="atrium"]::after { content: "MAIN ORIENTATION POINT"; display: block; margin-top: 7px; color: #a8c49a; font: 9px Arial,sans-serif; letter-spacing: 1.3px; }
+      .wayfinding-node[data-place="celestial"] { grid-area: celestial; }
+      .wayfinding-node[data-place="peoples"] { grid-area: peoples; }
+      .wayfinding-node[data-place="atrium"][aria-pressed="true"] { background: linear-gradient(145deg,#355b40,#1b3828); box-shadow: 0 0 0 4px #c3a46b28, 0 0 34px #c3a46b30; }
+    }
+
     .wayfinding-detail { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; margin-top: 16px; padding: 18px; border-left: 3px solid var(--gold); background: #172131; }
     .wayfinding-detail h3 { margin: 0 0 6px; color: var(--gold); }
     .wayfinding-detail p { margin: 0; color: #c9c4b9; font-size: 14px; }
