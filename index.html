@@ -468,6 +468,20 @@
       border-color: var(--gold);
     }
 
+   
+    .reading-desk-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-top:28px; text-align:left; }
+    .reading-desk-card { padding:20px; border:1px solid var(--line); background:rgba(10,24,18,.42); min-width:0; }
+    .reading-desk-card h3 { margin:0 0 14px; color:var(--gold); font-size:1.05rem; font-weight:normal; }
+    .reading-desk-list { list-style:none; padding:0; margin:0; display:grid; gap:12px; }
+    .reading-desk-list li { font-size:.9rem; line-height:1.55; color:var(--cream); overflow-wrap:anywhere; }
+    .reading-desk-list a { color:var(--cream); text-decoration:none; border-bottom:1px solid rgba(200,169,107,.35); }
+    .reading-desk-list a:hover { color:var(--gold); }
+    .reading-desk-list small { display:block; color:var(--muted,#b8b19f); font-size:.78rem; }
+    .reading-desk-note { margin:18px 0 10px; font-size:.8rem; opacity:.75; }
+    .reading-desk-clear { padding:9px 13px; border:1px solid var(--line); background:transparent; color:var(--gold); font:inherit; font-size:.8rem; cursor:pointer; }
+    .reading-desk-clear:hover { background:rgba(200,169,107,.1); }
+    @media(max-width:760px){ .reading-desk-grid { grid-template-columns:1fr; } }
+
   </style>
 </head>
 
@@ -671,6 +685,31 @@
       </div>
     </section>
 
+    <!-- PERSONAL READING DESK -->
+    <section class="section reading-desk" id="reading-desk" aria-labelledby="reading-desk-title">
+      <div class="section-heading">
+        <span class="eyebrow">Your personal archive</span>
+        <h2 id="reading-desk-title">Your Reading Desk</h2>
+        <p class="intro">Return to your recent visits, saved pages and unfinished reading. This desk is stored only in this browser.</p>
+      </div>
+      <div class="reading-desk-grid">
+        <div class="reading-desk-card">
+          <h3>Recently visited</h3>
+          <ul id="reading-history-list" class="reading-desk-list"><li>Your reading history will appear here.</li></ul>
+        </div>
+        <div class="reading-desk-card">
+          <h3>Saved pages</h3>
+          <ul id="reading-favourites-list" class="reading-desk-list"><li>Your favourite pages will appear here.</li></ul>
+        </div>
+        <div class="reading-desk-card">
+          <h3>Continue reading</h3>
+          <ul id="reading-progress-list" class="reading-desk-list"><li>Your reading progress will appear here.</li></ul>
+        </div>
+      </div>
+      <p class="reading-desk-note">Your data stays in this browser. Clearing browser data or switching devices may remove or hide it.</p>
+      <button class="reading-desk-clear" id="reading-desk-clear" type="button">Clear reading history</button>
+    </section>
+
     <!-- RANDOM DISCOVERIES · kept at the end of the homepage -->
     <section class="section" id="random-discoveries">
       <div class="section-heading">
@@ -795,6 +834,75 @@
           input.focus();
         });
       });
+    })();
+  </script>
+
+  <script>
+    (() => {
+      const historyKey = 'grand-library:visited-pages';
+      const historyList = document.getElementById('reading-history-list');
+      const favouritesList = document.getElementById('reading-favourites-list');
+      const progressList = document.getElementById('reading-progress-list');
+      const clearButton = document.getElementById('reading-desk-clear');
+      const books = [
+        { title: 'Seed Morphology & Classification', url: 'departments/natural-sciences/botany/seeds/seed-morphology-classification/index.html', key: 'grand-library:seed-morphology:', kind: 'seed' },
+        { title: 'The Living Index', url: 'departments/natural-sciences/botany/taxonomy/the-living-index/index.html', key: 'grand-library:living-index:', kind: 'living' }
+      ];
+      const readJSON = (key, fallback) => { try { return JSON.parse(localStorage.getItem(key) || JSON.stringify(fallback)); } catch (error) { return fallback; } };
+      function addItem(list, label, href, detail) {
+        const li = document.createElement('li');
+        if (href) { const a = document.createElement('a'); a.href = href; a.textContent = label; li.appendChild(a); }
+        else li.textContent = label;
+        if (detail) { const small = document.createElement('small'); small.textContent = detail; li.appendChild(small); }
+        list.appendChild(li);
+      }
+      function render() {
+        if (!historyList || !favouritesList || !progressList) return;
+        historyList.replaceChildren(); favouritesList.replaceChildren(); progressList.replaceChildren();
+        const history = readJSON(historyKey, []);
+        if (history.length) history.slice(0, 6).forEach(item => addItem(historyList, item.title || 'Visited page', item.url, item.visitedAt ? new Date(item.visitedAt).toLocaleDateString() : ''));
+        else addItem(historyList, 'No visits recorded yet.', null, 'Open a book to begin your history.');
+        let favouriteCount = 0, progressCount = 0;
+        books.forEach(book => {
+          const saved = readJSON(book.key + 'favourites', []);
+          if (book.kind === 'seed') {
+            saved.forEach(id => {
+              const n = Number(id);
+              if (!Number.isNaN(n)) { addItem(favouritesList, book.title + ' · Entry ' + (n + 1), book.url, 'Saved page'); favouriteCount++; }
+            });
+          } else {
+            saved.forEach(i => {
+              const n = Number(i);
+              if (Number.isFinite(n) && n >= 0) { addItem(favouritesList, book.title + ' · Page ' + (n + 1), book.url, 'Saved page'); favouriteCount++; }
+            });
+          }
+          const rawProgress = localStorage.getItem(book.key + 'progress');
+          if (rawProgress !== null && rawProgress !== '') {
+            const n = Math.max(0, Number(rawProgress) || 0);
+            addItem(progressList, book.title, book.url, 'Resume around page ' + (n + 1));
+            progressCount++;
+          }
+        });
+        if (!favouriteCount) addItem(favouritesList, 'No saved pages yet.', null, 'Use the bookmark button inside a book.');
+        if (!progressCount) addItem(progressList, 'No reading progress saved yet.', null, 'Your position is saved as you read.');
+      }
+      if (clearButton) clearButton.addEventListener('click', () => {
+        try { localStorage.removeItem(historyKey); } catch (error) {}
+        render();
+      });
+      render();
+    })();
+  </script>
+
+  <script>
+    (() => {
+      try {
+        const key = 'grand-library:visited-pages';
+        const page = { title: document.title.replace(/\s*\|\s*The Grand Library of the Realms$/, ''), url: location.pathname, visitedAt: new Date().toISOString() };
+        const history = JSON.parse(localStorage.getItem(key) || '[]');
+        const updated = [page, ...history.filter(item => item.url !== page.url)].slice(0, 20);
+        localStorage.setItem(key, JSON.stringify(updated));
+      } catch (error) {}
     })();
   </script>
 
