@@ -5,582 +5,512 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Hyssop, The Arrival Guide | The Grand Library of the Realms</title>
+  <title>Hyssop | Grand Library of the Realms</title>
 
   <meta name="description" content="Meet Hyssop, the Mycelium-born Arrival Guide of the Grand Library of the Realms.">
 
   <style>
-    :root {
-      --navy: #101a2b;
-      --navy-light: #19273b;
-      --navy-soft: #223249;
-      --gold: #c5a66b;
-      --gold-light: #e1c994;
-      --parchment: #eee5d2;
-      --muted: #b7b5b0;
-      --line: rgba(197, 166, 107, 0.32);
-      --burgundy: #783d45;
-    }
+:root {
+  --night: #0b1019;
+  --panel: #121b29;
+  --panel-light: #182436;
+  --gold: #5686c5;
+  --gold-dim: #304b6d;
+  --parchment: #c5d3e4;
+  --muted: #a5a9b3;
+  --blue: #5686c5;
+  --line: rgba(86,134,197,.28);
+}
 
-    * {
-      box-sizing: border-box;
-    }
+* { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+html { scroll-behavior: smooth; }
 
-    body {
-      margin: 0;
-      background: var(--navy);
-      color: var(--parchment);
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.75;
-    }
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 80% 0%, #182b46 0%, transparent 42%),
+    var(--night);
+  color: var(--parchment);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.75;
+}
 
-    a {
-      color: var(--gold-light);
-      text-decoration: none;
-    }
+a { color: var(--gold); }
+a:hover { color: #8db9f0; }
 
-    a:hover {
-      color: white;
-    }
+.topbar {
+  padding: 16px 7%;
+  border-bottom: 1px solid var(--line);
+  background: rgba(7,11,18,.8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
 
-    .site-header {
-      padding: 20px 7%;
-      border-bottom: 1px solid var(--line);
-      background: rgba(10, 17, 29, 0.7);
-    }
+.brand {
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
 
-    .header-inner {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
+.topbar nav {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
 
-    .site-name {
-      color: var(--gold-light);
-      font-size: 0.95rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
+.topbar nav a {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
 
-    .back-link {
-      font-size: 0.9rem;
-    }
+/* CABECERA Y RETRATO */
 
-    main {
-      max-width: 1200px;
-      margin: auto;
-      padding: 45px 7% 90px;
-    }
+.hero {
+  padding: 75px 8%;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
 
-    .breadcrumbs {
-      margin-bottom: 35px;
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
 
-    .breadcrumbs span {
-      margin: 0 8px;
-      color: var(--gold);
-    }
+.hero-text {
+  flex: 1 1 0;
+  min-width: 0;
+  text-align: left;
+}
 
-    .eyebrow {
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      font-size: 0.75rem;
-      margin-bottom: 12px;
-    }
+.sapphiron-portrait {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 35%;
+  max-height: 340px;
+  object-fit: contain;
+  flex: 0 1 auto;
+  margin: 0;
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(80,130,200,.25);
+}
 
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
-      gap: 55px;
-      align-items: center;
-      margin-bottom: 75px;
-    }
+.hero::after {
+  content: "✧";
+  position: absolute;
+  right: 8%;
+  top: 12%;
+  color: rgba(86,134,197,.18);
+  font-size: 220px;
+  line-height: 1;
+  pointer-events: none;
+}
 
-    h1, h2, h3, p {
-      margin-top: 0;
-    }
+.eyebrow {
+  color: var(--gold);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
 
-    h1 {
-      color: var(--gold-light);
-      font-size: clamp(2.6rem, 5vw, 4.5rem);
-      line-height: 1.08;
-      font-weight: normal;
-      margin-bottom: 20px;
-    }
+h1 {
+  font-size: clamp(46px, 8vw, 86px);
+  font-weight: normal;
+  line-height: 1.05;
+  margin: 18px 0;
+}
 
-    .subtitle {
-      color: var(--muted);
-      font-size: 1.05rem;
-      margin-bottom: 25px;
-    }
+.subtitle {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 19px;
+  max-width: 650px;
+}
 
-    .intro {
-      font-size: 1.08rem;
-      max-width: 590px;
-    }
+.hero-note {
+  margin-top: 32px;
+  padding-left: 18px;
+  border-left: 2px solid var(--blue);
+  max-width: 560px;
+  color: #b8cce6;
+  font-style: italic;
+}
 
-    .portrait {
-      min-height: 420px;
-      border: 1px solid var(--line);
-      background:
-        radial-gradient(
-          ellipse at center,
-          rgba(120, 61, 69, 0.24),
-          transparent 70%
-        ),
-        var(--navy-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 30px;
-      position: relative;
-    }
+.status {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 6px 12px;
+  border: 1px solid var(--gold-dim);
+  color: var(--gold);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
 
-    .portrait::before {
-      content: "";
-      position: absolute;
-      inset: 12px;
-      border: 1px solid rgba(197, 166, 107, 0.2);
-      pointer-events: none;
-    }
+.layout {
+  max-width: 1200px;
+  margin: auto;
+  padding: 50px 7%;
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 48px;
+}
 
-    .portrait-inner {
-      max-width: 230px;
-      color: var(--muted);
-    }
+.sidebar {
+  align-self: start;
+  position: sticky;
+  top: 24px;
+  border: 1px solid var(--line);
+  background: rgba(18,27,41,.7);
+  padding: 24px;
+}
 
-    .portrait-symbol {
-      font-size: 3rem;
-      color: var(--gold);
-      display: block;
-      margin-bottom: 12px;
-    }
+.sidebar h3 {
+  font-size: 12px;
+  color: var(--gold);
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 0;
+}
 
-    .portrait-label {
-      display: block;
-      color: var(--gold-light);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.8rem;
-      margin-bottom: 8px;
-    }
+.sidebar a {
+  display: block;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(86,134,197,.12);
+  color: var(--parchment);
+  text-decoration: none;
+  font-size: 13px;
+}
 
-    .portrait-note {
-      font-size: 0.85rem;
-    }
+.sidebar a:hover { color: var(--blue); }
 
-    .quick-facts {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 30px;
-    }
+section { scroll-margin-top: 25px; }
 
-    .fact {
-      padding: 15px 17px;
-      border-left: 2px solid var(--gold);
-      background: rgba(255, 255, 255, 0.035);
-    }
+.section-label {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
 
-    .fact-label {
-      display: block;
-      color: var(--muted);
-      text-transform: uppercase;
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      margin-bottom: 3px;
-    }
+h2 {
+  font-size: 30px;
+  font-weight: normal;
+  margin: 4px 0 20px;
+}
 
-    .fact-value {
-      color: var(--parchment);
-      font-size: 0.95rem;
-    }
+h3 {
+  font-weight: normal;
+  color: var(--gold);
+}
 
-    .section {
-      padding: 35px 0;
-      border-top: 1px solid var(--line);
-    }
+.content-section {
+  padding-bottom: 42px;
+  margin-bottom: 42px;
+  border-bottom: 1px solid var(--line);
+}
 
-    .section-heading {
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
-      margin-bottom: 22px;
-    }
+.content-section p { color: #b7c7dc; }
 
-    .section-number {
-      color: var(--gold);
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-    }
+.quote {
+  margin: 28px 0;
+  padding: 20px 25px;
+  border-left: 2px solid var(--blue);
+  background: linear-gradient(90deg, rgba(86,134,197,.1), transparent);
+  font-size: 18px;
+  font-style: italic;
+  color: #c5d9f2;
+}
 
-    h2 {
-      color: var(--gold-light);
-      font-size: 1.7rem;
-      font-weight: normal;
-      margin-bottom: 0;
-    }
+.facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 12px;
+  margin: 24px 0;
+}
 
-    h3 {
-      color: var(--gold-light);
-      font-size: 1.1rem;
-      font-weight: normal;
-      margin-bottom: 10px;
-    }
+.fact {
+  padding: 17px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
 
-    .section p {
-      max-width: 790px;
-      color: #d6d0c5;
-    }
+.fact small {
+  display: block;
+  color: var(--gold);
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  margin-bottom: 5px;
+}
 
-    .two-columns {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 35px;
-    }
+.fact span { font-size: 14px; }
 
-    .detail-card {
-      padding: 25px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.025);
-      transition: background 0.25s, border-color 0.25s;
-    }
+.notice {
+  padding: 20px 22px;
+  border: 1px solid rgba(86,134,197,.4);
+  background: rgba(86,134,197,.07);
+}
 
-    .detail-card:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: var(--gold);
-    }
+.notice h3 { margin-top: 0; }
 
-    .detail-card p {
-      margin-bottom: 0;
-    }
+.related-card {
+  display: block;
+  padding: 24px;
+  border: 1px solid var(--line);
+  background: linear-gradient(135deg, var(--panel-light), var(--panel));
+  text-decoration: none;
+  transition: border-color .2s, transform .2s;
+}
 
-    .signature-item {
-      color: var(--gold-light);
-      font-style: italic;
-    }
+.related-card:hover {
+  border-color: var(--blue);
+  transform: translateY(-2px);
+}
 
-    .quote-section {
-      margin: 35px 0 55px;
-      padding: 42px 30px;
-      text-align: center;
-      background: var(--navy-light);
-      border-top: 1px solid var(--gold);
-      border-bottom: 1px solid var(--gold);
-    }
+.related-card .symbol {
+  font-size: 27px;
+  color: var(--blue);
+}
 
-    blockquote {
-      max-width: 750px;
-      margin: 0 auto;
-      color: var(--gold-light);
-      font-size: clamp(1.35rem, 3vw, 2rem);
-      line-height: 1.55;
-      font-style: italic;
-    }
+.related-card h3 { margin: 6px 0; }
 
-    .quote-credit {
-      margin-top: 20px;
-      margin-bottom: 0;
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
+.related-card p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 0;
+}
 
-    .species-note {
-      padding: 25px;
-      background: rgba(120, 61, 69, 0.12);
-      border: 1px solid rgba(120, 61, 69, 0.6);
-    }
+.back-link {
+  display: inline-block;
+  margin-top: 25px;
+  text-decoration: none;
+  font-size: 13px;
+}
 
-    .species-note p {
-      margin-bottom: 0;
-    }
+footer {
+  border-top: 1px solid var(--line);
+  padding: 28px 7%;
+  color: var(--muted);
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: .5px;
+}
 
-    .page-navigation {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 55px;
-      padding-top: 25px;
-      border-top: 1px solid var(--line);
-    }
+/* ADAPTACIÓN A MÓVILES */
 
-    .page-navigation a {
-      transition: transform 0.2s, color 0.2s;
-    }
+@media (max-width: 760px) {
+  .hero {
+    padding: 55px 7%;
+  }
 
-    .page-navigation a:hover {
-      transform: translateX(3px);
-    }
+  .hero-content {
+    gap: 22px;
+    align-items: center;
+  }
 
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 25px 7%;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.8rem;
-    }
+  .sapphiron-portrait {
+    max-width: 38%;
+    max-height: 260px;
+  }
 
-    @media (max-width: 760px) {
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
+  h1 {
+    font-size: clamp(38px, 9vw, 58px);
+  }
 
-      .portrait {
-        min-height: 330px;
-      }
+  .subtitle {
+    font-size: 16px;
+  }
 
-      .two-columns {
-        grid-template-columns: 1fr;
-      }
+  .hero-note {
+    margin-top: 22px;
+  }
 
-      .header-inner {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 8px;
-      }
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
 
-      main {
-        padding-top: 30px;
-      }
-    }
+  .sidebar {
+    position: static;
+  }
 
-    @media (max-width: 450px) {
-      .quick-facts {
-        grid-template-columns: 1fr;
-      }
+  .facts {
+    grid-template-columns: 1fr;
+  }
 
-      .breadcrumbs {
-        line-height: 2;
-      }
+  .hero::after {
+    right: -20px;
+    top: 15%;
+    font-size: 150px;
+  }
+}
 
-      .quote-section {
-        padding: 30px 20px;
-      }
-    }
-  </style>
-</head>
+@media (max-width: 480px) {
+  .hero-content {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
 
-<body>
+  .sapphiron-portrait {
+    max-width: 70%;
+    max-height: 300px;
+    align-self: center;
+  }
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="site-name" href="../index.html">
-        The Grand Library of the Realms
-      </a>
+  .hero-text {
+    width: 100%;
+  }
+}
 
-      <a class="back-link" href="../departments/welcome-arrival.html">
-        ← Welcome & Arrival
-      </a>
+/* SAPPHIRON'S PERSONAL COLOUR PALETTE */
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 14px;
+  margin: 24px 0;
+}
+.palette-swatch {
+  overflow: hidden;
+  border: 1px solid rgba(86,134,197,.35);
+  background: #121b29;
+}
+.palette-colour {
+  height: 82px;
+  border-bottom: 1px solid rgba(86,134,197,.35);
+}
+.palette-info { padding: 12px; }
+.palette-info strong {
+  display: block;
+  color: #c5d3e4;
+  font-size: 13px;
+  font-weight: normal;
+}
+.palette-info code {
+  display: block;
+  margin-top: 5px;
+  color: #5686c5;
+  font-size: 12px;
+}
+.palette-info small {
+  display: block;
+  margin-top: 5px;
+  color: #8fa5c2;
+  font-size: 11px;
+}
+
+</style><body>
+<header class="topbar">
+  <a class="brand" href="../index.html">✧ Grand Library of the Realms</a>
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../departments/welcome-arrival.html">Welcome & Arrival</a>
+    <a href="index.html">People Archive</a>
+  </nav>
+</header>
+
+<header class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="eyebrow">Individual Record · Welcome & Arrival</div>
+      <h1>Hyssop</h1>
+      <div class="subtitle">The Arrival Guide · Mycelium-born · District I</div>
+      <div class="hero-note">“Welcome, welcome! Now, where have you travelled from? Oh, never mind, tell me on the way!”</div>
+      <div class="status">Official Guide · Grand Library of the Realms</div>
     </div>
-  </header>
+    <div class="sapphiron-portrait" role="img" aria-label="Reserved space for the creator's original illustration of Hyssop" style="width:260px;height:320px;max-width:35%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;border-radius:12px;border:2px solid var(--blue);background:var(--panel);color:var(--blue);">
+      <span style="font-size:52px">✳</span>
+      <strong>Portrait Pending</strong>
+      <small style="color:var(--muted);margin-top:12px">Original illustration by the creator</small>
+    </div>
+  </div>
+</header>
 
+<div class="layout">
+  <aside class="sidebar">
+    <h3>Record Index</h3>
+    <a href="#overview">01 — Overview</a>
+    <a href="#profile">02 — Personal Record</a>
+    <a href="#personality">03 — Personality & Habits</a>
+    <a href="#origins">04 — Discovery in the Library</a>
+    <a href="#duties">05 — The Arrival Guide</a>
+    <a href="#species">06 — Mycelium-born</a>
+  </aside>
   <main>
-
-    <nav class="breadcrumbs" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a>
-      <span>/</span>
-      <a href="../departments/welcome-arrival.html">Welcome & Arrival</a>
-      <span>/</span>
-      Hyssop
-    </nav>
-
-    <section class="hero">
-
-      <div class="hero-content">
-        <p class="eyebrow">Character Archive · District I</p>
-        <h1>Hyssop</h1>
-        <p class="subtitle">The Arrival Guide · Grand Library of the Realms</p>
-        <p class="intro">
-          A small, mushroom-like being who welcomes newcomers to the
-          Grand Library. Hyssop knows its public routes, remembers
-          curious details that others overlook, and can turn even the
-          simplest question into a long and enthusiastic conversation.
-        </p>
-
-        <div class="quick-facts">
-          <div class="fact">
-            <span class="fact-label">Species</span>
-            <span class="fact-value">Mycelium-born</span>
-          </div>
-          <div class="fact">
-            <span class="fact-label">Age</span>
-            <span class="fact-value">Approximately 100–300 years</span>
-          </div>
-          <div class="fact">
-            <span class="fact-label">Height</span>
-            <span class="fact-value">115–130 cm</span>
-          </div>
-          <div class="fact">
-            <span class="fact-label">Gender</span>
-            <span class="fact-value">Androgynous</span>
-          </div>
-          <div class="fact">
-            <span class="fact-label">Occupation</span>
-            <span class="fact-value">Arrival Guide</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="portrait" aria-label="Portrait illustration to be added">
-        <div class="portrait-inner">
-          <span class="portrait-symbol" aria-hidden="true">✳</span>
-          <span class="portrait-label">Portrait Pending</span>
-          <p class="portrait-note">
-            An original illustration of Hyssop will be placed here.
-          </p>
-        </div>
-      </div>
+    <section class="content-section" id="overview">
+      <div class="section-label">Record 002 · Introduction</div>
+      <h2>Overview</h2>
+      <p>Hyssop is a curious, mushroom-like being who welcomes newcomers to the Grand Library. He knows its public routes, remembers obscure details, and can turn even the simplest question into a long and enthusiastic conversation.</p>
+      <p>He wants visitors to feel that they belong here. His explanations sometimes wander, but his enthusiasm is genuine, and he rarely lets a newcomer leave without feeling a little less lost.</p>
+      <div class="quote">“A good guide doesn't just show you where to go. They make you want to see what's there.”</div>
     </section>
 
-    <section class="section" id="appearance">
-      <div class="section-heading">
-        <span class="section-number">01</span>
-        <h2>Appearance</h2>
+    <section class="content-section" id="profile">
+      <div class="section-label">Personal Information</div>
+      <h2>Personal Record</h2>
+      <div class="facts">
+        <div class="fact"><small>Species</small><span>Mycelium-born</span></div>
+        <div class="fact"><small>Age</small><span>Approximately 100–300 years</span></div>
+        <div class="fact"><small>Height</small><span>115–130 cm</span></div>
+        <div class="fact"><small>Gender</small><span>Androgynous</span></div>
+        <div class="fact"><small>Occupation</small><span>Arrival Guide</span></div>
+        <div class="fact"><small>Department</small><span>Welcome & Arrival</span></div>
       </div>
-      <p>
-        Hyssop is short and round, with an unmistakably asymmetrical
-        silhouette. His irregular cap tilts to one side, framing large,
-        round, expressive eyes. Delicate gills sit beneath the cap, while
-        small mushrooms and other organic growths emerge unevenly across
-        his body. He has no hair, and his physical form remains stable
-        throughout his long life.
-      </p>
-      <p>
-        He dresses in a somewhat dishevelled, Victorian-inspired outfit:
-        usually a burgundy coat, a cream waistcoat, antique brass buttons
-        and a monocle suspended from a fine chain. His many pockets are
-        full of notes, labels and miscellaneous objects he has collected
-        along the way.
-      </p>
-      <p class="signature-item">
-        Signature detail: a faint cloud of spores that sometimes follows
-        him when he is especially pleased.
-      </p>
+      <h3>Appearance</h3>
+      <p>Hyssop is short and round, with an unmistakably asymmetrical silhouette. His irregular cap tilts to one side, framing large, round, expressive eyes. Delicate gills sit beneath the cap, while small mushrooms and organic growths emerge unevenly across his body. He has no hair, and his physical form remains stable throughout his long life.</p>
+      <p>He dresses in a somewhat dishevelled, Victorian-inspired outfit: usually a burgundy coat, a cream waistcoat, antique brass buttons and a monocle suspended from a fine chain. His many pockets are full of notes, labels and miscellaneous objects he has collected along the way.</p>
+      <h3>Signature Detail</h3>
+      <p>When Hyssop becomes absorbed in a book or feels he has genuinely helped someone, he releases a tiny cloud of pale, almost golden spores. It is involuntary—the fungal equivalent of blushing—and he rarely notices it himself.</p>
     </section>
 
-    <section class="section" id="personality">
-      <div class="section-heading">
-        <span class="section-number">02</span>
-        <h2>A Curious Nature</h2>
-      </div>
-      <div class="two-columns">
-        <article class="detail-card">
-          <h3>Lost in a Book</h3>
-          <p>
-            When Hyssop becomes absorbed in a book, he may release a tiny
-            cloud of spores without noticing. The same thing happens when
-            he feels he has genuinely helped someone. The pale, almost
-            golden dust hangs in the air for a moment before settling.
-          </p>
-        </article>
-        <article class="detail-card">
-          <h3>One Question Becomes Ten</h3>
-          <p>
-            Hyssop remembers obscure facts and gets distracted by
-            fascinating details. A simple request for directions can
-            become an impromptu lecture about a forgotten reading room,
-            an unusual staircase or a visitor from centuries ago.
-          </p>
-        </article>
-      </div>
-      <p>
-        His spores are involuntary, the fungal equivalent of blushing.
-        Hyssop cannot quite hide his delight when a book catches his
-        attention or when a newcomer leaves feeling less lost.
-      </p>
+    <section class="content-section" id="personality">
+      <div class="section-label">Personality</div>
+      <h2>A Curious Nature</h2>
+      <p>Hyssop remembers obscure facts and gets distracted by fascinating details. A simple request for directions can become an impromptu lecture about a forgotten reading room, an unusual staircase or a visitor from centuries ago.</p>
+      <p>He is most animated when a book catches his attention or when a newcomer leaves feeling less lost. Those are the moments when the little clouds of spores tend to appear.</p>
     </section>
 
-    <section class="section" id="origins">
-      <div class="section-heading">
-        <span class="section-number">03</span>
-        <h2>Discovery in the Library</h2>
-      </div>
-      <p>
-        Hyssop was discovered in a damp basement near the Department of
-        Botany. He had awakened alone and was already moving books around
-        when the first staff members found him. No one could quite work
-        out what he was doing, but he seemed to know exactly where each
-        volume belonged—or at least had a very enthusiastic explanation
-        for every change.
-      </p>
-      <p>
-        Before long, he began interrupting formal tours to add forgotten
-        details and correct historical inaccuracies. Visitors started
-        asking for him by name. The Library eventually recognised what
-        they already knew: nobody could make a newcomer feel more welcome.
-      </p>
+    <section class="content-section" id="origins">
+      <div class="section-label">Background</div>
+      <h2>Discovery in the Library</h2>
+      <p>Hyssop was discovered in a damp basement near the Department of Botany. He had awakened alone and was already moving books around when the first staff members found him. No one could quite work out what he was doing, but he seemed to know exactly where each volume belonged—or at least had a very enthusiastic explanation for every change.</p>
+      <p>Before long, he began interrupting formal tours to add forgotten details and correct historical inaccuracies. Visitors started asking for him by name. The Library eventually recognised what they already knew: nobody could make a newcomer feel more welcome.</p>
     </section>
 
-    <section class="section" id="duties">
-      <div class="section-heading">
-        <span class="section-number">04</span>
-        <h2>The Arrival Guide</h2>
-      </div>
-      <p>
-        Hyssop works in Welcome & Arrival, helping visitors orient
-        themselves, understand the public areas and find the right
-        entrance, service or route. He is especially good with first-time
-        visitors, who can find the Library's scale overwhelming.
-      </p>
-      <p>
-        For Hyssop, guiding is more than a job. It is a chance to share
-        the wonder of the Library with someone who has never experienced
-        it before. He may take a little longer than expected, but he
-        wants every visitor to leave with a sense that they belong here.
-      </p>
+    <section class="content-section" id="duties">
+      <div class="section-label">Library Role</div>
+      <h2>The Arrival Guide</h2>
+      <p>Hyssop works in Welcome & Arrival, helping visitors orient themselves, understand the public areas and find the right entrance, service or route. He is especially good with first-time visitors, who can find the Library's scale overwhelming.</p>
+      <p>For Hyssop, guiding is more than a job. It is a chance to share the wonder of the Library with someone who has never experienced it before. He may take a little longer than expected, but he wants every visitor to leave with a sense that they belong here.</p>
     </section>
 
-    <section class="section" id="species">
-      <div class="section-heading">
-        <span class="section-number">05</span>
-        <h2>Among the Mycelium-born</h2>
-      </div>
-      <div class="species-note">
+    <section class="content-section" id="species">
+      <div class="section-label">Related Archive</div>
+      <h2>Among the Mycelium-born</h2>
+      <div class="notice">
         <h3>A People Yet to Be Documented</h3>
-        <p>
-          Hyssop belongs to the Mycelium-born, a people whose biology,
-          varieties, communities and traditions will be explored in a
-          dedicated species archive. His spore release is one expression
-          of his own nature; it should not be assumed that every
-          Mycelium-born behaves in the same way.
-        </p>
+        <p>Hyssop belongs to the Mycelium-born, a people whose biology, varieties, communities and traditions will be explored in a dedicated species archive. His spore release is one expression of his own nature; it should not be assumed that every Mycelium-born behaves in the same way.</p>
       </div>
+      <a class="back-link" href="index.html">← Return to The People of the Realms</a>
     </section>
-
-    <section class="quote-section">
-      <blockquote>
-        “Welcome, welcome! Now, where have you travelled from?
-        Oh, never mind, tell me on the way!”
-      </blockquote>
-      <p class="quote-credit">— Hyssop, The Arrival Guide</p>
-    </section>
-
-    <nav class="page-navigation" aria-label="Page navigation">
-      <a href="../departments/welcome-arrival.html">← Return to Welcome & Arrival</a>
-      <a href="index.html">Return to The People of the Realms →</a>
-    </nav>
-
   </main>
-
-  <footer>
-    The Grand Library of the Realms
-    <br>
-    District I · The District of Knowledge
-  </footer>
-
-</body>
-</html>
+</div>
+<footer>The Grand Library of the Realms · Individual Records</footer>
+</body></html>
