@@ -324,6 +324,14 @@ footer { background:rgba(16,37,27,.7); border-top:1px solid var(--border); }
 .book-page h3.keep-with-next{break-after:avoid;page-break-after:avoid;break-inside:avoid;page-break-inside:avoid}
 .book-page .population-record{break-inside:avoid;page-break-inside:avoid}
 .book-page .accession-card{margin:12px 0 16px;padding:12px 16px;border:1px solid rgba(112,79,43,.34);background:rgba(255,250,235,.48);box-shadow:inset 0 0 0 3px rgba(112,79,43,.07)}
+
+/* Reader comfort: saved pages, progress and responsive controls */
+.book-reader-tools{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px;margin:12px 0 16px}
+.book-reader-tools button,.book-reader-favourites button{font:inherit;cursor:pointer;border:1px solid var(--gold);background:#142b20;color:var(--cream);padding:9px 13px;min-height:40px}
+.book-reader-tools button[aria-pressed="true"]{background:var(--gold);color:#10251b}
+.book-reader-progress{height:3px;background:#ffffff18;margin:8px 0 14px;overflow:hidden}.book-reader-progress span{display:block;height:100%;width:0;background:var(--gold);transition:width .2s}
+.book-reader-favourites{display:none;margin:12px 0 20px;padding:16px;border:1px solid var(--border);background:rgba(20,43,32,.96);color:var(--cream)}.book-reader-favourites.open{display:block}.book-reader-favourites h3{margin:0 0 10px}.book-reader-favourites li{margin:8px 0}.book-reader-favourites a{color:var(--gold)}
+@media(max-width:640px){.book-reader-tools{display:grid;grid-template-columns:1fr 1fr}.book-reader-tools button{width:100%;min-height:44px;padding:10px 7px;font-size:.9rem}.book-controls{display:grid;grid-template-columns:1fr 1fr;gap:8px}.book-controls #book-page-status{grid-column:1/-1;grid-row:1;text-align:center}.book-controls button{min-height:44px;padding:10px 8px}.book-reader-favourites{padding:12px}.book-reader-favourites li{overflow-wrap:anywhere}}
 </style>
 </head>
 <body>
@@ -2173,7 +2181,17 @@ if(pages.length%2===0)addPage([],true,'');
 });
 if(pages.length&&pages[pages.length-1].blank)pages.pop();
 reader.style.display='block';
-let index=0;
+const storageKey='grand-library:living-index:';
+let index=0,readerFavourites=[];
+try{index=Number(localStorage.getItem(storageKey+'progress'))||0;readerFavourites=JSON.parse(localStorage.getItem(storageKey+'favourites')||'[]');}catch(e){}
+const tools=document.createElement('div');tools.className='book-reader-tools';tools.innerHTML='<button type="button" id="book-reader-bookmark" aria-pressed="false">☆ Save this page</button><button type="button" id="book-reader-favourites-toggle" aria-expanded="false">🔖 Favourites (<span id="book-reader-favourite-count">0</span>)</button><button type="button" id="book-reader-top">↑ Back to book start</button>';
+const progress=document.createElement('div');progress.className='book-reader-progress';progress.setAttribute('role','progressbar');progress.setAttribute('aria-label','Reading progress');progress.setAttribute('aria-valuemin','0');progress.setAttribute('aria-valuemax',String(pages.length));progress.innerHTML='<span></span>';
+const panel=document.createElement('section');panel.className='book-reader-favourites';panel.id='book-reader-favourites';panel.setAttribute('aria-label','Saved pages');panel.innerHTML='<h3>Saved pages</h3><ul></ul><p class="book-favourites-empty">No saved pages yet. Save a page while reading.</p>';
+reader.querySelector('.book-controls').insertAdjacentElement('afterend',tools);tools.insertAdjacentElement('afterend',progress);progress.insertAdjacentElement('afterend',panel);
+const bookmark=tools.querySelector('#book-reader-bookmark'),toggle=tools.querySelector('#book-reader-favourites-toggle'),list=panel.querySelector('ul'),empty=panel.querySelector('.book-favourites-empty');
+function pageTitle(i){return pages[i]?.title||'Untitled page';}
+function saveReaderState(){try{localStorage.setItem(storageKey+'progress',String(index));localStorage.setItem(storageKey+'favourites',JSON.stringify(readerFavourites));}catch(e){}}
+function renderReaderFavourites(){list.innerHTML='';readerFavourites.forEach(i=>{if(i<0||i>=pages.length)return;const li=document.createElement('li'),a=document.createElement('a'),remove=document.createElement('button');a.href='#';a.textContent=pageTitle(i)+' · Page '+(i+1);a.addEventListener('click',e=>{e.preventDefault();index=i;render();reader.scrollIntoView({behavior:'smooth',block:'start'});panel.classList.remove('open');toggle.setAttribute('aria-expanded','false');});remove.type='button';remove.textContent='Remove';remove.setAttribute('aria-label','Remove '+pageTitle(i)+' from favourites');remove.addEventListener('click',()=>{readerFavourites=readerFavourites.filter(n=>n!==i);saveReaderState();renderReaderFavourites();render();});li.append(a,document.createTextNode(' '),remove);list.appendChild(li);});empty.hidden=list.children.length>0;tools.querySelector('#book-reader-favourite-count').textContent=String(list.children.length);}
 function paint(el,page,num,side){
 el.classList.toggle('book-blank',!page||page.blank);
 const content=el.querySelector('.book-page-content');content.innerHTML='';
@@ -2183,9 +2201,13 @@ el.classList.toggle('left',side==='left');el.classList.toggle('right',side==='ri
 }
 function render(){
 const mobile=window.innerWidth<=800,step=mobile?1:2;
+index=Math.max(0,Math.min(index,pages.length-1));
 if(mobile){paint(left,null,'','left');paint(right,pages[index],index+1,'right');status.textContent='Page '+(index+1)+' of '+pages.length;}
-else{paint(left,pages[index],index+1,'left');paint(right,pages[index+1],index+2,'right');status.textContent='Pages '+(index+1)+'–'+Math.min(index+2,pages.length)+' of '+pages.length;}
+else{if(index%2!==0)index=Math.max(0,index-1);paint(left,pages[index],index+1,'left');paint(right,pages[index+1],index+2,'right');status.textContent='Pages '+(index+1)+'–'+Math.min(index+2,pages.length)+' of '+pages.length;}
 prev.disabled=index===0;next.disabled=index>=pages.length-step;
+const isSaved=readerFavourites.includes(index);bookmark.setAttribute('aria-pressed',String(isSaved));bookmark.textContent=isSaved?'★ Saved to favourites':'☆ Save this page';
+progress.firstElementChild.style.width=((Math.min(index+(mobile?1:2),pages.length))/pages.length*100)+'%';progress.setAttribute('aria-valuenow',String(Math.min(index+(mobile?1:2),pages.length)));
+saveReaderState();renderReaderFavourites();
 }
 function turn(dir){const step=window.innerWidth<=800?1:2;index=Math.max(0,Math.min(index+dir*step,pages.length-step));render();}
 prev.addEventListener('click',()=>turn(-1));next.addEventListener('click',()=>turn(1));
@@ -2201,7 +2223,12 @@ index=window.innerWidth<=800?targetIndex:Math.floor(targetIndex/2)*2;
 render();
 });
 });
-sources.forEach(s=>s.style.display='none');render();measure.remove();
+sources.forEach(s=>s.style.display='none');
+bookmark.addEventListener('click',()=>{readerFavourites=readerFavourites.includes(index)?readerFavourites.filter(i=>i!==index):[...readerFavourites,index];saveReaderState();render();});
+toggle.addEventListener('click',()=>{const open=!panel.classList.contains('open');panel.classList.toggle('open',open);toggle.setAttribute('aria-expanded',String(open));if(open)panel.scrollIntoView({behavior:'smooth',block:'nearest'});});
+tools.querySelector('#book-reader-top').addEventListener('click',()=>{document.getElementById('top')?.scrollIntoView({behavior:'smooth'});if(!document.getElementById('top'))window.scrollTo({top:0,behavior:'smooth'});});
+document.addEventListener('keydown',e=>{if(e.altKey||e.ctrlKey||e.metaKey)return;const tag=e.target?.tagName;if(['INPUT','TEXTAREA','SELECT'].includes(tag)||e.target?.isContentEditable)return;if(e.key==='ArrowLeft'){e.preventDefault();turn(-1);}else if(e.key==='ArrowRight'){e.preventDefault();turn(1);}else if(e.key.toLowerCase()==='b'){e.preventDefault();bookmark.click();}else if(e.key==='Home'){e.preventDefault();index=0;render();reader.scrollIntoView({behavior:'smooth',block:'start'});}else if(e.key==='Escape'&&panel.classList.contains('open')){panel.classList.remove('open');toggle.setAttribute('aria-expanded','false');}});
+render();measure.remove();
 })();
 </script>
 </body>
