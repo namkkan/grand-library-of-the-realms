@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seed Morphology &amp; Classification | The Grand Library of the Realms</title>
+<meta name="description" content="A field guide to the form, structure and identification of common food seeds, published by the Grand Library Press.">
+<style>
+:root{--forest:#10251b;--forest2:#1b3828;--gold:#c8a96b;--cream:#f1e5c9;--paper:#f8efd9;--paper2:#dfcba5;--ink:#352b20;--soft:#65533e;--line:rgba(200,169,107,.38);--green:#71835b}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{margin:0;background:radial-gradient(ellipse at 50% 20%,#1d3a2b 0%,#10251b 72%);color:var(--cream);font-family:Georgia,"Times New Roman",serif;line-height:1.75}
+a{color:var(--gold)}a:hover{color:var(--cream)}
+header{padding:20px 7%;background:#142b20;border-bottom:1px solid var(--line)}
+header a{text-decoration:none;font-size:.9rem}
+main{width:min(1100px,92%);margin:auto;padding:36px 0 70px}
+.book-header{text-align:center;padding:46px 24px;border:1px solid var(--line);background:linear-gradient(145deg,#1b3828,#10251b);box-shadow:0 12px 35px rgba(0,0,0,.3)}
+.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:3px;font-size:.72rem}
+.symbol{color:var(--gold);font-size:2.5rem;margin-bottom:10px}
+h1{color:var(--gold);font-size:clamp(2.3rem,6vw,4.5rem);line-height:1.03;margin:12px auto;letter-spacing:1.5px;max-width:850px}
+.subtitle{max-width:680px;margin:18px auto;font-size:1.12rem;font-style:italic;color:var(--cream)}
+.author{margin-top:24px;color:var(--gold);letter-spacing:1px}
+.edition{color:#b9b5aa;font-size:.9rem}
+.front-matter-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin:28px auto}
+.paper-panel{padding:clamp(22px,3vw,36px);color:var(--ink);background:radial-gradient(ellipse at 12% 8%,rgba(255,255,255,.48),transparent 38%),radial-gradient(ellipse at 90% 88%,rgba(151,105,51,.12),transparent 42%),repeating-linear-gradient(0deg,rgba(112,79,43,.025) 0,rgba(112,79,43,.025) 1px,transparent 1px,transparent 4px),linear-gradient(105deg,var(--paper2),var(--paper) 22%,#f4e9d1 70%,#e8d7b6);border:1px solid #b9a078;box-shadow:0 12px 30px rgba(0,0,0,.2),inset 0 0 35px rgba(122,83,39,.1)}
+h2{font-size:1.55rem;line-height:1.3;color:#554326;border-bottom:1px solid rgba(112,79,43,.4);padding-bottom:10px;margin:0 0 18px}
+h3{color:#65502e;line-height:1.3;margin:22px 0 8px}
+.paper-panel p{color:var(--ink);margin:0 0 13px}
+.details{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.detail{padding:12px;background:rgba(164,128,75,.1);border:1px solid rgba(112,79,43,.25);overflow-wrap:anywhere}
+.detail-label{display:block;color:#76572e;font-size:.68rem;letter-spacing:1.2px;text-transform:uppercase}
+.detail-value{display:block;margin-top:4px;color:var(--ink);font-size:.92rem}
+.quote{border-left:2px solid #8b6a37;padding:12px 18px;margin:18px 0;color:#554326;font-size:1.1rem;font-style:italic}
+.contents-list{columns:2;padding-left:24px;margin:0}
+.contents-list li{padding:5px 0;break-inside:avoid}
+.contents-list a{color:#443521;text-decoration:none}
+.contents-list a:hover{text-decoration:underline}
+.section-kicker{color:#80602f;font-size:.7rem;text-transform:uppercase;letter-spacing:2px}
+.reader-shell{margin:44px 0}
+.reader-title{text-align:center;margin-bottom:15px}
+.reader-title h2{color:var(--gold);border:0;margin:8px 0}
+.reader-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:15px 0;color:var(--cream)}
+.reader-controls button{font:inherit;color:var(--cream);background:#1b3828;border:1px solid var(--gold);padding:10px 16px;cursor:pointer}
+.reader-controls button:disabled{opacity:.35;cursor:default}
+.spread{display:none;grid-template-columns:1fr 1fr;min-height:720px;box-shadow:0 12px 30px rgba(0,0,0,.28)}
+.spread.active{display:grid}
+.page{min-width:0;min-height:720px;padding:clamp(22px,3vw,42px);color:var(--ink);background:linear-gradient(100deg,#e4d2b0,#f8efd9 15%,#f5e9d0 82%,#e3d0ac);border:1px solid #b9a078;position:relative;overflow:hidden}
+.page.left{border-right:0;box-shadow:inset -18px 0 22px -24px #49341e}
+.page.right{border-left:0;box-shadow:inset 18px 0 22px -24px #49341e}
+.page-inner{padding-bottom:30px}
+.page-number{position:absolute;bottom:12px;left:0;right:0;text-align:center;color:#8c7555;font-size:.75rem}
+.plate-label{text-align:center;color:#806b4c;font-size:.68rem;letter-spacing:2px;text-transform:uppercase}
+.plate-frame{height:510px;margin:18px 0 14px;padding:12px;border:1px solid #c5b18b}
+.plate-placeholder{height:100%;min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;border:1px dashed #b8a27d;background:rgba(248,241,222,.45);color:#887655;text-align:center;padding:20px}
+.plate-placeholder .ornament{font-size:2.5rem;color:#b8a27d}
+.plate-placeholder strong{font-size:.85rem;font-weight:normal;letter-spacing:1.5px;text-transform:uppercase}
+.plate-placeholder small{font-size:.8rem;max-width:240px}
+.plate-caption{color:#756449;font-size:.82rem;line-height:1.6;text-align:center}
+.entry-number{font-size:.7rem;letter-spacing:2px;color:#80602f;text-transform:uppercase}
+.entry-title{font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.05;color:#554326;margin:8px 0 4px}
+.latin{font-size:1rem;color:#65533e;font-style:italic;margin-bottom:18px}
+.taxonomic-line{padding:10px 12px;margin:14px 0;background:rgba(164,128,75,.1);border-left:2px solid #9a7944;font-size:.85rem}
+.page p{color:var(--ink);text-align:justify;line-height:1.55;margin:0 0 12px}
+.page h3{font-size:1rem;margin:18px 0 6px}
+.observation-list{padding-left:20px;margin:7px 0 14px}
+.observation-list li{margin-bottom:6px;font-size:.9rem;line-height:1.45}
+.record-note{border-top:1px solid rgba(112,79,43,.28);padding-top:12px;margin-top:18px;font-size:.83rem;color:#65533e}
+.citation{font-size:.75em;vertical-align:super;text-decoration:none}
+.references{margin-top:36px}
+.references ol{padding-left:24px}
+.references li{margin-bottom:13px;overflow-wrap:anywhere}
+.references a{color:#795a2e}
+.back-to-top{display:inline-block;margin-top:18px;text-decoration:none;font-size:.9rem}
+footer{border-top:1px solid var(--line);padding:24px 7%;text-align:center;color:#b9b5aa;font-size:.85rem}
+@media(max-width:760px){main{width:94%;padding-top:24px}.front-matter-grid{grid-template-columns:1fr}.spread.active{grid-template-columns:1fr;gap:0}.page{min-height:0;padding:25px 22px;border:1px solid #b9a078!important}.page.left{min-height:390px}.page.right{min-height:650px}.plate-frame{height:340px}.contents-list{columns:1}.reader-controls button{padding:9px 11px;font-size:.85rem}.details{grid-template-columns:1fr 1fr}}
+@media(max-width:430px){.details{grid-template-columns:1fr}.book-header{padding:32px 16px}.page.right{min-height:720px}}
+</style>
+</head>
+<body>
+<header><a href="../../index.html">← Return to the Department of Botany</a></header>
+<main id="top">
+  <div class="book-header">
+    <div class="eyebrow">The Grand Library of the Realms · Grand Library Press</div>
+    <div class="symbol">✦</div>
+    <h1>SEED MORPHOLOGY &amp; CLASSIFICATION</h1>
+    <p class="subtitle">Volume I of <em>The Living Index</em><br>A Field Guide to the Form, Structure, and Identification of Common Seeds</p>
+    <div class="author">PROFESSOR ELOWEN THORNE</div>
+    <p class="edition">Senior Taxonomist · Department of Botany</p>
+    <p class="edition">Third Revised Edition · Rainwane, Year 814</p>
+    <div class="quote" style="max-width:620px;margin:22px auto 0;color:#e3cb98;border-color:#c8a96b">“To identify a seed is to study a beginning.”</div>
+  </div>
+
+  <div class="front-matter-grid">
+    <section class="paper-panel" id="bibliographic-record">
+      <div class="section-kicker">Publication &amp; Registry</div>
+      <h2>Bibliographic Record</h2>
+      <div class="details">
+        <div class="detail"><span class="detail-label">Author</span><span class="detail-value"><a href="../../../../../characters/elowen-thorne/index.html">Professor Elowen Thorne</a></span></div>
+        <div class="detail"><span class="detail-label">Publisher</span><span class="detail-value">Grand Library Press</span></div>
+        <div class="detail"><span class="detail-label">Edition</span><span class="detail-value">Third Revised Edition</span></div>
+        <div class="detail"><span class="detail-label">Publication date</span><span class="detail-value">Rainwane, Year 814 of the Library Calendar</span></div>
+        <div class="detail"><span class="detail-label">Series</span><span class="detail-value"><em>The Living Index</em></span></div>
+        <div class="detail"><span class="detail-label">Collection</span><span class="detail-value">Natural Sciences · Botany</span></div>
+        <div class="detail"><span class="detail-label">Department section</span><span class="detail-value">Seeds &amp; Plant Propagation</span></div>
+        <div class="detail"><span class="detail-label">Subject</span><span class="detail-value">Morphology, structure, description and identification of common seeds</span></div>
+      </div>
+    </section>
+    <section class="paper-panel" id="about">
+      <div class="section-kicker">About This Work</div>
+      <h2>Purpose and Scope</h2>
+      <p>This volume introduces the external form and identifying features of common food seeds and grains. It is intended as a practical reference for students of botany, field researchers, gardeners, seed collectors and members of the Library’s botanical departments.</p>
+      <p>The first group brings together three cereals and three legumes. These familiar food plants provide a useful comparison of grain-like fruits and true seeds, as well as differences in outline, surface, markings and visible points of attachment.</p>
+      <p>In strict botanical usage, the grains of cereals are caryopses: dry, one-seeded fruits in which the fruit wall is fused to the seed coat. The everyday word “seed” is retained in this guide where it makes the entries easier to use, while important distinctions are noted in the relevant records.<a class="citation" href="#ref-2">[2]</a></p>
+    </section>
+  </div>
+
+  <section class="paper-panel" id="author-note">
+    <div class="section-kicker">Preliminary Pages</div>
+    <h2>A Note from the Author</h2>
+    <p>A seed is easily overlooked. It is often small, frequently mistaken for a mere fragment of the fruit that carried it, and rarely examined with the patience it deserves.</p>
+    <p>Yet its shape, surface, markings, and internal structure may provide valuable clues to its identity. Such clues must be observed carefully; resemblance alone is not proof, and a convenient classification is not necessarily a correct one.</p>
+    <p>This volume has been prepared as a practical introduction to the recognition and description of common seeds. It concerns familiar plants: those cultivated for food, gathered from gardens, encountered along roadsides, or collected beneath ordinary trees.</p>
+    <p>No specimen is too commonplace to merit accurate observation.</p>
+    <p>The reader is advised to measure before comparing, record before concluding, and preserve uncertainty wherever the evidence remains incomplete.</p>
+    <p style="text-align:right;margin-top:24px"><strong>Professor Elowen Thorne</strong><br>Senior Taxonomist, Department of Botany<br>The Grand Library of the Realms</p>
+  </section>
+
+  <section class="paper-panel" id="contents">
+    <div class="section-kicker">Reader's Guide</div>
+    <h2>Table of Contents</h2>
+    <p><em>Food Seeds · First Group</em></p>
+    <ol class="contents-list">
+      <li><a href="#entry-wheat" data-entry="0">Wheat — <em>Triticum aestivum</em></a></li>
+      <li><a href="#entry-rice" data-entry="1">Rice — <em>Oryza sativa</em></a></li>
+      <li><a href="#entry-maize" data-entry="2">Maize — <em>Zea mays</em></a></li>
+      <li><a href="#entry-lentil" data-entry="3">Lentil — <em>Lens culinaris</em></a></li>
+      <li><a href="#entry-bean" data-entry="4">Common Bean — <em>Phaseolus vulgaris</em></a></li>
+      <li><a href="#entry-chickpea" data-entry="5">Chickpea — <em>Cicer arietinum</em></a></li>
+      <li><a href="#references">References &amp; Identification Notes</a></li>
+    </ol>
+    <p class="record-note">Reading note: each entry is designed as a facing-page spread. The left page is reserved for a botanical plate; the right page records the description and the features to examine. Illustration spaces are intentionally left unfilled.</p>
+  </section>
+
+  <div class="reader-shell" id="field-guide">
+    <div class="reader-title">
+      <div class="eyebrow">Food Seeds · Field Records</div>
+      <h2>Six Specimens for Comparison</h2>
+    </div>
+    <div class="reader-controls">
+      <button id="prev-entry" type="button" disabled>← Previous</button>
+      <span id="entry-status" aria-live="polite">Entry 1 of 6</span>
+      <button id="next-entry" type="button">Next →</button>
+    </div>
+
+    <div class="spread active" id="entry-wheat" data-spread="0">
+      <article class="page left">
+        <div class="page-inner">
+          <div class="plate-label">Botanical Plate · 01</div>
+          <div class="plate-frame"><div class="plate-placeholder"><span class="ornament">✦</span><strong>Wheat · Triticum aestivum</strong><small>Reserved for the specimen illustration. Include a lateral view and, if useful, a detail of the longitudinal crease.</small></div></div>
+          <p class="plate-caption"><strong>Plate 01.</strong> Bread wheat grain. Final illustration and scale to be added after specimen selection.</p>
+        </div>
+        <span class="page-number">1</span>
+      </article>
+      <article class="page right">
+        <div class="page-inner">
+          <div class="entry-number">Food Seeds · Record 01</div>
+          <h2 class="entry-title">Wheat</h2><div class="latin"><em>Triticum aestivum</em></div>
+          <div class="taxonomic-line"><strong>Group:</strong> Cereal · Family Poaceae · Botanical unit: caryopsis<a class="citation" href="#ref-2">[2]</a></div>
+          <p>The wheat grain is small and elongated, commonly golden to light brown. A conspicuous longitudinal crease runs along one side and is one of its most useful external recognition features.</p>
+          <h3>Features to Examine</h3>
+          <ul class="observation-list">
+            <li><strong>Outline:</strong> record the length, width and relative proportions; note whether the ends are narrow or rounded.</li>
+            <li><strong>Longitudinal crease:</strong> observe its depth, continuity and position along the grain.</li>
+            <li><strong>Surface and colour:</strong> record colour under neutral light and note any hairs, dullness or surface variation.</li>
+            <li><strong>Orientation:</strong> compare the creased side with the opposite, more convex side.</li>
+          </ul>
+          <h3>Diagnostic Note</h3>
+          <p>Wheat, like other cereal grains, is botanically a caryopsis rather than a naked seed: the fruit wall is closely fused to the seed coat.<a class="citation" href="#ref-2">[2]</a> Do not assume that colour alone is sufficient for identification; varieties and processing can alter appearance.</p>
+          <div class="record-note"><strong>Record standard:</strong> measure an intact, unprocessed grain before comparing it with milled or polished material.</div>
+        </div>
+        <span class="page-number">2</span>
+      </article>
+    </div>
+
+    <div class="spread" id="entry-rice" data-spread="1">
+      <article class="page left">
+        <div class="page-inner">
+          <div class="plate-label">Botanical Plate · 02</div>
+          <div class="plate-frame"><div class="plate-placeholder"><span class="ornament">✦</span><strong>Rice · Oryza sativa</strong><small>Reserve space for a comparison of a paddy grain and a dehulled grain.</small></div></div>
+          <p class="plate-caption"><strong>Plate 02.</strong> Rice in two preparation states. Label the outer hull separately from the exposed grain.</p>
+        </div>
+        <span class="page-number">3</span>
+      </article>
+      <article class="page right">
+        <div class="page-inner">
+          <div class="entry-number">Food Seeds · Record 02</div>
+          <h2 class="entry-title">Rice</h2><div class="latin"><em>Oryza sativa</em></div>
+          <div class="taxonomic-line"><strong>Group:</strong> Cereal · Family Poaceae · Botanical unit: caryopsis</div>
+          <p>Rice grains are typically narrow and elongated, though their proportions vary among cultivars. This entry is particularly useful because rice may be examined with the husk still attached or after dehulling, allowing the observer to distinguish the covering structures from the grain itself.</p>
+          <h3>Features to Examine</h3>
+          <ul class="observation-list">
+            <li><strong>Outline:</strong> compare length and breadth; record whether the grain is slender or relatively broad.</li>
+            <li><strong>Husk present:</strong> note the colour, texture and shape of the outer floral coverings.</li>
+            <li><strong>Dehulled grain:</strong> examine the exposed surface and record whether bran layers remain or have been removed during further processing.</li>
+            <li><strong>Ends and edges:</strong> observe tapering, rounding and any visible damage from handling.</li>
+          </ul>
+          <h3>Diagnostic Note</h3>
+          <p>The husk is not the seed coat. In rice, the persistent outer coverings are floral structures; after dehulling, the caryopsis is exposed. Record the preparation state whenever measurements or photographs are compared.</p>
+          <div class="record-note"><strong>Comparison rule:</strong> do not compare a husked grain directly with polished white rice as though both show the same external structures.</div>
+        </div>
+        <span class="page-number">4</span>
+      </article>
+    </div>
+
+    <div class="spread" id="entry-maize" data-spread="2">
+      <article class="page left">
+        <div class="page-inner">
+          <div class="plate-label">Botanical Plate · 03</div>
+          <div class="plate-frame"><div class="plate-placeholder"><span class="ornament">✦</span><strong>Maize · Zea mays</strong><small>Reserve space for a side view and a view showing the attachment end, if the specimen permits.</small></div></div>
+          <p class="plate-caption"><strong>Plate 03.</strong> Maize kernel. Record the specimen type or cultivar where known.</p>
+        </div>
+        <span class="page-number">5</span>
+      </article>
+      <article class="page right">
+        <div class="page-inner">
+          <div class="entry-number">Food Seeds · Record 03</div>
+          <h2 class="entry-title">Maize</h2><div class="latin"><em>Zea mays</em></div>
+          <div class="taxonomic-line"><strong>Group:</strong> Cereal · Family Poaceae · Botanical unit: caryopsis<a class="citation" href="#ref-3">[3]</a></div>
+          <p>The maize kernel is larger than the grains of wheat and rice in this introductory set. Its outline may be rounded, angular, broad or relatively narrow, depending on the type of maize and the position of the kernel on the ear.</p>
+          <h3>Features to Examine</h3>
+          <ul class="observation-list">
+            <li><strong>Overall shape:</strong> record whether the kernel is rounded, wedge-like, broad or elongated.</li>
+            <li><strong>Profile:</strong> compare the broad face with the side view; note the thickness and curvature.</li>
+            <li><strong>Surface and colour:</strong> document the colour and any mottling or surface damage without treating colour as a species-level identifier.</li>
+            <li><strong>Attachment end:</strong> inspect the basal area where the kernel was attached to the cob, if preserved.</li>
+          </ul>
+          <h3>Diagnostic Note</h3>
+          <p>As in wheat, the maize grain is a caryopsis. The fruit wall adheres closely to the seed coat, and the kernel contains an embryo and a substantial storage tissue called the endosperm.<a class="citation" href="#ref-2">[2]</a><a class="citation" href="#ref-3">[3]</a></p>
+          <div class="record-note"><strong>Comparison rule:</strong> shape varies widely among maize types; describe the specimen before assigning it to a particular variety.</div>
+        </div>
+        <span class="page-number">6</span>
+      </article>
+    </div>
+
+    <div class="spread" id="entry-lentil" data-spread="3">
+      <article class="page left">
+        <div class="page-inner">
+          <div class="plate-label">Botanical Plate · 04</div>
+          <div class="plate-frame"><div class="plate-placeholder"><span class="ornament">✦</span><strong>Lentil · Lens culinaris</strong><small>Reserve space for a face view and a side profile to show the flattened, lens-like form.</small></div></div>
+          <p class="plate-caption"><strong>Plate 04.</strong> Lentil seed. A scale bar will be useful for this small specimen.</p>
+        </div>
+        <span class="page-number">7</span>
+      </article>
+      <article class="page right">
+        <div class="page-inner">
+          <div class="entry-number">Food Seeds · Record 04</div>
+          <h2 class="entry-title">Lentil</h2><div class="latin"><em>Lens culinaris</em></div>
+          <div class="taxonomic-line"><strong>Group:</strong> Legume · Family Fabaceae · Botanical unit: seed</div>
+          <p>The lentil is a small, flattened seed with a broadly disc-shaped or lens-like outline. Its shape makes it a useful contrast with the elongated cereal grains and the more irregular forms of the bean and chickpea.</p>
+          <h3>Features to Examine</h3>
+          <ul class="observation-list">
+            <li><strong>Outline:</strong> observe the degree of circularity and whether the margin is even or slightly angular.</li>
+            <li><strong>Thickness:</strong> compare the face view with the edge view to document how strongly the seed is flattened.</li>
+            <li><strong>Colour:</strong> record the seed coat colour and any mottling; colours vary among cultivated types.</li>
+            <li><strong>Surface and hilum:</strong> examine the surface closely and locate the small hilum, the scar marking the point of attachment.</li>
+          </ul>
+          <h3>Diagnostic Note</h3>
+          <p>Do not use colour as the sole distinguishing feature. A consistent record of outline, thickness, margin and hilum is more useful when comparing lentils from different cultivars or sources.</p>
+          <div class="record-note"><strong>Comparison rule:</strong> photograph or draw the seed both face-on and edge-on; one view alone can conceal its characteristic flattening.</div>
+        </div>
+        <span class="page-number">8</span>
+      </article>
+    </div>
+
+    <div class="spread" id="entry-bean" data-spread="4">
+      <article class="page left">
+        <div class="page-inner">
+          <div class="plate-label">Botanical Plate · 05</div>
+          <div class="plate-frame"><div class="plate-placeholder"><span class="ornament">✦</span><strong>Common Bean · Phaseolus vulgaris</strong><small>Reserve space for the kidney-shaped outline and a close detail of the hilum.</small></div></div>
+          <p class="plate-caption"><strong>Plate 05.</strong> Common bean seed. Label the hilum clearly in the final illustration.</p>
+        </div>
+        <span class="page-number">9</span>
+      </article>
+      <article class="page right">
+        <div class="page-inner">
+          <div class="entry-number">Food Seeds · Record 05</div>
+          <h2 class="entry-title">Common Bean</h2><div class="latin"><em>Phaseolus vulgaris</em></div>
+          <div class="taxonomic-line"><strong>Group:</strong> Legume · Family Fabaceae · Botanical unit: seed<a class="citation" href="#ref-4">[4]</a></div>
+          <p>The common bean often has a kidney-shaped outline and a relatively smooth seed coat. Seed colour and pattern vary considerably across cultivated forms, so the entry should focus on structural features rather than on a single expected appearance.</p>
+          <h3>Features to Examine</h3>
+          <ul class="observation-list">
+            <li><strong>Outline:</strong> note the curve of the inner and outer margins and the degree of kidney-like indentation.</li>
+            <li><strong>Hilium:</strong> locate the hilum, the scar left where the seed was attached within the pod; record its length, position and colour.</li>
+            <li><strong>Seed coat:</strong> describe whether the surface is smooth, glossy, dull, mottled or speckled.</li>
+            <li><strong>Variation:</strong> record the seed's colour and pattern, but compare these alongside shape and hilum features.</li>
+          </ul>
+          <h3>Diagnostic Note</h3>
+          <p>The hilum is a particularly useful landmark when describing bean seeds. Use the same orientation in drawings and photographs so that records can be compared consistently.</p>
+          <div class="record-note"><strong>Terminology:</strong> the correct term is <em>hilum</em>, not “hilium”. It identifies the attachment scar, not a separate organ.</div>
+        </div>
+        <span class="page-number">10</span>
+      </article>
+    </div>
+
+    <div class="spread" id="entry-chickpea" data-spread="5">
+      <article class="page left">
+        <div class="page-inner">
+          <div class="plate-label">Botanical Plate · 06</div>
+          <div class="plate-frame"><div class="plate-placeholder"><span class="ornament">✦</span><strong>Chickpea · Cicer arietinum</strong><small>Reserve space for the uneven rounded outline, surface texture and beak-like prominence.</small></div></div>
+          <p class="plate-caption"><strong>Plate 06.</strong> Chickpea seed. Include a view that makes the pointed prominence visible.</p>
+        </div>
+        <span class="page-number">11</span>
+      </article>
+      <article class="page right">
+        <div class="page-inner">
+          <div class="entry-number">Food Seeds · Record 06</div>
+          <h2 class="entry-title">Chickpea</h2><div class="latin"><em>Cicer arietinum</em></div>
+          <div class="taxonomic-line"><strong>Group:</strong> Legume · Family Fabaceae · Botanical unit: seed</div>
+          <p>The chickpea is rounded but irregular in outline, often with a visibly rough or uneven surface and a small beak-like prominence. These features distinguish its general form from the flattened lentil and the kidney-shaped common bean.</p>
+          <h3>Features to Examine</h3>
+          <ul class="observation-list">
+            <li><strong>Outline:</strong> record the uneven rounded shape and whether the seed is compact or more angular.</li>
+            <li><strong>Surface:</strong> describe the degree of roughness, wrinkling and any shallow depressions.</li>
+            <li><strong>Prominence:</strong> locate the small beak-like projection and record its direction and prominence.</li>
+            <li><strong>Colour and hilum:</strong> document the seed coat colour and identify the hilum where visible.</li>
+          </ul>
+          <h3>Diagnostic Note</h3>
+          <p>The chickpea's surface and projecting feature should be described independently. Do not confuse natural surface irregularity with damage caused by drying, storage or handling.</p>
+          <div class="record-note"><strong>Comparison rule:</strong> compare a whole, undamaged specimen with other legumes before drawing conclusions from a broken or heavily abraded seed.</div>
+        </div>
+        <span class="page-number">12</span>
+      </article>
+    </div>
+  </div>
+
+  <section class="paper-panel references" id="references">
+    <div class="section-kicker">Research Record</div>
+    <h2>References &amp; Identification Notes</h2>
+    <p>The descriptions in this introductory group are based on standard botanical terminology and general morphological features. Cultivar, processing and specimen condition can affect visible characteristics; measurements should therefore be taken from the specimen in hand.</p>
+    <ol>
+      <li id="ref-1"><strong>University of Minnesota Libraries Publishing.</strong> “9.1 Seed Morphology.” <em>The Science of Plants</em>. A teaching resource on seed structure, seed coats, embryos and comparative morphology. <a href="https://open.lib.umn.edu/horticulture/chapter/9-1-seed-morphology/" target="_blank" rel="noopener noreferrer">Read the resource ↗</a></li>
+      <li id="ref-2"><strong>Food and Agriculture Organization of the United Nations (FAO).</strong> “Botanical Structure of Cereals.” <em>Fermented Cereals: A Global Perspective</em>. Reference for the caryopsis and the relationship between fruit wall and seed coat in cereal grains. <a href="https://www.fao.org/4/x2184e/x2184e03.htm" target="_blank" rel="noopener noreferrer">Read the chapter ↗</a></li>
+      <li id="ref-3"><strong>Cereals &amp; Grains Association.</strong> “Chapter 1 Abstract.” <em>Cereal Grains: Assessing and Managing Quality</em>. Reference for the structure of cereal grains, including maize and wheat. <a href="https://www.cerealsgrains.org/publications/onlinebooks/textbook/Pages/Chapter1Abstract.aspx" target="_blank" rel="noopener noreferrer">Read the chapter abstract ↗</a></li>
+      <li id="ref-4"><strong>Royal Botanic Gardens, Kew.</strong> “<em>Phaseolus vulgaris</em> L.” <em>Plants of the World Online</em>. Taxonomic record for the common bean. <a href="https://powo.science.kew.org/taxon/514191-1" target="_blank" rel="noopener noreferrer">Open taxonomic record ↗</a></li>
+      <li id="ref-5"><strong>Royal Botanic Gardens, Kew.</strong> <em>Plants of the World Online</em>. Taxonomic database consulted for scientific-name verification. <a href="https://powo.science.kew.org/" target="_blank" rel="noopener noreferrer">Open the database ↗</a></li>
+    </ol>
+    <h3>Editorial Principle</h3>
+    <p>This is a working field guide, not a substitute for examination of the specimen. The entries distinguish observed morphology from interpretation and leave room for later measurements, illustrations and revised notes. Future records may expand this group with additional food seeds and comparative specimens.</p>
+    <p class="back-to-top"><a href="#top">↑ Return to the beginning</a></p>
+  </section>
+  <p><a href="../../index.html">← Back to the Department of Botany</a></p>
+</main>
+<footer>The Grand Library of the Realms · Grand Library Press · Department of Botany</footer>
+<script>
+(function(){
+ const spreads=Array.from(document.querySelectorAll('.spread[data-spread]'));
+ const prev=document.getElementById('prev-entry');
+ const next=document.getElementById('next-entry');
+ const status=document.getElementById('entry-status');
+ const links=Array.from(document.querySelectorAll('[data-entry]'));
+ let current=0;
+ function render(index){
+   current=Math.max(0,Math.min(index,spreads.length-1));
+   spreads.forEach((spread,i)=>spread.classList.toggle('active',i===current));
+   prev.disabled=current===0;
+   next.disabled=current===spreads.length-1;
+   status.textContent='Entry '+(current+1)+' of '+spreads.length;
+   if(spreads[current]) history.replaceState(null,'','#'+spreads[current].id);
+ }
+ prev.addEventListener('click',()=>render(current-1));
+ next.addEventListener('click',()=>render(current+1));
+ links.forEach(link=>link.addEventListener('click',event=>{
+   const index=Number(link.dataset.entry);
+   if(Number.isInteger(index)){event.preventDefault();render(index);document.getElementById('field-guide').scrollIntoView({behavior:'smooth',block:'start'});}
+ }));
+ const initial=location.hash.match(/^#entry-(wheat|rice|maize|lentil|bean|chickpea)$/);
+ if(initial){const found=spreads.findIndex(s=>s.id===location.hash.slice(1));if(found>=0)current=found;}
+ render(current);
+})();
+</script>
+</body>
+</html>
