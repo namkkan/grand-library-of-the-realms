@@ -13,15 +13,15 @@
 
 <style>
 :root {
-  --navy: #0b1425;
-  --navy-light: #14243a;
-  --panel: #17283c;
+  --navy: #10251b;
+  --navy-light: #1b3828;
+  --panel: #1d3a2b;
   --gold: #c6a66b;
   --gold-light: #e3cb98;
   --cream: #eee5d2;
   --muted: #b7b6ad;
   --line: rgba(198,166,107,.35);
-  --green: #8da58a;
+  --green: #a8c49a;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -64,18 +64,18 @@ button, a { -webkit-tap-highlight-color: transparent; }
   align-items: center;
   justify-content: center;
   background:
-    radial-gradient(ellipse at 50% 100%, rgba(74,112,83,.18), transparent 55%),
-    linear-gradient(180deg, #101d30 0%, #0b1425 100%);
+    radial-gradient(ellipse at 50% 100%, rgba(111,153,91,.28), transparent 55%),
+    linear-gradient(180deg, #1b3828 0%, #10251b 100%);
   border-bottom: 1px solid var(--line);
   position: relative;
   overflow: hidden;
 }
 .hero::before, .hero::after {
-  content: "❧";
+  content: "❦";
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  color: rgba(198,166,107,.13);
+  color: rgba(168,196,154,.22);
   font-size: clamp(100px, 18vw, 220px);
   font-family: Georgia, serif;
   pointer-events: none;
@@ -177,7 +177,7 @@ blockquote {
   gap: 22px;
 }
 .department-card {
-  background: linear-gradient(145deg, var(--panel), #101c2d);
+  background: linear-gradient(145deg, var(--panel), #142b20);
   border: 1px solid var(--line);
   min-width: 0;
   display: flex;
@@ -195,8 +195,8 @@ blockquote {
   align-items: center;
   justify-content: center;
   background:
-    radial-gradient(ellipse at center, rgba(141,165,138,.13), transparent 68%),
-    #0e1a2a;
+    radial-gradient(ellipse at center, rgba(168,196,154,.18), transparent 68%),
+    #132a1e;
   border-bottom: 1px solid var(--line);
   color: var(--green);
   font-family: 'Cormorant Garamond', serif;
