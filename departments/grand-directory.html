@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1019">
+  <title>The Grand Directory | The Grand Library of the Realms</title>
+  <meta name="description" content="Find your way through the Grand Library with the Grand Directory: maps, catalogues, routes, district guides and the Living Directory.">
+  <style>
+    :root{--night:#0b1019;--panel:#131b29;--gold:#c3a46b;--parchment:#e9ddc4;--muted:#aaa9a5;--line:#39382f}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--night);color:var(--parchment);font-family:Georgia,"Times New Roman",serif;line-height:1.7}a{color:inherit;text-decoration:none}
+    .navigation{min-height:74px;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid var(--line);background:var(--night)}.brand{color:var(--gold);font-size:14px;letter-spacing:2px;text-transform:uppercase}.nav-links{display:flex;flex-wrap:wrap;gap:22px;font-family:Arial,sans-serif;font-size:12px;color:#d0c9bc}.nav-links a:hover,.breadcrumbs a{color:var(--gold)}
+    .hero{padding:90px 24px 70px;text-align:center;background:radial-gradient(ellipse at 50% 25%,#293247 0%,#131b29 42%,#0b1019 82%);border-bottom:1px solid var(--line)}.eyebrow{color:var(--gold);font-family:Arial,sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase}h1{max-width:900px;margin:20px auto;font-size:clamp(42px,7vw,76px);font-weight:normal;line-height:1.08}.hero p{max-width:720px;margin:0 auto 24px;color:#d1c8b8;font-size:17px}.breadcrumbs{margin-top:28px;color:var(--muted);font-family:Arial,sans-serif;font-size:11px}
+    main{max-width:1120px;margin:auto;padding:60px 28px 85px}.intro{max-width:760px;margin:0 auto 42px;text-align:center;color:var(--muted)}.section{padding:36px 0 44px;scroll-margin-top:25px;border-top:1px solid var(--line)}.heading{text-align:center;margin-bottom:28px}h2{margin:8px 0;font-size:clamp(28px,4vw,39px);font-weight:normal;line-height:1.2}.heading p{max-width:700px;margin:12px auto;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.card{padding:25px;border:1px solid var(--line);background:linear-gradient(145deg,#172131,#101722)}.label{color:var(--gold);font-family:Arial,sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase}.card h3{margin:10px 0;font-size:22px;font-weight:normal}.card p,.card li{color:#c4c0b7;font-size:14px}.card ul{padding-left:20px}.directory-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.directory-link{display:block;padding:20px;border:1px solid var(--line);background:#111823;transition:border-color .2s,transform .2s}.directory-link:hover{border-color:var(--gold);transform:translateY(-2px)}.directory-link strong{display:block;color:var(--gold);font-weight:normal;font-size:18px}.directory-link span{display:block;margin-top:6px;color:var(--muted);font-size:13px}.note{margin-top:22px;padding:25px;border-left:2px solid var(--gold);background:#101722;color:#d1c8b8}.note strong{color:var(--gold)}.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.step{padding:20px;border:1px solid #514733;background:#111823}.step .num{color:var(--gold);font-family:Arial,sans-serif;font-size:11px;letter-spacing:2px}.step h3{font-size:19px;font-weight:normal;margin:8px 0}.step p{font-size:13px;color:var(--muted)}.links{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:30px}.button{display:inline-block;padding:12px 20px;border:1px solid var(--gold);font-family:Arial,sans-serif;font-size:10px;letter-spacing:1.3px;text-transform:uppercase;transition:background .2s,color .2s}.button:hover{background:var(--gold);color:var(--night)}footer{padding:30px 20px;border-top:1px solid var(--line);color:var(--muted);text-align:center;font-size:12px}footer span{color:var(--gold)}
+    @media(max-width:760px){.navigation{flex-direction:column;text-align:center}.nav-links{justify-content:center}.hero{padding:65px 20px 50px}main{padding:40px 18px 60px}.grid,.steps,.directory-links{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="navigation"><a class="brand" href="../index.html">✦ The Grand Library</a><nav class="nav-links" aria-label="Main navigation"><a href="../index.html">Home</a><a href="../index.html#departments">Departments</a><a href="../index.html#peoples">Peoples & Cultures</a><a href="../characters/">Characters</a><a href="../index.html#archives">Archives</a></nav></header>
+  <section class="hero"><span class="eyebrow">The Grand Atrium · Orientation</span><h1>The Grand Directory</h1><p>A guide to a library too vast for any single map. Find a district, plan a route, locate a collection, or ask the Living Directory to illuminate the way.</p><div class="breadcrumbs"><a href="../index.html">The Grand Library</a> / <a href="grand-atrium.html">The Grand Atrium</a> / The Grand Directory</div></section>
+  <main>
+    <p class="intro">The Grand Directory is the Library's navigation system. It brings together physical maps, catalogues, district guides and magical wayfinding. It helps visitors decide where to go; Visitor Services helps when they need a person to guide them.</p>
+    <section class="section" id="districts"><div class="heading"><span class="eyebrow">01 · Choose your destination</span><h2>District Directory</h2><p>The Atrium is the crossroads. From here, visitors can continue into the Library's major districts and specialist wings.</p></div>
+      <div class="directory-links">
+        <a class="directory-link" href="grand-atrium.html"><strong>The Grand Atrium</strong><span>Arrival, orientation and public crossroads</span></a>
+        <a class="directory-link" href="natural-sciences/index.html"><strong>Natural Sciences</strong><span>Botany, zoology, ecology and the natural world</span></a>
+        <a class="directory-link" href="../restricted-collections/"><strong>Restricted Collections</strong><span>Materials requiring permission or special supervision</span></a>
+        <a class="directory-link" href="../discoveries.html"><strong>Histories of the Realms</strong><span>Historical records, discoveries and accounts</span></a>
+        <a class="directory-link" href="natural-sciences/astronomy-cosmology/index.html"><strong>Celestial Studies</strong><span>Astronomy, cosmology and the skies above</span></a>
+        <a class="directory-link" href="../index.html#peoples"><strong>Peoples & Cultures</strong><span>Explore the many communities of the Realms</span></a>
+      </div>
+      <div class="note"><strong>Still finding its shape:</strong> some districts and connections are being catalogued. Where a destination is not yet fully documented, ask Visitor Services for current guidance rather than assuming a route exists.</div>
+    </section>
+    <section class="section" id="maps"><div class="heading"><span class="eyebrow">02 · Read the building</span><h2>Maps & Physical Signage</h2><p>Maps remain available even when magical systems are unavailable, unreliable or deliberately limited.</p></div>
+      <div class="grid">
+        <article class="card"><span class="label">At a glance</span><h3>Public Maps</h3><p>Printed plans and fixed signs show public routes, major rooms, exits and accessible alternatives where they are available.</p><ul><li>Ground-floor plans at major entrances</li><li>District and building names</li><li>Public facilities and meeting points</li><li>Warnings for closed or restricted passages</li></ul></article>
+        <article class="card"><span class="label">Beyond the Atrium</span><h3>District Guides</h3><p>Each documented district can maintain its own guide with local room names, collection locations, access requirements and onward connections.</p><ul><li>Local room and collection indexes</li><li>Connections to neighbouring districts</li><li>Stairs, lifts and alternative routes</li><li>Notes on appointments or permissions</li></ul></article>
+      </div>
+    </section>
+    <section class="section" id="catalogues"><div class="heading"><span class="eyebrow">03 · Find knowledge</span><h2>Catalogues & Collection Indexes</h2><p>Finding a room and finding a particular work are different tasks. The Directory points visitors towards the right catalogue for each.</p></div>
+      <div class="grid">
+        <article class="card"><span class="label">Where is it?</span><h3>Location Index</h3><p>Use room names, district names and collection identifiers to discover where an item or service is held, when that information is available.</p></article>
+        <article class="card"><span class="label">What is it?</span><h3>Subject & Collection Catalogues</h3><p>Specialist catalogues describe materials by subject, creator, culture, language, format or other relevant characteristics. Some collections require additional guidance before consultation.</p></article>
+      </div>
+    </section>
+    <section class="section" id="living-directory"><div class="heading"><span class="eyebrow">04 · The enchanted guide</span><h2>The Living Directory</h2><p>An enchanted wayfinding network woven into selected signs, directory panels and public routes throughout the Library.</p></div>
+      <div class="grid">
+        <article class="card"><span class="label">What it can do</span><h3>Guidance in Motion</h3><ul><li>Illuminate a known route between documented destinations</li><li>Offer selected translations and spoken directions</li><li>Suggest alternatives when stairs or passages are unsuitable</li><li>Warn visitors when a route is known to be closed</li></ul></article>
+        <article class="card"><span class="label">What it cannot do</span><h3>Limits & Safeguards</h3><ul><li>It cannot grant permission to enter restricted areas</li><li>It cannot guarantee every corridor is stable or safe</li><li>It may fail around ancient wards or damaged enchantments</li><li>It does not replace maps, staff or local instructions</li></ul></article>
+      </div>
+      <div class="note"><strong>Rule of the Directory:</strong> a route being visible does not mean it is permitted. Access notices and the instructions of authorised staff always take precedence over magical guidance.</div>
+    </section>
+    <section class="section" id="journey"><div class="heading"><span class="eyebrow">05 · Plan your route</span><h2>From Question to Destination</h2><p>For most visitors, finding their way through the Library follows three simple steps.</p></div>
+      <div class="steps"><article class="step"><span class="num">STEP I</span><h3>Find the district</h3><p>Use the district directory or ask at the Atrium to identify the right part of the Library.</p></article><article class="step"><span class="num">STEP II</span><h3>Check the route</h3><p>Consult the building map, local signage and any access or appointment requirements.</p></article><article class="step"><span class="num">STEP III</span><h3>Ask if uncertain</h3><p>Visitor Services can clarify directions and refer you to staff with specialist knowledge.</p></article></div>
+    </section>
+    <div class="links"><a class="button" href="visitor-services.html">Visitor Services ↗</a><a class="button" href="grand-atrium.html">Return to the Grand Atrium ↗</a><a class="button" href="../index.html">Library Home ↗</a></div>
+  </main>
+  <footer><span>The Grand Library of the Realms</span><br>The Grand Directory · The Grand Atrium</footer>
+</body>
+</html>
