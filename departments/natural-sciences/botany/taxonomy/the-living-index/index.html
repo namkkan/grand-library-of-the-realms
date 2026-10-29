@@ -380,6 +380,10 @@ a:hover { color:#f0e6d2; }
 footer { background:rgba(16,37,27,.7); border-top:1px solid var(--border); }
 @media(max-width:700px) { header::after { display:none; } .book-header::before,.book-header::after { font-size:55px; } }
 
+
+.book-page h3.keep-with-next{break-after:avoid;page-break-after:avoid;break-inside:avoid;page-break-inside:avoid}
+.book-page .population-record{break-inside:avoid;page-break-inside:avoid}
+.book-page .accession-card{margin:12px 0 16px;padding:12px 16px;border:1px solid rgba(112,79,43,.34);background:rgba(255,250,235,.48);box-shadow:inset 0 0 0 3px rgba(112,79,43,.07)}
 </style>
 
 </head>
@@ -1664,7 +1668,7 @@ footer { background:rgba(16,37,27,.7); border-top:1px solid var(--border); }
     <h3>9.6. Accession Numbers and the Collection Register</h3>
     <p>Every specimen accepted into the permanent collection receives an accession record linking the physical material to its collection history, preparation method, current identification, storage location, and any restrictions on access.</p>
     <p>A collector's number identifies a gathering within the collector's own sequence. An institutional accession number links the material to the receiving herbarium's records. One gathering may produce duplicate specimens deposited in separate institutions; each is managed independently, while the records preserve their shared origin.</p>
-    <div class="record-card">
+    <div class="record-card field-record-intro accession-card">
       <p class="eyebrow">Grand Library · Central Herbarium</p>
       <h4>Accession GLH-1842-0671</h4>
       <p><strong>Current determination:</strong> <em>Vitraluma palustris</em>, Glass-marsh lanternflower</p>
@@ -1861,7 +1865,7 @@ footer { background:rgba(16,37,27,.7); border-top:1px solid var(--border); }
     <p>None of these cases can be resolved simply by selecting the most familiar name. Each requires competing explanations to be identified, distinguishing evidence to be sought, and the limits of the available material to be stated. Linking names, specimens, and arguments also allows scholars to follow the history of a disagreement without pretending it has already been settled.</p>
     <p>Classification can affect conservation and medicinal research. If a rare population is treated as an ordinary form of a widespread species, its restricted distribution may receive insufficient attention. Conversely, recognising too many narrowly defined species without adequate evidence can distort assessments of diversity. The consequences of classification extend beyond the herbarium cabinet.</p>
 
-    <h3>10.12. A Practical Method for Investigating a Disputed Plant</h3>
+    <h3 class="keep-with-next">10.12. A Practical Method for Investigating a Disputed Plant</h3>
     <ol>
       <li><strong>Confirm the observation.</strong> Re-examine the specimen, repeat measurements where possible, and check that the structures have been compared correctly.</li>
       <li><strong>Establish the range of variation.</strong> Examine multiple individuals and record whether the feature is consistent, rare, continuous, or associated with a particular stage of development.</li>
@@ -1979,7 +1983,7 @@ footer { background:rgba(16,37,27,.7); border-top:1px solid var(--border); }
       <h4>Species Study: <em>Vitraluma palustris</em></h4>
       <p><strong>Working question:</strong> Do differences between populations reflect habitat-associated variation?</p>
     </div>
-    <h4 class="record-subheading">Population A — Shallow Marsh Margin</h4>
+    <div class="population-record"><h4 class="record-subheading">Population A — Shallow Marsh Margin</h4>
     <ul>
       <li><strong>Substrate:</strong> Dark organic mud with intermittent exposure during dry periods.</li>
       <li><strong>Water conditions:</strong> Shallow standing water in spring; partial drying later in the season.</li>
@@ -1987,6 +1991,7 @@ footer { background:rgba(16,37,27,.7); border-top:1px solid var(--border); }
       <li><strong>Reproductive record:</strong> Flowering observed during the early wet season.</li>
       <li><strong>Outstanding question:</strong> Do the morphological differences persist when water availability is controlled?</li>
     </ul>
+    </div>
     <h4 class="record-subheading">Population B — Deep Marsh Channel</h4>
     <ul>
       <li><strong>Substrate:</strong> Waterlogged sediment.</li>
@@ -2035,7 +2040,7 @@ footer { background:rgba(16,37,27,.7); border-top:1px solid var(--border); }
 
   <section id="chapter-12" class="chapter-text">
     <h2>12. Taxonomy of Magical and Anomalous Plants</h2>
-    <blockquote><p>“The extraordinary does not excuse us from being precise.”</p><p>— Professor Elowen Thorne, field notebook, eastern marshes.</p></blockquote>
+    <blockquote><p><em>“The extraordinary does not excuse us from being precise.”</em></p><p>— Professor Elowen Thorne, field notebook, eastern marshes.</p></blockquote>
 
     <h3>12.1. The Problem of the Unusual Plant</h3>
     <p>Every botanical collection eventually acquires a specimen that seems to resist explanation. A flower may close when approached by a particular animal; a shrub may produce leaves of two distinct colours under apparently identical conditions; a vine may withdraw its tendrils from one surface and cling firmly to another. In the Known Realms, some plants exhibit phenomena that cannot readily be explained through ordinary botanical observation alone.</p>
@@ -2153,7 +2158,6 @@ footer { background:rgba(16,37,27,.7); border-top:1px solid var(--border); }
     </ul>
     <p><em>The magical plants, field observations, register numbers and case studies in this chapter belong to the botanical records of the Known Realms. They are illustrative examples, not claims about real-world plant species.</em></p>
     <blockquote><p>I have spent a considerable portion of my life trying to make the plants of the Known Realms easier to find, identify and understand. I have named specimens, revised descriptions, corrected catalogues and written notes I later wished I had phrased differently.</p><p>Uncertainty is not always a defect in our knowledge. Sometimes it is the most accurate description of what we know. A classification system can preserve observations, reveal relationships and help the next researcher ask a better question. It cannot promise every plant has been found, every boundary is settled or every extraordinary phenomenon will yield to a simple explanation.</p><p>When you encounter a plant that does not fit your expectations, do not force it into the nearest available category. Observe it. Describe it. Compare it. Record what you do not know. Then leave enough evidence for someone else to continue.</p><p>— Professor Elowen Thorne, Senior Taxonomist, Department of Botany, The Grand Library of the Realms</p></blockquote>
-    <p class="volume-note">End of Chapter 12 · <em>The Living Index: A Taxonomist’s Guide to the Flora of the Known Realms</em></p>
   </section>
 
   <section id="chapter-13">
@@ -2249,14 +2253,7 @@ footer { background:rgba(16,37,27,.7); border-top:1px solid var(--border); }
     <p>I have learned to distrust the sentence “the matter is settled” when it is written without an explanation of the evidence. I have also learned not to be ashamed of the words “I was mistaken.” They are not the end of a scientific investigation. Sometimes they are the point at which the real work begins.</p>
     <p>The careful botanist is not the one who never makes an error. It is the one who leaves enough evidence for the next botanist to find it.</p>
 
-    <h3>Selected References and Further Reading</h3>
-    <ul>
-      <li>Hosking, J. R., Sainty, G. R., and Jacobs, S. W. L. “Certainty and Uncertainty in Plant Identification.” Proceedings of the Eleventh Australian Weeds Conference (1996). <a href="https://plantnet.rbgsyd.nsw.gov.au/identification.html" target="_blank" rel="noopener noreferrer">Read the paper</a>.</li>
-      <li>Łuczaj, Ł. et al. “Plant Identification Credibility in Ethnobotany: A Closer Look at Polish Ethnographic Studies.” Journal of Ethnobiology and Ethnomedicine (2010). <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3022638/" target="_blank" rel="noopener noreferrer">Read the study</a>.</li>
-      <li>Coca-de-la-Iglesia, M. et al. “High Rate of Species Misidentification Reduces the Taxonomic Certainty of European Biodiversity Databases of Ivies (Hedera L.).” (2024). <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10902322/" target="_blank" rel="noopener noreferrer">Read the study</a>.</li>
-    </ul>
-    <p class="volume-note"><strong>Next:</strong> Chapter 15 — Glossary, Indexes, and Illustrated Plates. The final chapter of Volume I will gather botanical terminology, abbreviations, guidance for using identification keys, specimen-record conventions, and a plan for the illustrated plates.</p>
-  </section>
+    </section>
 
   <section id="chapter-15">
     <h2>14. Glossary, Indexes and Illustrated Plates</h2>
