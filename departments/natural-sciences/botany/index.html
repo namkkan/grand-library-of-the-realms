@@ -276,7 +276,7 @@ a.department-card:focus-visible {
   letter-spacing: 1.5px;
 }
 .content-section.alt {
-  background: rgba(20,36,58,.38);
+  background: rgba(27,56,40,.48);
   padding: 65px 6%;
   margin: 0 -6.82%;
 }
@@ -376,6 +376,24 @@ a.department-card:focus-visible {
   html { scroll-behavior: auto; }
   .department-card { transition: none; }
 }
+
+/* Botanical ornamentation */
+.site-header { background: linear-gradient(90deg, rgba(24,54,37,.95), rgba(16,37,27,.95)); }
+.site-header::after { content: "❧  ❦  ❧"; color: rgba(168,196,154,.62); letter-spacing: 9px; font-size: 17px; }
+.intro { position: relative; }
+.intro::before { content: "❧"; display: block; color: var(--green); opacity: .75; font-size: 32px; line-height: 1; margin-bottom: 15px; }
+.content-section { position: relative; }
+.section-heading::after { content: "✦  ❧  ✦"; display: block; margin-top: 16px; color: rgba(168,196,154,.7); letter-spacing: 7px; font-size: 13px; }
+.department-card { box-shadow: 0 10px 26px rgba(0,0,0,.13); }
+.department-card:nth-child(3n + 2) { background: linear-gradient(145deg, #244631, #142b20); }
+.department-card:nth-child(3n) { background: linear-gradient(145deg, #1c3b2b, #10251b); }
+.card-art::after { content: "❧"; position: absolute; right: 18px; bottom: 5px; color: rgba(168,196,154,.35); font-size: 28px; }
+.collection { border-top-color: rgba(168,196,154,.25); }
+.pillar { background: rgba(29,58,43,.35); }
+.place { background: linear-gradient(145deg, #1d3a2b, #142b20); position: relative; overflow: hidden; }
+.place::after { content: "❧"; position: absolute; right: 10px; bottom: -17px; color: rgba(168,196,154,.12); font-size: 68px; pointer-events: none; }
+.footer { background: rgba(16,37,27,.6); }
+@media (max-width: 580px) { .site-header::after { display: none; } }
 </style>
 </head>
 <body>
