@@ -422,6 +422,16 @@
 
       .directory-section { padding-top: 60px; }
     }
+  
+    .section-more { margin: 0 0 22px; border: 1px solid var(--line, #39382f); background: rgba(10,16,25,.28); }
+    .section-more > summary { padding: 12px 16px; color: var(--gold, #c3a46b); cursor: pointer; font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; list-style: none; }
+    .section-more > summary::-webkit-details-marker { display: none; }
+    .section-more > summary::after { content: "+"; float: right; font-size: 16px; line-height: 1; }
+    .section-more[open] > summary::after { content: "−"; }
+    .section-more > summary:hover { background: rgba(195,164,107,.07); }
+    .section-more-content { padding: 0 16px 16px; }
+    .section-more-content > :first-child { margin-top: 8px; }
+  
   </style>
 </head>
 
@@ -648,7 +658,7 @@
             Its directory combines physical signs, catalogues, maps and
             a carefully limited network of enchantments.
           </p>
-        </div>
+        </div><details class="section-more"><summary>Explore details</summary><div class="section-more-content">
 
         <div class="section-heading">
           <a class="button" href="grand-directory.html">EXPLORE THE GRAND DIRECTORY ↗</a>
@@ -697,7 +707,7 @@
             avoid harming the building or its collections.
           </p>
         </div>
-      </section>
+      </div></details></section>
 
       <section class="directory-section" id="reading">
         <div class="section-heading">
@@ -707,7 +717,7 @@
             Spaces for reading, research and quiet study, open according to
             the rules of each room and the needs of its collections.
           </p>
-        </div>
+        </div><details class="section-more"><summary>Explore details</summary><div class="section-more-content">
 
         <div class="directory-grid">
           <article class="directory-card">
@@ -740,7 +750,7 @@
             </ul>
           </article>
         </div>
-      </section>
+      </div></details></section>
 
       <section class="directory-section" id="services">
         <div class="section-heading">
@@ -751,7 +761,7 @@
             visitors can ask questions, request support and discover how
             to participate in the life of the Library.
           </p>
-        </div>
+        </div><details class="section-more"><summary>Explore details</summary><div class="section-more-content">
 
         <div class="directory-grid">
           <article class="directory-card">
@@ -784,7 +794,7 @@
             </ul>
           </article>
         </div>
-      </section>
+      </div></details></section>
 
       <section class="directory-section" id="access">
         <div class="section-heading">
@@ -795,7 +805,7 @@
             turning the Library into a fortress. Restrictions must have a
             clear purpose and apply fairly to all visitors.
           </p>
-        </div>
+        </div><details class="section-more"><summary>Explore details</summary><div class="section-more-content">
 
         <div class="access-grid">
           <article class="access-card">
@@ -834,7 +844,7 @@
           for different bodies, senses and forms of communication are part
           of the Library's ordinary design.
         </div>
-      </section>
+      </div></details></section>
 
       <section class="directory-section" id="connections">
         <div class="section-heading">
@@ -845,7 +855,7 @@
             a network of buildings accumulated over centuries, connected
             by covered passages, bridges, stairs and public squares.
           </p>
-        </div>
+        </div><details class="section-more"><summary>Explore details</summary><div class="section-more-content">
 
         <div class="connections">
           <article class="connection">
@@ -887,7 +897,7 @@
             of every hidden passage is not necessarily disclosed.
           </p>
         </div>
-      </section>
+      </div></details></section>
 
     </div>
 
