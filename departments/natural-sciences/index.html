@@ -229,6 +229,32 @@
 
     footer span { color: var(--gold); }
 
+
+    /* Individual palettes for selected departments */
+    .department-geology {
+      background: linear-gradient(145deg, #654832, #38291f);
+      border-color: #987354;
+    }
+    .department-geology .department-symbol,
+    .department-geology .department-number,
+    .department-geology .translation { color: #e0b98c; }
+    .department-geology .facilities { border-top-color: rgba(224,185,140,.35); }
+    .department-geology .facilities strong { color: #f0dfca; }
+    .department-geology:hover { border-color: #d5a777; }
+
+    .department-aquatic {
+      background: linear-gradient(145deg, #b7e6f4, #82c7e2 58%, #e8c5df);
+      border-color: #d9a9d0;
+      color: #193849;
+    }
+    .department-aquatic .department-symbol,
+    .department-aquatic .department-number,
+    .department-aquatic .translation { color: #8d4f83; }
+    .department-aquatic p { color: #315466; }
+    .department-aquatic .facilities { border-top-color: rgba(141,79,131,.35); }
+    .department-aquatic .facilities strong { color: #713c70; }
+    .department-aquatic:hover { border-color: #bd76ac; }
+
     @media (max-width: 760px) {
       .navigation {
         flex-direction: column;
@@ -325,7 +351,7 @@
           </p>
         </article>
 
-        <article class="department-card">
+        <article class="department-card department-geology">
           <span class="department-symbol">◇</span>
           <span class="department-number">DEPARTMENT 03</span>
           <h3>Department of Geology and Mineralogy</h3>
@@ -341,7 +367,7 @@
           </p>
         </article>
 
-        <article class="department-card">
+        <article class="department-card department-aquatic">
           <span class="department-symbol">≈</span>
           <span class="department-number">DEPARTMENT 04</span>
           <h3>Department of Aquatic and Marine Sciences</h3>
