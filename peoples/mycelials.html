@@ -211,7 +211,15 @@
       .facts { grid-template-columns: 1fr; }
       header { flex-wrap: wrap; }
     }
-  </style>
+  
+/* Connected records */
+.related-records{margin:34px auto;padding:24px;max-width:1000px;border:1px solid var(--line,rgba(200,169,107,.38));background:rgba(16,37,27,.62)}
+.related-records h2{margin:0 0 8px;font-size:clamp(22px,3vw,30px)}.related-records-intro{margin:0 0 18px;color:var(--muted,#b9b5aa)}
+.related-records-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:12px}
+.related-record{display:block;padding:15px;border:1px solid var(--line,rgba(200,169,107,.38));background:rgba(255,255,255,.025);text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}
+.related-record:hover{border-color:var(--gold,#c8a96b);transform:translateY(-2px)}.related-record strong{display:block;color:var(--gold,#c8a96b);margin-bottom:5px}.related-record span{display:block;font-size:.9rem;line-height:1.5;color:inherit}
+@media(max-width:600px){.related-records{padding:16px;margin:24px 0}.related-records-grid{grid-template-columns:1fr}.related-record{padding:14px}}
+</style>
 </head>
 <body>
 <header><a class="brand" href="../index.html">✦ The Grand Library of the Realms</a><a href="../index.html">← Home</a></header>
@@ -241,6 +249,16 @@
 <p>Mycelials have no single culture or prescribed way of life. They can be found in forests, underground settlements, cities, gardens and libraries, pursuing countless professions and interests.</p><p>A shared fungal nature does not mean a shared personality, tradition or purpose. Their communities and customs vary, and individuals shape their own relationships with the wider world.</p><p>At the Grand Library, Mycelials are recognised as individuals with their own histories, identities and rights—not as specimens to be studied without consent.</p></section>
 <section id="individuals"><span class="eyebrow">06 · Individual records</span><h2>Mycelials known to the Library</h2>
 <a class="card" href="../characters/arrival-guide.html"><span class="tag">INDIVIDUAL RECORD · 002</span><h3>Hyssop</h3><p>The Library's Arrival Guide: an enthusiastic, mushroom-like individual who loves books and sometimes releases tiny clouds of spores when absorbed in reading or when he has helped someone.</p><span class="arrow">OPEN INDIVIDUAL RECORD ↗</span></a></section>
+
+<section class="related-records" aria-labelledby="related-records-title">
+  <h2 id="related-records-title">✦ Connected people & records</h2>
+  <p class="related-records-intro">Follow the connections between people, books and departments of the Grand Library.</p>
+  <div class="related-records-grid">
+    <a class="related-record" href="../characters/arrival-guide.html"><strong>Hyssop ↗</strong><span>Mycelial arrival guide of the Library</span></a>
+    <a class="related-record" href="../departments/natural-sciences/index.html"><strong>Natural Sciences ↗</strong><span>Explore the scientific district</span></a>
+    <a class="related-record" href="../index.html#catalogue"><strong>The Grand Catalogue ↗</strong><span>Find related books and records</span></a>
+  </div>
+</section>
 <a href="../index.html">← Return to the Grand Library</a>
 </main></div>
 <footer><p style="color:#bd8870">✦ The Grand Library of the Realms ✦</p><p>Department of Peoples & Cultures · Ethnographic Archive</p></footer>
