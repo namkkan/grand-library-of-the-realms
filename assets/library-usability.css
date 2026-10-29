@@ -117,3 +117,30 @@ header nav { min-width: 0; }
     transition-duration: .01ms !important;
   }
 }
+
+/* Shared content components: consistent, calm and easy to scan. */
+:where(.info-card, .person-card, .district-card, .book-card, .service-card,
+       .link-card, .catalogue-card, .archive-card) {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+:where(h1, h2, h3, h4) { text-wrap: balance; }
+:where(.section-more, .reception-toggle) {
+  border: 1px solid var(--library-line);
+  border-radius: 10px;
+  overflow: clip;
+}
+:where(.section-more, .reception-toggle) > summary {
+  padding: .9rem 1rem;
+  line-height: 1.5;
+}
+:where(.section-more, .reception-toggle) > summary:focus-visible {
+  outline-offset: -3px;
+}
+:where(.section-more, .reception-toggle)[open] > summary {
+  border-bottom: 1px solid var(--library-line);
+}
+:where(.section-more-content, .reception-toggle-content) {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
