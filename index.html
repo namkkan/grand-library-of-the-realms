@@ -1013,7 +1013,7 @@
         {title:"Aquatic & Marine Sciences", category:"Natural Sciences", description:"Marine life, aquatic ecosystems and underwater worlds.", url:"departments/natural-sciences/aquatic-marine-sciences/index.html", keywords:"aquatic marine ocean water sea"},
         {title:"Astronomy & Cosmology", category:"Natural Sciences", description:"Celestial bodies, stars and the structure of the cosmos.", url:"departments/natural-sciences/astronomy-cosmology/index.html", keywords:"astronomy cosmology stars celestial space"}
       ];
-      const normaliseMap = value => value.normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").toLowerCase().trim();
+      const normaliseMap = value => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
       nodes.forEach(node => node.addEventListener("click", () => selectPlace(node.dataset.place)));
       search.addEventListener("input", () => {
         const query = normaliseMap(search.value);
