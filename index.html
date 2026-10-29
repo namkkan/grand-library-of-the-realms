@@ -232,6 +232,27 @@
       transition: transform .2s, border-color .2s;
     }
 
+    /* Reserved frames for the user's own illustrations. */
+    .illustration-slot {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 16 / 9;
+      margin: 0 0 18px;
+      border: 1px dashed rgba(159, 194, 232, .38);
+      background: rgba(86, 134, 197, .045);
+      color: #8eaed2;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .illustration-slot span {
+      padding: 10px;
+    }
+
     .card:hover {
       transform: translateY(-3px);
       border-color: var(--gold);
@@ -373,6 +394,7 @@
       <div class="grid">
 
         <a class="card" href="#arcane">
+          <div class="illustration-slot" aria-label="Reserved space for an original illustration"><span>Illustration to come</span></div>
           <span class="symbol">✧</span>
           <h3>Arcane Arts & Alchemy</h3>
           <p>Magical disciplines, alchemical research and the study of enchanted things.</p>
@@ -380,6 +402,7 @@
         </a>
 
         <a class="card" href="#archives">
+          <div class="illustration-slot" aria-label="Reserved space for an original illustration"><span>Illustration to come</span></div>
           <span class="symbol">✦</span>
           <h3>Histories of the Realms</h3>
           <p>Ancient kingdoms, forgotten cities and the chronicles they left behind.</p>
@@ -387,6 +410,7 @@
         </a>
 
         <a class="card" href="departments/grand-atrium.html">
+          <div class="illustration-slot" aria-label="Reserved space for an original illustration"><span>Illustration to come</span></div>
           <span class="symbol">⌂</span>
           <h3>The Grand Atrium</h3>
           <p>Begin your journey at the heart of the institution.</p>
@@ -394,6 +418,7 @@
         </a>
 
         <a class="card" href="#restricted">
+          <div class="illustration-slot" aria-label="Reserved space for an original illustration"><span>Illustration to come</span></div>
           <span class="symbol">⚿</span>
           <h3>Restricted Collections</h3>
           <p>Sealed records, dangerous artefacts and forbidden knowledge.</p>
@@ -401,6 +426,7 @@
         </a>
 
         <a class="card" href="departments/natural-sciences/index.html">
+          <div class="illustration-slot" aria-label="Reserved space for an original illustration"><span>Illustration to come</span></div>
           <span class="symbol">❧</span>
           <h3>Natural Sciences</h3>
           <p>Plants, animals, minerals and the many wonders of the natural world.</p>
@@ -408,6 +434,7 @@
         </a>
 
         <a class="card" href="#celestial">
+          <div class="illustration-slot" aria-label="Reserved space for an original illustration"><span>Illustration to come</span></div>
           <span class="symbol">☾</span>
           <h3>Celestial Studies</h3>
           <p>Star charts, lunar calendars and the mysteries of the heavens.</p>
@@ -415,6 +442,7 @@
         </a>
 
         <a class="card" href="#peoples">
+          <div class="illustration-slot" aria-label="Reserved space for an original illustration"><span>Illustration to come</span></div>
           <span class="symbol">✦</span>
           <h3>Peoples & Cultures</h3>
           <p>The languages, traditions and communities of the many realms.</p>
@@ -443,6 +471,7 @@
       <div class="grid">
 
         <a class="card" href="peoples/kenku.html">
+          <div class="illustration-slot" aria-label="Reserved space for an original illustration"><span>Illustration to come</span></div>
           <span class="symbol">✦</span>
           <h3>The Kenku</h3>
           <p>Keepers of curiosities, collectors of knowledge and echoes of countless voices.</p>
@@ -450,6 +479,7 @@
         </a>
 
         <a class="card" href="peoples/mycelials.html">
+          <div class="illustration-slot" aria-label="Reserved space for an original illustration"><span>Illustration to come</span></div>
           <span class="symbol">✦</span>
           <h3>The Mycelials</h3>
           <p>Sentient fungal beings connected to spores, growth and ancient networks of memory.</p>
@@ -457,6 +487,7 @@
         </a>
 
         <a class="card" href="peoples/humans.html">
+          <div class="illustration-slot" aria-label="Reserved space for an original illustration"><span>Illustration to come</span></div>
           <span class="symbol">✦</span>
           <h3>Humans</h3>
           <p>One people, countless histories, cultures and paths through the realms.</p>
