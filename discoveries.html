@@ -58,7 +58,9 @@
       <span class="eyebrow">Room of curiosities</span>
       <h2 style="margin-top:10px">Add a Discovery</h2>
       <p class="intro" style="margin:0 0 25px">Record a magical detail, an odd rumour, an object, a place or a tiny piece of lore you want to remember.</p>
-      <form id="discovery-form" class="form-grid">
+      <form id="discovery-form" class="form-grid" action="https://formsubmit.app/f/ukqtppp9g6" method="POST">
+        <input type="hidden" name="_subject" value="✦ The Grand Library — Random Discovery">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
         <div>
           <label for="entry-title">Discovery title</label>
           <input id="entry-title" name="title" maxlength="90" placeholder="e.g. The glass moth" required>
@@ -82,7 +84,7 @@
           <button type="reset">Clear form</button>
         </div>
       </form>
-      <p class="tiny-note" id="save-status" aria-live="polite">Your discoveries are saved in this browser only, not published for other visitors.</p>
+      <p class="tiny-note" id="save-status" aria-live="polite">Submit a discovery to send it to your email. It will also be saved in this browser when the email service confirms receipt.</p>
     </section>
   </main>
   <footer><p><strong>The Grand Library of the Realms</strong></p><p><a href="index.html">Return to the library ↗</a></p></footer>
@@ -90,10 +92,12 @@
   <script>
     (() => {
       const byId = id => document.getElementById(id);
+      const form = byId("discovery-form");
       const storageKey = "grand-library-discoveries-v1";
 
-      byId("discovery-form").addEventListener("submit", event => {
+      form.addEventListener("submit", async event => {
         event.preventDefault();
+        const submitButton = form.querySelector('button[type="submit"]');
         const entry = {
           title: byId("entry-title").value.trim(),
           type: byId("entry-type").value,
@@ -103,14 +107,31 @@
         };
         if (!entry.title || !entry.description) return;
 
+        submitButton.disabled = true;
+        byId("save-status").textContent = "Sending your discovery to the library inbox…";
         try {
-          const saved = JSON.parse(localStorage.getItem(storageKey) || "[]");
-          saved.push(entry);
-          localStorage.setItem(storageKey, JSON.stringify(saved));
-          byId("save-status").textContent = "Discovery preserved in this browser. It is not published to the website.";
-          byId("discovery-form").reset();
-        } catch {
-          byId("save-status").textContent = "This browser could not save the discovery. Please copy it somewhere safe instead.";
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { "Accept": "application/json" }
+          });
+          const result = await response.json();
+          if (!response.ok || result.ok === false || result.error) {
+            throw new Error(result.error || "The form service did not confirm receipt.");
+          }
+
+          try {
+            const saved = JSON.parse(localStorage.getItem(storageKey) || "[]");
+            saved.push(entry);
+            localStorage.setItem(storageKey, JSON.stringify(saved));
+          } catch {}
+
+          byId("save-status").textContent = "✦ Discovery sent! Check your email inbox (and spam folder the first time). A copy was saved in this browser too.";
+          form.reset();
+        } catch (error) {
+          byId("save-status").textContent = "The email could not be confirmed. Your discovery is still in the form—please copy it before trying again.";
+        } finally {
+          submitButton.disabled = false;
         }
       });
     })();
