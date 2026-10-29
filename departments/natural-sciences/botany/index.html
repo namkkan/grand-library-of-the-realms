@@ -399,6 +399,115 @@ a.department-card:focus-visible {
 .footer { background: rgba(16,37,27,.6); }
 @media (max-width: 580px) { .site-header::after { display: none; } }
 
+
+/* Compact botanical directory and library-style catalogue */
+.botany-directory {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 28px 0 85px;
+}
+.botany-directory a {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 13px 15px;
+  border: 1px solid rgba(198,166,107,.25);
+  background: rgba(29,58,43,.52);
+  color: var(--cream);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  line-height: 1.25;
+  transition: background .2s, border-color .2s, transform .2s;
+}
+.botany-directory a:hover {
+  background: rgba(68,101,68,.42);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+.botany-directory a span {
+  flex: 0 0 auto;
+  color: var(--green);
+  font-family: 'Libre Baskerville', serif;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+.catalogue-heading { text-align: center; margin-bottom: 28px; scroll-margin-top: 25px; }
+.catalogue-heading h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 5vw, 46px);
+  color: var(--gold-light);
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 10px 0 12px;
+}
+.catalogue-heading p { color: var(--muted); font-size: 11px; }
+.shelf-list { border-top: 1px solid var(--line); }
+.shelf {
+  display: grid;
+  grid-template-columns: 105px minmax(0,1fr);
+  gap: 22px;
+  padding: 27px 12px;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 24px;
+}
+.shelf-number {
+  padding-top: 7px;
+  color: var(--green);
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+.shelf-main h3 {
+  margin: 0;
+  color: var(--gold-light);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 27px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.shelf-note { color: var(--muted); font-size: 10px; margin: 4px 0 15px; }
+.catalogue-book {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 760px;
+  padding: 13px 16px;
+  border: 1px solid rgba(198,166,107,.38);
+  background: linear-gradient(100deg, rgba(198,166,107,.09), rgba(29,58,43,.55));
+}
+.catalogue-book:hover { border-color: var(--gold-light); background: rgba(168,196,154,.09); }
+.book-mark { color: var(--gold); font-size: 23px; }
+.catalogue-book strong { display: block; color: var(--gold-light); font-family: 'Cormorant Garamond', serif; font-size: 22px; line-height: 1.15; }
+.catalogue-book small { display: block; color: var(--muted); font-size: 9px; margin-top: 3px; line-height: 1.7; }
+.book-arrow { margin-left: auto; flex: 0 0 auto; color: var(--green); font-size: 9px; letter-spacing: .5px; }
+.shelf-collection {
+  max-width: 760px;
+  margin-top: 10px;
+  padding: 9px 14px;
+  border-left: 2px solid rgba(168,196,154,.4);
+  color: var(--muted);
+  font-size: 10px;
+}
+.shelf-collection span {
+  display: inline-block;
+  min-width: 82px;
+  color: var(--green);
+  font-size: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+@media(max-width:900px) {
+  .botany-directory { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media(max-width:580px) {
+  .botany-directory { grid-template-columns: 1fr; margin-bottom: 60px; }
+  .shelf { grid-template-columns: 1fr; gap: 5px; padding: 23px 4px; }
+  .shelf-number { padding-top: 0; }
+  .shelf-main h3 { font-size: 25px; }
+  .catalogue-book { align-items: flex-start; gap: 9px; padding: 12px; }
+  .book-arrow { font-size: 8px; }
+  .shelf-collection span { display: block; margin-bottom: 3px; }
+}
 </style>
 </head>
 <body>
@@ -446,237 +555,103 @@ a.department-card:focus-visible {
 
   <section class="content-section" id="sections">
     <div class="section-heading">
-      <div class="section-label">The Botanical Collections</div>
-      <h2>The Twelve Sections</h2>
+      <div class="section-label">The Botanical Directory</div>
+      <h2>Find Your Way Through Botany</h2>
       <p>
-        Twelve specialised branches work together to understand the
-        extraordinary diversity of plant life throughout the realms.
+        Begin with the subject that calls to you. The twelve sections below
+        guide you through the department; the catalogue beneath them gathers
+        the books and collections belonging to each shelf.
       </p>
     </div>
 
-    <div class="department-grid">
+    <nav class="botany-directory" aria-label="Botany section directory">
+      <a href="#shelf-taxonomy"><span>01</span>Plant Taxonomy & Classification</a>
+      <a href="#shelf-living"><span>02</span>Living Plant Collections</a>
+      <a href="#shelf-seeds"><span>03</span>Seeds & Plant Propagation</a>
+      <a href="#shelf-medicinal"><span>04</span>Medicinal Botany & Ethnobotany</a>
+      <a href="#shelf-toxic"><span>05</span>Toxic & Defensive Plants</a>
+      <a href="#shelf-trees"><span>06</span>Trees, Forests & Ancient Growth</a>
+      <a href="#shelf-magical"><span>07</span>Magical & Anomalous Botany</a>
+      <a href="#shelf-field"><span>08</span>Field Botany & Expeditions</a>
+      <a href="#shelf-illustration"><span>09</span>Botanical Illustration & Documentation</a>
+      <a href="#shelf-physiology"><span>10</span>Plant Physiology & Adaptation</a>
+      <a href="#shelf-conservation"><span>11</span>Plant Conservation & Recovery</a>
+      <a href="#shelf-communication"><span>12</span>Plant Intelligence & Communication</a>
+    </nav>
 
-      <a class="department-card" href="taxonomy/index.html" aria-label="Explore Plant Taxonomy and Classification books">
-        <div class="card-art">
-          <span class="card-number">01</span>
-          ❧
-        </div>
-        <div class="card-content">
-          <h3>Plant Taxonomy & Classification</h3>
-          <div class="card-subtitle">Names, Families & Identification</div>
-          <p>
-            Identifies, describes and classifies plant species, resolves
-            conflicting names and investigates unknown specimens from
-            distant regions and realms.
-          </p>
-          <div class="collection">
-            <strong>Signature Collection</strong>
-            The Index of Species — the master catalogue of documented
-            plants, their names, descriptions and illustrations.
-          </div>
-          <span class="open-section">Explore the book collection →</span>
-        </div>
-      </a>
-      <p class="first-book-link"><a href="taxonomy/the-living-index/index.html">Read the first botanical book: <em>The Living Index</em> →</a></p>
-
-      <article class="department-card">
-        <div class="card-art"><span class="card-number">02</span>♧</div>
-        <div class="card-content">
-          <h3>Living Plant Collections</h3>
-          <div class="card-subtitle">Gardens & Conservatories</div>
-          <p>
-            Maintains living collections from rainforests, deserts,
-            mountains, wetlands and unusual magical ecosystems in
-            carefully controlled environments.
-          </p>
-          <div class="collection">
-            <strong>Signature Collection</strong>
-            The Hundred Climates Conservatory — a monumental greenhouse
-            divided into chambers with distinct environmental conditions.
-          </div>
-        </div>
-      </article>
-
-      <article class="department-card">
-        <div class="card-art"><span class="card-number">03</span>◉</div>
-        <div class="card-content">
-          <h3>Seeds & Propagation</h3>
-          <div class="card-subtitle">Germination & Renewal</div>
-          <p>
-            Studies germination, reproduction and propagation while
-            preserving seeds and plant material for future research
-            and the recovery of lost species.
-          </p>
-          <div class="collection">
-            <strong>Signature Collection</strong>
-            The Seed Vault — rare seeds, ancient varieties and samples
-            from plants of vanished realms.
-          </div>
-        </div>
-      </article>
-
-      <article class="department-card">
-        <div class="card-art"><span class="card-number">04</span>⚘</div>
-        <div class="card-content">
-          <h3>Medicinal Botany & Ethnobotany</h3>
-          <div class="card-subtitle">Traditional Knowledge & Plant Uses</div>
-          <p>
-            Documents plants used as food, remedies, dyes, fibres,
-            materials and ritual objects, recording the communities
-            and traditions that preserve this knowledge.
-          </p>
-          <div class="collection">
-            <strong>Signature Collection</strong>
-            The Herbal Compendium — herbarium specimens, historical
-            recipes, testimonies and records of traditional uses.
-          </div>
-        </div>
-      </article>
-
-      <article class="department-card">
-        <div class="card-art"><span class="card-number">05</span>✥</div>
-        <div class="card-content">
-          <h3>Toxic & Defensive Plants</h3>
-          <div class="card-subtitle">Hazards, Toxins & Natural Defences</div>
-          <p>
-            Investigates natural toxins, thorns, irritants, carnivorous
-            plants and other defensive mechanisms. Dangerous specimens
-            are handled under strict safety protocols.
-          </p>
-          <div class="collection">
-            <strong>Signature Collection</strong>
-            The Garden of Untouchables — a secured research enclosure
-            for plants requiring special handling.
-          </div>
-        </div>
-      </article>
-
-      <article class="department-card">
-        <div class="card-art"><span class="card-number">06</span>♜</div>
-        <div class="card-content">
-          <h3>Trees, Forests & Ancient Growth</h3>
-          <div class="card-subtitle">Woodlands & Living History</div>
-          <p>
-            Studies ancient trees, primeval forests, root systems
-            and the long-term relationships between vegetation
-            and its surrounding environment.
-          </p>
-          <div class="collection">
-            <strong>Signature Collection</strong>
-            The Archive of Ancient Trees — growth rings, samples,
-            illustrations and chronicles of legendary specimens.
-          </div>
-        </div>
-      </article>
-
-      <article class="department-card">
-        <div class="card-art"><span class="card-number">07</span>✧</div>
-        <div class="card-content">
-          <h3>Magical & Anomalous Botany</h3>
-          <div class="card-subtitle">Enchanted Flora & Unexplained Phenomena</div>
-          <p>
-            Investigates moon-responsive flowers, spell-storing plants,
-            roots crossing dimensions and organisms that react to
-            magical energy.
-          </p>
-          <div class="collection">
-            <strong>Signature Collection</strong>
-            The Garden of Botanical Phenomena — a research garden where
-            every anomaly is documented before explanations are proposed.
-          </div>
-        </div>
-      </article>
-
-      <article class="department-card">
-        <div class="card-art"><span class="card-number">08</span>⌖</div>
-        <div class="card-content">
-          <h3>Field Botany & Expeditions</h3>
-          <div class="card-subtitle">Exploration & Field Research</div>
-          <p>
-            Sends research teams into forests, ruins, islands,
-            mountains and uncharted territories to document plants
-            within their natural habitats.
-          </p>
-          <div class="collection">
-            <strong>Signature Collection</strong>
-            The Expedition Archives — field journals, maps, drawings,
-            specimens and accounts of journeys across the realms.
-          </div>
-        </div>
-      </article>
-
-      <article class="department-card">
-        <div class="card-art"><span class="card-number">09</span>✎</div>
-        <div class="card-content">
-          <h3>Botanical Illustration & Documentation</h3>
-          <div class="card-subtitle">Art in the Service of Knowledge</div>
-          <p>
-            Records plant species through drawings, engravings,
-            watercolours, diagrams and detailed descriptions.
-            Illustration preserves details that words may overlook.
-          </p>
-          <div class="collection">
-            <strong>Signature Collection</strong>
-            The Illustrated Atlas of the Realms' Flora — an evolving
-            visual record of botanical discoveries.
-          </div>
-        </div>
-      </article>
-
-      <article class="department-card">
-        <div class="card-art"><span class="card-number">10</span>◌</div>
-        <div class="card-content">
-          <h3>Plant Physiology & Adaptation</h3>
-          <div class="card-subtitle">Growth, Function & Survival</div>
-          <p>
-            Studies how plants grow, obtain energy, develop and respond
-            to light, water, temperature and other environmental factors.
-          </p>
-          <div class="collection">
-            <strong>Signature Collection</strong>
-            The Adaptation Laboratory — experimental chambers for
-            investigating survival under unusual conditions.
-          </div>
-        </div>
-      </article>
-
-      <article class="department-card">
-        <div class="card-art"><span class="card-number">11</span>♧</div>
-        <div class="card-content">
-          <h3>Plant Conservation & Recovery</h3>
-          <div class="card-subtitle">Protection & Restoration</div>
-          <p>
-            Protects threatened species, investigates habitat loss
-            and develops recovery projects. Records distinguish
-            confirmed extinctions from missing or unverified species.
-          </p>
-          <div class="collection">
-            <strong>Signature Collection</strong>
-            The Register of Lost Species — a record of last sightings,
-            recovery efforts and unresolved botanical disappearances.
-          </div>
-        </div>
-      </article>
-
-      <article class="department-card">
-        <div class="card-art"><span class="card-number">12</span>❋</div>
-        <div class="card-content">
-          <h3>Plant Communication & Unusual Behaviour</h3>
-          <div class="card-subtitle">Signals, Responses & Intelligence</div>
-          <p>
-            Studies plant responses to stimuli, chemical signals
-            and relationships with other organisms. In magical realms,
-            it also investigates apparent recognition or intention.
-          </p>
-          <div class="collection">
-            <strong>Signature Collection</strong>
-            The Notebooks of Unusual Plants — observations separating
-            verified results, hypotheses and folklore.
-          </div>
-        </div>
-      </article>
-
+    <div class="catalogue-heading" id="botanical-catalogue">
+      <div class="section-label">The Department's Shelves</div>
+      <h2>The Botanical Catalogue</h2>
+      <p>Browse by section, just as you would follow the labels along the shelves of a great library.</p>
     </div>
+
+    <div class="shelf-list">
+      <section class="shelf" id="shelf-taxonomy">
+        <div class="shelf-number">SHELF 01</div>
+        <div class="shelf-main">
+          <h3>Plant Taxonomy & Classification</h3>
+          <p class="shelf-note">Names, families, identification and the classification of known flora.</p>
+          <a class="catalogue-book" href="taxonomy/the-living-index/index.html"><span class="book-mark">✦</span><span><strong>The Living Index</strong><small>A Taxonomist's Guide to the Flora of the Known Realms · Elowen Thorne</small></span><span class="book-arrow">Open book →</span></a>
+          <div class="shelf-collection"><span>Collection</span>The Index of Species — the master catalogue of documented plants.</div>
+        </div>
+      </section>
+
+      <section class="shelf" id="shelf-living">
+        <div class="shelf-number">SHELF 02</div>
+        <div class="shelf-main"><h3>Living Plant Collections</h3><p class="shelf-note">Gardens, conservatories and living specimens from different climates.</p><div class="shelf-collection"><span>Collection</span>The Hundred Climates Conservatory</div></div>
+      </section>
+
+      <section class="shelf" id="shelf-seeds">
+        <div class="shelf-number">SHELF 03</div>
+        <div class="shelf-main"><h3>Seeds & Plant Propagation</h3><p class="shelf-note">Germination, reproduction, propagation and the preservation of seeds.</p><div class="shelf-collection"><span>Collection</span>The Seed Vault</div></div>
+      </section>
+
+      <section class="shelf" id="shelf-medicinal">
+        <div class="shelf-number">SHELF 04</div>
+        <div class="shelf-main"><h3>Medicinal Botany & Ethnobotany</h3><p class="shelf-note">Plant uses, remedies, materials and traditional botanical knowledge.</p><div class="shelf-collection"><span>Collection</span>The Herbal Compendium</div></div>
+      </section>
+
+      <section class="shelf" id="shelf-toxic">
+        <div class="shelf-number">SHELF 05</div>
+        <div class="shelf-main"><h3>Toxic & Defensive Plants</h3><p class="shelf-note">Toxins, thorns, irritants, carnivorous plants and natural defences.</p><div class="shelf-collection"><span>Collection</span>The Garden of Untouchables</div></div>
+      </section>
+
+      <section class="shelf" id="shelf-trees">
+        <div class="shelf-number">SHELF 06</div>
+        <div class="shelf-main"><h3>Trees, Forests & Ancient Growth</h3><p class="shelf-note">Ancient trees, primeval forests, root systems and botanical history.</p><div class="shelf-collection"><span>Collection</span>The Archive of Ancient Trees</div></div>
+      </section>
+
+      <section class="shelf" id="shelf-magical">
+        <div class="shelf-number">SHELF 07</div>
+        <div class="shelf-main"><h3>Magical & Anomalous Botany</h3><p class="shelf-note">Enchanted flora, unusual growth and plants affected by magical phenomena.</p><div class="shelf-collection"><span>Collection</span>The Garden of Botanical Phenomena</div></div>
+      </section>
+
+      <section class="shelf" id="shelf-field">
+        <div class="shelf-number">SHELF 08</div>
+        <div class="shelf-main"><h3>Field Botany & Expeditions</h3><p class="shelf-note">Field research, expeditions and plants documented in their natural habitats.</p><div class="shelf-collection"><span>Collection</span>The Expedition Archives</div></div>
+      </section>
+
+      <section class="shelf" id="shelf-illustration">
+        <div class="shelf-number">SHELF 09</div>
+        <div class="shelf-main"><h3>Botanical Illustration & Documentation</h3><p class="shelf-note">Illustrations, engravings, diagrams and visual records of plant life.</p><div class="shelf-collection"><span>Collection</span>The Illustrated Atlas of the Realms' Flora</div></div>
+      </section>
+
+      <section class="shelf" id="shelf-physiology">
+        <div class="shelf-number">SHELF 10</div>
+        <div class="shelf-main"><h3>Plant Physiology & Adaptation</h3><p class="shelf-note">Plant growth, function and adaptation to environmental conditions.</p><div class="shelf-collection"><span>Collection</span>The Adaptation Laboratory</div></div>
+      </section>
+
+      <section class="shelf" id="shelf-conservation">
+        <div class="shelf-number">SHELF 11</div>
+        <div class="shelf-main"><h3>Plant Conservation & Recovery</h3><p class="shelf-note">Threatened flora, habitat restoration and the recovery of lost species.</p><div class="shelf-collection"><span>Collection</span>The Register of Lost Species</div></div>
+      </section>
+
+      <section class="shelf" id="shelf-communication">
+        <div class="shelf-number">SHELF 12</div>
+        <div class="shelf-main"><h3>Plant Intelligence & Communication</h3><p class="shelf-note">Plant signals, responses, unusual behaviour and possible forms of communication.</p><div class="shelf-collection"><span>Collection</span>The Notebooks of Unusual Plants</div></div>
+      </section>
+    </div>
+    <p class="note">Only published books have an active reading link. Collection names identify the department's shelves and research holdings, ready to be expanded as new works are added.</p>
   </section>
 
   <section class="content-section alt" id="living-archive">
