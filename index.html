@@ -232,6 +232,16 @@
       transition: transform .2s, border-color .2s;
     }
 
+    .natural-sciences-card {
+      background: linear-gradient(145deg, #1b3828, #10251b);
+      border-color: rgba(145, 168, 111, .55);
+    }
+
+    .natural-sciences-card h3,
+    .natural-sciences-card .discover { color: #a8c49a; }
+
+    .natural-sciences-card:hover { border-color: #a8c49a; }
+
     .card:hover {
       transform: translateY(-3px);
       border-color: var(--gold);
@@ -379,7 +389,7 @@
           <span class="discover">Explore this field ↗</span>
         </a>
 
-        <a class="card" href="departments/natural-sciences/index.html">
+        <a class="card natural-sciences-card" href="departments/natural-sciences/index.html">
           <span class="symbol">❧</span>
           <h3>Natural Sciences</h3>
           <p>Plants, animals, minerals and the many wonders of the natural world.</p>
