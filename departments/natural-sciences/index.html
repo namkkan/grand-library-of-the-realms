@@ -297,6 +297,42 @@
 .related-record{display:block;padding:15px;border:1px solid var(--line,rgba(200,169,107,.38));background:rgba(255,255,255,.025);text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}
 .related-record:hover{border-color:var(--gold,#c8a96b);transform:translateY(-2px)}.related-record strong{display:block;color:var(--gold,#c8a96b);margin-bottom:5px}.related-record span{display:block;font-size:.9rem;line-height:1.5;color:inherit}
 @media(max-width:600px){.related-records{padding:16px;margin:24px 0}.related-records-grid{grid-template-columns:1fr}.related-record{padding:14px}}
+
+    /* Unified Natural Sciences forest palette, matching the other department pages. */
+    :root {
+      --night: #10251b;
+      --panel: #1d3a2b;
+      --gold: #c6a66b;
+      --parchment: #eee5d2;
+      --muted: #b7b6ad;
+      --line: rgba(198,166,107,.35);
+    }
+    body { background: radial-gradient(ellipse at 50% 0%, #244a32 0%, #10251b 68%); }
+    .navigation { background: linear-gradient(90deg, #1b3828, #10251b); }
+    .hero { background: radial-gradient(ellipse at 50% 35%, #244631 0%, #1b3828 46%, #10251b 82%); }
+    .hero-description { color: #b7b6ad; }
+    .department-card,
+    .department-card.department-botany,
+    .department-card.department-zoology,
+    .department-card.department-geology,
+    .department-card.department-aquatic,
+    .department-card.department-astronomy,
+    .department-card.department-ecology,
+    .department-card.department-anatomy,
+    .department-card.department-weather {
+      background: linear-gradient(145deg, #1d3a2b, #142b20);
+      border-color: rgba(198,166,107,.35);
+      color: #eee5d2;
+    }
+    .department-card .department-symbol,
+    .department-card .department-number,
+    .department-card .translation { color: #a8c49a; }
+    .department-card p { color: #b7b6ad; }
+    .department-card .facilities { border-top-color: rgba(198,166,107,.3); }
+    .department-card .facilities strong { color: #eee5d2; }
+    .department-card:hover { border-color: #a8c49a; }
+    .closing { background: #142b20; }
+
 </style>
 </head>
 
