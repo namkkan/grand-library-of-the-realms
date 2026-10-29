@@ -17,6 +17,16 @@
     .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.card{padding:25px;border:1px solid var(--line);background:linear-gradient(145deg,#172131,#101722)}.card .label{color:var(--gold);font-family:Arial,sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase}.card h3{margin:10px 0;font-size:22px;font-weight:normal}.card p,.card li{color:#c4c0b7;font-size:14px}.card ul{padding-left:20px}.note{margin-top:22px;padding:25px;border-left:2px solid var(--gold);background:#101722;color:#d1c8b8}.note strong{color:var(--gold)}.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.step{padding:20px;border:1px solid #514733;background:#111823}.step .num{color:var(--gold);font-family:Arial,sans-serif;font-size:11px;letter-spacing:2px}.step h3{font-size:19px;font-weight:normal;margin:8px 0}.step p{font-size:13px;color:var(--muted)}
     .links{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:30px}.button{display:inline-block;padding:12px 20px;border:1px solid var(--gold);font-family:Arial,sans-serif;font-size:10px;letter-spacing:1.3px;text-transform:uppercase;transition:background .2s,color .2s}.button:hover{background:var(--gold);color:var(--night)}footer{padding:30px 20px;border-top:1px solid var(--line);color:var(--muted);text-align:center;font-size:12px}footer span{color:var(--gold)}
     @media(max-width:760px){.navigation{flex-direction:column;text-align:center}.nav-links{justify-content:center}.hero{padding:65px 20px 50px}main{padding:40px 18px 60px}.grid,.steps{grid-template-columns:1fr}}
+  
+    .section-more { margin: 0 0 22px; border: 1px solid var(--line, #39382f); background: rgba(10,16,25,.28); }
+    .section-more > summary { padding: 12px 16px; color: var(--gold, #c3a46b); cursor: pointer; font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; list-style: none; }
+    .section-more > summary::-webkit-details-marker { display: none; }
+    .section-more > summary::after { content: "+"; float: right; font-size: 16px; line-height: 1; }
+    .section-more[open] > summary::after { content: "−"; }
+    .section-more > summary:hover { background: rgba(195,164,107,.07); }
+    .section-more-content { padding: 0 16px 16px; }
+    .section-more-content > :first-child { margin-top: 8px; }
+  
   </style>
 </head>
 <body>
@@ -36,47 +46,47 @@
     <p class="intro">Visitor Services is the Atrium's general assistance point—not a department of its own and not a substitute for specialist librarians. It connects visitors with the right information, route, service or member of staff.</p>
 
     <section class="section" id="help">
-      <div class="section-heading"><span class="eyebrow">01 · Ask and discover</span><h2>Information & Enquiries</h2><p>For first-time visitors, experienced researchers, curious travellers and anyone unsure where to begin.</p></div>
+      <div class="section-heading"><span class="eyebrow">01 · Ask and discover</span><h2>Information & Enquiries</h2><p>For first-time visitors, experienced researchers, curious travellers and anyone unsure where to begin.</p></div><details class="section-more"><summary>Explore details</summary><div class="section-more-content">
       <div class="grid">
         <article class="card"><span class="label">General guidance</span><h3>The Information Desk</h3><p>Staff answer everyday questions and help visitors understand the Library's public spaces, facilities and procedures.</p><ul><li>Directions and room locations</li><li>Opening arrangements and visitor guidance</li><li>Help with catalogues and directory systems</li><li>Referrals to specialist departments</li></ul></article>
         <article class="card"><span class="label">Research support</span><h3>Finding the Right Collection</h3><p>Visitors can explain what they hope to find—even if they do not know the proper name for it—and receive guidance towards relevant catalogues or subject specialists.</p><ul><li>Identifying likely collections</li><li>Finding a librarian or curator with relevant expertise</li><li>Understanding consultation requirements</li><li>Planning a route between connected districts</li></ul></article>
       </div>
-    </section>
+    </div></details></section>
 
     <section class="section" id="accessibility">
-      <div class="section-heading"><span class="eyebrow">02 · A library for every visitor</span><h2>Accessibility & Individual Assistance</h2><p>Visitors should be able to ask for practical support without having to explain more than is necessary.</p></div>
+      <div class="section-heading"><span class="eyebrow">02 · A library for every visitor</span><h2>Accessibility & Individual Assistance</h2><p>Visitors should be able to ask for practical support without having to explain more than is necessary.</p></div><details class="section-more"><summary>Explore details</summary><div class="section-more-content">
       <div class="grid">
         <article class="card"><span class="label">Routes and facilities</span><h3>Finding a Suitable Route</h3><p>Staff can help identify lifts, ramps, seating, quieter spaces and routes that avoid stairs or difficult passages where those options are available.</p><ul><li>Step-free route information</li><li>Directions to accessible facilities</li><li>Assistance locating quieter areas</li><li>Alternative directions when a passage is closed</li></ul></article>
         <article class="card"><span class="label">Communication</span><h3>Clear Information</h3><p>Where possible, information can be provided in writing, explained verbally or supported by the Living Directory. Staff assistance remains available if enchantments or devices fail.</p><ul><li>Written directions and printed maps</li><li>Help interpreting signs and instructions</li><li>Communication support where available</li><li>A non-magical alternative to enchanted guidance</li></ul></article>
       </div>
       <div class="note"><strong>A guiding principle:</strong> magical assistance is optional. No visitor should have to rely on an enchantment to understand essential directions, request help or reach an available public service.</div>
-    </section>
+    </div></details></section>
 
     <section class="section" id="visiting">
-      <div class="section-heading"><span class="eyebrow">03 · Before you explore</span><h2>Visitor Guidance</h2><p>A little orientation helps protect the collections and makes the Library easier to share.</p></div>
+      <div class="section-heading"><span class="eyebrow">03 · Before you explore</span><h2>Visitor Guidance</h2><p>A little orientation helps protect the collections and makes the Library easier to share.</p></div><details class="section-more"><summary>Explore details</summary><div class="section-more-content">
       <div class="grid">
         <article class="card"><span class="label">First visit</span><h3>Starting Your Visit</h3><p>Visitors can learn where to go first, which areas are open to the public, and whether a particular room requires registration or an appointment.</p><ul><li>Public-area guidance</li><li>Visitor registration information, where required</li><li>Meeting points for tours and public activities</li><li>Directions to cloakrooms and visitor facilities</li></ul></article>
         <article class="card"><span class="label">Care and conduct</span><h3>Using the Library</h3><p>Staff explain local rules in plain language and direct visitors to the relevant room guidelines before they enter a specialist or protected area.</p><ul><li>Handling and preservation guidance</li><li>Photography and note-taking rules</li><li>Food, drink and quiet-area guidance</li><li>How to request permission for restricted spaces</li></ul></article>
       </div>
-    </section>
+    </div></details></section>
 
     <section class="section" id="public-programme">
-      <div class="section-heading"><span class="eyebrow">04 · Take part</span><h2>Events & Public Programme</h2><p>The Library is a place to learn together as well as study independently.</p></div>
+      <div class="section-heading"><span class="eyebrow">04 · Take part</span><h2>Events & Public Programme</h2><p>The Library is a place to learn together as well as study independently.</p></div><details class="section-more"><summary>Explore details</summary><div class="section-more-content">
       <div class="grid">
         <article class="card"><span class="label">What's happening</span><h3>Activities & Events</h3><p>The service point provides information about public lectures, exhibitions, guided visits, workshops and reading groups hosted across the institution.</p><ul><li>Event dates and locations</li><li>Registration and attendance requirements</li><li>Tour meeting points</li><li>Accessibility information for activities</li></ul></article>
         <article class="card"><span class="label">When plans change</span><h3>Practical Help</h3><p>If an event moves, a route closes or a visitor becomes separated from their group, staff help them find the latest available information and the appropriate next step.</p><ul><li>Updated directions</li><li>Help locating a meeting point</li><li>Lost-property enquiries</li><li>Contacting the relevant service team</li></ul></article>
       </div>
-    </section>
+    </div></details></section>
 
     <section class="section" id="how-it-works">
-      <div class="section-heading"><span class="eyebrow">05 · A simple journey</span><h2>How Visitor Services Works</h2><p>Not every question needs the same kind of answer. The service is designed to guide visitors onward, rather than keep them at the desk.</p></div>
+      <div class="section-heading"><span class="eyebrow">05 · A simple journey</span><h2>How Visitor Services Works</h2><p>Not every question needs the same kind of answer. The service is designed to guide visitors onward, rather than keep them at the desk.</p></div><details class="section-more"><summary>Explore details</summary><div class="section-more-content">
       <div class="steps">
         <article class="step"><span class="num">STEP I</span><h3>Tell us what you need</h3><p>Ask a question, describe what you are looking for, or explain what is making your visit difficult.</p></article>
         <article class="step"><span class="num">STEP II</span><h3>Find the right help</h3><p>Staff provide an answer, a clear route, a directory entry or a referral to someone with specialist knowledge.</p></article>
         <article class="step"><span class="num">STEP III</span><h3>Continue your visit</h3><p>Leave with the information you need, and return to the desk if your plans change or another question arises.</p></article>
       </div>
       <div class="note"><strong>About the Living Directory:</strong> the Library's enchanted guidance network can help with routes and selected signs, but it cannot grant access permissions, read minds or guarantee that every passage is safe or open. Printed maps and staff guidance remain valid alternatives.</div>
-    </section>
+    </div></details></section>
 
     <div class="links"><a class="button" href="welcome-arrival.html">Welcome & Arrival ↗</a><a class="button" href="grand-atrium.html">Return to the Grand Atrium ↗</a><a class="button" href="../index.html">Library Home ↗</a></div>
   </main>
