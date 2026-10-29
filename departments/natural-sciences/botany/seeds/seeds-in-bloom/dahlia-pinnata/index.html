@@ -56,6 +56,8 @@ footer{text-align:center;color:var(--gold);font-size:.8rem;letter-spacing:1px;bo
 @media(max-width:720px){main{width:94%}.book{grid-template-columns:1fr;min-height:620px}.book .page.left{display:none}.book .page.right{border-radius:5px}.page{padding:28px 25px}.page p{text-align:left}.book.single{max-width:none}.controls{gap:10px}.controls button{padding:9px 12px}}
 @media(prefers-reduced-motion:reduce){.book.turning{animation:none}}
 </style>
+
+<link rel="stylesheet" href="../../../../../../assets/library-usability.css">
 </head>
 <body>
 <header class="topbar"><nav><a href="../index.html">← Return to Seeds in Bloom</a><a href="../../../index.html">Department of Botany</a></nav></header>
@@ -108,4 +110,6 @@ let touchStart=null;book.addEventListener('touchstart',e=>{touchStart=e.changedT
 function responsive(){book.classList.toggle('single',window.matchMedia('(max-width:720px)').matches)}
 window.addEventListener('resize',responsive);responsive();render(0,false);
 </script>
+
+<script src="../../../../../../assets/library-usability.js" defer></script>
 </body></html>
