@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Mycelials | Grand Library of the Realms</title>
+  <style>
+    :root {
+      --night: #17100f;
+      --panel: #2b1c1a;
+      --gold: #bd8870;
+      --parchment: #eadbd0;
+      --muted: #b9a6a0;
+      --line: #59403b;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--night);
+      color: var(--parchment);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.8;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    a:hover { color: var(--gold); }
+
+    header {
+      padding: 20px 7%;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand, .eyebrow {
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      padding: 95px 25px;
+      text-align: center;
+      background: radial-gradient(ellipse at top, #49302d, #241817 60%, #17100f);
+      border-bottom: 1px solid var(--line);
+    }
+
+    h1 {
+      margin: 18px 0 8px;
+      font-size: clamp(50px, 8vw, 86px);
+      font-weight: normal;
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      color: var(--gold);
+      font-style: italic;
+      font-size: 18px;
+    }
+
+    .hero p {
+      max-width: 590px;
+      margin: 20px auto;
+      color: #d0c8bb;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 210px minmax(0, 760px);
+      gap: 55px;
+      max-width: 1200px;
+      margin: auto;
+      padding: 65px 28px;
+    }
+
+    aside {
+      align-self: start;
+      position: sticky;
+      top: 20px;
+      border-left: 1px solid var(--gold);
+      padding: 12px 20px;
+    }
+
+    aside p {
+      color: var(--gold);
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    aside a {
+      display: block;
+      margin: 13px 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    section { margin-bottom: 65px; }
+
+    h2 {
+      margin: 10px 0 18px;
+      font-size: clamp(28px, 4vw, 38px);
+      font-weight: normal;
+      line-height: 1.25;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      color: var(--gold);
+      font-size: 19px;
+      font-weight: normal;
+    }
+
+    .lead {
+      color: #d1c9ba;
+      font-size: 17px;
+    }
+
+    .muted { color: var(--muted); }
+
+    .rule {
+      width: 65px;
+      border: 0;
+      border-top: 1px solid var(--gold);
+      margin: 24px 0;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 25px 0;
+    }
+
+    .fact, .card {
+      padding: 20px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+
+    .fact span {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .fact p, .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .note {
+      padding: 22px;
+      background: #111925;
+      border-left: 2px solid var(--gold);
+      color: #d1c9ba;
+    }
+
+    .card {
+      display: block;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .card:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    .card .tag {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    .arrow {
+      display: block;
+      margin-top: 16px;
+      color: var(--gold);
+      font-size: 12px;
+    }
+
+    footer {
+      padding: 30px 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    @media (max-width: 760px) {
+      .layout { grid-template-columns: 1fr; gap: 25px; }
+      aside { position: static; }
+      aside a { display: inline-block; margin-right: 15px; }
+      .facts { grid-template-columns: 1fr; }
+      header { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+<header><a class="brand" href="../index.html">✦ The Grand Library of the Realms</a><a href="../index.html">← Home</a></header>
+<div class="hero">
+<span class="eyebrow">Department of Peoples & Cultures</span>
+<h1>The Mycelials</h1><div class="subtitle">The Mycelium-Born</div>
+<p>Sentient fungal beings shaped by spores, living networks and countless individual histories. No two lives need take the same form.</p>
+</div>
+<div class="layout">
+<aside><p>FIELD INDEX</p><a href="#overview">Overview</a><a href="#origins">Origins</a><a href="#biology">Biology</a><a href="#memory">Ancient Networks</a><a href="#life">Life Among the Realms</a><a href="#individuals">Known Individuals</a></aside>
+<main>
+<section id="overview"><span class="eyebrow">01 · General classification</span><h2>A thousand forms, a thousand lives.</h2><hr class="rule">
+<p class="lead">Mycelials are sentient fungal beings found throughout the realms. Their appearances vary widely, from familiar mushroom-like forms to unusual, asymmetrical bodies covered in delicate gills, branching patterns or smaller fungal growths.</p>
+<div class="facts">
+<div class="fact"><span>Nature</span>Sentient fungal beings</div><div class="fact"><span>Appearance</span>Highly varied; often asymmetrical</div><div class="fact"><span>Known origins</span>Spore development or ancient networks</div><div class="fact"><span>Life expectancy</span>Varies between individuals</div>
+</div><div class="note"><em>“A life may begin as a spore, a quiet network, or a question no one has thought to ask.”</em><p class="muted">— Fragment from the Library's field notes</p></div></section>
+<section id="origins"><span class="eyebrow">02 · Emergence & origins</span><h2>Where a new consciousness begins</h2>
+<p>Mycelials emerge in two known ways: from spores that develop into new individuals, or from ancient mycelial networks that give rise to a new consciousness. The precise conditions behind these births remain incompletely understood.</p><p>Neither origin determines who a Mycelial will become. Their interests, temperaments, relationships and sense of identity develop through their own experiences.</p></section>
+<section id="biology"><span class="eyebrow">03 · Form & physiology</span><h2>Fungal bodies, individual differences</h2>
+<p>Mycelial bodies are formed from fungal tissue and mycelial structures. Some have recognisable caps and gills; others grow branching forms, layered surfaces or smaller fungi across their bodies. Their shapes do not follow a single standard.</p>
+<p>Some release spores in response to emotions or meaningful experiences, while others display little visible spore activity. Such responses vary between individuals and should not be taken as a universal sign of any particular feeling.</p><p>Their lifespans and physical development also vary. The Library continues to document these differences without assuming that one individual's biology represents the whole people.</p></section>
+<section id="memory"><span class="eyebrow">04 · Research & uncertainty</span><h2>Memory and the Ancient Networks</h2>
+<p>Some ancient mycelial networks appear to preserve fragments of the past: impressions of places, sensations and events experienced long ago. Mycelials born from these networks may occasionally perceive traces of such memories, though they do not inherit complete recollections or the identities of those who came before them.</p>
+<p>The nature of this phenomenon remains a subject of study and debate. Researchers have yet to establish whether these traces are stored memories, sensory echoes or something not yet described.</p>
+<div class="note"><strong>Research status:</strong> The ancient networks remain incompletely understood. Reports are recorded as observations, not treated as settled explanations.</div></section>
+<section id="life"><span class="eyebrow">05 · Communities & belonging</span><h2>Life among the realms</h2>
+<p>Mycelials have no single culture or prescribed way of life. They can be found in forests, underground settlements, cities, gardens and libraries, pursuing countless professions and interests.</p><p>A shared fungal nature does not mean a shared personality, tradition or purpose. Their communities and customs vary, and individuals shape their own relationships with the wider world.</p><p>At the Grand Library, Mycelials are recognised as individuals with their own histories, identities and rights—not as specimens to be studied without consent.</p></section>
+<section id="individuals"><span class="eyebrow">06 · Individual records</span><h2>Mycelials known to the Library</h2>
+<a class="card" href="../characters/arrival-guide.html"><span class="tag">INDIVIDUAL RECORD · 002</span><h3>Hyssop</h3><p>The Library's Arrival Guide: an enthusiastic, mushroom-like individual who loves books and sometimes releases tiny clouds of spores when absorbed in reading or when he has helped someone.</p><span class="arrow">OPEN INDIVIDUAL RECORD ↗</span></a></section>
+<a href="../index.html">← Return to the Grand Library</a>
+</main></div>
+<footer><p style="color:#bd8870">✦ The Grand Library of the Realms ✦</p><p>Department of Peoples & Cultures · Ethnographic Archive</p></footer>
+</body>
+</html>
