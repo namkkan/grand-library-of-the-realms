@@ -516,6 +516,8 @@ a.department-card:focus-visible {
 .related-record{display:block;padding:15px;border:1px solid var(--line,rgba(200,169,107,.38));background:rgba(255,255,255,.025);text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}
 .related-record:hover{border-color:var(--gold,#c8a96b);transform:translateY(-2px)}.related-record strong{display:block;color:var(--gold,#c8a96b);margin-bottom:5px}.related-record span{display:block;font-size:.9rem;line-height:1.5;color:inherit}
 @media(max-width:600px){.related-records{padding:16px;margin:24px 0}.related-records-grid{grid-template-columns:1fr}.related-record{padding:14px}}
+
+.open-shelf-link{display:inline-block;margin-top:18px;padding:9px 13px;border:1px solid var(--line);color:var(--gold-light);font-size:10px;letter-spacing:1px;text-transform:uppercase;transition:background .2s,border-color .2s}.open-shelf-link:hover{background:rgba(168,196,154,.1);border-color:var(--gold)}@media(max-width:600px){.open-shelf-link{min-height:42px;display:inline-flex;align-items:center}}
 </style>
 </head>
 <body>
@@ -553,12 +555,12 @@ a.department-card:focus-visible {
     </div>
 
     <nav class="botany-directory" aria-label="Botany section directory">
-      <a href="#shelf-taxonomy"><span>01</span>Plant Taxonomy & Classification</a>
-      <a href="#shelf-seeds"><span>02</span>Seeds & Plant Propagation</a>
-      <a href="#shelf-medicinal"><span>03</span>Medicinal Botany & Ethnobotany</a>
-      <a href="#shelf-toxic"><span>04</span>Toxic & Defensive Plants</a>
-      <a href="#shelf-magical"><span>05</span>Magical & Anomalous Botany</a>
-      <a href="#shelf-illustration"><span>06</span>Botanical Illustration & Documentation</a>
+      <a href="taxonomy/index.html"><span>01</span>Plant Taxonomy & Classification</a>
+      <a href="seeds/index.html"><span>02</span>Seeds & Plant Propagation</a>
+      <a href="medicinal-botany-ethnobotany/index.html"><span>03</span>Medicinal Botany & Ethnobotany</a>
+      <a href="toxic-defensive-plants/index.html"><span>04</span>Toxic & Defensive Plants</a>
+      <a href="magical-anomalous-botany/index.html"><span>05</span>Magical & Anomalous Botany</a>
+      <a href="botanical-illustration-documentation/index.html"><span>06</span>Botanical Illustration & Documentation</a>
     </nav>
 
     <div class="catalogue-heading" id="botanical-catalogue">
@@ -576,31 +578,37 @@ a.department-card:focus-visible {
           <a class="catalogue-book" href="taxonomy/the-living-index/index.html"><span class="book-mark">✦</span><span><strong>The Living Index</strong><small>A Taxonomist's Guide to the Flora of the Known Realms · Elowen Thorne</small></span><span class="book-arrow">Open book →</span></a>
           
         </div>
+      <a class="open-shelf-link" href="taxonomy/index.html">Open collection index →</a>
       </section>
 
       <section class="shelf" id="shelf-seeds">
         <div class="shelf-number">SHELF 02</div>
         <div class="shelf-main"><h3>Seeds & Plant Propagation</h3><p class="shelf-note">Germination, reproduction, propagation and the preservation of seeds.</p><a class="catalogue-book" href="seeds/seed-morphology-classification/index.html"><span class="book-mark">✦</span><span><strong>Seed Morphology &amp; Classification</strong><small>Volume I of The Living Index · Professor Elowen Thorne</small></span><span class="book-arrow">Open book →</span></a></div>
+      <a class="open-shelf-link" href="seeds/index.html">Open collection index →</a>
       </section>
 
       <section class="shelf" id="shelf-medicinal">
         <div class="shelf-number">SHELF 03</div>
         <div class="shelf-main"><h3>Medicinal Botany & Ethnobotany</h3><p class="shelf-note">Plant uses, remedies, materials and traditional botanical knowledge.</p></div>
+      <a class="open-shelf-link" href="medicinal-botany-ethnobotany/index.html">Open collection index →</a>
       </section>
 
       <section class="shelf" id="shelf-toxic">
         <div class="shelf-number">SHELF 04</div>
         <div class="shelf-main"><h3>Toxic & Defensive Plants</h3><p class="shelf-note">Toxins, thorns, irritants, carnivorous plants and natural defences.</p></div>
+      <a class="open-shelf-link" href="toxic-defensive-plants/index.html">Open collection index →</a>
       </section>
 
       <section class="shelf" id="shelf-magical">
         <div class="shelf-number">SHELF 05</div>
         <div class="shelf-main"><h3>Magical & Anomalous Botany</h3><p class="shelf-note">Enchanted flora, unusual growth and plants affected by magical phenomena.</p></div>
+      <a class="open-shelf-link" href="magical-anomalous-botany/index.html">Open collection index →</a>
       </section>
 
       <section class="shelf" id="shelf-illustration">
         <div class="shelf-number">SHELF 06</div>
         <div class="shelf-main"><h3>Botanical Illustration & Documentation</h3><p class="shelf-note">Illustrations, engravings, diagrams and visual records of plant life.</p></div>
+      <a class="open-shelf-link" href="botanical-illustration-documentation/index.html">Open collection index →</a>
       </section>
     </div>
     <p class="note">Only published books have an active reading link. Additional works will appear here as they are published.</p>
