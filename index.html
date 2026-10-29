@@ -340,11 +340,34 @@
     }
   
     /* Global catalogue search */
+    html, body { max-width: 100%; overflow-x: clip; }
     .catalogue-search {
-      max-width: 960px;
+      width: 100%;
+      max-width: 1016px;
       margin: 0 auto;
-      padding: 62px 28px 70px;
+      padding: 38px 28px;
+      scroll-margin-top: 20px;
     }
+    .catalogue-toggle {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      padding: 22px 26px;
+      border: 1px solid #c3a46b55;
+      background: linear-gradient(135deg, #131b29, #101722);
+      color: var(--parchment);
+      text-align: left;
+      cursor: pointer;
+    }
+    .catalogue-toggle:hover { border-color: var(--gold); }
+    .catalogue-toggle-copy { display: flex; flex-direction: column; gap: 4px; }
+    .catalogue-toggle-title { font-size: clamp(25px, 3.5vw, 34px); line-height: 1.25; }
+    .catalogue-toggle-subtitle { color: var(--muted); font-size: 14px; }
+    .catalogue-toggle-icon { color: var(--gold); font: 28px Arial, sans-serif; flex: 0 0 auto; }
+    .catalogue-content { padding-top: 12px; }
+    .catalogue-content[hidden] { display: none; }
     .catalogue-panel {
       padding: clamp(22px, 4vw, 42px);
       border: 1px solid #c3a46b55;
@@ -405,7 +428,9 @@
     .catalogue-result-title { display: block; color: var(--parchment); font-size: 19px; }
     .catalogue-result-description { display: block; margin-top: 5px; color: var(--muted); font-size: 13px; line-height: 1.5; }
     @media (max-width: 600px) {
-      .catalogue-search { padding: 42px 18px 48px; }
+      .catalogue-search { padding: 24px 18px; }
+      .catalogue-toggle { padding: 18px; gap: 12px; }
+      .catalogue-toggle-subtitle { font-size: 12px; }
       .catalogue-form { flex-direction: column; }
       .catalogue-submit, .catalogue-clear { min-height: 44px; }
       .catalogue-results { grid-template-columns: 1fr; }
@@ -495,10 +520,16 @@
 
 
     <section class="catalogue-search" id="catalogue" aria-labelledby="catalogue-title">
+      <button class="catalogue-toggle" id="catalogue-toggle" type="button" aria-expanded="false" aria-controls="catalogue-content">
+        <span class="catalogue-toggle-copy">
+          <span class="eyebrow">The Grand Catalogue</span>
+          <span class="catalogue-toggle-title" id="catalogue-title">Search the Library</span>
+          <span class="catalogue-toggle-subtitle">Find books, scholars, departments and peoples across the realms.</span>
+        </span>
+        <span class="catalogue-toggle-icon" aria-hidden="true">＋</span>
+      </button>
+      <div class="catalogue-content" id="catalogue-content" hidden>
       <div class="catalogue-panel">
-        <span class="eyebrow">The Grand Catalogue</span>
-        <h2 id="catalogue-title">Search the Library</h2>
-        <p class="catalogue-intro">Find books, scholars, departments and peoples across the realms.</p>
         <form class="catalogue-form" id="catalogue-form" role="search">
           <label for="catalogue-query" class="visually-hidden">Search the library catalogue</label>
           <input class="catalogue-input" id="catalogue-query" name="q" type="search" placeholder="Try “botany”, “Elowen Thorne” or “kenku”…" autocomplete="off">
@@ -515,6 +546,7 @@
         </div>
         <p class="catalogue-status" id="catalogue-status" aria-live="polite">The catalogue is ready. Search by title, subject, author or keyword.</p>
         <div class="catalogue-results" id="catalogue-results"></div>
+      </div>
       </div>
     </section>
 
@@ -665,13 +697,37 @@
         {title:"Professor Elowen Thorne", type:"Character", description:"Senior Taxonomist in the Department of Botany and author of botanical works.", url:"characters/elowen-thorne/index.html", keywords:"elowen thorne botanist professor taxonomy seeds author scholar"},
         {title:"Sapphiron", type:"Character", description:"A kenku wizard and alchemist devoted to knowledge and discovery.", url:"characters/sapphiron.html", keywords:"sapphiron kenku wizard alchemist magic"}
       ];
-      const navSearchButton = document.getElementById("nav-search-button");
-      if (navSearchButton) {
-        navSearchButton.addEventListener("click", () => {
-          document.getElementById("catalogue").scrollIntoView({ behavior: "smooth", block: "start" });
-          window.setTimeout(() => document.getElementById("catalogue-query")?.focus(), 350);
+      const catalogue = document.getElementById("catalogue");
+      const catalogueToggle = document.getElementById("catalogue-toggle");
+      const catalogueContent = document.getElementById("catalogue-content");
+      function openCatalogue(focusInput = false) {
+        if (catalogueToggle && catalogueContent) {
+          catalogueContent.hidden = false;
+          catalogueToggle.setAttribute("aria-expanded", "true");
+          const icon = catalogueToggle.querySelector(".catalogue-toggle-icon");
+          if (icon) icon.textContent = "−";
+        }
+        catalogue?.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (focusInput) window.setTimeout(() => document.getElementById("catalogue-query")?.focus(), 350);
+      }
+      if (catalogueToggle && catalogueContent) {
+        catalogueToggle.addEventListener("click", () => {
+          const willOpen = catalogueContent.hidden;
+          catalogueContent.hidden = !willOpen;
+          catalogueToggle.setAttribute("aria-expanded", String(willOpen));
+          const icon = catalogueToggle.querySelector(".catalogue-toggle-icon");
+          if (icon) icon.textContent = willOpen ? "−" : "＋";
         });
       }
+      document.querySelectorAll('a[href="#catalogue"]').forEach(link => {
+        link.addEventListener("click", event => {
+          event.preventDefault();
+          openCatalogue(true);
+          history.replaceState(null, "", "#catalogue");
+        });
+      });
+      const navSearchButton = document.getElementById("nav-search-button");
+      if (navSearchButton) navSearchButton.addEventListener("click", () => openCatalogue(true));
       const form = document.getElementById("catalogue-form");
       const input = document.getElementById("catalogue-query");
       const results = document.getElementById("catalogue-results");
