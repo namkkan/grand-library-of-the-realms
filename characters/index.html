@@ -213,13 +213,18 @@ h2 {
 .portrait-placeholder {
   width: 95px;
   height: 110px;
-  border: 1px solid var(--gold-dim);
-  background: linear-gradient(150deg, #1b2c47, #0b1019);
+  border: 1px dashed rgba(86,134,197,.55);
+  background: rgba(86,134,197,.045);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 34px;
-  color: var(--blue);
+  color: #91afd3;
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .person-card h3 {
@@ -395,7 +400,7 @@ footer {
     </div>
 
     <a class="person-card" href="sapphiron.html">
-      <img class="portrait-placeholder" src="sapphiron.png" alt="Portrait of Sapphiron">
+      <div class="portrait-placeholder" role="img" aria-label="Reserved space for Sapphiron's illustration">Portrait<br>pending</div>
 
       <div>
         <h3>Sapphiron</h3>
@@ -412,7 +417,7 @@ footer {
     </a>
     
     <a class="person-card" href="arrival-guide.html">
-      <div class="portrait-placeholder">002</div>
+      <div class="portrait-placeholder" role="img" aria-label="Reserved space for Hyssop's illustration">Portrait<br>pending</div>
 
       <div>
         <h3>Hyssop</h3>
@@ -428,7 +433,7 @@ footer {
     </a>
 
     <a class="person-card" href="elowen-thorne/index.html">
-      <div class="portrait-placeholder">003</div>
+      <div class="portrait-placeholder" role="img" aria-label="Reserved space for Professor Elowen Thorne's illustration">Portrait<br>pending</div>
 
       <div>
         <h3>Professor Elowen Thorne</h3>
