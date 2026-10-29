@@ -67,6 +67,13 @@ h3{color:#65502e;line-height:1.3;margin:22px 0 8px}
 .record-note{border-top:1px solid rgba(112,79,43,.28);padding-top:12px;margin-top:18px;font-size:.83rem;color:#65533e}
 .citation{font-size:.75em;vertical-align:super;text-decoration:none}
 .references{margin-top:36px}
+.references-toggle{border:1px solid rgba(112,79,43,.35);padding:0 18px;background:rgba(164,128,75,.07)}
+.references-toggle summary{cursor:pointer;list-style:none;font-size:1.55rem;line-height:1.3;color:#554326;padding:16px 28px 16px 0;position:relative}
+.references-toggle summary::-webkit-details-marker{display:none}
+.references-toggle summary::after{content:"+";position:absolute;right:2px;top:50%;transform:translateY(-50%);font-size:1.5rem;color:#80602f}
+.references-toggle[open] summary::after{content:"−"}
+.references-content{padding:0 0 16px}
+.references-content>p{color:var(--ink)}
 .references ol{padding-left:24px}
 .references li{margin-bottom:13px;overflow-wrap:anywhere}
 .references a{color:#795a2e}
@@ -83,7 +90,7 @@ footer{border-top:1px solid var(--line);padding:24px 7%;text-align:center;color:
     <div class="eyebrow">The Grand Library of the Realms · Grand Library Press</div>
     <div class="symbol">✦</div>
     <h1>SEED MORPHOLOGY &amp; CLASSIFICATION</h1>
-    <p class="subtitle">Volume I of <em>The Living Index</em><br>A Field Guide to the Form, Structure, and Identification of Common Seeds</p>
+    <p class="subtitle">A Field Guide to the Form, Structure, and Identification of Common Seeds</p>
     <div class="author">PROFESSOR ELOWEN THORNE</div>
     <p class="edition">Senior Taxonomist · Department of Botany</p>
     <p class="edition">2nd Revised Edition</p>
@@ -316,18 +323,22 @@ footer{border-top:1px solid var(--line);padding:24px 7%;text-align:center;color:
 
   <section class="paper-panel references" id="references">
     <div class="section-kicker">Research Record</div>
-    <h2>References &amp; Identification Notes</h2>
-    <p>The descriptions in this introductory group are based on standard botanical terminology and general morphological features. Cultivar, processing and specimen condition can affect visible characteristics; measurements should therefore be taken from the specimen in hand.</p>
-    <ol>
+    <details class="references-toggle">
+      <summary>References &amp; Identification Notes</summary>
+      <div class="references-content">
+        <p>The descriptions in this introductory group are based on standard botanical terminology and general morphological features. Cultivar, processing and specimen condition can affect visible characteristics; measurements should therefore be taken from the specimen in hand.</p>
+        <ol>
       <li id="ref-1"><strong>University of Minnesota Libraries Publishing.</strong> “9.1 Seed Morphology.” <em>The Science of Plants</em>. A teaching resource on seed structure, seed coats, embryos and comparative morphology. <a href="https://open.lib.umn.edu/horticulture/chapter/9-1-seed-morphology/" target="_blank" rel="noopener noreferrer">Read the resource ↗</a></li>
       <li id="ref-2"><strong>Food and Agriculture Organization of the United Nations (FAO).</strong> “Botanical Structure of Cereals.” <em>Fermented Cereals: A Global Perspective</em>. Reference for the caryopsis and the relationship between fruit wall and seed coat in cereal grains. <a href="https://www.fao.org/4/x2184e/x2184e03.htm" target="_blank" rel="noopener noreferrer">Read the chapter ↗</a></li>
       <li id="ref-3"><strong>Cereals &amp; Grains Association.</strong> “Chapter 1 Abstract.” <em>Cereal Grains: Assessing and Managing Quality</em>. Reference for the structure of cereal grains, including maize and wheat. <a href="https://www.cerealsgrains.org/publications/onlinebooks/textbook/Pages/Chapter1Abstract.aspx" target="_blank" rel="noopener noreferrer">Read the chapter abstract ↗</a></li>
       <li id="ref-4"><strong>Royal Botanic Gardens, Kew.</strong> “<em>Phaseolus vulgaris</em> L.” <em>Plants of the World Online</em>. Taxonomic record for the common bean. <a href="https://powo.science.kew.org/taxon/514191-1" target="_blank" rel="noopener noreferrer">Open taxonomic record ↗</a></li>
       <li id="ref-5"><strong>Royal Botanic Gardens, Kew.</strong> <em>Plants of the World Online</em>. Taxonomic database consulted for scientific-name verification. <a href="https://powo.science.kew.org/" target="_blank" rel="noopener noreferrer">Open the database ↗</a></li>
-    </ol>
-    <h3>Editorial Principle</h3>
-    <p>This is a working field guide, not a substitute for examination of the specimen. The entries distinguish observed morphology from interpretation and leave room for later measurements, illustrations and revised notes. Future records may expand this group with additional food seeds and comparative specimens.</p>
-    <p class="back-to-top"><a href="#top">↑ Return to the beginning</a></p>
+        </ol>
+        <h3>Editorial Principle</h3>
+        <p>This is a working field guide, not a substitute for examination of the specimen. The entries distinguish observed morphology from interpretation and leave room for later measurements, illustrations and revised notes. Future records may expand this group with additional food seeds and comparative specimens.</p>
+        <p class="back-to-top"><a href="#top">↑ Return to the beginning</a></p>
+      </div>
+    </details>
   </section>
   <p><a href="../../index.html">← Back to the Department of Botany</a></p>
 </main>
