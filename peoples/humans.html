@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Humans | Grand Library of the Realms</title>
+  <style>
+    :root {
+      --night: #111712;
+      --panel: #202b22;
+      --gold: #a7b58a;
+      --parchment: #e5e6d9;
+      --muted: #afb8ad;
+      --line: #3c4b3d;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--night);
+      color: var(--parchment);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.8;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    a:hover { color: var(--gold); }
+
+    header {
+      padding: 20px 7%;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand, .eyebrow {
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      padding: 95px 25px;
+      text-align: center;
+      background: radial-gradient(ellipse at top, #344334, #1a241b 60%, #111712);
+      border-bottom: 1px solid var(--line);
+    }
+
+    h1 {
+      margin: 18px 0 8px;
+      font-size: clamp(50px, 8vw, 86px);
+      font-weight: normal;
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      color: var(--gold);
+      font-style: italic;
+      font-size: 18px;
+    }
+
+    .hero p {
+      max-width: 590px;
+      margin: 20px auto;
+      color: #d0c8bb;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 210px minmax(0, 760px);
+      gap: 55px;
+      max-width: 1200px;
+      margin: auto;
+      padding: 65px 28px;
+    }
+
+    aside {
+      align-self: start;
+      position: sticky;
+      top: 20px;
+      border-left: 1px solid var(--gold);
+      padding: 12px 20px;
+    }
+
+    aside p {
+      color: var(--gold);
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    aside a {
+      display: block;
+      margin: 13px 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    section { margin-bottom: 65px; }
+
+    h2 {
+      margin: 10px 0 18px;
+      font-size: clamp(28px, 4vw, 38px);
+      font-weight: normal;
+      line-height: 1.25;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      color: var(--gold);
+      font-size: 19px;
+      font-weight: normal;
+    }
+
+    .lead {
+      color: #d1c9ba;
+      font-size: 17px;
+    }
+
+    .muted { color: var(--muted); }
+
+    .rule {
+      width: 65px;
+      border: 0;
+      border-top: 1px solid var(--gold);
+      margin: 24px 0;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 25px 0;
+    }
+
+    .fact, .card {
+      padding: 20px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+
+    .fact span {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .fact p, .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .note {
+      padding: 22px;
+      background: #19231a;
+      border-left: 2px solid var(--gold);
+      color: #d1c9ba;
+    }
+
+    .card {
+      display: block;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .card:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    .card .tag {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    .arrow {
+      display: block;
+      margin-top: 16px;
+      color: var(--gold);
+      font-size: 12px;
+    }
+
+    footer {
+      padding: 30px 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    @media (max-width: 760px) {
+      .layout { grid-template-columns: 1fr; gap: 25px; }
+      aside { position: static; }
+      aside a { display: inline-block; margin-right: 15px; }
+      .facts { grid-template-columns: 1fr; }
+      header { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+<header><a class="brand" href="../index.html">✦ The Grand Library of the Realms</a><a href="../index.html">← Home</a></header>
+<div class="hero"><span class="eyebrow">Department of Peoples & Cultures</span><h1>Humans</h1><div class="subtitle">The Many Paths of Humanity</div><p>One people, countless histories. Familiar in form, endlessly varied in culture, ambition and the ways they make their place in the realms.</p></div>
+<div class="layout"><aside><p>FIELD INDEX</p><a href="#overview">Overview</a><a href="#diversity">Life & Diversity</a><a href="#ambitions">Skills & Ambitions</a><a href="#library">At the Grand Library</a><a href="#archetypes">Adventure Archetypes</a></aside><main>
+<section id="overview"><span class="eyebrow">01 · General classification</span><h2>Humanity has no single story.</h2><hr class="rule"><p class="lead">Humans are among the most widespread and varied peoples of the realms. They differ in appearance, customs, beliefs, languages and ways of life, shaped by the places they inhabit and the histories they inherit.</p><div class="facts"><div class="fact"><span>Classification</span>Humanoid</div><div class="fact"><span>Lifespan</span>Typically less than a century</div><div class="fact"><span>Adulthood</span>Generally reached in the late teens</div><div class="fact"><span>Origins</span>Many kingdoms, cultures and realms</div></div><div class="note"><em>“Humanity is not a single story. It is a collection of millions of different ones.”</em><p class="muted">— An inscription in the Grand Library</p></div><p>There is no single human culture, nor any one trait that defines humanity. Humans can be cautious or reckless, scholarly or practical, generous or selfish, traditional or eager for change. Their adaptability allows them to make homes in isolated villages, wandering settlements, vast cities and distant planes.</p></section>
+<section id="diversity"><span class="eyebrow">02 · Culture & community</span><h2>Many lives, many ways of belonging</h2><p>Human communities differ greatly in traditions, social structures, clothing, architecture and relationships with magic. Some preserve customs passed down through generations; others embrace new ideas and reinvent themselves.</p><p>Humans are physically diverse, with a wide range of skin tones, facial features, body types and hair textures. Their names and languages reflect their varied origins and cultural backgrounds. No culture, appearance or tradition can represent all humans.</p></section>
+<section id="ambitions"><span class="eyebrow">03 · Skills & aspirations</span><h2>Made by choices, not destiny</h2><p>Humans possess no universal innate magical gift or defining supernatural ability. Their strengths emerge through individual talent, training, opportunity, cooperation and determination.</p><p>A human might become a formidable wizard, a skilled craftsperson, a wandering adventurer, a quiet archivist, or someone who follows no extraordinary calling at all.</p><p>Their relatively short lives, compared with some long-lived peoples, can influence how they approach ambition, legacy and change—but never determine what an individual must value. Ageing is generally natural and gradual, without supernatural longevity as a defining trait of the species.</p></section>
+<section id="library"><span class="eyebrow">04 · Life at the Library</span><h2>Visitors from every corner of the realms</h2><p>The Grand Library welcomes humans as visitors, researchers, apprentices, diplomats, travellers and staff members, bringing countless languages, questions and perspectives.</p><p>Some seek forgotten histories; others pursue magical studies, practical knowledge, artistic inspiration, or simply a quiet place to read. Their reasons for coming are as varied as humanity itself.</p><div class="note">The Library records individuals and communities on their own terms. No single human tradition, ambition or belief is treated as universal.</div></section>
+<section id="archetypes"><span class="eyebrow">05 · Storytelling & roleplay</span><h2>Adventure takes many paths</h2><p>These archetypes are prompts for stories and roleplay, not fixed human types or required occupations. A person may fit several, or none at all.</p><div class="facts"><div class="fact"><span>The Wanderer</span><p>Explorers and travellers crossing borders in search of fortune, answers, or a place to belong.</p></div><div class="fact"><span>The Scholar</span><p>Researchers, wizards, historians and students pursuing knowledge—and debating how it should be used.</p></div><div class="fact"><span>The Opportunist</span><p>Merchants, bards, diplomats and negotiators who find possibilities in changing circumstances.</p></div><div class="fact"><span>The Maker</span><p>Artisans, inventors, builders and creators who turn ideas into tools, objects and new ways of living.</p></div></div></section><a href="../index.html">← Return to the Grand Library</a></main></div>
+<footer><p style="color:#a7b58a">✦ The Grand Library of the Realms ✦</p><p>Department of Peoples & Cultures · Ethnographic Archive</p></footer>
+</body>
+</html>
