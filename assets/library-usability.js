@@ -1,11 +1,27 @@
 /* Accessible mobile navigation and back-to-top utility. */
 (() => {
   'use strict';
+  const libraryBase = (() => {
+    const src = document.currentScript && document.currentScript.src;
+    if (src) return new URL(src, window.location.href).pathname.replace(/assets\/library-usability\.js$/, '');
+    return '/grand-library-of-the-realms/';
+  })();
   const setupNavigation = () => {
     const header = document.querySelector('header');
     if (!header) return;
-    const nav = header.querySelector('nav[aria-label="Main navigation"], nav.nav-links, nav.nav, nav');
-    if (!nav || nav.dataset.libraryEnhanced === 'true') return;
+    let nav = header.querySelector('nav[aria-label="Main navigation"], nav.nav-links, nav.nav, nav');
+    if (!nav) {
+      nav = document.createElement('nav');
+      nav.setAttribute('aria-label', 'Main navigation');
+      nav.innerHTML =
+        '<a href="' + libraryBase + 'index.html">Home</a>' +
+        '<a href="' + libraryBase + 'departments/grand-atrium.html">Find Your Way</a>' +
+        '<a href="' + libraryBase + 'index.html#departments">Departments</a>' +
+        '<a href="' + libraryBase + 'catalogue/index.html">Catalogue</a>' +
+        '<a href="' + libraryBase + 'characters/index.html">Characters</a>';
+      header.appendChild(nav);
+    }
+    if (nav.dataset.libraryEnhanced === 'true') return;
     nav.dataset.libraryEnhanced = 'true';
     nav.classList.add('library-nav-collapsible');
     if (!nav.id) nav.id = 'library-main-navigation';
