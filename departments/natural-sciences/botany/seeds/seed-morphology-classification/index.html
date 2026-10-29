@@ -81,6 +81,15 @@ h3{color:#65502e;line-height:1.3;margin:22px 0 8px}
 footer{border-top:1px solid var(--line);padding:24px 7%;text-align:center;color:#b9b5aa;font-size:.85rem}
 @media(max-width:760px){main{width:94%;padding-top:24px}.front-matter-grid{grid-template-columns:1fr}.spread.active{grid-template-columns:1fr;gap:0}.page{min-height:0;padding:25px 22px;border:1px solid #b9a078!important}.page.left{min-height:390px}.page.right{min-height:650px}.plate-frame{height:340px}.contents-list{columns:1}.reader-controls button{padding:9px 11px;font-size:.85rem}.details{grid-template-columns:1fr 1fr}}
 @media(max-width:430px){.details{grid-template-columns:1fr}.book-header{padding:32px 16px}.page.right{min-height:720px}}
+
+/* Reader comfort: bookmarks, keyboard shortcuts and compact mobile controls */
+.reader-tools{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;margin:12px 0 18px}
+.reader-tools button,.reader-favourites button{font:inherit;cursor:pointer;border:1px solid var(--gold);background:#10251b;color:var(--cream);padding:9px 13px;border-radius:2px}
+.reader-tools button[aria-pressed="true"]{background:var(--gold);color:#10251b}
+.reader-favourites{display:none;margin:12px 0 20px;padding:16px;border:1px solid var(--line);background:rgba(16,37,27,.85);color:var(--cream)}
+.reader-favourites.open{display:block}.reader-favourites h3{margin:0 0 10px}.reader-favourites ul{margin:0;padding-left:20px}.reader-favourites li{margin:7px 0}.reader-favourites a{color:var(--gold)}
+.reader-progress{height:3px;background:#ffffff18;margin:8px 0 14px;overflow:hidden}.reader-progress span{display:block;height:100%;width:0;background:var(--gold);transition:width .2s}
+@media(max-width:640px){.reader-controls{display:grid;grid-template-columns:1fr 1fr;gap:8px}.reader-controls #entry-status{grid-column:1/-1;grid-row:1;text-align:center}.reader-controls button{min-height:44px;padding:10px 8px}.reader-tools{display:grid;grid-template-columns:1fr 1fr}.reader-tools button{min-height:44px;width:100%;font-size:.92rem}.reader-favourites{padding:12px}.reader-favourites li{overflow-wrap:anywhere}}
 </style>
 </head>
 <body>
@@ -674,28 +683,39 @@ footer{border-top:1px solid var(--line);padding:24px 7%;text-align:center;color:
 <script>
 (function(){
  const spreads=Array.from(document.querySelectorAll('.spread[data-spread]'));
- const prev=document.getElementById('prev-entry');
- const next=document.getElementById('next-entry');
- const status=document.getElementById('entry-status');
- const links=Array.from(document.querySelectorAll('[data-entry]'));
- let current=0;
+ const prev=document.getElementById('prev-entry'),next=document.getElementById('next-entry'),status=document.getElementById('entry-status');
+ const links=Array.from(document.querySelectorAll('[data-entry]')),reader=document.getElementById('field-guide');
+ if(!spreads.length)return;
+ const storageKey='grand-library:seed-morphology:';
+ let current=0,favourites=[];
+ try{current=Number(localStorage.getItem(storageKey+'progress'))||0;favourites=JSON.parse(localStorage.getItem(storageKey+'favourites')||'[]');}catch(e){}
+ const tools=document.createElement('div');tools.className='reader-tools';tools.innerHTML='<button type="button" id="reader-bookmark" aria-pressed="false">☆ Save this page</button><button type="button" id="reader-favourites-toggle" aria-expanded="false">🔖 Favourites (<span id="reader-favourite-count">0</span>)</button><button type="button" id="reader-top">↑ Back to book start</button>';
+ const progress=document.createElement('div');progress.className='reader-progress';progress.setAttribute('role','progressbar');progress.setAttribute('aria-label','Reading progress');progress.setAttribute('aria-valuemin','0');progress.setAttribute('aria-valuemax',String(spreads.length));progress.innerHTML='<span></span>';
+ const panel=document.createElement('section');panel.className='reader-favourites';panel.id='reader-favourites';panel.setAttribute('aria-label','Saved pages');panel.innerHTML='<h3>Saved pages</h3><ul></ul><p class="favourites-empty">No saved pages yet. Use “Save this page” while reading.</p>';
+ reader.querySelector('.reader-controls').insertAdjacentElement('afterend',tools);tools.insertAdjacentElement('afterend',progress);progress.insertAdjacentElement('afterend',panel);
+ const bookmark=tools.querySelector('#reader-bookmark'),toggle=tools.querySelector('#reader-favourites-toggle'),list=panel.querySelector('ul'),empty=panel.querySelector('.favourites-empty');
+ const titleOf=s=>s.querySelector('.entry-title')?.textContent.trim()||s.querySelector('h2')?.textContent.trim()||s.id.replace(/-/g,' ');
+ function save(){try{localStorage.setItem(storageKey+'progress',String(current));localStorage.setItem(storageKey+'favourites',JSON.stringify(favourites));}catch(e){}}
+ function renderFavourites(){list.innerHTML='';favourites.forEach(id=>{const ix=spreads.findIndex(s=>s.id===id);if(ix<0)return;const li=document.createElement('li'),a=document.createElement('a'),remove=document.createElement('button');a.href='#'+id;a.textContent=titleOf(spreads[ix])+' · Entry '+(ix+1);a.addEventListener('click',e=>{e.preventDefault();render(ix);reader.scrollIntoView({behavior:'smooth',block:'start'});panel.classList.remove('open');toggle.setAttribute('aria-expanded','false');});remove.type='button';remove.textContent='Remove';remove.setAttribute('aria-label','Remove '+titleOf(spreads[ix])+' from favourites');remove.addEventListener('click',()=>{favourites=favourites.filter(x=>x!==id);save();renderFavourites();render();});li.append(a,document.createTextNode(' '),remove);list.appendChild(li);});empty.hidden=list.children.length>0;tools.querySelector('#reader-favourite-count').textContent=String(list.children.length);}
  function render(index){
    current=Math.max(0,Math.min(index,spreads.length-1));
    spreads.forEach((spread,i)=>spread.classList.toggle('active',i===current));
-   prev.disabled=current===0;
-   next.disabled=current===spreads.length-1;
+   prev.disabled=current===0;next.disabled=current===spreads.length-1;
    status.textContent='Entry '+(current+1)+' of '+spreads.length;
-   if(spreads[current]) history.replaceState(null,'','#'+spreads[current].id);
+   bookmark.setAttribute('aria-pressed',String(favourites.includes(spreads[current].id)));
+   bookmark.textContent=favourites.includes(spreads[current].id)?'★ Saved to favourites':'☆ Save this page';
+   progress.firstElementChild.style.width=((current+1)/spreads.length*100)+'%';progress.setAttribute('aria-valuenow',String(current+1));
+   save();renderFavourites();
+   if(spreads[current])history.replaceState(null,'','#'+spreads[current].id);
  }
- prev.addEventListener('click',()=>render(current-1));
- next.addEventListener('click',()=>render(current+1));
- links.forEach(link=>link.addEventListener('click',event=>{
-   const index=Number(link.dataset.entry);
-   if(Number.isInteger(index)){event.preventDefault();render(index);document.getElementById('field-guide').scrollIntoView({behavior:'smooth',block:'start'});}
- }));
- const initial=location.hash.match(/^#(?:entry|block-intro)-[a-z-]+$/);
- if(initial){const found=spreads.findIndex(s=>s.id===location.hash.slice(1));if(found>=0)current=found;}
- render(current);
+ prev.addEventListener('click',()=>render(current-1));next.addEventListener('click',()=>render(current+1));
+ links.forEach(link=>link.addEventListener('click',event=>{const index=Number(link.dataset.entry);if(Number.isInteger(index)){event.preventDefault();render(index);reader.scrollIntoView({behavior:'smooth',block:'start'});}}));
+ bookmark.addEventListener('click',()=>{const id=spreads[current].id;favourites=favourites.includes(id)?favourites.filter(x=>x!==id):[...favourites,id];save();render();});
+ toggle.addEventListener('click',()=>{const open=!panel.classList.contains('open');panel.classList.toggle('open',open);toggle.setAttribute('aria-expanded',String(open));if(open)panel.scrollIntoView({behavior:'smooth',block:'nearest'});});
+ tools.querySelector('#reader-top').addEventListener('click',()=>{document.getElementById('top')?.scrollIntoView({behavior:'smooth'});if(!document.getElementById('top'))window.scrollTo({top:0,behavior:'smooth'});});
+ document.addEventListener('keydown',e=>{if(e.altKey||e.ctrlKey||e.metaKey)return;const tag=e.target?.tagName;if(['INPUT','TEXTAREA','SELECT'].includes(tag)||e.target?.isContentEditable)return;if(e.key==='ArrowLeft'){e.preventDefault();render(current-1);}else if(e.key==='ArrowRight'){e.preventDefault();render(current+1);}else if(e.key.toLowerCase()==='b'){e.preventDefault();bookmark.click();}else if(e.key==='Home'){e.preventDefault();render(0);reader.scrollIntoView({behavior:'smooth',block:'start'});}else if(e.key==='Escape'&&panel.classList.contains('open')){panel.classList.remove('open');toggle.setAttribute('aria-expanded','false');}});
+ const initial=location.hash.match(/^#(?:entry|block-intro)-[a-z-]+$/);if(initial){const found=spreads.findIndex(s=>s.id===location.hash.slice(1));if(found>=0)current=found;}
+ current=Math.max(0,Math.min(current,spreads.length-1));render(current);
 })();
 </script>
 </body>
