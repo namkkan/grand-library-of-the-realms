@@ -254,6 +254,69 @@
       text-align: center;
     }
 
+    /* HYSSOP'S RECEPTION · COLLAPSIBLE ILLUSTRATION REFERENCE */
+
+    .reception-toggle {
+      margin: 20px 0 35px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(25,38,56,.72), rgba(17,26,40,.94));
+    }
+
+    .reception-toggle > summary {
+      display: block;
+      position: relative;
+      padding: 30px clamp(20px, 4vw, 42px);
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .reception-toggle > summary::-webkit-details-marker { display: none; }
+
+    .reception-toggle > summary::after {
+      content: "+";
+      position: absolute;
+      right: 28px;
+      top: 28px;
+      color: var(--gold-light);
+      font: 28px/1 var(--serif);
+    }
+
+    .reception-toggle[open] > summary::after { content: "−"; }
+
+    .reception-toggle-title {
+      display: block;
+      margin: 5px 42px 12px 0;
+      color: var(--parchment);
+      font: normal clamp(26px, 4vw, 36px)/1.2 var(--serif);
+    }
+
+    .reception-toggle .intro {
+      margin: 0;
+      text-align: left;
+    }
+
+    .reception-toggle-action {
+      display: inline-block;
+      margin-top: 20px;
+      color: var(--gold-light);
+      font: 11px Arial, Helvetica, sans-serif;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .when-open { display: none; }
+    .reception-toggle[open] .when-closed { display: none; }
+    .reception-toggle[open] .when-open { display: inline; }
+
+    .reception-toggle-content {
+      padding: 0 clamp(20px, 4vw, 42px) 35px;
+    }
+
+    .reception-toggle:focus-within > summary {
+      outline: 2px solid var(--gold-light);
+      outline-offset: -5px;
+    }
+
     /* FIRST VISIT AND DESTINATION CARDS */
 
     .destination-grid {
@@ -627,17 +690,19 @@
     <div class="content">
 
       <!-- HYSSOP'S RECEPTION -->
-      <section class="section" id="hyssop-reception">
-        <div class="section-heading">
+      <details class="reception-toggle" id="hyssop-reception">
+        <summary>
           <span class="section-number">01 / The first welcome</span>
-          <h2>Hyssop's Reception Nook</h2>
-          <p class="intro">
+          <span class="reception-toggle-title">Hyssop's Reception Nook</span>
+          <span class="intro">
             Set just to the western side of the Southern Vestibule, Hyssop's
             reception is a small, welcoming station beside the main flow of
             arriving visitors. It is easy to find without blocking the passage
             into the Grand Central Hall.
-          </p>
-        </div>
+          </span>
+          <span class="reception-toggle-action"><span class="when-closed">Open reception details +</span><span class="when-open">Close reception details −</span></span>
+        </summary>
+        <div class="reception-toggle-content">
 
         <div class="art-frame" aria-label="Reserved space for an original illustration of Hyssop's reception">
           <div class="art-frame-inner">
@@ -769,9 +834,10 @@
         </div>
 
         <p>
-          <a class="button" href="../characters/arrival-guide.html">MEET HYSSOP ↗</a>
+          <a class="button" href="../characters/hyssop.html">MEET HYSSOP ↗</a>
         </p>
-      </section>
+        </div>
+      </details>
 
       <!-- NEED ASSISTANCE -->
 
