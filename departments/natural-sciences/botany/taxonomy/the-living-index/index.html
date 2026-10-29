@@ -2250,5 +2250,17 @@ document.addEventListener('keydown',e=>{if(e.altKey||e.ctrlKey||e.metaKey)return
 render();measure.remove();
 })();
 </script>
+  <script>
+    (() => {
+      try {
+        const key = 'grand-library:visited-pages';
+        const page = { title: document.title.replace(/\s*\|\s*The Grand Library of the Realms$/, ''), url: location.pathname, visitedAt: new Date().toISOString() };
+        const history = JSON.parse(localStorage.getItem(key) || '[]');
+        const updated = [page, ...history.filter(item => item.url !== page.url)].slice(0, 20);
+        localStorage.setItem(key, JSON.stringify(updated));
+      } catch (error) {}
+    })();
+  </script>
+
 </body>
 </html>
