@@ -11,12 +11,12 @@
   --night: #0b1019;
   --panel: #121b29;
   --panel-light: #182436;
-  --gold: #c3a46b;
-  --gold-dim: #786747;
-  --parchment: #e9ddc4;
+  --gold: #5686c5;
+  --gold-dim: #304b6d;
+  --parchment: #c5d3e4;
   --muted: #a5a9b3;
   --blue: #5686c5;
-  --line: rgba(195,164,107,.3);
+  --line: rgba(86,134,197,.28);
 }
 
 * { box-sizing: border-box; }
@@ -34,7 +34,7 @@ body {
 }
 
 a { color: var(--gold); }
-a:hover { color: #f0d9a6; }
+a:hover { color: #8db9f0; }
 
 .topbar {
   padding: 16px 7%;
@@ -145,7 +145,7 @@ h1 {
   padding-left: 18px;
   border-left: 2px solid var(--blue);
   max-width: 560px;
-  color: #c6d5e9;
+  color: #b8cce6;
   font-style: italic;
 }
 
@@ -190,7 +190,7 @@ h1 {
 .sidebar a {
   display: block;
   padding: 8px 0;
-  border-bottom: 1px solid rgba(195,164,107,.12);
+  border-bottom: 1px solid rgba(86,134,197,.12);
   color: var(--parchment);
   text-decoration: none;
   font-size: 13px;
@@ -224,7 +224,7 @@ h3 {
   border-bottom: 1px solid var(--line);
 }
 
-.content-section p { color: #d2c8b6; }
+.content-section p { color: #b7c7dc; }
 
 .quote {
   margin: 28px 0;
@@ -233,7 +233,7 @@ h3 {
   background: linear-gradient(90deg, rgba(86,134,197,.1), transparent);
   font-size: 18px;
   font-style: italic;
-  color: #d7e3f3;
+  color: #c5d9f2;
 }
 
 .facts {
@@ -376,6 +376,43 @@ footer {
     width: 100%;
   }
 }
+
+/* SAPPHIRON'S PERSONAL COLOUR PALETTE */
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 14px;
+  margin: 24px 0;
+}
+.palette-swatch {
+  overflow: hidden;
+  border: 1px solid rgba(86,134,197,.35);
+  background: #121b29;
+}
+.palette-colour {
+  height: 82px;
+  border-bottom: 1px solid rgba(86,134,197,.35);
+}
+.palette-info { padding: 12px; }
+.palette-info strong {
+  display: block;
+  color: #c5d3e4;
+  font-size: 13px;
+  font-weight: normal;
+}
+.palette-info code {
+  display: block;
+  margin-top: 5px;
+  color: #5686c5;
+  font-size: 12px;
+}
+.palette-info small {
+  display: block;
+  margin-top: 5px;
+  color: #8fa5c2;
+  font-size: 11px;
+}
+
 </style>
 </head>
 
@@ -641,6 +678,42 @@ footer {
         For now, the pendant remains a personal matter rather than
         a subject of the Library's official investigations.
       </p>
+    </section>
+
+    <section class="content-section" id="palette">
+      <div class="section-label">Personal Reference · Colour Record</div>
+      <h2>Sapphiron's Colour Palette</h2>
+      <p>
+        His colours are built around deep, quiet blues. The bright sapphire
+        blue is reserved for moments when his alchemy awakens: his eyes
+        shine with it, and his alchemical fire burns in the same vivid hue.
+      </p>
+      <div class="palette-grid" aria-label="Sapphiron's colour palette">
+        <div class="palette-swatch">
+          <div class="palette-colour" style="background:#0b1019"></div>
+          <div class="palette-info"><strong>Midnight Ink</strong><code>#0B1019</code><small>Shadows · Quiet</small></div>
+        </div>
+        <div class="palette-swatch">
+          <div class="palette-colour" style="background:#121b29"></div>
+          <div class="palette-info"><strong>Deep Library Navy</strong><code>#121B29</code><small>Books · Shelter</small></div>
+        </div>
+        <div class="palette-swatch">
+          <div class="palette-colour" style="background:#182436"></div>
+          <div class="palette-info"><strong>Ink Blue</strong><code>#182436</code><small>Study · Stillness</small></div>
+        </div>
+        <div class="palette-swatch">
+          <div class="palette-colour" style="background:#223249"></div>
+          <div class="palette-info"><strong>Storm Blue</strong><code>#223249</code><small>Distance · Thought</small></div>
+        </div>
+        <div class="palette-swatch">
+          <div class="palette-colour" style="background:#5686c5;box-shadow:inset 0 0 24px rgba(141,185,240,.75)"></div>
+          <div class="palette-info"><strong>Alchemy Sapphire</strong><code>#5686C5</code><small>Eyes · Alchemical fire</small></div>
+        </div>
+        <div class="palette-swatch">
+          <div class="palette-colour" style="background:#8db9f0"></div>
+          <div class="palette-info"><strong>Bright Arc</strong><code>#8DB9F0</code><small>Glints · Magical highlights</small></div>
+        </div>
+      </div>
     </section>
 
     <section class="content-section" id="species">
