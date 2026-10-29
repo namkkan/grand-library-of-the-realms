@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1019">
+  <title>Random Discoveries | The Grand Library of the Realms</title>
+  <meta name="description" content="Uncatalogued discoveries, magical details and curious records from the realms.">
+  <style>
+    :root { --night:#0b1019; --panel:#131b29; --panel-light:#192537; --gold:#c3a46b; --parchment:#e9ddc4; --muted:#aaa9a5; --line:#39382f; --blue:#5686c5; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--night); color:var(--parchment); font-family:Georgia,"Times New Roman",serif; line-height:1.7; }
+    a { color:inherit; text-decoration:none; }
+    .navigation { min-height:74px; padding:18px 7%; display:flex; justify-content:space-between; align-items:center; gap:20px; border-bottom:1px solid var(--line); }
+    .brand { color:var(--gold); font-size:15px; letter-spacing:2px; text-transform:uppercase; }
+    .nav-links { display:flex; flex-wrap:wrap; gap:22px; font:12px Arial,sans-serif; color:#d0c9bc; }
+    .nav-links a:hover { color:var(--gold); }
+    main { max-width:1000px; margin:auto; padding:70px 24px 90px; }
+    .heading { text-align:center; margin-bottom:38px; }
+    .eyebrow { color:var(--gold); font:10px Arial,sans-serif; letter-spacing:4px; text-transform:uppercase; }
+    h1 { font-size:clamp(38px,6vw,64px); line-height:1.12; font-weight:normal; margin:16px 0; }
+    h2 { font-weight:normal; font-size:clamp(25px,4vw,34px); margin:0 0 8px; }
+    .intro { max-width:650px; margin:0 auto; color:var(--muted); }
+    .panel { padding:clamp(22px,5vw,42px); margin:22px 0; border:1px solid #c3a46b55; background:linear-gradient(145deg,#172131,#101722); }
+    .ornament { color:var(--gold); font-size:27px; }
+    .record-type { color:var(--gold); font:10px Arial,sans-serif; letter-spacing:2px; text-transform:uppercase; }
+    .record-title { margin:8px 0 14px; font-size:clamp(27px,4vw,38px); line-height:1.2; }
+    .record-text { color:#d1c8b8; font-size:17px; }
+    .record-detail { border-left:2px solid var(--gold); padding:10px 0 10px 18px; margin-top:22px; color:var(--muted); font-style:italic; }
+    .actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:25px; }
+    button, .button { display:inline-block; padding:13px 18px; border:1px solid var(--gold); background:transparent; color:var(--parchment); cursor:pointer; font:11px Arial,sans-serif; letter-spacing:1px; text-transform:uppercase; }
+    .primary { background:var(--gold); color:var(--night); }
+    button:hover, .button:hover { border-color:var(--parchment); }
+    .primary:hover { background:var(--parchment); }
+    .tiny-note { color:var(--muted); font:12px Arial,sans-serif; margin-top:15px; }
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    label { display:block; color:var(--gold); font:11px Arial,sans-serif; letter-spacing:1px; text-transform:uppercase; margin-bottom:7px; }
+    input, select, textarea { width:100%; padding:13px; background:var(--night); color:var(--parchment); border:1px solid #77705f; font:15px Georgia,serif; }
+    textarea { min-height:105px; resize:vertical; }
+    .field-wide { grid-column:1/-1; }
+    .saved-list { display:grid; gap:12px; margin-top:20px; }
+    .saved-item { padding:18px; border:1px solid var(--line); background:#0b1019; }
+    .saved-item h3 { margin:4px 0; font-weight:normal; font-size:21px; }
+    .saved-item p { margin:5px 0; color:var(--muted); }
+    .empty { color:var(--muted); font-style:italic; }
+    footer { padding:32px 20px; border-top:1px solid var(--line); color:var(--muted); text-align:center; font-size:12px; }
+    footer strong { color:var(--gold); font-weight:normal; }
+    @media(max-width:650px) { .navigation { flex-direction:column; text-align:center; } .nav-links { justify-content:center; } main { padding:48px 18px 65px; } .form-grid { grid-template-columns:1fr; } .field-wide { grid-column:auto; } }
+  </style>
+</head>
+<body>
+  <header class="navigation">
+    <a class="brand" href="index.html">✦ The Grand Library</a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="index.html#catalogue">Search the Library</a>
+      <a href="index.html#departments">Library Districts</a>
+    </nav>
+  </header>
+  <main>
+    <div class="heading">
+      <span class="eyebrow">Uncatalogued wonders · Room of curiosities</span>
+      <h1>Random Discoveries</h1>
+      <p class="intro">Not every discovery begins with a question. Sometimes a door opens, a strange note appears, or a detail refuses to be forgotten.</p>
+    </div>
+
+    <section class="panel" aria-live="polite">
+      <span class="ornament">✦</span>
+      <div class="record-type" id="record-type">Uncatalogued record</div>
+      <h2 class="record-title" id="record-title">A note awaits discovery</h2>
+      <p class="record-text" id="record-text">Turn the page of chance to uncover a curious detail from the realms.</p>
+      <p class="record-detail" id="record-detail">The library keeps more secrets than its catalogue can hold.</p>
+      <div class="actions">
+        <button class="primary" id="discover-button" type="button">✦ Discover something</button>
+        <button id="copy-button" type="button">Copy this record</button>
+      </div>
+      <p class="tiny-note" id="record-status">A new record is waiting for you.</p>
+    </section>
+
+    <section class="panel">
+      <span class="eyebrow">Leave a trace</span>
+      <h2 style="margin-top:10px">Add a Discovery</h2>
+      <p class="intro" style="margin:0 0 25px">Record a magical detail, an odd rumour, an object, a place or a tiny piece of lore you want to remember.</p>
+      <form id="discovery-form" class="form-grid">
+        <div>
+          <label for="entry-title">Discovery title</label>
+          <input id="entry-title" name="title" maxlength="90" placeholder="e.g. The glass moth" required>
+        </div>
+        <div>
+          <label for="entry-type">Record type</label>
+          <select id="entry-type" name="type">
+            <option>Magical detail</option><option>Rumour</option><option>Creature</option><option>Object</option><option>Place</option><option>Botanical note</option><option>Library secret</option><option>Other curiosity</option>
+          </select>
+        </div>
+        <div class="field-wide">
+          <label for="entry-description">What was discovered?</label>
+          <textarea id="entry-description" name="description" maxlength="1200" placeholder="Write the detail you want to preserve…" required></textarea>
+        </div>
+        <div class="field-wide">
+          <label for="entry-detail">Additional note (optional)</label>
+          <input id="entry-detail" name="detail" maxlength="300" placeholder="A location, warning, rumour or strange effect">
+        </div>
+        <div class="field-wide actions">
+          <button class="primary" type="submit">Preserve discovery ✦</button>
+          <button type="reset">Clear form</button>
+        </div>
+      </form>
+      <p class="tiny-note" id="save-status" aria-live="polite">Your discoveries are saved in this browser only, not published for other visitors.</p>
+      <div id="saved-list" class="saved-list"></div>
+    </section>
+  </main>
+  <footer><p><strong>✦ The Grand Library of the Realms ✦</strong></p><p>Every small discovery may lead to a greater mystery.</p><p><a href="index.html">Return to the library ↗</a></p></footer>
+
+  <script>
+    (() => {
+      const records = [
+        {type:"Magical detail",title:"The Candle That Remembers",text:"A candle in a forgotten reading room burns brighter whenever someone speaks a name that has been erased from history.",detail:"Its wax never melts. The wick is made from a single silver hair."},
+        {type:"Botanical note",title:"Moonmilk Fern",text:"This pale fern grows only in the cracks of old observatories. Its fronds turn toward stars that cannot be seen with the naked eye.",detail:"Do not water it beneath a new moon."},
+        {type:"Library rumour",title:"The Thirteenth Stair",text:"Some readers claim that one staircase gains an extra step after midnight. Those who climb it hear a book being opened somewhere far below.",detail:"No two witnesses agree on which staircase it is."},
+        {type:"Curious object",title:"The Compass of Almost",text:"This brass compass does not point north. It points toward the nearest thing that is almost, but not quite, what its bearer seeks.",detail:"It spins wildly near unfinished stories."},
+        {type:"Creature record",title:"The Ink Moth",text:"A tiny moth feeds on spilled ink and leaves wing-shaped punctuation marks on the page where it rests.",detail:"Scholars disagree whether the marks are warnings or corrections."},
+        {type:"Archive fragment",title:"A Book With No Last Page",text:"A slim volume in the western stacks always ends one sentence before its reader expects. Its final page is blank until someone closes the cover.",detail:"The book has never been checked out twice by the same person."},
+        {type:"Alchemical note",title:"Blue Hour Condensation",text:"On certain winter mornings, blue glass gathers droplets that briefly reveal a memory belonging to the room rather than the person looking through it.",detail:"The effect fades before the glass warms."},
+        {type:"Library secret",title:"The Door That Prefers Quiet",text:"A narrow door in the oldest corridor opens only when the person outside stops trying to open it.",detail:"A small brass plaque reads: 'Patience is also a key.'"},
+        {type:"Rumour",title:"The Cartographer's Bird",text:"A black bird is said to perch on maps of places that no longer exist. When it leaves, a new road appears in the margin.",detail:"Its call sounds like a page turning."},
+        {type:"Magical detail",title:"The Borrowed Shadow",text:"In one archive, shadows occasionally detach from their owners to browse the shelves independently, always returning before sunrise.",detail:"The shadows seem especially interested in poetry."}
+      ];
+      const byId = id => document.getElementById(id);
+      let current = null;
+      function reveal(record) {
+        current = record;
+        byId("record-type").textContent = record.type;
+        byId("record-title").textContent = record.title;
+        byId("record-text").textContent = record.text || record.description;
+        byId("record-detail").textContent = record.detail || "Filed by a curious visitor.";
+        byId("record-status").textContent = "A new page from the unknown.";
+      }
+      function randomRecord() {
+        let next = records[Math.floor(Math.random() * records.length)];
+        if (records.length > 1 && current && next.title === current.title) {
+          next = records[(records.indexOf(next) + 1 + Math.floor(Math.random() * (records.length - 1))) % records.length];
+        }
+        reveal(next);
+      }
+      byId("discover-button").addEventListener("click", randomRecord);
+      byId("copy-button").addEventListener("click", async () => {
+        if (!current) { byId("record-status").textContent = "Discover a record first."; return; }
+        const text = current.type + ": " + current.title + "\n" + (current.text || current.description) + "\n" + (current.detail || "");
+        try { await navigator.clipboard.writeText(text); byId("record-status").textContent = "Record copied to clipboard."; }
+        catch { byId("record-status").textContent = "Copy is unavailable here; you can select the text manually."; }
+      });
+      const storageKey = "grand-library-discoveries-v1";
+      function loadSaved() {
+        try { return JSON.parse(localStorage.getItem(storageKey) || "[]"); } catch { return []; }
+      }
+      function renderSaved() {
+        const list = byId("saved-list");
+        const saved = loadSaved();
+        list.replaceChildren();
+        if (!saved.length) {
+          const p = document.createElement("p"); p.className = "empty"; p.textContent = "No personal discoveries have been preserved here yet."; list.append(p); return;
+        }
+        saved.slice().reverse().forEach(entry => {
+          const card = document.createElement("article"); card.className = "saved-item";
+          const type = document.createElement("span"); type.className = "record-type"; type.textContent = entry.type;
+          const title = document.createElement("h3"); title.textContent = entry.title;
+          const description = document.createElement("p"); description.textContent = entry.description;
+          card.append(type, title, description);
+          if (entry.detail) { const detail = document.createElement("p"); detail.textContent = "✦ " + entry.detail; card.append(detail); }
+          list.append(card);
+        });
+      }
+      byId("discovery-form").addEventListener("submit", event => {
+        event.preventDefault();
+        const entry = {
+          title: byId("entry-title").value.trim(),
+          type: byId("entry-type").value,
+          description: byId("entry-description").value.trim(),
+          detail: byId("entry-detail").value.trim(),
+          date: new Date().toISOString()
+        };
+        if (!entry.title || !entry.description) return;
+        try {
+          const saved = loadSaved(); saved.push(entry);
+          localStorage.setItem(storageKey, JSON.stringify(saved));
+          byId("save-status").textContent = "Discovery preserved in this browser. It is not published to the website.";
+          byId("discovery-form").reset(); renderSaved();
+        } catch {
+          byId("save-status").textContent = "This browser could not save the discovery. You can copy it somewhere safe instead.";
+        }
+      });
+      renderSaved();
+      randomRecord();
+    })();
+  </script>
+</body>
+</html>
