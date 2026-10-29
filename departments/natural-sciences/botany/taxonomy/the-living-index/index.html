@@ -362,6 +362,23 @@ main > section.chapter-text > p:nth-of-type(2)::first-letter {
 #bibliographic-record .detail-label { font-weight: 700; }
 @media (max-width: 700px) { .front-matter-grid { gap: 24px; margin: 32px auto; } }
 
+
+/* Green botanical surroundings; preserve the readable parchment pages */
+:root { --navy:#10251b; --navy-light:#1b3828; --border:rgba(168,196,154,.32); --gold:#c6a66b; }
+body { background:radial-gradient(ellipse at 50% 10%,#244a32 0%,#10251b 72%); }
+header { background:linear-gradient(90deg,#1b3828,#10251b); }
+header::after { content:"❧  ❦  ❧"; float:right; color:rgba(168,196,154,.65); letter-spacing:7px; }
+.book-header { background:linear-gradient(145deg,#244631,#10251b); border-color:rgba(168,196,154,.4); position:relative; overflow:hidden; }
+.book-header::before,.book-header::after { content:"❧"; position:absolute; color:rgba(168,196,154,.17); font-size:90px; top:12px; pointer-events:none; }
+.book-header::before { left:14px; transform:rotate(-25deg); }
+.book-header::after { right:14px; transform:scaleX(-1) rotate(-25deg); }
+.book-header h1, h1 { color:#e3cb98; }
+.book-header .symbol { color:#a8c49a; }
+a { color:#c6d9b8; }
+a:hover { color:#f0e6d2; }
+.contents, .table-of-contents, nav.contents { border-color:rgba(168,196,154,.3); }
+footer { background:rgba(16,37,27,.7); border-top:1px solid var(--border); }
+@media(max-width:700px) { header::after { display:none; } .book-header::before,.book-header::after { font-size:55px; } }
 </style>
 
 </head>
