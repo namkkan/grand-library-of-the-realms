@@ -395,35 +395,6 @@ a.department-card:focus-visible {
 .footer { background: rgba(16,37,27,.6); }
 @media (max-width: 580px) { .site-header::after { display: none; } }
 
-/* Quiet botanical background: a little foliage, never over the text. */
-body { position: relative; isolation: isolate; }
-body::before, body::after {
-  position: fixed;
-  z-index: -1;
-  pointer-events: none;
-  color: rgba(168,196,154,.075);
-  font-family: Georgia, serif;
-  line-height: 1;
-  white-space: pre;
-}
-body::before {
-  content: "❧\\A\\A  ❦\\A\\A    ❧";
-  left: 1.2vw;
-  top: 17vh;
-  font-size: clamp(38px, 6vw, 78px);
-  transform: rotate(-12deg);
-}
-body::after {
-  content: "❧\\A\\A  ❦\\A\\A    ❧";
-  right: 1.2vw;
-  bottom: 13vh;
-  font-size: clamp(38px, 6vw, 78px);
-  transform: scaleX(-1) rotate(-12deg);
-}
-@media (max-width: 700px) {
-  body::before, body::after { opacity: .45; font-size: 34px; }
-}
-
 </style>
 </head>
 <body>
