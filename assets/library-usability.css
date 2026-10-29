@@ -1,0 +1,118 @@
+/* Shared usability layer for The Grand Library of the Realms.
+   It complements each page's own palette rather than replacing it. */
+:root {
+  --library-focus: var(--gold, #c3a46b);
+  --library-panel: var(--panel, #131b29);
+  --library-text: var(--parchment, var(--cream, #e9ddc4));
+  --library-line: var(--line, rgba(195,164,107,.35));
+}
+html { scroll-padding-top: 1rem; }
+body { min-width: 0; overflow-wrap: anywhere; }
+img, video, iframe { max-width: 100%; }
+svg { max-width: 100%; }
+table { max-width: 100%; }
+a, button, summary { -webkit-tap-highlight-color: transparent; }
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--library-focus);
+  outline-offset: 3px;
+}
+button, .button, a.button, input[type="button"], input[type="submit"] {
+  min-height: 42px;
+}
+details > summary { cursor: pointer; }
+header nav { min-width: 0; }
+.library-mobile-menu-button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: .55rem;
+  min-height: 44px;
+  padding: .65rem .9rem;
+  border: 1px solid var(--library-line);
+  border-radius: 8px;
+  background: var(--library-panel);
+  color: var(--library-text);
+  font: inherit;
+  cursor: pointer;
+}
+.library-mobile-menu-button:hover,
+.library-mobile-menu-button[aria-expanded="true"] {
+  border-color: var(--library-focus);
+}
+.library-back-to-top {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 1000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 46px;
+  min-height: 46px;
+  padding: .65rem .85rem;
+  border: 1px solid var(--library-line);
+  border-radius: 999px;
+  background: var(--library-panel);
+  color: var(--library-text);
+  box-shadow: 0 5px 24px #0005;
+  font: inherit;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity .18s ease, transform .18s ease;
+}
+.library-back-to-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+@media (max-width: 760px) {
+  body { font-size: max(16px, 1em); }
+  header { max-width: 100%; }
+  header .brand { min-width: 0; overflow-wrap: anywhere; }
+  header nav.library-nav-collapsible:not(.is-open) { display: none !important; }
+  header nav.library-nav-collapsible.is-open {
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    gap: .15rem;
+    width: 100%;
+    max-width: 100%;
+    margin-top: .55rem;
+    padding: .5rem;
+    border: 1px solid var(--library-line);
+    border-radius: 10px;
+    background: var(--library-panel);
+  }
+  header nav.library-nav-collapsible a {
+    display: block;
+    min-height: 44px;
+    padding: .7rem .8rem;
+    border-radius: 6px;
+    overflow-wrap: anywhere;
+  }
+  header nav.library-nav-collapsible a:hover,
+  header nav.library-nav-collapsible a:focus-visible {
+    background: color-mix(in srgb, var(--library-focus) 12%, transparent);
+  }
+  .library-mobile-menu-button { display: inline-flex; }
+  main, section, article, aside, .container, .content, .page, .page-shell,
+  .wrapper, .shell, .book-page, .record-page { min-width: 0; max-width: 100%; }
+  .info-grid, .people-grid, .district-grid, .cards-grid, .card-grid,
+  .link-grid, .services-grid, .book-grid, .catalogue-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  pre { max-width: 100%; overflow-x: auto; }
+  .library-back-to-top { right: max(12px, env(safe-area-inset-right)); bottom: max(12px, env(safe-area-inset-bottom)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
