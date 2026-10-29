@@ -511,6 +511,12 @@
       .wayfinding-node[data-place="atrium"][aria-pressed="true"] { background: linear-gradient(145deg,#63869b,#2b4659); box-shadow: 0 0 0 4px #b8d2df28, 0 0 34px #8fb8d030; }
     }
 
+    .wayfinding-subresults { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px; margin-top:14px; }
+    .wayfinding-subresults[hidden] { display:none; }
+    .wayfinding-subresult { display:block; padding:13px 15px; border:1px solid #879ba155; border-radius:8px; background:#18232c; color:var(--parchment); text-decoration:none; }
+    .wayfinding-subresult:hover,.wayfinding-subresult:focus-visible { border-color:#b8d2df; background:#223440; }
+    .wayfinding-subresult strong { display:block; color:#b8d2df; font-size:13px; font-weight:normal; }
+    .wayfinding-subresult small { display:block; margin-top:4px; color:var(--muted); font-size:11px; }
     .wayfinding-detail { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; margin-top: 16px; padding: 18px; border-left: 3px solid var(--gold); background: #172131; }
     .wayfinding-detail h3 { margin: 0 0 6px; color: var(--gold); }
     .wayfinding-detail p { margin: 0; color: #c9c4b9; font-size: 14px; }
@@ -630,6 +636,7 @@
           <button class="wayfinding-node" type="button" data-place="celestial" aria-pressed="false"><span>☾</span>Celestial Studies</button>
           <button class="wayfinding-node" type="button" data-place="peoples" aria-pressed="false"><span>✦</span>Peoples & Cultures</button>
         </div>
+        <div class="wayfinding-subresults" id="wayfinding-subresults" aria-live="polite" hidden></div>
         <div class="wayfinding-detail" aria-live="polite">
           <div><h3 id="wayfinding-title">The Grand Atrium</h3><p id="wayfinding-description">Begin at the heart of the Library, where visitors gather before setting out into its many districts.</p></div>
           <a class="wayfinding-open" id="wayfinding-open" href="#departments">Explore district ↗</a>
@@ -969,6 +976,7 @@
       if (!map) return;
       const nodes = [...map.querySelectorAll(".wayfinding-node")];
       const search = document.getElementById("wayfinding-search");
+      const subresults = document.getElementById("wayfinding-subresults");
       const title = document.getElementById("wayfinding-title");
       const description = document.getElementById("wayfinding-description");
       const open = document.getElementById("wayfinding-open");
@@ -991,16 +999,56 @@
         open.href = place.href;
         status.textContent = "Selected: " + place.title + ".";
       }
+      const sections = [
+        {title:"Natural Sciences", category:"Department", description:"The complete Natural Sciences department directory.", url:"departments/natural-sciences/index.html", keywords:"science sciences nature natural"},
+        {title:"Botany", category:"Natural Sciences · Department", description:"Plant studies, botanical collections and research.", url:"departments/natural-sciences/botany/index.html", keywords:"botany botanical plant plants"},
+        {title:"Seeds", category:"Natural Sciences · Botany", description:"Browse the seed collections and botanical records.", url:"departments/natural-sciences/botany/seeds/index.html", keywords:"seed seeds seed collection"},
+        {title:"Seed Morphology & Classification", category:"Natural Sciences · Botany · Seeds", description:"Identify and compare food, garden and vegetable seeds.", url:"departments/natural-sciences/botany/seeds/seed-morphology-classification/", keywords:"seed seeds morphology classification vegetable garden food"},
+        {title:"Tree Seeds: Cycle of Growth", category:"Natural Sciences · Botany · Seeds", description:"Tree seed records, development, dormancy and germination.", url:"departments/natural-sciences/botany/seeds/tree-seeds-cycle-of-growth/", keywords:"tree trees seed seeds cycle growth cherry apple lemon orange pear peach"},
+        {title:"Seed Morphology & Classification", category:"Natural Sciences · Botany · Seeds", description:"A reference to seed structures and identifying features.", url:"departments/natural-sciences/botany/seeds/seed-morphology-classification/", keywords:"morphology classification seed anatomy"},
+        {title:"Taxonomy", category:"Natural Sciences · Botany", description:"Plant naming, classification and systematic study.", url:"departments/natural-sciences/botany/taxonomy/index.html", keywords:"taxonomy classification living index"},
+        {title:"The Living Index", category:"Natural Sciences · Botany · Taxonomy", description:"Professor Elowen Thorne's botanical index and taxonomy records.", url:"departments/natural-sciences/botany/taxonomy/the-living-index/", keywords:"living index elowen thorne taxonomy plants botanical"},
+        {title:"Zoology", category:"Natural Sciences", description:"The study of animals and their place in the natural world.", url:"departments/natural-sciences/zoology/index.html", keywords:"zoology animal animals fauna"},
+        {title:"Geology & Mineralogy", category:"Natural Sciences", description:"Rocks, minerals and the structure of the realms.", url:"departments/natural-sciences/geology-mineralogy/index.html", keywords:"geology mineralogy rocks minerals stone"},
+        {title:"Aquatic & Marine Sciences", category:"Natural Sciences", description:"Marine life, aquatic ecosystems and underwater worlds.", url:"departments/natural-sciences/aquatic-marine-sciences/index.html", keywords:"aquatic marine ocean water sea"},
+        {title:"Astronomy & Cosmology", category:"Natural Sciences", description:"Celestial bodies, stars and the structure of the cosmos.", url:"departments/natural-sciences/astronomy-cosmology/index.html", keywords:"astronomy cosmology stars celestial space"}
+      ];
+      const normaliseMap = value => value.normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").toLowerCase().trim();
       nodes.forEach(node => node.addEventListener("click", () => selectPlace(node.dataset.place)));
       search.addEventListener("input", () => {
-        const query = search.value.trim().toLowerCase();
+        const query = normaliseMap(search.value);
+        const terms = query.split(/\\s+/).filter(Boolean);
         let visible = 0;
         nodes.forEach(node => {
-          const match = node.textContent.toLowerCase().includes(query);
+          const match = !terms.length || terms.every(term => normaliseMap(node.textContent).includes(term));
           node.hidden = !match;
           if (match) visible++;
         });
-        status.textContent = visible + (visible === 1 ? " district found." : " districts found.");
+        const matches = terms.length ? sections.filter(item => {
+          const searchable = normaliseMap([item.title,item.category,item.description,item.keywords].join(" "));
+          return terms.every(term => searchable.includes(term));
+        }) : [];
+        subresults.replaceChildren();
+        matches.forEach(item => {
+          const link = document.createElement("a");
+          link.className = "wayfinding-subresult";
+          link.href = item.url;
+          const titleText = document.createElement("strong");
+          titleText.textContent = item.title;
+          const detailText = document.createElement("small");
+          detailText.textContent = item.category;
+          link.append(titleText,detailText);
+          subresults.append(link);
+        });
+        subresults.hidden = matches.length === 0;
+        const total = visible + matches.length;
+        status.textContent = !terms.length
+          ? "7 districts mapped. Search by district, department or a specific section such as Seeds."
+          : total
+            ? matches.length
+              ? matches.length + (matches.length === 1 ? " section" : " sections") + " and " + visible + (visible === 1 ? " district" : " districts") + " found."
+              : visible + (visible === 1 ? " district found." : " districts found.")
+            : "No districts or sections found. Try a subject such as Seeds, Botany or Taxonomy.";
         const selected = nodes.find(node => node.getAttribute("aria-pressed") === "true" && !node.hidden);
         if (!selected) {
           const first = nodes.find(node => !node.hidden);
