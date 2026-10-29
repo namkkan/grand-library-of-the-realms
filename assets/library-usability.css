@@ -97,7 +97,7 @@ header nav { min-width: 0; }
   header nav.library-nav-collapsible a:focus-visible {
     background: color-mix(in srgb, var(--library-focus) 12%, transparent);
   }
-  .library-mobile-menu-button { display: inline-flex; }
+  .library-mobile-menu-button { display: inline-flex; margin-left: auto; }
   main, section, article, aside, .container, .content, .page, .page-shell,
   .wrapper, .shell, .book-page, .record-page { min-width: 0; max-width: 100%; }
   .info-grid, .people-grid, .district-grid, .cards-grid, .card-grid,
