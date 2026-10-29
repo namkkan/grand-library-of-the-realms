@@ -84,7 +84,7 @@
           <button type="reset">Clear form</button>
         </div>
       </form>
-      <p class="tiny-note" id="save-status" aria-live="polite">Submit a discovery to send it to your email. It will also be saved in this browser when the email service confirms receipt.</p>
+      <p class="tiny-note" id="save-status" aria-live="polite">Submitting sends this discovery to your email and saves a backup in this browser. The form service will open a confirmation page.</p>
     </section>
   </main>
   <footer><p><strong>The Grand Library of the Realms</strong></p><p><a href="index.html">Return to the library ↗</a></p></footer>
@@ -95,9 +95,9 @@
       const form = byId("discovery-form");
       const storageKey = "grand-library-discoveries-v1";
 
-      form.addEventListener("submit", async event => {
-        event.preventDefault();
-        const submitButton = form.querySelector('button[type="submit"]');
+      // Save a local backup, then let the browser submit the form directly to FormSubmit.
+      // Native POST avoids browser cross-origin fetch restrictions.
+      form.addEventListener("submit", () => {
         const entry = {
           title: byId("entry-title").value.trim(),
           type: byId("entry-type").value,
@@ -106,33 +106,11 @@
           date: new Date().toISOString()
         };
         if (!entry.title || !entry.description) return;
-
-        submitButton.disabled = true;
-        byId("save-status").textContent = "Sending your discovery to the library inbox…";
         try {
-          const response = await fetch(form.action, {
-            method: "POST",
-            body: new FormData(form),
-            headers: { "Accept": "application/json" }
-          });
-          const result = await response.json();
-          if (!response.ok || result.ok === false || result.error) {
-            throw new Error(result.error || "The form service did not confirm receipt.");
-          }
-
-          try {
-            const saved = JSON.parse(localStorage.getItem(storageKey) || "[]");
-            saved.push(entry);
-            localStorage.setItem(storageKey, JSON.stringify(saved));
-          } catch {}
-
-          byId("save-status").textContent = "✦ Discovery sent! Check your email inbox (and spam folder the first time). A copy was saved in this browser too.";
-          form.reset();
-        } catch (error) {
-          byId("save-status").textContent = "The email could not be confirmed. Your discovery is still in the form—please copy it before trying again.";
-        } finally {
-          submitButton.disabled = false;
-        }
+          const saved = JSON.parse(localStorage.getItem(storageKey) || "[]");
+          saved.push(entry);
+          localStorage.setItem(storageKey, JSON.stringify(saved));
+        } catch {}
       });
     })();
   </script>
