@@ -364,6 +364,7 @@
     .catalogue-toggle:hover { border-color: var(--gold); }
     .catalogue-toggle-copy { display: flex; flex-direction: column; gap: 4px; }
     .catalogue-toggle-title { font-size: clamp(25px, 3.5vw, 34px); line-height: 1.25; }
+    .catalogue-title-search-icon { display: inline-block; width: .78em; height: .78em; margin-left: 7px; vertical-align: .02em; fill: none; stroke: var(--gold); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
     .catalogue-toggle-subtitle { color: var(--muted); font-size: 14px; }
     .catalogue-toggle-icon { color: var(--gold); font: 28px Arial, sans-serif; flex: 0 0 auto; }
     .catalogue-content { padding-top: 12px; }
@@ -523,7 +524,7 @@
       <button class="catalogue-toggle" id="catalogue-toggle" type="button" aria-expanded="false" aria-controls="catalogue-content">
         <span class="catalogue-toggle-copy">
           <span class="eyebrow">The Grand Catalogue</span>
-          <span class="catalogue-toggle-title" id="catalogue-title">Search the Library</span>
+          <span class="catalogue-toggle-title" id="catalogue-title">Search the Library <svg class="catalogue-title-search-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></span>
           <span class="catalogue-toggle-subtitle">Find books, scholars, departments and peoples across the realms.</span>
         </span>
         <span class="catalogue-toggle-icon" aria-hidden="true">＋</span>
