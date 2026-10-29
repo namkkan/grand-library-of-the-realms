@@ -421,6 +421,57 @@ footer {
 .related-record{display:block;padding:15px;border:1px solid var(--line,rgba(200,169,107,.38));background:rgba(255,255,255,.025);text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}
 .related-record:hover{border-color:var(--gold,#c8a96b);transform:translateY(-2px)}.related-record strong{display:block;color:var(--gold,#c8a96b);margin-bottom:5px}.related-record span{display:block;font-size:.9rem;line-height:1.5;color:inherit}
 @media(max-width:600px){.related-records{padding:16px;margin:24px 0}.related-records-grid{grid-template-columns:1fr}.related-record{padding:14px}}
+
+/* SHARED CHARACTER PALETTE · Ivory, Moss, Earth, Stone & Blue-grey */
+:root {
+  --night:#151b17;
+  --panel:#202a22;
+  --panel-light:#2b372d;
+  --gold:#91a86f;
+  --gold-dim:#536b46;
+  --parchment:#e0e8d7;
+  --muted:#aeb8a6;
+  --blue:#879ba1;
+  --line:rgba(145,168,111,.3);
+}
+body {
+  background:radial-gradient(ellipse at 82% 0%,#2b3b30 0%,transparent 42%),var(--night) !important;
+  color:var(--parchment) !important;
+}
+header, .topbar {
+  background:rgba(21,27,23,.88) !important;
+  border-color:var(--line) !important;
+}
+.hero {
+  background:radial-gradient(ellipse at top,#354438 0%,#202a22 58%,#151b17 100%) !important;
+  border-color:var(--line) !important;
+}
+a { color:var(--gold); }
+a:hover { color:#c4d9a7; }
+h1,h2,h3,h4,.brand,.eyebrow,.section-label,.meta-label,.tag,.subtitle {
+  color:var(--gold);
+}
+p,li,dd,dt,blockquote,small { color:inherit; }
+article,section,aside,.card,.panel,.record-card,.info-card,.note-card,.fact-card,.timeline-card {
+  border-color:var(--line);
+}
+aside,.panel,.card,.record-card,.info-card,.note-card,.fact-card,.timeline-card,
+.content-card,.detail-card,.profile-card,.trait-card,.quote-card {
+  background-color:rgba(32,42,34,.78);
+}
+button,.button,.back-link,.record-id,.status,.tag,.pill {
+  border-color:var(--line);
+}
+button,.button,.back-link {
+  color:var(--parchment);
+}
+button:hover,.button:hover,.back-link:hover {
+  background:#2b372d;
+  color:#e0e8d7;
+}
+hr { border-color:var(--line); }
+::selection { background:#536b46;color:#f3f5ec; }
+
 </style>
 </head>
 
