@@ -125,6 +125,24 @@ footer {
   .books { grid-template-columns: 1fr; }
   .book { min-height: 250px; }
 }
+
+/* Forest-green botanical catalogue theme */
+:root { --navy:#10251b; --navy-light:#1d3a2b; --border:rgba(168,196,154,.32); --gold:#c6a66b; }
+body { background: radial-gradient(ellipse at 50% 0%, #244a32 0%, #10251b 68%); }
+header { background:linear-gradient(90deg,#1b3828,#10251b); }
+header::after { content:"❧  ❦  ❧"; float:right; color:rgba(168,196,154,.65); letter-spacing:7px; }
+h1 { color:#e3cb98; }
+.books { position:relative; }
+.book { background:linear-gradient(145deg,#244631,#142b20); border-color:rgba(168,196,154,.28); box-shadow:0 12px 28px rgba(0,0,0,.15); position:relative; overflow:hidden; }
+.book:nth-child(3n + 2) { background:linear-gradient(145deg,#1d3a2b,#10251b); }
+.book:nth-child(3n) { background:linear-gradient(145deg,#294b34,#183322); }
+.book::after { content:"❧"; position:absolute; right:12px; bottom:4px; font-size:38px; color:rgba(168,196,154,.16); pointer-events:none; }
+.book-cover { background:linear-gradient(145deg,#163222,#0f2419); border-color:rgba(168,196,154,.35); color:#a8c49a; }
+.book-number { color:#a8c49a; }
+.book h2 { color:#e3cb98; }
+.rule { background:rgba(168,196,154,.3); }
+footer { background:rgba(16,37,27,.6); border-top:1px solid var(--border); }
+@media(max-width:700px) { header::after { display:none; } }
 </style>
 </head>
 <body>
