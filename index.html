@@ -411,6 +411,37 @@
       .catalogue-results { grid-template-columns: 1fr; }
     }
 
+  
+    .nav-search-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      flex: 0 0 auto;
+      padding: 6px;
+      border: 1px solid #c3a46b66;
+      background: transparent;
+      color: var(--gold);
+      cursor: pointer;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+    .nav-search-button svg {
+      display: block;
+      width: 19px;
+      height: 19px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+    }
+    .nav-search-button:hover,
+    .nav-search-button:focus-visible {
+      background: var(--gold);
+      color: var(--night);
+      border-color: var(--gold);
+    }
+
   </style>
 </head>
 
@@ -425,6 +456,9 @@
       <a href="characters/">Characters</a>
       <a href="#catalogue">Search</a>
       <a href="#archives">Archives</a>
+      <button class="nav-search-button" id="nav-search-button" type="button" aria-label="Open library search" title="Search the library">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.6"></circle><path d="m16 16 5 5"></path></svg>
+      </button>
     </nav>
   </header>
 
@@ -631,6 +665,13 @@
         {title:"Professor Elowen Thorne", type:"Character", description:"Senior Taxonomist in the Department of Botany and author of botanical works.", url:"characters/elowen-thorne/index.html", keywords:"elowen thorne botanist professor taxonomy seeds author scholar"},
         {title:"Sapphiron", type:"Character", description:"A kenku wizard and alchemist devoted to knowledge and discovery.", url:"characters/sapphiron.html", keywords:"sapphiron kenku wizard alchemist magic"}
       ];
+      const navSearchButton = document.getElementById("nav-search-button");
+      if (navSearchButton) {
+        navSearchButton.addEventListener("click", () => {
+          document.getElementById("catalogue").scrollIntoView({ behavior: "smooth", block: "start" });
+          window.setTimeout(() => document.getElementById("catalogue-query")?.focus(), 350);
+        });
+      }
       const form = document.getElementById("catalogue-form");
       const input = document.getElementById("catalogue-query");
       const results = document.getElementById("catalogue-results");
