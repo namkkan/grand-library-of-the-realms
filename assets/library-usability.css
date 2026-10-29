@@ -69,7 +69,8 @@ header nav { min-width: 0; }
 }
 @media (max-width: 760px) {
   body { font-size: max(16px, 1em); }
-  header { max-width: 100%; }
+  header { max-width: 100%; flex-wrap: wrap; }
+  header nav.library-nav-collapsible { flex-basis: 100%; }
   header .brand { min-width: 0; overflow-wrap: anywhere; }
   header nav.library-nav-collapsible:not(.is-open) { display: none !important; }
   header nav.library-nav-collapsible.is-open {
