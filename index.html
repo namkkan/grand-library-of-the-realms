@@ -807,6 +807,11 @@
       const description = document.getElementById("wayfinding-description");
       const open = document.getElementById("wayfinding-open");
       const status = document.getElementById("wayfinding-status");
+      const navSearchButton = document.getElementById("nav-search-button");
+      if (navSearchButton) navSearchButton.addEventListener("click", () => {
+        map.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.setTimeout(() => search.focus(), 350);
+      });
       const places = {
         atrium: { title: "The Grand Atrium", description: "Begin at the heart of the Library, where visitors gather before setting out into its many districts.", href: "#departments" },
         arcane: { title: "Arcane Arts & Alchemy", description: "Explore magical disciplines, alchemical research and the study of enchanted things.", href: "#departments" },
@@ -871,7 +876,7 @@
         subresults.hidden = matches.length === 0;
         const total = visible + matches.length;
         status.textContent = !terms.length
-          ? "7 districts mapped. Search by district, department or a specific section such as Seeds."
+          ? accessiblePageCount + " accessible pages · Search by district, department or a specific section such as Seeds."
           : total
             ? matches.length
               ? matches.length + (matches.length === 1 ? " section" : " sections") + " and " + visible + (visible === 1 ? " district" : " districts") + " found."
