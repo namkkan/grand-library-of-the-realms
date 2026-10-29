@@ -12,14 +12,14 @@
 a{color:inherit;text-decoration:none}.site-header{padding:20px 7%;border-bottom:1px solid var(--line);background:linear-gradient(90deg,#1b3828,var(--forest))}.site-header a{color:var(--gold-light);font-size:.85rem}
 main{width:min(1080px,88%);margin:auto;padding:clamp(38px,7vw,78px) 0 86px}.eyebrow{color:var(--leaf);font-size:.72rem;letter-spacing:3px;text-transform:uppercase}
 h1{font-size:clamp(2.2rem,6vw,4rem);line-height:1.12;font-weight:normal;color:var(--gold-light);margin:14px 0 18px}.intro{max-width:760px;color:var(--muted);font-size:1rem;margin:0 0 36px}
-.ornament{height:1px;background:var(--line);margin:30px 0}.catalogue-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:20px}
-.catalogue-card,.empty-record{min-height:260px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(145deg,#244631,#142b20);border:1px solid var(--line);transition:transform .2s,border-color .2s;min-width:0}
-a.catalogue-card:hover{transform:translateY(-3px);border-color:var(--gold)}.record-number{font-size:.7rem;letter-spacing:2px;color:var(--leaf)}.record-symbol{display:grid;place-items:center;min-height:95px;margin:16px 0;background:#163222;border:1px solid rgba(168,196,154,.25);color:var(--leaf);font-size:2.5rem}
-h2{font-size:1.45rem;line-height:1.3;color:var(--gold-light);font-weight:normal;margin:0 0 10px}.catalogue-card p,.empty-record p{font-size:.92rem;color:var(--muted);margin:0}.record-meta{border-top:1px solid var(--line);padding-top:14px;margin-top:20px!important;font-size:.8rem!important;color:var(--gold-light)!important}
+.ornament{height:1px;background:var(--line);margin:30px 0}.catalogue-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.catalogue-card,.empty-record{min-height:290px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(145deg,#244631,#142b20);border:1px solid var(--line);color:var(--cream);transition:transform .2s,border-color .2s;min-width:0;position:relative;overflow:hidden;box-shadow:0 12px 28px rgba(0,0,0,.15)}
+a.catalogue-card:hover{transform:translateY(-4px);border-color:var(--gold)}.record-number{font-size:.78rem;letter-spacing:2px;color:var(--leaf)}.record-symbol{display:grid;place-items:center;min-height:125px;margin:18px 0;background:linear-gradient(145deg,#163222,#0f2419);border:1px solid rgba(168,196,154,.35);color:var(--leaf);font-size:2.5rem}
+h2{font-size:1.35rem;line-height:1.3;color:var(--gold-light);font-weight:normal;margin:0 0 8px}.catalogue-card p,.empty-record p{font-size:.92rem;color:var(--muted);margin:0}.record-meta{border-top:1px solid var(--line);padding-top:14px;margin-top:20px!important;font-size:.8rem!important;color:var(--gold-light)!important}.catalogue-card::after{content:"❧";position:absolute;right:12px;bottom:4px;font-size:38px;color:rgba(168,196,154,.16);pointer-events:none}
 .empty-record{border-style:dashed;background:rgba(20,43,32,.55)}.empty-record .record-symbol{background:transparent;border-style:dashed;color:var(--gold)}
 .return-link{display:inline-block;margin-top:38px;padding:11px 16px;border:1px solid var(--gold);color:var(--gold-light);font-size:.8rem}.return-link:hover{background:var(--gold);color:var(--forest)}
 footer{border-top:1px solid var(--line);padding:24px 7%;text-align:center;color:var(--muted);font-size:.8rem}
-@media(max-width:600px){.site-header{padding:16px 6%}.catalogue-grid{grid-template-columns:1fr}.catalogue-card,.empty-record{min-height:220px;padding:18px}main{width:88%}}
+@media(max-width:760px){.catalogue-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:480px){.site-header{padding:16px 6%}.catalogue-grid{grid-template-columns:1fr}.catalogue-card,.empty-record{min-height:250px;padding:18px}main{width:88%}}
 </style>
 </head>
 <body>
@@ -30,7 +30,7 @@ footer{border-top:1px solid var(--line);padding:24px 7%;text-align:center;color:
   <p class="intro">A growing catalogue devoted to seeds, their structures, identification, cultivation and role in the renewal of plant life.</p>
   <div class="ornament"></div>
   <section class="catalogue-grid" aria-label="Seeds & Plant Propagation catalogue">
-    <a class="catalogue-card" href="seed-morphology-classification/index.html"><div><span class="record-number">RECORD 001</span><div class="record-symbol">✦</div><h2>Seed Morphology & Classification</h2><p>A field guide to the form, structure and identification of common food and garden seeds.</p></div><p class="record-meta">Professor Elowen Thorne · Second revised edition →</p></a>
+    <a class="catalogue-card" href="seed-morphology-classification/index.html"><div><span class="record-number">VOLUME 001</span><div class="record-symbol">✦</div><h2>Seed Morphology & Classification</h2><p>A field guide to the form, structure and identification of common food and garden seeds.</p></div><p class="record-meta">Professor Elowen Thorne · Second revised edition →</p></a>
   </section>
   <a class="return-link" href="../index.html">← Return to the Department of Botany</a>
 </main>
