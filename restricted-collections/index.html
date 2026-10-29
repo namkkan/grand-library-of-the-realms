@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1019">
+  <title>Restricted Collections · The Grand Library of the Realms</title>
+  <meta name="description" content="Access to the Restricted Collections is sealed until the required clearance and magical proficiency have been granted.">
+  <style>
+    :root{--night:#0b1019;--panel:#131b29;--gold:#c3a46b;--parchment:#e9ddc4;--muted:#aaa9a5;--line:#39382f;--red:#8e5555}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 18%,#252437 0%,#111522 42%,var(--night) 78%);color:var(--parchment);font:16px/1.75 Georgia,"Times New Roman",serif}
+    a{color:inherit;text-decoration:none}
+    header,footer{padding:18px 7%;border-bottom:1px solid var(--line);background:#0b1019bb}
+    .brand{color:var(--gold);font:12px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase}
+    main{width:min(900px,90%);margin:0 auto;padding:72px 0 90px;text-align:center}
+    .eyebrow{color:var(--gold);font:10px Arial,sans-serif;letter-spacing:4px;text-transform:uppercase}
+    .seal{width:150px;height:150px;margin:30px auto;display:grid;place-items:center;border:1px solid #c3a46b88;border-radius:50%;position:relative;background:radial-gradient(circle,#272437,#111522 72%);box-shadow:0 0 55px #8e555522,inset 0 0 25px #c3a46b0c}
+    .seal:before,.seal:after{content:"";position:absolute;inset:10px;border:1px solid #c3a46b44;border-radius:50%}
+    .seal:after{inset:22px;border-style:dashed}
+    .lock{font-size:48px;color:var(--gold);line-height:1;filter:drop-shadow(0 0 12px #c3a46b55)}
+    h1{font-size:clamp(2.5rem,7vw,4.8rem);font-weight:normal;line-height:1.08;margin:15px 0}
+    .subtitle{color:#c4b9a7;font-style:italic;font-size:1.1rem}
+    .rule{width:90px;height:1px;background:var(--gold);margin:30px auto}
+    .message{max-width:650px;margin:0 auto;color:#d1c8b8}
+    .requirements{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:38px auto;max-width:720px;text-align:left}
+    .requirement{padding:22px;border:1px solid var(--line);background:linear-gradient(145deg,#191d2b,#101622)}
+    .requirement .number{font:10px Arial,sans-serif;letter-spacing:2px;color:var(--gold)}
+    .requirement h2{font-size:1.25rem;font-weight:normal;margin:10px 0 7px}
+    .requirement p{margin:0;color:var(--muted);font-size:.94rem}
+    .status{display:inline-block;margin:8px 0 28px;padding:9px 15px;border:1px solid #8e555577;color:#d7a4a0;font:10px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase}
+    .notice{max-width:600px;margin:0 auto 35px;color:var(--muted);font-size:.94rem}
+    .back{display:inline-block;padding:12px 20px;border:1px solid var(--gold);color:var(--gold);font:10px Arial,sans-serif;letter-spacing:1.5px;text-transform:uppercase}
+    .back:hover{background:#c3a46b18}
+    footer{border-top:1px solid var(--line);border-bottom:0;text-align:center;color:var(--muted);font-size:.8rem}
+    @media(max-width:600px){main{padding:48px 0 65px}.requirements{grid-template-columns:1fr}.seal{width:125px;height:125px}}
+  </style>
+</head>
+<body>
+  <header><a class="brand" href="../../index.html">✦ The Grand Library of the Realms</a></header>
+  <main>
+    <span class="eyebrow">The sealed wing · Clearance required</span>
+    <div class="seal" aria-hidden="true"><span class="lock">♙</span></div>
+    <h1>Restricted Collections</h1>
+    <p class="subtitle">Some knowledge must be approached with care.</p>
+    <div class="rule"></div>
+    <p class="message">You have reached the outer threshold of the Restricted Collections. The archives beyond this seal contain records, artefacts, and arcane research that are not available to every visitor of the Library.</p>
+    <div class="status">Access sealed · Clearance insufficient</div>
+    <div class="requirements">
+      <section class="requirement">
+        <span class="number">REQUIREMENT I</span>
+        <h2>Library Access Pass</h2>
+        <p>A valid access pass issued by the Library's custodians is required before entry may be considered.</p>
+      </section>
+      <section class="requirement">
+        <span class="number">REQUIREMENT II</span>
+        <h2>Advanced Magical Proficiency</h2>
+        <p>Visitors must demonstrate a higher level of magical knowledge and control before approaching the sealed records.</p>
+      </section>
+    </div>
+    <p class="notice">This wing remains closed for now. Its contents will be catalogued and revealed when the Library is ready to open its doors. No request or spell can bypass the seal.</p>
+    <a class="back" href="../../index.html">Return to the Main Hall</a>
+  </main>
+  <footer>THE GRAND LIBRARY OF THE REALMS · RESTRICTED ACCESS</footer>
+</body>
+</html>
