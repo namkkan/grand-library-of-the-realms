@@ -10,12 +10,12 @@
 
   <style>
     :root {
-      --night: #10251b;
-      --panel: #1b3828;
-      --gold: #c6a66b;
-      --parchment: #eee5d2;
-      --muted: #b7b6ad;
-      --line: #244631;
+      --night: #17181b;
+      --panel: #24262b;
+      --gold: #c2c4cc;
+      --parchment: #e5e6e9;
+      --muted: #b0b2ba;
+      --line: #3a3d44;
     }
 
     * { box-sizing: border-box; }
@@ -67,12 +67,7 @@
       padding: 100px 24px 90px;
       text-align: center;
       border-bottom: 1px solid var(--line);
-      background: radial-gradient(
-        ellipse at 50% 35%,
-        #1d3a2b 0%,
-        #142b20 42%,
-        #10251b 80%
-      );
+      background: radial-gradient(ellipse at 50% 35%, #303238 0%, #202126 46%, #17181b 82%);
     }
 
     .ornament {
@@ -152,7 +147,7 @@
 
     .department-card {
       padding: 26px;
-      background: linear-gradient(145deg, #1b3828, #10251b);
+      background: linear-gradient(145deg, #292b31, #1b1c20);
       border: 1px solid var(--line);
       transition: transform .2s, border-color .2s;
     }
@@ -211,7 +206,7 @@
       padding: 55px 24px;
       border-top: 1px solid var(--line);
       text-align: center;
-      background: #142b20;
+      background: #202126;
     }
 
     .closing p {
@@ -254,6 +249,57 @@
     .department-aquatic .facilities { border-top-color: rgba(141,79,131,.35); }
     .department-aquatic .facilities strong { color: #713c70; }
     .department-aquatic:hover { border-color: #bd76ac; }
+
+
+    /* Neutral district canvas; each department has its own colour identity. */
+    .department-botany { background:linear-gradient(145deg,#294b38,#172a21); border-color:#52765d; }
+    .department-botany .department-symbol,.department-botany .department-number,.department-botany .translation { color:#b5d2a8; }
+    .department-botany .facilities { border-top-color:rgba(181,210,168,.35); }
+    .department-botany .facilities strong { color:#dce9d4; }
+    .department-botany:hover { border-color:#a8c49a; }
+
+    .department-zoology { background:linear-gradient(145deg,#51402c,#29231d); border-color:#796344; }
+    .department-zoology .department-symbol,.department-zoology .department-number,.department-zoology .translation { color:#d9b77c; }
+    .department-zoology .facilities { border-top-color:rgba(217,183,124,.35); }
+    .department-zoology .facilities strong { color:#eee0c4; }
+    .department-zoology:hover { border-color:#d9b77c; }
+
+    .department-geology { background:linear-gradient(145deg,#654832,#38291f); border-color:#987354; }
+    .department-geology .department-symbol,.department-geology .department-number,.department-geology .translation { color:#e0b98c; }
+    .department-geology .facilities { border-top-color:rgba(224,185,140,.35); }
+    .department-geology .facilities strong { color:#f0dfca; }
+    .department-geology:hover { border-color:#d5a777; }
+
+    .department-aquatic { background:linear-gradient(145deg,#b7e6f4,#82c7e2 58%,#e8c5df); border-color:#d9a9d0; color:#193849; }
+    .department-aquatic .department-symbol,.department-aquatic .department-number,.department-aquatic .translation { color:#8d4f83; }
+    .department-aquatic p { color:#315466; }
+    .department-aquatic .facilities { border-top-color:rgba(141,79,131,.35); }
+    .department-aquatic .facilities strong { color:#713c70; }
+    .department-aquatic:hover { border-color:#bd76ac; }
+
+    .department-astronomy { background:linear-gradient(145deg,#393451,#1e1c2d); border-color:#625b88; }
+    .department-astronomy .department-symbol,.department-astronomy .department-number,.department-astronomy .translation { color:#c5b8f0; }
+    .department-astronomy .facilities { border-top-color:rgba(197,184,240,.35); }
+    .department-astronomy .facilities strong { color:#e4def7; }
+    .department-astronomy:hover { border-color:#b8a9ee; }
+
+    .department-ecology { background:linear-gradient(145deg,#465044,#252b25); border-color:#68775e; }
+    .department-ecology .department-symbol,.department-ecology .department-number,.department-ecology .translation { color:#c0d1a0; }
+    .department-ecology .facilities { border-top-color:rgba(192,209,160,.35); }
+    .department-ecology .facilities strong { color:#e2e9d2; }
+    .department-ecology:hover { border-color:#c0d1a0; }
+
+    .department-anatomy { background:linear-gradient(145deg,#583541,#2e2027); border-color:#855666; }
+    .department-anatomy .department-symbol,.department-anatomy .department-number,.department-anatomy .translation { color:#e1a9bd; }
+    .department-anatomy .facilities { border-top-color:rgba(225,169,189,.35); }
+    .department-anatomy .facilities strong { color:#f2d9e2; }
+    .department-anatomy:hover { border-color:#e1a9bd; }
+
+    .department-weather { background:linear-gradient(145deg,#344953,#1e292e); border-color:#547682; }
+    .department-weather .department-symbol,.department-weather .department-number,.department-weather .translation { color:#a7d5df; }
+    .department-weather .facilities { border-top-color:rgba(167,213,223,.35); }
+    .department-weather .facilities strong { color:#d6edf0; }
+    .department-weather:hover { border-color:#a7d5df; }
 
     @media (max-width: 760px) {
       .navigation {
@@ -318,7 +364,7 @@
 
       <div class="department-grid">
 
-        <a class="department-card" href="botany/index.html" aria-label="Explore Department of Botany">
+        <a class="department-card department-botany" href="botany/index.html" aria-label="Explore Department of Botany">
           <span class="department-symbol">❧</span>
           <span class="department-number">DEPARTMENT 01</span>
           <h3>Department of Botany</h3>
@@ -335,7 +381,7 @@
           <span class="open-section">Explore Department of Botany →</span>
         </a>
 
-        <article class="department-card">
+        <article class="department-card department-zoology">
           <span class="department-symbol">♜</span>
           <span class="department-number">DEPARTMENT 02</span>
           <h3>Department of Zoology</h3>
@@ -383,7 +429,7 @@
           </p>
         </article>
 
-        <article class="department-card">
+        <article class="department-card department-astronomy">
           <span class="department-symbol">☾</span>
           <span class="department-number">DEPARTMENT 05</span>
           <h3>Department of Astronomy and Cosmology</h3>
@@ -399,7 +445,7 @@
           </p>
         </article>
 
-        <article class="department-card">
+        <article class="department-card department-ecology">
           <span class="department-symbol">♧</span>
           <span class="department-number">DEPARTMENT 06</span>
           <h3>Department of Ecology and Environmental Studies</h3>
@@ -414,7 +460,7 @@
           </p>
         </article>
 
-        <article class="department-card">
+        <article class="department-card department-anatomy">
           <span class="department-symbol">✧</span>
           <span class="department-number">DEPARTMENT 07</span>
           <h3>Department of Anatomy and Life Sciences</h3>
@@ -430,7 +476,7 @@
           </p>
         </article>
 
-        <article class="department-card">
+        <article class="department-card department-weather">
           <span class="department-symbol">☼</span>
           <span class="department-number">DEPARTMENT 08</span>
           <h3>Department of Meteorology and Natural Phenomena</h3>
