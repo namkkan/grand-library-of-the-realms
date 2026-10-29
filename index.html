@@ -482,7 +482,28 @@
     .reading-desk-clear:hover { background:rgba(200,169,107,.1); }
     @media(max-width:760px){ .reading-desk-grid { grid-template-columns:1fr; } }
 
-  </style>
+  
+    /* FIND YOUR WAY · interactive district map */
+    .wayfinding { margin: 0 0 34px; padding: 24px; border: 1px solid #c3a46b45; border-radius: 16px; background: linear-gradient(145deg, #111a28, #0d1420); }
+    .wayfinding-tools { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 18px; }
+    .wayfinding-search { flex: 1 1 220px; min-width: 0; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; background: #0b1019; color: var(--parchment); font: 14px Arial, sans-serif; }
+    .wayfinding-search:focus { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .wayfinding-map { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; padding: 22px; border: 1px solid #c3a46b30; border-radius: 12px; background-image: radial-gradient(#c3a46b1a 1px, transparent 1px); background-size: 18px 18px; }
+    .wayfinding-map::before { content: ""; position: absolute; inset: 12% 16%; border: 1px dashed #c3a46b45; border-radius: 45%; pointer-events: none; }
+    .wayfinding-node { position: relative; z-index: 1; min-height: 82px; padding: 12px 8px; border: 1px solid #5b5b51; border-radius: 10px; background: #141e2d; color: var(--parchment); cursor: pointer; font: 13px/1.4 Arial, sans-serif; transition: border-color .2s, background .2s, transform .2s, box-shadow .2s; }
+    .wayfinding-node span { display: block; margin-bottom: 5px; color: var(--gold); font-size: 19px; }
+    .wayfinding-node:hover, .wayfinding-node:focus-visible { border-color: var(--gold); transform: translateY(-2px); }
+    .wayfinding-node[aria-pressed="true"] { border-color: var(--gold); background: #29354a; box-shadow: 0 0 0 2px #c3a46b24, 0 0 22px #c3a46b18; }
+    .wayfinding-node[hidden] { display: none; }
+    .wayfinding-detail { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; margin-top: 16px; padding: 18px; border-left: 3px solid var(--gold); background: #172131; }
+    .wayfinding-detail h3 { margin: 0 0 6px; color: var(--gold); }
+    .wayfinding-detail p { margin: 0; color: #c9c4b9; font-size: 14px; }
+    .wayfinding-open { display: inline-block; padding: 10px 13px; border: 1px solid var(--gold); border-radius: 7px; color: var(--gold); font: 12px Arial, sans-serif; white-space: nowrap; }
+    .wayfinding-open:hover { background: #c3a46b18; }
+    .wayfinding-status { margin: 10px 0 0; color: var(--muted); font: 12px Arial, sans-serif; }
+    @media (max-width: 700px) { .wayfinding { padding: 14px; } .wayfinding-map { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 12px; gap: 9px; } .wayfinding-map::before { inset: 8%; } .wayfinding-detail { grid-template-columns: 1fr; } .wayfinding-open { justify-self: start; } }
+    @media (max-width: 390px) { .wayfinding-map { grid-template-columns: 1fr 1fr; } .wayfinding-node { font-size: 12px; } }
+</style>
 </head>
 
 <body>
@@ -577,6 +598,27 @@
           Each district leads to a different field of study,
           a different collection, or a different corner of the realms.
         </p>
+      </div>
+
+      <div class="wayfinding" id="wayfinding-map" aria-label="Interactive map of the Library Districts">
+        <div class="wayfinding-tools">
+          <input class="wayfinding-search" id="wayfinding-search" type="search" placeholder="Search the districts…" aria-label="Search Library Districts">
+          <span class="eyebrow">Select a district to explore</span>
+        </div>
+        <div class="wayfinding-map" id="wayfinding-nodes" role="group" aria-label="Choose a Library District">
+          <button class="wayfinding-node" type="button" data-place="atrium" aria-pressed="true"><span>⌂</span>The Grand Atrium</button>
+          <button class="wayfinding-node" type="button" data-place="arcane" aria-pressed="false"><span>✧</span>Arcane Arts & Alchemy</button>
+          <button class="wayfinding-node" type="button" data-place="histories" aria-pressed="false"><span>✦</span>Histories of the Realms</button>
+          <button class="wayfinding-node" type="button" data-place="natural" aria-pressed="false"><span>❧</span>Natural Sciences</button>
+          <button class="wayfinding-node" type="button" data-place="restricted" aria-pressed="false"><span>⚿</span>Restricted Collections</button>
+          <button class="wayfinding-node" type="button" data-place="celestial" aria-pressed="false"><span>☾</span>Celestial Studies</button>
+          <button class="wayfinding-node" type="button" data-place="peoples" aria-pressed="false"><span>✦</span>Peoples & Cultures</button>
+        </div>
+        <div class="wayfinding-detail" aria-live="polite">
+          <div><h3 id="wayfinding-title">The Grand Atrium</h3><p id="wayfinding-description">Begin at the heart of the Library, where visitors gather before setting out into its many districts.</p></div>
+          <a class="wayfinding-open" id="wayfinding-open" href="#departments">Explore district ↗</a>
+        </div>
+        <p class="wayfinding-status" id="wayfinding-status" aria-live="polite">7 districts mapped.</p>
       </div>
 
       <div class="grid">
@@ -904,7 +946,54 @@
         localStorage.setItem(key, JSON.stringify(updated));
       } catch (error) {}
     })();
-  </script>
+  
+    // Interactive Find Your Way map
+    (() => {
+      const map = document.getElementById("wayfinding-map");
+      if (!map) return;
+      const nodes = [...map.querySelectorAll(".wayfinding-node")];
+      const search = document.getElementById("wayfinding-search");
+      const title = document.getElementById("wayfinding-title");
+      const description = document.getElementById("wayfinding-description");
+      const open = document.getElementById("wayfinding-open");
+      const status = document.getElementById("wayfinding-status");
+      const places = {
+        atrium: { title: "The Grand Atrium", description: "Begin at the heart of the Library, where visitors gather before setting out into its many districts.", href: "#departments" },
+        arcane: { title: "Arcane Arts & Alchemy", description: "Explore magical disciplines, alchemical research and the study of enchanted things.", href: "#departments" },
+        histories: { title: "Histories of the Realms", description: "Follow the chronicles of ancient kingdoms, forgotten cities and the worlds that came before.", href: "#departments" },
+        natural: { title: "Natural Sciences", description: "Enter the study of plants, animals, minerals and the wonders of the natural world.", href: "departments/natural-sciences/index.html" },
+        restricted: { title: "Restricted Collections", description: "A guarded district for sealed records, dangerous artefacts and knowledge requiring special permission.", href: "#departments" },
+        celestial: { title: "Celestial Studies", description: "Explore star charts, lunar calendars and the mysteries of the heavens.", href: "#departments" },
+        peoples: { title: "Peoples & Cultures", description: "Discover the languages, traditions and communities of the many realms.", href: "#peoples" }
+      };
+      function selectPlace(key) {
+        const place = places[key];
+        if (!place) return;
+        nodes.forEach(node => node.setAttribute("aria-pressed", String(node.dataset.place === key)));
+        title.textContent = place.title;
+        description.textContent = place.description;
+        open.href = place.href;
+        status.textContent = "Selected: " + place.title + ".";
+      }
+      nodes.forEach(node => node.addEventListener("click", () => selectPlace(node.dataset.place)));
+      search.addEventListener("input", () => {
+        const query = search.value.trim().toLowerCase();
+        let visible = 0;
+        nodes.forEach(node => {
+          const match = node.textContent.toLowerCase().includes(query);
+          node.hidden = !match;
+          if (match) visible++;
+        });
+        status.textContent = visible + (visible === 1 ? " district found." : " districts found.");
+        const selected = nodes.find(node => node.getAttribute("aria-pressed") === "true" && !node.hidden);
+        if (!selected) {
+          const first = nodes.find(node => !node.hidden);
+          if (first) selectPlace(first.dataset.place);
+        }
+      });
+    })();
+
+</script>
 
 </body>
 </html>
