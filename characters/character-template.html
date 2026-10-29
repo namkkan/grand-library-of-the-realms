@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Reusable character record layout for the Grand Library of the Realms.">
+<meta name="theme-color" content="#0b1019">
+<title>Character Record Template | Grand Library</title>
+<style>
+:root {
+  --night:#0b1019; --panel:#131d2b; --panel-light:#19283b;
+  --gold:#c3a46b; --parchment:#e9ddc4; --muted:#aab0bc;
+  --line:rgba(195,164,107,.3); --blue:#5686c5;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 80% 0%,#1a2b45 0%,transparent 38%),var(--night);color:var(--parchment);font-family:Georgia,"Times New Roman",serif;line-height:1.75}
+a{color:var(--gold);text-decoration:none} a:hover{color:#f0d9a6}
+header{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;padding:18px 7%;border-bottom:1px solid var(--line);background:rgba(7,11,18,.8)}
+.brand,.eyebrow,.meta-label,.tag{font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:2px;font-size:10px}
+.brand,.eyebrow,.meta-label,.tag{color:var(--gold)}
+nav{display:flex;gap:18px;flex-wrap:wrap} nav a{font:10px Arial,sans-serif;text-transform:uppercase;letter-spacing:1px;color:var(--parchment)}
+.hero{padding:76px 7% 55px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:clamp(42px,7vw,76px);line-height:1.08;font-weight:normal;margin:15px 0}
+.hero p{max-width:700px;color:#c0c4cc}
+.record-id{display:inline-block;padding:5px 10px;border:1px solid var(--line);color:var(--muted);font:10px Arial,sans-serif;letter-spacing:1px}
+.layout{max-width:1200px;margin:auto;padding:55px 28px;display:grid;grid-template-columns:minmax(230px,340px) minmax(0,1fr);gap:46px;align-items:start}
+.portrait-column{position:sticky;top:20px}
+.illustration-slot{aspect-ratio:4/5;width:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;border:1px dashed rgba(142,174,210,.55);background:linear-gradient(155deg,rgba(86,134,197,.13),rgba(10,16,25,.3));color:#91afd3;font:11px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase}
+.illustration-slot span{max-width:180px}
+.caption{font-size:12px;color:var(--muted);font-style:italic;margin:10px 0 24px}
+.metadata{border:1px solid var(--line);background:var(--panel);padding:22px}
+.metadata h2,.section-title{font-size:25px;font-weight:normal;margin:0 0 16px}
+.meta-row{padding:11px 0;border-bottom:1px solid rgba(195,164,107,.13)}
+.meta-row:last-child{border-bottom:0}.meta-label{display:block;margin-bottom:3px}.meta-value{color:#d3d0c8;font-size:14px}
+.contents{border-left:1px solid var(--gold);padding:10px 0 10px 18px;margin-top:22px}
+.contents .meta-label{margin-bottom:8px}.contents a{display:block;color:var(--muted);font-size:13px;padding:3px 0}.contents a:hover{color:var(--gold)}
+main section{margin-bottom:54px;scroll-margin-top:24px}
+.section-kicker{font:10px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;color:var(--blue)}
+.section-title{font-size:clamp(26px,4vw,36px);margin:8px 0 14px}
+main p{color:#c6c6c2}
+.lead{font-size:18px;color:#ddd4c5}
+.rule{width:58px;border:0;border-top:1px solid var(--gold);margin:20px 0}
+.note{padding:20px 22px;border-left:2px solid var(--gold);background:rgba(195,164,107,.06);color:#d1c9ba}
+.two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.info-card{padding:18px;border:1px solid var(--line);background:var(--panel)}
+.info-card h3{font-weight:normal;color:var(--gold);font-size:17px;margin:0 0 7px}.info-card p{font-size:13px;margin:0}
+.record-link{display:block;border:1px solid var(--line);background:var(--panel);padding:18px 20px;margin-top:12px}
+.record-link strong{display:block;font-weight:normal;font-size:17px;color:var(--gold)}
+.record-link span{font-size:13px;color:var(--muted)}
+footer{border-top:1px solid var(--line);text-align:center;padding:30px 20px;color:var(--muted);font-size:12px}
+@media(max-width:800px){.layout{grid-template-columns:1fr;gap:32px;padding:35px 20px}.portrait-column{position:static;max-width:420px;margin:auto;width:100%}.hero{padding:55px 22px 40px}.two-col{grid-template-columns:1fr}header{justify-content:center;text-align:center}nav{justify-content:center}}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="../index.html">✦ The Grand Library of the Realms</a>
+  <nav aria-label="Main navigation">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Character Archive</a>
+    <a href="../departments/natural-sciences/index.html">Library Districts</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <span class="eyebrow">Central Archive · Personal Records</span>
+  <h1>[Character Name]</h1>
+  <p>A living record of one individual among the countless lives that shape the Realms.</p>
+  <span class="record-id">ARCHIVE REFERENCE · [ID / STATUS]</span>
+</section>
+
+<div class="layout">
+  <aside class="portrait-column">
+    <div class="illustration-slot" role="img" aria-label="Reserved space for the character's original illustration">
+      <span>Original character illustration goes here</span>
+    </div>
+    <p class="caption">[Illustration caption, location, date, or artist's note.]</p>
+
+    <div class="metadata">
+      <h2>Record Details</h2>
+      <div class="meta-row"><span class="meta-label">Full name</span><div class="meta-value">[Name and titles]</div></div>
+      <div class="meta-row"><span class="meta-label">Species / people</span><div class="meta-value">[Species or ancestry]</div></div>
+      <div class="meta-row"><span class="meta-label">Occupation</span><div class="meta-value">[Profession, role, or calling]</div></div>
+      <div class="meta-row"><span class="meta-label">Affiliation</span><div class="meta-value">[District, community, institution]</div></div>
+      <div class="meta-row"><span class="meta-label">Age / lifespan</span><div class="meta-value">[Known age or estimated range]</div></div>
+      <div class="meta-row"><span class="meta-label">Place of origin</span><div class="meta-value">[Realm, settlement, or unknown]</div></div>
+      <div class="meta-row"><span class="meta-label">Record status</span><div class="meta-value">[Verified · Incomplete · Restricted]</div></div>
+    </div>
+
+    <nav class="contents" aria-label="Record contents">
+      <span class="meta-label">Within this record</span>
+      <a href="#overview">Overview</a>
+      <a href="#appearance">Appearance</a>
+      <a href="#personality">Personality & habits</a>
+      <a href="#history">Personal history</a>
+      <a href="#work">Work & knowledge</a>
+      <a href="#relationships">Relationships</a>
+      <a href="#notes">Curatorial notes</a>
+      <a href="#related">Related records</a>
+    </nav>
+  </aside>
+
+  <main>
+    <section id="overview">
+      <span class="section-kicker">01 · Abstract</span>
+      <h2 class="section-title">At a glance</h2>
+      <hr class="rule">
+      <p class="lead">[Write a short introduction that captures who this person is, what they do, and why their record belongs in the Library.]</p>
+      <p>[Add a little context: where they can usually be found, how they are connected to the Realms, or what makes their story distinctive.]</p>
+      <div class="note"><em>“[A characteristic quote, personal motto, or excerpt from an interview.]”</em><br><span style="color:var(--muted);font-size:13px">— [Speaker or source]</span></div>
+    </section>
+
+    <section id="appearance">
+      <span class="section-kicker">02 · Physical description</span>
+      <h2 class="section-title">Appearance</h2>
+      <p>[Describe silhouette, features, clothing, materials, colours, distinctive marks, and how they tend to present themselves. Keep the description useful for future illustrations.]</p>
+      <div class="two-col">
+        <div class="info-card"><h3>Distinctive features</h3><p>[A few visual traits that make the character recognisable.]</p></div>
+        <div class="info-card"><h3>Typical attire / objects</h3><p>[Clothing, tools, accessories, or meaningful belongings.]</p></div>
+      </div>
+    </section>
+
+    <section id="personality">
+      <span class="section-kicker">03 · Temperament & behaviour</span>
+      <h2 class="section-title">Personality & habits</h2>
+      <p>[Describe their manner, values, desires, fears, contradictions, strengths, and flaws. Prefer concrete behaviour and examples over a list of adjectives.]</p>
+      <div class="two-col">
+        <div class="info-card"><h3>What they seek</h3><p>[Goals, ambitions, curiosities, or needs.]</p></div>
+        <div class="info-card"><h3>What complicates them</h3><p>[Weaknesses, tensions, blind spots, or unresolved conflicts.]</p></div>
+      </div>
+    </section>
+
+    <section id="history">
+      <span class="section-kicker">04 · Biography</span>
+      <h2 class="section-title">Personal history</h2>
+      <p>[Tell their story in chronological or thematic order: origins, formative events, turning points, losses, discoveries, and the circumstances that brought them to the present.]</p>
+      <p>[Separate confirmed facts from rumours or memories that may be incomplete.]</p>
+    </section>
+
+    <section id="work">
+      <span class="section-kicker">05 · Expertise & activity</span>
+      <h2 class="section-title">Work, skills & knowledge</h2>
+      <p>[Record their profession, training, special interests, notable achievements, current projects, and relationship with the Library.]</p>
+      <div class="two-col">
+        <div class="info-card"><h3>Areas of expertise</h3><p>[Subjects, crafts, disciplines, or practical skills.]</p></div>
+        <div class="info-card"><h3>Current pursuits</h3><p>[Research, responsibilities, journeys, or ongoing work.]</p></div>
+      </div>
+    </section>
+
+    <section id="relationships">
+      <span class="section-kicker">06 · Known associations</span>
+      <h2 class="section-title">Relationships & affiliations</h2>
+      <p>[Describe important bonds, rivalries, mentors, collaborators, family ties, and communities. Include only relationships that matter to the character's story.]</p>
+      <div class="note">Cross-reference other records where possible, so the archive becomes a connected network rather than a collection of isolated biographies.</div>
+    </section>
+
+    <section id="notes">
+      <span class="section-kicker">07 · Archive annotations</span>
+      <h2 class="section-title">Curatorial notes</h2>
+      <p>[Add observations from librarians, interview excerpts, field notes, research caveats, disputed information, or details deliberately withheld from the public record.]</p>
+      <p><span class="meta-label">Last reviewed</span>[Date or “Not yet reviewed”]</p>
+    </section>
+
+    <section id="related">
+      <span class="section-kicker">08 · Cross-references</span>
+      <h2 class="section-title">Related records</h2>
+      <p>Explore other entries connected to this individual.</p>
+      <a class="record-link" href="index.html"><strong>Character Archive</strong><span>Return to the registered individuals and personal records.</span></a>
+      <a class="record-link" href="../index.html"><strong>The Grand Library of the Realms</strong><span>Return to the institution's main catalogue and districts.</span></a>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <p style="color:var(--gold)">✦ The Grand Library of the Realms ✦</p>
+  <p>Central Character Archive · Personal record framework</p>
+</footer>
+</body>
+</html>
