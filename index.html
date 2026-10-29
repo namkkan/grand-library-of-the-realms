@@ -537,9 +537,8 @@
       <a href="#departments">Library Districts</a>
       <a href="#peoples">Peoples & Cultures</a>
       <a href="characters/">Characters</a>
-      <a href="#catalogue">Search</a>
       <a href="#archives">Archives</a>
-      <button class="nav-search-button" id="nav-search-button" type="button" aria-label="Open library search" title="Search the library">
+      <button class="nav-search-button" id="nav-search-button" type="button" aria-label="Search districts and sections" title="Search districts and sections">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.6"></circle><path d="m16 16 5 5"></path></svg>
       </button>
     </nav>
@@ -577,38 +576,6 @@
     </section>
 
 
-    <section class="catalogue-search" id="catalogue" aria-labelledby="catalogue-title">
-      <button class="catalogue-toggle" id="catalogue-toggle" type="button" aria-expanded="false" aria-controls="catalogue-content">
-        <span class="catalogue-toggle-copy">
-          <span class="eyebrow">The Grand Catalogue</span>
-          <span class="catalogue-toggle-title" id="catalogue-title">Search the Library <svg class="catalogue-title-search-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></span>
-          <span class="catalogue-toggle-subtitle">Find books, scholars, departments and peoples across the realms.</span>
-        </span>
-        <span class="catalogue-toggle-icon" aria-hidden="true">＋</span>
-      </button>
-      <div class="catalogue-content" id="catalogue-content" hidden>
-      <div class="catalogue-panel">
-        <form class="catalogue-form" id="catalogue-form" role="search">
-          <label for="catalogue-query" class="visually-hidden">Search the library catalogue</label>
-          <input class="catalogue-input" id="catalogue-query" name="q" type="search" placeholder="Try “botany”, “Elowen Thorne” or “kenku”…" autocomplete="off">
-          <button class="catalogue-submit" type="submit">Search ✦</button>
-          <button class="catalogue-clear" id="catalogue-clear" type="button">Clear</button>
-        </form>
-        <div class="catalogue-hints" aria-label="Suggested searches">
-          <span>Explore:</span>
-          <button type="button" data-search-term="botany">Botany</button>
-          <button type="button" data-search-term="seeds">Seeds</button>
-          <button type="button" data-search-term="Elowen Thorne">Elowen Thorne</button>
-          <button type="button" data-search-term="kenku">Kenku</button>
-          <button type="button" data-search-term="characters">Characters</button>
-        </div>
-        <p class="catalogue-status" id="catalogue-status" aria-live="polite">The catalogue is ready. Search by title, subject, author or keyword.</p>
-        <div class="catalogue-results" id="catalogue-results"></div>
-        
-      </div>
-      </div>
-    </section>
-
     <!-- LIBRARY DISTRICTS -->
 
     <section class="section" id="departments">
@@ -641,7 +608,7 @@
           <div><h3 id="wayfinding-title">The Grand Atrium</h3><p id="wayfinding-description">Begin at the heart of the Library, where visitors gather before setting out into its many districts.</p></div>
           <a class="wayfinding-open" id="wayfinding-open" href="#departments">Explore district ↗</a>
         </div>
-        <p class="wayfinding-status" id="wayfinding-status" aria-live="polite">7 districts mapped.</p>
+        <p class="wayfinding-status" id="wayfinding-status" aria-live="polite">11 accessible pages</p>
       </div>
 
       <div class="grid">
@@ -820,171 +787,6 @@
 
   <script>
     (() => {
-      const records = [
-        {title:"The Grand Library of the Realms", type:"Institution", description:"The central entrance to the library and its districts.", url:"#home", keywords:"home grand library realms institution welcome"},
-        {title:"Library Districts", type:"Directory", description:"Explore the fields of knowledge preserved by the institution.", url:"#departments", keywords:"departments districts directory sections"},
-        {title:"Natural Sciences", type:"Department", description:"Explore botany and the study of the natural world.", url:"departments/natural-sciences/index.html", keywords:"nature plants animals minerals science"},
-        {title:"Botany", type:"Subject", description:"The botanical collections, from plant classification to propagation.", url:"departments/natural-sciences/botany/index.html", keywords:"plants taxonomy seeds gardening flowers natural sciences"},
-        {title:"The Living Index", type:"Book", description:"Principles and methods of plant taxonomy and classification.", url:"departments/natural-sciences/botany/taxonomy/the-living-index/", keywords:"botany taxonomy classification plants book Elowen Thorne"},
-        {title:"Seed Morphology & Classification", type:"Book", description:"A field guide to identifying food, garden and vegetable seeds.", url:"departments/natural-sciences/botany/seeds/seed-morphology-classification/", keywords:"botany seed seeds food garden vegetable morphology classification Elowen Thorne"},
-        {title:"Garden & Vegetable Seeds", type:"Book Section", description:"Morphological records for pumpkin, cucumber, tomato, carrot and other garden seeds.", url:"departments/natural-sciences/botany/seeds/seed-morphology-classification/#block-intro-garden", keywords:"garden vegetable pumpkin cucumber eggplant tomato pepper pea carrot lettuce radish spinach beetroot"},
-        {title:"Food Seeds", type:"Book Section", description:"Identification notes for wheat, rice, maize, lentil, bean and chickpea.", url:"departments/natural-sciences/botany/seeds/seed-morphology-classification/#block-intro-food", keywords:"food seeds grains wheat rice maize lentil common bean chickpea"},
-        {title:"People of the Realms", type:"Directory", description:"Discover the peoples and cultures represented in the library.", url:"#peoples", keywords:"peoples cultures races species"},
-        {title:"The Kenku", type:"People", description:"Curious collectors of knowledge, objects and echoes of countless voices.", url:"peoples/kenku.html", keywords:"kenku raven crow people race species"},
-        {title:"The Mycelials", type:"People", description:"Sentient fungal beings connected to spores and ancient networks of memory.", url:"peoples/mycelials.html", keywords:"mycelials fungus fungi spores mushrooms"},
-        {title:"Humans", type:"People", description:"One people with countless histories, cultures and paths through the realms.", url:"peoples/humans.html", keywords:"human humans people cultures"},
-        {title:"Characters", type:"Directory", description:"Meet the scholars and other individuals connected to the library.", url:"characters/index.html", keywords:"character characters people scholars"},
-        {title:"Professor Elowen Thorne", type:"Character", description:"Senior Taxonomist in the Department of Botany and author of botanical works.", url:"characters/elowen-thorne/index.html", keywords:"elowen thorne botanist professor taxonomy seeds author scholar"},
-        {title:"Sapphiron", type:"Character", description:"A kenku wizard and alchemist devoted to knowledge and discovery.", url:"characters/sapphiron.html", keywords:"sapphiron kenku wizard alchemist magic"}
-      ];
-      const catalogue = document.getElementById("catalogue");
-      const catalogueToggle = document.getElementById("catalogue-toggle");
-      const catalogueContent = document.getElementById("catalogue-content");
-      function openCatalogue(focusInput = false) {
-        if (catalogueToggle && catalogueContent) {
-          catalogueContent.hidden = false;
-          catalogueToggle.setAttribute("aria-expanded", "true");
-          const icon = catalogueToggle.querySelector(".catalogue-toggle-icon");
-          if (icon) icon.textContent = "−";
-        }
-        catalogue?.scrollIntoView({ behavior: "smooth", block: "start" });
-        if (focusInput) window.setTimeout(() => document.getElementById("catalogue-query")?.focus(), 350);
-      }
-      if (catalogueToggle && catalogueContent) {
-        catalogueToggle.addEventListener("click", () => {
-          const willOpen = catalogueContent.hidden;
-          catalogueContent.hidden = !willOpen;
-          catalogueToggle.setAttribute("aria-expanded", String(willOpen));
-          const icon = catalogueToggle.querySelector(".catalogue-toggle-icon");
-          if (icon) icon.textContent = willOpen ? "−" : "＋";
-        });
-      }
-      document.querySelectorAll('a[href="#catalogue"]').forEach(link => {
-        link.addEventListener("click", event => {
-          event.preventDefault();
-          openCatalogue(true);
-          history.replaceState(null, "", "#catalogue");
-        });
-      });
-      const navSearchButton = document.getElementById("nav-search-button");
-      if (navSearchButton) navSearchButton.addEventListener("click", () => openCatalogue(true));
-      const form = document.getElementById("catalogue-form");
-      const input = document.getElementById("catalogue-query");
-      const results = document.getElementById("catalogue-results");
-      const status = document.getElementById("catalogue-status");
-      const clear = document.getElementById("catalogue-clear");
-      if (!form || !input || !results || !status || !clear) return;
-      const normalise = value => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
-      function search(query) {
-        const terms = normalise(query).split(/\s+/).filter(Boolean);
-        results.replaceChildren();
-        if (!terms.length) {
-          status.textContent = "The catalogue is ready. Search by title, subject, author or keyword.";
-          return;
-        }
-        const matches = records.filter(record => {
-          const searchable = normalise([record.title, record.type, record.description, record.keywords].join(" "));
-          return terms.every(term => searchable.includes(term));
-        });
-        status.textContent = matches.length
-          ? matches.length + (matches.length === 1 ? " record found." : " records found.")
-          : "No records found. Try another title, author or subject.";
-        matches.forEach(record => {
-          const link = document.createElement("a");
-          link.className = "catalogue-result";
-          link.href = record.url;
-          const type = document.createElement("span");
-          type.className = "catalogue-result-type";
-          type.textContent = record.type;
-          const title = document.createElement("span");
-          title.className = "catalogue-result-title";
-          title.textContent = record.title;
-          const description = document.createElement("span");
-          description.className = "catalogue-result-description";
-          description.textContent = record.description;
-          link.append(type, title, description);
-          results.append(link);
-        });
-      }
-      form.addEventListener("submit", event => {
-        event.preventDefault();
-        search(input.value);
-      });
-      input.addEventListener("input", () => search(input.value));
-      clear.addEventListener("click", () => {
-        input.value = "";
-        search("");
-        input.focus();
-      });
-      document.querySelectorAll("[data-search-term]").forEach(button => {
-        button.addEventListener("click", () => {
-          input.value = button.dataset.searchTerm;
-          search(input.value);
-          input.focus();
-        });
-      });
-    })();
-  </script>
-
-  <script>
-    (() => {
-      const historyKey = 'grand-library:visited-pages';
-      const historyList = document.getElementById('reading-history-list');
-      const favouritesList = document.getElementById('reading-favourites-list');
-      const progressList = document.getElementById('reading-progress-list');
-      const clearButton = document.getElementById('reading-desk-clear');
-      const books = [
-        { title: 'Seed Morphology & Classification', url: 'departments/natural-sciences/botany/seeds/seed-morphology-classification/index.html', key: 'grand-library:seed-morphology:', kind: 'seed' },
-        { title: 'The Living Index', url: 'departments/natural-sciences/botany/taxonomy/the-living-index/index.html', key: 'grand-library:living-index:', kind: 'living' }
-      ];
-      const readJSON = (key, fallback) => { try { return JSON.parse(localStorage.getItem(key) || JSON.stringify(fallback)); } catch (error) { return fallback; } };
-      function addItem(list, label, href, detail) {
-        const li = document.createElement('li');
-        if (href) { const a = document.createElement('a'); a.href = href; a.textContent = label; li.appendChild(a); }
-        else li.textContent = label;
-        if (detail) { const small = document.createElement('small'); small.textContent = detail; li.appendChild(small); }
-        list.appendChild(li);
-      }
-      function render() {
-        if (!historyList || !favouritesList || !progressList) return;
-        historyList.replaceChildren(); favouritesList.replaceChildren(); progressList.replaceChildren();
-        const history = readJSON(historyKey, []);
-        if (history.length) history.slice(0, 6).forEach(item => addItem(historyList, item.title || 'Visited page', item.url, item.visitedAt ? new Date(item.visitedAt).toLocaleDateString() : ''));
-        else addItem(historyList, 'No visits recorded yet.', null, 'Open a book to begin your history.');
-        let favouriteCount = 0, progressCount = 0;
-        books.forEach(book => {
-          const saved = readJSON(book.key + 'favourites', []);
-          if (book.kind === 'seed') {
-            saved.forEach(id => {
-              const n = Number(id);
-              if (!Number.isNaN(n)) { addItem(favouritesList, book.title + ' · Entry ' + (n + 1), book.url, 'Saved page'); favouriteCount++; }
-            });
-          } else {
-            saved.forEach(i => {
-              const n = Number(i);
-              if (Number.isFinite(n) && n >= 0) { addItem(favouritesList, book.title + ' · Page ' + (n + 1), book.url, 'Saved page'); favouriteCount++; }
-            });
-          }
-          const rawProgress = localStorage.getItem(book.key + 'progress');
-          if (rawProgress !== null && rawProgress !== '') {
-            const n = Math.max(0, Number(rawProgress) || 0);
-            addItem(progressList, book.title, book.url, 'Resume around page ' + (n + 1));
-            progressCount++;
-          }
-        });
-        if (!favouriteCount) addItem(favouritesList, 'No saved pages yet.', null, 'Use the bookmark button inside a book.');
-        if (!progressCount) addItem(progressList, 'No reading progress saved yet.', null, 'Your position is saved as you read.');
-      }
-      if (clearButton) clearButton.addEventListener('click', () => {
-        try { localStorage.removeItem(historyKey); } catch (error) {}
-        render();
-      });
-      render();
-    })();
-  </script>
-
-  <script>
-    (() => {
       try {
         const key = 'grand-library:visited-pages';
         const page = { title: document.title.replace(/\s*\|\s*The Grand Library of the Realms$/, ''), url: location.pathname, visitedAt: new Date().toISOString() };
@@ -1038,6 +840,8 @@
         {title:"Astronomy & Cosmology", category:"Natural Sciences", description:"Celestial bodies, stars and the structure of the cosmos.", url:"departments/natural-sciences/astronomy-cosmology/index.html", keywords:"astronomy cosmology stars celestial space"}
       ];
       const normaliseMap = value => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+      const accessiblePageCount = new Set(sections.map(item => item.url)).size;
+      status.textContent = accessiblePageCount + " accessible pages · Search by district, department or a specific section such as Seeds.";
       nodes.forEach(node => node.addEventListener("click", () => selectPlace(node.dataset.place)));
       search.addEventListener("input", () => {
         const query = normaliseMap(search.value);
