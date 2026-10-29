@@ -338,6 +338,79 @@
         font-size: clamp(20px, 5vw, 28px);
       }
     }
+  
+    /* Global catalogue search */
+    .catalogue-search {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 62px 28px 70px;
+    }
+    .catalogue-panel {
+      padding: clamp(22px, 4vw, 42px);
+      border: 1px solid #c3a46b55;
+      background: linear-gradient(135deg, #131b29, #101722);
+    }
+    .catalogue-panel h2 {
+      margin: 10px 0;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: normal;
+    }
+    .catalogue-intro { color: var(--muted); margin: 0 0 24px; }
+    .catalogue-form {
+      display: flex;
+      gap: 10px;
+      align-items: stretch;
+    }
+    .catalogue-input {
+      flex: 1;
+      min-width: 0;
+      padding: 15px 16px;
+      border: 1px solid #77705f;
+      border-radius: 0;
+      background: #0b1019;
+      color: var(--parchment);
+      font: 16px Arial, sans-serif;
+    }
+    .catalogue-input:focus { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .catalogue-submit, .catalogue-clear {
+      padding: 13px 18px;
+      border: 1px solid var(--gold);
+      background: transparent;
+      color: var(--parchment);
+      cursor: pointer;
+      font: 11px Arial, sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .catalogue-submit { background: var(--gold); color: var(--night); }
+    .catalogue-submit:hover { background: var(--parchment); }
+    .catalogue-clear:hover { background: #c3a46b22; }
+    .catalogue-hints {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px;
+      color: var(--muted); font: 11px Arial, sans-serif;
+    }
+    .catalogue-hints button {
+      border: 1px solid #39382f; padding: 5px 9px; background: transparent;
+      color: var(--gold); cursor: pointer; font: inherit;
+    }
+    .catalogue-hints button:hover { border-color: var(--gold); }
+    .catalogue-status { min-height: 24px; margin: 22px 0 12px; color: var(--muted); font: 12px Arial, sans-serif; }
+    .catalogue-results { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .catalogue-result {
+      display: block; padding: 17px 18px; border: 1px solid var(--line);
+      background: #0b1019; transition: border-color .2s, transform .2s;
+    }
+    .catalogue-result:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .catalogue-result-type { display: block; margin-bottom: 5px; color: var(--gold); font: 10px Arial, sans-serif; letter-spacing: 1.5px; text-transform: uppercase; }
+    .catalogue-result-title { display: block; color: var(--parchment); font-size: 19px; }
+    .catalogue-result-description { display: block; margin-top: 5px; color: var(--muted); font-size: 13px; line-height: 1.5; }
+    @media (max-width: 600px) {
+      .catalogue-search { padding: 42px 18px 48px; }
+      .catalogue-form { flex-direction: column; }
+      .catalogue-submit, .catalogue-clear { min-height: 44px; }
+      .catalogue-results { grid-template-columns: 1fr; }
+    }
+
   </style>
 </head>
 
@@ -350,6 +423,7 @@
       <a href="#departments">Library Districts</a>
       <a href="#peoples">Peoples & Cultures</a>
       <a href="characters/">Characters</a>
+      <a href="#catalogue">Search</a>
       <a href="#archives">Archives</a>
     </nav>
   </header>
@@ -382,6 +456,31 @@
         <p class="hero-footnote">
           Explore · Discover · Preserve · Understand
         </p>
+      </div>
+    </section>
+
+
+    <section class="catalogue-search" id="catalogue" aria-labelledby="catalogue-title">
+      <div class="catalogue-panel">
+        <span class="eyebrow">The Grand Catalogue</span>
+        <h2 id="catalogue-title">Search the Library</h2>
+        <p class="catalogue-intro">Find books, scholars, departments and peoples across the realms.</p>
+        <form class="catalogue-form" id="catalogue-form" role="search">
+          <label for="catalogue-query" class="visually-hidden">Search the library catalogue</label>
+          <input class="catalogue-input" id="catalogue-query" name="q" type="search" placeholder="Try “botany”, “Elowen Thorne” or “kenku”…" autocomplete="off">
+          <button class="catalogue-submit" type="submit">Search ✦</button>
+          <button class="catalogue-clear" id="catalogue-clear" type="button">Clear</button>
+        </form>
+        <div class="catalogue-hints" aria-label="Suggested searches">
+          <span>Explore:</span>
+          <button type="button" data-search-term="botany">Botany</button>
+          <button type="button" data-search-term="seeds">Seeds</button>
+          <button type="button" data-search-term="Elowen Thorne">Elowen Thorne</button>
+          <button type="button" data-search-term="kenku">Kenku</button>
+          <button type="button" data-search-term="characters">Characters</button>
+        </div>
+        <p class="catalogue-status" id="catalogue-status" aria-live="polite">The catalogue is ready. Search by title, subject, author or keyword.</p>
+        <div class="catalogue-results" id="catalogue-results"></div>
       </div>
     </section>
 
@@ -511,6 +610,84 @@
     <p>Keeper of Knowledge Across the Ages</p>
     <p>Worldbuilding project · Created with curiosity</p>
   </footer>
+
+
+  <script>
+    (() => {
+      const records = [
+        {title:"The Grand Library of the Realms", type:"Institution", description:"The central entrance to the library and its districts.", url:"#home", keywords:"home grand library realms institution welcome"},
+        {title:"Library Districts", type:"Directory", description:"Explore the fields of knowledge preserved by the institution.", url:"#departments", keywords:"departments districts directory sections"},
+        {title:"Natural Sciences", type:"Department", description:"Explore botany and the study of the natural world.", url:"departments/natural-sciences/index.html", keywords:"nature plants animals minerals science"},
+        {title:"Botany", type:"Subject", description:"The botanical collections, from plant classification to propagation.", url:"departments/natural-sciences/botany/index.html", keywords:"plants taxonomy seeds gardening flowers natural sciences"},
+        {title:"The Living Index", type:"Book", description:"Principles and methods of plant taxonomy and classification.", url:"departments/natural-sciences/botany/taxonomy/the-living-index/", keywords:"botany taxonomy classification plants book Elowen Thorne"},
+        {title:"Seed Morphology & Classification", type:"Book", description:"A field guide to identifying food, garden and vegetable seeds.", url:"departments/natural-sciences/botany/seeds/seed-morphology-classification/", keywords:"botany seed seeds food garden vegetable morphology classification Elowen Thorne"},
+        {title:"Garden & Vegetable Seeds", type:"Book Section", description:"Morphological records for pumpkin, cucumber, tomato, carrot and other garden seeds.", url:"departments/natural-sciences/botany/seeds/seed-morphology-classification/#block-intro-garden", keywords:"garden vegetable pumpkin cucumber eggplant tomato pepper pea carrot lettuce radish spinach beetroot"},
+        {title:"Food Seeds", type:"Book Section", description:"Identification notes for wheat, rice, maize, lentil, bean and chickpea.", url:"departments/natural-sciences/botany/seeds/seed-morphology-classification/#block-intro-food", keywords:"food seeds grains wheat rice maize lentil common bean chickpea"},
+        {title:"People of the Realms", type:"Directory", description:"Discover the peoples and cultures represented in the library.", url:"#peoples", keywords:"peoples cultures races species"},
+        {title:"The Kenku", type:"People", description:"Curious collectors of knowledge, objects and echoes of countless voices.", url:"peoples/kenku.html", keywords:"kenku raven crow people race species"},
+        {title:"The Mycelials", type:"People", description:"Sentient fungal beings connected to spores and ancient networks of memory.", url:"peoples/mycelials.html", keywords:"mycelials fungus fungi spores mushrooms"},
+        {title:"Humans", type:"People", description:"One people with countless histories, cultures and paths through the realms.", url:"peoples/humans.html", keywords:"human humans people cultures"},
+        {title:"Characters", type:"Directory", description:"Meet the scholars and other individuals connected to the library.", url:"characters/index.html", keywords:"character characters people scholars"},
+        {title:"Professor Elowen Thorne", type:"Character", description:"Senior Taxonomist in the Department of Botany and author of botanical works.", url:"characters/elowen-thorne/index.html", keywords:"elowen thorne botanist professor taxonomy seeds author scholar"},
+        {title:"Sapphiron", type:"Character", description:"A kenku wizard and alchemist devoted to knowledge and discovery.", url:"characters/sapphiron.html", keywords:"sapphiron kenku wizard alchemist magic"}
+      ];
+      const form = document.getElementById("catalogue-form");
+      const input = document.getElementById("catalogue-query");
+      const results = document.getElementById("catalogue-results");
+      const status = document.getElementById("catalogue-status");
+      const clear = document.getElementById("catalogue-clear");
+      if (!form || !input || !results || !status || !clear) return;
+      const normalise = value => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+      function search(query) {
+        const terms = normalise(query).split(/\s+/).filter(Boolean);
+        results.replaceChildren();
+        if (!terms.length) {
+          status.textContent = "The catalogue is ready. Search by title, subject, author or keyword.";
+          return;
+        }
+        const matches = records.filter(record => {
+          const searchable = normalise([record.title, record.type, record.description, record.keywords].join(" "));
+          return terms.every(term => searchable.includes(term));
+        });
+        status.textContent = matches.length
+          ? matches.length + (matches.length === 1 ? " record found." : " records found.")
+          : "No records found. Try another title, author or subject.";
+        matches.forEach(record => {
+          const link = document.createElement("a");
+          link.className = "catalogue-result";
+          link.href = record.url;
+          const type = document.createElement("span");
+          type.className = "catalogue-result-type";
+          type.textContent = record.type;
+          const title = document.createElement("span");
+          title.className = "catalogue-result-title";
+          title.textContent = record.title;
+          const description = document.createElement("span");
+          description.className = "catalogue-result-description";
+          description.textContent = record.description;
+          link.append(type, title, description);
+          results.append(link);
+        });
+      }
+      form.addEventListener("submit", event => {
+        event.preventDefault();
+        search(input.value);
+      });
+      input.addEventListener("input", () => search(input.value));
+      clear.addEventListener("click", () => {
+        input.value = "";
+        search("");
+        input.focus();
+      });
+      document.querySelectorAll("[data-search-term]").forEach(button => {
+        button.addEventListener("click", () => {
+          input.value = button.dataset.searchTerm;
+          search(input.value);
+          input.focus();
+        });
+      });
+    })();
+  </script>
 
 </body>
 </html>
