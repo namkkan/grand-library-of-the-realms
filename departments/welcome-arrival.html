@@ -385,13 +385,64 @@
       transform: translateX(5px);
     }
 
-    /* CHARACTER PORTRAITS: THREE COLUMNS, TWO ROWS */
+    /* THREE PRINCIPAL ASSISTANCE SERVICES */
 
-    .people-grid {
+    .service-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
+      gap: 20px;
       align-items: stretch;
+      margin-top: 35px;
+    }
+
+    .service-card {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      padding: 28px 24px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, var(--panel-light), var(--panel));
+    }
+
+    .service-symbol {
+      display: flex;
+      width: 46px;
+      height: 46px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--gold);
+      font-size: 20px;
+    }
+
+    .service-card h3 { font-size: 23px; }
+
+    .service-card p,
+    .service-card li {
+      color: #c1beb5;
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .service-card ul {
+      padding-left: 19px;
+      margin: 5px 0 0;
+    }
+
+    .service-card li { margin-bottom: 8px; }
+    .service-card li::marker { color: var(--gold); }
+
+    .service-responsibility {
+      display: block;
+      margin: 0 0 14px;
+      color: var(--gold-light);
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 1px;
+      line-height: 1.6;
+      text-transform: uppercase;
     }
 
     .person-card {
@@ -586,9 +637,7 @@
     /* TABLETS */
 
     @media (max-width: 900px) {
-      .people-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .portrait { min-height: 230px; }
-      .person-info { padding: 20px 16px; }
+      .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     /* PHONES */
@@ -608,7 +657,7 @@
       .section { padding-top: 52px; }
 
       .destination-grid,
-      .people-grid,
+      .service-grid,
       .info-grid {
         grid-template-columns: 1fr;
       }
@@ -846,157 +895,79 @@
 
       <section class="section" id="assistance">
         <div class="section-heading">
-          <span class="section-number">02 / Help &amp; accessibility</span>
+          <span class="section-number">02 / Help &amp; enquiries</span>
           <h2>Need Assistance?</h2>
 
           <p class="intro">
-            You do not have to find your way alone.
-            The arrival team can help with directions,
-            accessibility, languages and immediate needs.
+            Three clear services are available: personal guidance
+            through the Library, help with lost property, and
+            administrative enquiries.
           </p>
         </div>
 
-        <div class="people-grid">
+        <div class="service-grid">
 
-          <!-- 001 -->
+          <article class="service-card">
+            <span class="service-symbol" aria-hidden="true">✦</span>
+            <span class="section-number">01 / Personal guidance</span>
+            <h3>Visitor Assistance &amp; Guidance</h3>
+            <span class="service-responsibility">Responsible guide · Hyssop</span>
+            <p>
+              Hyssop welcomes visitors, answers their questions and
+              personally accompanies anyone who would feel more
+              comfortable exploring the Library with a guide.
+            </p>
+            <ul>
+              <li>Welcome first-time visitors and explain the Library's basic rules and services.</li>
+              <li>Help locate departments, reading rooms and public facilities.</li>
+              <li>Accompany visitors through the Library when guidance is needed.</li>
+              <li>Help visitors find accessible routes or ask for additional assistance.</li>
+            </ul>
+            <p><a class="profile-link" href="../characters/hyssop.html">Meet Hyssop <span>↗</span></a></p>
+          </article>
 
-    <a class="person-card" href="../characters/hyssop.html" aria-label="Meet Hyssop">
-            <div class="portrait">
-              <div class="portrait-inner">
-                <span class="portrait-number">001</span>
-                <span class="portrait-symbol" aria-hidden="true">✦</span>
-                <span class="portrait-caption">Portrait space</span>
-              </div>
-            </div>
+          <article class="service-card">
+            <span class="service-symbol" aria-hidden="true">⌑</span>
+            <span class="section-number">02 / Lost property</span>
+            <h3>Lost &amp; Found</h3>
+            <span class="service-responsibility">Responsible staff member · To be appointed</span>
+            <p>
+              A central point for reporting missing belongings and
+              returning objects found in the Library's many halls,
+              reading rooms and connecting passages.
+            </p>
+            <ul>
+              <li>Report and recover lost personal belongings.</li>
+              <li>Hand in objects found by visitors or Library staff.</li>
+              <li>Report books or documents that have been misplaced.</li>
+              <li>Record unidentified objects while their owners are sought.</li>
+            </ul>
+          </article>
 
-            <div class="person-info">
-              <span class="section-number">Finding your bearings</span>
-              <h3>Arrival Guide</h3>
-              <p>
-                They help newcomers understand the entrance,
-                read the signs and choose their first destination.
-              </p>
-              <span class="profile-link">Character profiles <span>↗</span></span>
-            </div>
-          </a>
-
-          <!-- 002 -->
-
-          <a class="person-card" href="../characters/" aria-label="Welcome Stewards character profiles">
-            <div class="portrait">
-              <div class="portrait-inner">
-                <span class="portrait-number">002</span>
-                <span class="portrait-symbol" aria-hidden="true">✧</span>
-                <span class="portrait-caption">Portrait space</span>
-              </div>
-            </div>
-
-            <div class="person-info">
-              <span class="section-number">First point of contact</span>
-              <h3>Welcome Stewards</h3>
-              <p>
-                They welcome arriving visitors, answer simple questions
-                and help newcomers decide where to go first.
-              </p>
-              <span class="profile-link">Character profiles <span>↗</span></span>
-            </div>
-          </a>
-
-          <!-- 003 -->
-
-          <a class="person-card" href="../characters/" aria-label="Arrival Attendants character profiles">
-            <div class="portrait">
-              <div class="portrait-inner">
-                <span class="portrait-number">003</span>
-                <span class="portrait-symbol" aria-hidden="true">⌘</span>
-                <span class="portrait-caption">Portrait space</span>
-              </div>
-            </div>
-
-            <div class="person-info">
-              <span class="section-number">Keeping things moving</span>
-              <h3>Arrival Attendants</h3>
-              <p>
-                They keep entrances clear, help visitors move through
-                busy areas and prevent crowding.
-              </p>
-              <span class="profile-link">Character profiles <span>↗</span></span>
-            </div>
-          </a>
-
-          <!-- 004 -->
-
-          <a class="person-card" href="../characters/" aria-label="Accessibility Guides character profiles">
-            <div class="portrait">
-              <div class="portrait-inner">
-                <span class="portrait-number">004</span>
-                <span class="portrait-symbol" aria-hidden="true">◇</span>
-                <span class="portrait-caption">Portrait space</span>
-              </div>
-            </div>
-
-            <div class="person-info">
-              <span class="section-number">Access for everyone</span>
-              <h3>Accessibility Guides</h3>
-              <p>
-                They help visitors find routes and services suited
-                to their mobility, sensory and communication needs.
-              </p>
-              <span class="profile-link">Character profiles <span>↗</span></span>
-            </div>
-          </a>
-
-          <!-- 005 -->
-
-          <a class="person-card" href="../characters/" aria-label="Multilingual Hosts character profiles">
-            <div class="portrait">
-              <div class="portrait-inner">
-                <span class="portrait-number">005</span>
-                <span class="portrait-symbol" aria-hidden="true">❧</span>
-                <span class="portrait-caption">Portrait space</span>
-              </div>
-            </div>
-
-            <div class="person-info">
-              <span class="section-number">Across languages</span>
-              <h3>Multilingual Hosts</h3>
-              <p>
-                They help visitors communicate in commonly used
-                languages and arrange interpretation when needed.
-              </p>
-              <span class="profile-link">Character profiles <span>↗</span></span>
-            </div>
-          </a>
-
-          <!-- 006 -->
-
-          <a class="person-card" href="../characters/" aria-label="Threshold Wardens character profiles">
-            <div class="portrait">
-              <div class="portrait-inner">
-                <span class="portrait-number">006</span>
-                <span class="portrait-symbol" aria-hidden="true">⌑</span>
-                <span class="portrait-caption">Portrait space</span>
-              </div>
-            </div>
-
-            <div class="person-info">
-              <span class="section-number">Safety at the entrance</span>
-              <h3>Threshold Wardens</h3>
-              <p>
-                They monitor entrance safety and respond to incidents
-                while treating ordinary visitors respectfully.
-              </p>
-              <span class="profile-link">Character profiles <span>↗</span></span>
-            </div>
-          </a>
+          <article class="service-card">
+            <span class="service-symbol" aria-hidden="true">✧</span>
+            <span class="section-number">03 / Administration</span>
+            <h3>Administrative Services &amp; General Enquiries</h3>
+            <span class="service-responsibility">Responsible staff member · To be appointed</span>
+            <p>
+              The main point of contact for reader registration,
+              general institutional questions and messages that
+              need to reach another Library department.
+            </p>
+            <ul>
+              <li><strong>Reader Registration:</strong> register as a reader and ask about access conditions.</li>
+              <li><strong>General Enquiries:</strong> ask about Library services, procedures and institutional matters.</li>
+              <li><strong>Messages &amp; Departmental Enquiries:</strong> direct questions to the appropriate department or leave a message for its staff.</li>
+            </ul>
+          </article>
 
         </div>
 
         <div class="note">
-          <strong>Across the Realms:</strong>
-          these are institutional roles, not jobs assigned by species.
-          A person's skills come from their own interests, training
-          and experience.
+          <strong>A shared welcome:</strong>
+          these services are open to visitors from every people and
+          realm. Roles are based on individual skills and responsibilities,
+          never on species, ancestry, language or homeland.
         </div>
       </section>
 
@@ -1021,7 +992,7 @@
             <p>
               Cross the main threshold, find a clear place to pause
               and look for the public signs. You can meet companions,
-              consult the directory or ask an Arrival Steward for help.
+              consult the directory or ask Hyssop for help.
             </p>
           </article>
 
