@@ -189,3 +189,83 @@ hr, .divider, .rule, .shelf-list, .shelf, .collection {
 .collection strong, .footer-title, .eyebrow, .section-label {
   color: #dfc58f !important;
 }
+
+
+/* FINAL AUDIT OVERRIDES · remove legacy green palettes from every page component. */
+:root {
+  --forest: #0b1019 !important;
+  --forest-light: #182436 !important;
+  --leaf: #8db9f0 !important;
+  --moss: #8db9f0 !important;
+  --green: #8db9f0 !important;
+  --gold: #c3a46b !important;
+  --gold-light: #dfc58f !important;
+  --line: rgba(195,164,107,.68) !important;
+  --night: #0b1019 !important;
+  --panel: #121b29 !important;
+  --panel-light: #182436 !important;
+  --panel2: #182436 !important;
+  --parchment: #c5d3e4 !important;
+  --cream: #c5d3e4 !important;
+  --muted: #8fa5c2 !important;
+}
+
+/* Legacy green page backgrounds and large content surfaces. */
+body, .hero, .hero-content, .page-hero, .site-header, .topbar,
+.catalogue-card, .empty-record, .record-symbol, .fact, .notice, .note,
+.card, .panel, .fact-card, .content-card, .detail-card, .profile-card,
+.trait-card, .quote-card, .info-card, .note-card, .timeline-card,
+.record-card, .related-records, .related-record, .sidebar, .portrait-placeholder,
+.department-entry, .department-card, .place, .pillar, .map-shell, .map-node,
+.shelf-collection, .catalogue-book, .botany-directory a, .fact-box,
+.collection-card, .archive-card, .people-card, .species-card {
+  background-color: #121b29 !important;
+  background-image: none !important;
+}
+
+/* Give layered panels a little sapphire depth instead of flat green. */
+.hero, .page-hero, .site-header, .topbar, .catalogue-card, .empty-record,
+.card, .panel, .notice, .note, .fact, .related-records, .related-record,
+.department-entry, .department-card, .place, .pillar, .map-shell, .map-node,
+.catalogue-book, .shelf-collection, .botany-directory a, .record-card,
+.info-card, .content-card, .detail-card, .profile-card, .trait-card {
+  background: linear-gradient(145deg, #1b2d46, #121b29) !important;
+}
+
+/* Blue replaces green text, symbols and accent details. */
+.eyebrow, .section-label, .record-number, .record-symbol,
+.number, .tag, .subtitle, .meta-label, .status, .portrait-mark,
+.sidebar h3, .fact span, .fact small, .card .tag, .arrow,
+.department-entry .number, .department-entry b, .map-node .number {
+  color: #8db9f0 !important;
+}
+
+/* Legacy inline green values, including character-page palettes. */
+[style*="#10251b"], [style*="#10251B"],
+[style*="#1d3a2b"], [style*="#1D3A2B"],
+[style*="#1b3828"], [style*="#1B3828"],
+[style*="#244631"], [style*="#244631"],
+[style*="#202a22"], [style*="#202A22"],
+[style*="#2b372d"], [style*="#2B372D"],
+[style*="#101810"], [style*="#19251a"],
+[style*="#243526"], [style*="#687f50"],
+[style*="#91a86f"], [style*="#536b46"],
+[style*="#354438"], [style*="#253b2b"] {
+  background-color: #121b29 !important;
+  background-image: none !important;
+  border-color: rgba(195,164,107,.68) !important;
+}
+[style*="#91a86f"], [style*="#91A86F"],
+[style*="#a8c49a"], [style*="#A8C49A"],
+[style*="#b7c99a"], [style*="#B7C99A"],
+[style*="#c4d9a7"], [style*="#C4D9A7"] {
+  color: #8db9f0 !important;
+}
+
+/* Gold borders are global, including shorthand borders and SVG-adjacent panels. */
+*, *::before, *::after {
+  border-color: rgba(195,164,107,.68) !important;
+}
+hr, .divider, .rule, .ornament, .shelf-list, .shelf, .collection {
+  border-color: rgba(195,164,107,.68) !important;
+}
