@@ -8,9 +8,9 @@
   --panel2: #182436 !important;
   --panel-light: #182436 !important;
   --panel2: #182436 !important;
-  --gold: #5686c5 !important;
-  --gold-dim: #304b6d !important;
-  --gold-light: #8db9f0 !important;
+  --gold: #c3a46b !important;
+  --gold-dim: #806b45 !important;
+  --gold-light: #e3cb98 !important;
   --blue: #5686c5 !important;
   --blue-light: #8db9f0 !important;
   --green: #8db9f0 !important;
@@ -18,7 +18,7 @@
   --paper: #c5d3e4 !important;
   --parchment: #c5d3e4 !important;
   --muted: #8fa5c2 !important;
-  --line: rgba(86,134,197,.32) !important;
+  --line: rgba(195,164,107,.32) !important;
   --library-focus: #8db9f0 !important;
   --library-panel: #121b29 !important;
   --library-text: #c5d3e4 !important;
@@ -56,7 +56,7 @@ a:hover, button:hover { color:#c5dffb !important; }
 button, .button, input, select, textarea, summary,
 .wayfinding-node, .wayfinding-open, .catalogue-result,
 .catalogue-submit, .catalogue-clear {
-  border-color:rgba(86,134,197,.55) !important;
+  border-color:rgba(195,164,107,.55) !important;
 }
 button, .button, .wayfinding-node, .wayfinding-open,
 .catalogue-submit, .catalogue-clear {
@@ -66,7 +66,7 @@ button, .button, .wayfinding-node, .wayfinding-open,
 button:hover, .button:hover, .wayfinding-node:hover,
 .wayfinding-open:hover, .catalogue-result:hover {
   background-color:#223249 !important;
-  border-color:#8db9f0 !important;
+  border-color:#e3cb98 !important;
 }
 input, select, textarea {
   background-color:#0b1019 !important;
@@ -77,8 +77,8 @@ hr, .divider, .rule { border-color:rgba(86,134,197,.32) !important; }
 [style*="#c3a46b"], [style*="#C3A46B"],
 [style*="#c6a66b"], [style*="#C6A66B"],
 [style*="#e3cb98"], [style*="#E3CB98"] {
-  color:#8db9f0 !important;
-  border-color:rgba(86,134,197,.5) !important;
+  color:#e3cb98 !important;
+  border-color:rgba(195,164,107,.5) !important;
 }
 [style*="#10251b"], [style*="#1b3828"], [style*="#1d3a2b"],
 [style*="#244631"], [style*="#202a22"], [style*="#2b372d"] {
