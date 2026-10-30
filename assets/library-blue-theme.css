@@ -211,7 +211,7 @@ hr, .divider, .rule, .shelf-list, .shelf, .collection {
 }
 
 /* Legacy green page backgrounds and large content surfaces. */
-body, .hero, .hero-content, .page-hero, .site-header, .topbar,
+body, .hero, .page-hero, .site-header, .topbar,
 .catalogue-card, .empty-record, .record-symbol, .fact, .notice, .note,
 .card, .panel, .fact-card, .content-card, .detail-card, .profile-card,
 .trait-card, .quote-card, .info-card, .note-card, .timeline-card,
@@ -356,3 +356,18 @@ html body .site-header, html body .book-header {
   border-color:rgba(195,164,107,.68) !important;
 }
 html body ::selection { background:#31547d !important; color:#f1f5fb !important; }
+
+
+/* HOMEPAGE HERO: keep the welcome text floating over the geometric background. */
+html body .hero-content {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+html body .hero {
+  background:
+    radial-gradient(ellipse at 50% 42%, #243b5b 0%, #142640 43%, #080f1c 82%) !important;
+}
