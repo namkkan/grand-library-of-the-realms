@@ -185,7 +185,7 @@ hr, .divider, .rule, .shelf-list, .shelf, .collection {
 }
 .shelf-collection { border-left-color: rgba(195,164,107,.72) !important; }
 .pillar { border-top-color: rgba(195,164,107,.58) !important; border-bottom-color: rgba(195,164,107,.58) !important; }
-a, .open-section, .catalogue-book strong, .book-mark,
+ .open-section, .catalogue-book strong, .book-mark,
 .collection strong, .footer-title, .eyebrow, .section-label {
   color: #dfc58f !important;
 }
