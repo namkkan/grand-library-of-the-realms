@@ -269,3 +269,16 @@ body, .hero, .hero-content, .page-hero, .site-header, .topbar,
 hr, .divider, .rule, .ornament, .shelf-list, .shelf, .collection {
   border-color: rgba(195,164,107,.68) !important;
 }
+
+
+/* LIBRARY-WIDE TYPOGRAPHY · all page and section titles in antique gold. */
+h1, h2, h3, h4, h5, h6,
+.page-title, .hero-title, .main-title, .section-title,
+.district-title, .department-title, .gallery-title,
+.site-title, .library-title, .brand-title,
+header .brand, .site-header .brand,
+.hero h1, .hero h2, .page-hero h1, .page-hero h2,
+section > h1, section > h2, main > h1, main > h2,
+[id*="title"], [class*="heading"] {
+  color: #dfc58f !important;
+}
