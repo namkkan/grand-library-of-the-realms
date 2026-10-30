@@ -37,6 +37,16 @@ main{max-width:1120px;padding:48px 26px 76px;margin:auto}
 .map-node small{font:10px Arial,sans-serif;color:#b8c4d2;margin-top:7px;letter-spacing:.5px}
 .map-caption{text-align:center;color:var(--muted);font-size:12px;margin:14px 0 0}
 .note{padding:18px 20px;border-left:2px solid var(--blue);background:#101722;color:#d1c8b8;margin-top:22px}
+.department-directory{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.department-entry{display:flex;flex-direction:column;align-items:flex-start;padding:23px;border:1px solid #526d91;background:linear-gradient(145deg,#1d3049,#142235);transition:transform .2s,border-color .2s}
+.department-entry:hover{transform:translateY(-2px);border-color:var(--blue-light)}
+.department-entry .number{font:10px Arial,sans-serif;letter-spacing:1.6px;color:var(--blue-light)}
+.department-entry h3{font-size:22px;font-weight:normal;line-height:1.3;margin:9px 0}
+.department-entry p{font-size:13px;color:#c4cbd4;margin:0 0 12px}
+.department-entry small{font:11px Arial,sans-serif;color:#aebdce;margin-top:auto;padding-top:12px}
+.department-entry b{font:10px Arial,sans-serif;letter-spacing:1px;color:var(--blue-light);margin-top:15px;text-transform:uppercase}
+.department-entry[id]{scroll-margin-top:24px}
+@media(max-width:760px){.department-directory{grid-template-columns:1fr}}
 .note strong{color:var(--blue-light)}
 .actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:28px}
 .btn{padding:12px 18px;border:1px solid var(--gold);font:10px Arial,sans-serif;letter-spacing:1px;text-transform:uppercase}
@@ -64,26 +74,41 @@ footer span{color:var(--gold)}
 <main>
 <p class="intro">This is the first map of the West Gallery. Its organisation will grow as we define each department, its collections and its internal spaces. For now, the map establishes the route into Natural Sciences and the eight fields currently gathered within that district.</p>
 <section class="section" id="map">
-<div class="head"><span class="eyebrow">Western Wing · Departmental Map</span><h2>Choose a Department</h2><p>The Natural Sciences district is the first mapped destination of the West Gallery. Select any field to jump to its current entry in the departmental directory.</p></div>
+<div class="head"><span class="eyebrow">Western Wing · Departmental Map</span><h2>Choose a Department</h2><p>The Natural Sciences district is the first mapped destination of the West Gallery. Select any field to jump to its entry below.</p></div>
 <div class="map-shell">
 <div class="map-grid">
-<a class="map-node primary" href="natural-sciences/index.html"><span class="number">WESTERN WING · MAIN DISTRICT</span><strong>Natural Sciences</strong><small>Open district directory ↗</small></a>
-<a class="map-node" href="natural-sciences/index.html#department-botany"><span class="number">01</span><strong>Botany</strong><small>Plants · fungi · flora ↗</small></a>
-<a class="map-node" href="natural-sciences/index.html#department-zoology"><span class="number">02</span><strong>Zoology</strong><small>Animals · creatures ↗</small></a>
-<a class="map-node" href="natural-sciences/index.html#department-geology"><span class="number">03</span><strong>Geology & Mineralogy</strong><small>Rocks · minerals ↗</small></a>
-<a class="map-node" href="natural-sciences/index.html#department-aquatic"><span class="number">04</span><strong>Aquatic & Marine Sciences</strong><small>Oceans · waters ↗</small></a>
-<a class="map-node" href="natural-sciences/index.html#department-astronomy"><span class="number">05</span><strong>Astronomy & Cosmology</strong><small>Stars · cosmos ↗</small></a>
-<a class="map-node" href="natural-sciences/index.html#department-ecology"><span class="number">06</span><strong>Ecology & Environmental Studies</strong><small>Ecosystems · environments ↗</small></a>
-<a class="map-node" href="natural-sciences/index.html#department-anatomy"><span class="number">07</span><strong>Anatomy & Life Sciences</strong><small>Living beings · anatomy ↗</small></a>
-<a class="map-node" href="natural-sciences/index.html#department-weather"><span class="number">08</span><strong>Meteorology & Natural Phenomena</strong><small>Weather · phenomena ↗</small></a>
+<a class="map-node primary" href="#departments"><span class="number">WESTERN WING · MAIN DISTRICT</span><strong>Natural Sciences</strong><small>Explore the district ↓</small></a>
+<a class="map-node" href="#department-botany"><span class="number">01</span><strong>Botany</strong><small>Plants · fungi · flora ↗</small></a>
+<a class="map-node" href="#department-zoology"><span class="number">02</span><strong>Zoology</strong><small>Animals · creatures ↗</small></a>
+<a class="map-node" href="#department-geology"><span class="number">03</span><strong>Geology & Mineralogy</strong><small>Rocks · minerals ↗</small></a>
+<a class="map-node" href="#department-aquatic"><span class="number">04</span><strong>Aquatic & Marine Sciences</strong><small>Oceans · waters ↗</small></a>
+<a class="map-node" href="#department-astronomy"><span class="number">05</span><strong>Astronomy & Cosmology</strong><small>Stars · cosmos ↗</small></a>
+<a class="map-node" href="#department-ecology"><span class="number">06</span><strong>Ecology & Environmental Studies</strong><small>Ecosystems · environments ↗</small></a>
+<a class="map-node" href="#department-anatomy"><span class="number">07</span><strong>Anatomy & Life Sciences</strong><small>Living beings · anatomy ↗</small></a>
+<a class="map-node" href="#department-weather"><span class="number">08</span><strong>Meteorology & Natural Phenomena</strong><small>Weather · phenomena ↗</small></a>
 </div>
 <p class="map-caption">Initial organisational map · not to scale · departments and internal rooms remain open to development</p>
 </div>
 <div class="note"><strong>Planning note:</strong> these are destinations within the Natural Sciences district, not eight fully designed rooms yet. We can change their order, names, connections and locations as the West Gallery takes shape.</div>
 </section>
-<div class="actions"><a class="btn" href="central-hall.html">← Grand Central Hall</a><a class="btn" href="grand-atrium.html">Grand Atrium</a><a class="btn" href="natural-sciences/index.html">Natural Sciences Directory ↗</a><a class="btn" href="east-gallery.html">East Gallery ↗</a></div>
+
+<section class="section" id="departments">
+<div class="head"><span class="eyebrow">Natural Sciences · Eight fields of discovery</span><h2>The Departments</h2><p>Each department preserves its own collections, conducts research and welcomes curious minds. Together, they study the life, matter and phenomena of countless worlds.</p></div>
+<div class="department-directory">
+<a id="department-botany" class="department-entry" href="natural-sciences/botany/index.html"><span class="number">DEPARTMENT 01</span><h3>Department of Botany</h3><p>Studies plants, trees, algae, fungi and other forms of plant life. Research includes medicinal species, magical flora, plant ecosystems and vegetation from unknown worlds.</p><small>Greenhouses · Experimental gardens · Herbarium · Seed bank</small><b>Explore Botany →</b></a>
+<a id="department-zoology" class="department-entry" href="natural-sciences/zoology/index.html"><span class="number">DEPARTMENT 02</span><h3>Department of Zoology</h3><p>Investigates animals, fantastical creatures and their behaviour. Documents anatomy, reproduction, migration, feeding and relationships between species.</p><small>Zoological archive · Anatomy rooms · Wildlife observatories · Care centres</small><b>Explore Zoology →</b></a>
+<a id="department-geology" class="department-entry" href="natural-sciences/geology-mineralogy/index.html"><span class="number">DEPARTMENT 03</span><h3>Department of Geology and Mineralogy</h3><p>Studies the composition, structure and history of planets, mountains, caves and minerals. Extraordinary crystals are catalogued and examined under safe conditions.</p><small>Mineral collection · Analysis laboratory · Fossil archive · Specimen chambers</small><b>Explore Geology →</b></a>
+<a id="department-aquatic" class="department-entry" href="natural-sciences/aquatic-marine-sciences/index.html"><span class="number">DEPARTMENT 04</span><h3>Department of Aquatic and Marine Sciences</h3><p>Studies oceans, rivers, lakes, currents, underwater ecosystems and aquatic species. Works alongside marine communities and researchers exploring the depths.</p><small>Research aquariums · Underwater observatory · Sample laboratory</small><b>Explore Aquatic Sciences →</b></a>
+<a id="department-astronomy" class="department-entry" href="natural-sciences/astronomy-cosmology/index.html"><span class="number">DEPARTMENT 05</span><h3>Department of Astronomy and Cosmology</h3><p>Investigates stars, moons, planets, solar systems and the structure of the universe. Compares astronomical phenomena across worlds and records extraordinary celestial events.</p><small>Observatories · Planetarium · Star-chart archive · Calculation rooms</small><b>Explore Astronomy →</b></a>
+<a id="department-ecology" class="department-entry" href="natural-sciences/ecology-environmental-studies/index.html"><span class="number">DEPARTMENT 06</span><h3>Department of Ecology and Environmental Studies</h3><p>Studies ecosystems, food webs, biodiversity, climates and the effects of different civilisations on their environments.</p><small>Experimental biomes · Observation stations · Environmental archive</small><b>Explore Ecology →</b></a>
+<a id="department-anatomy" class="department-entry" href="natural-sciences/anatomy-life-sciences/index.html"><span class="number">DEPARTMENT 07</span><h3>Department of Anatomy and Life Sciences</h3><p>Documents the biological and anatomical diversity of living beings. Investigates tissues, organs, life cycles and adaptations while respecting the autonomy and rights of conscious beings.</p><small>Laboratories · Anatomical collections · Microscopy rooms · Comparative archives</small><b>Explore Life Sciences →</b></a>
+<a id="department-weather" class="department-entry" href="natural-sciences/meteorology-natural-phenomena/index.html"><span class="number">DEPARTMENT 08</span><h3>Department of Meteorology and Natural Phenomena</h3><p>Records climates, storms, winds, earthquakes and unusual natural phenomena. Compares environmental conditions across different realms and worlds.</p><small>Weather station · Atmospheric simulation · Extreme phenomena archive</small><b>Explore Meteorology →</b></a>
+</div>
+<div class="note"><strong>Planning note:</strong> these are the eight departments currently assigned to Natural Sciences. Their internal rooms, collections and connections can be developed individually as the Library grows.</div>
+</section>
+<div class="actions"><a class="btn" href="central-hall.html">← Grand Central Hall</a><a class="btn" href="grand-atrium.html">Grand Atrium</a><a class="btn" href="#departments">Natural Sciences Departments ↗</a><a class="btn" href="east-gallery.html">East Gallery ↗</a></div>
 </main>
-<footer><span>The Grand Library of the Realms</span><br>The West Gallery · Initial departmental map</footer>
+<footer><span>The Grand Library of the Realms</span><br>The West Gallery · Natural Sciences District</footer>
 <script src="../assets/library-usability.js" defer></script>
 </body>
 </html>
