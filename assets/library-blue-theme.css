@@ -1,5 +1,4 @@
-/* THE GRAND LIBRARY · Unified Sapphire Blue Theme
-   Shared visual palette for all pages. Character illustrations remain untouched. */
+/* THE GRAND LIBRARY · Sapphire blue with antique-gold detailing */
 :root {
   color-scheme: dark;
   --night: #0b1019 !important;
@@ -22,7 +21,7 @@
   --library-focus: #8db9f0 !important;
   --library-panel: #121b29 !important;
   --library-text: #c5d3e4 !important;
-  --library-line: rgba(86,134,197,.32) !important;
+  --library-line: rgba(195,164,107,.32) !important;
 }
 html, body { background-color:#0b1019 !important; color:#c5d3e4 !important; }
 body {
@@ -86,3 +85,33 @@ hr, .divider, .rule { border-color:rgba(86,134,197,.32) !important; }
   border-color:rgba(86,134,197,.32) !important;
 }
 :focus-visible { outline-color:#8db9f0 !important; }
+
+
+/* RESTORED ANTIQUE GOLD · keep gold accents distinct from the blue headings */
+:root {
+  --gold: #c3a46b !important;
+  --gold-dim: #8b7044 !important;
+  --gold-light: #dfc58f !important;
+  --library-line: rgba(195,164,107,.34) !important;
+}
+.brand, .nav a:hover, .crumbs a, .footer-title, .header-link,
+footer span, .gold, .gold-accent, .ornament, .divider-gold {
+  color: #c3a46b !important;
+}
+header, footer, .topbar, .site-header, .navigation,
+.btn, .gold-border, .ornamental-border {
+  border-color: rgba(195,164,107,.58) !important;
+}
+.btn:hover, .gold-button:hover {
+  background-color: #c3a46b !important;
+  border-color: #dfc58f !important;
+  color: #0b1019 !important;
+}
+a.gold-link, .gold-link, [style*="#c3a46b"], [style*="#C3A46B"],
+[style*="#c6a66b"], [style*="#C6A66B"],
+[style*="#e3cb98"], [style*="#E3CB98"] {
+  color: #c3a46b !important;
+}
+hr, .divider, .rule {
+  border-color: rgba(195,164,107,.34) !important;
+}
