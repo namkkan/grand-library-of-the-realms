@@ -371,3 +371,24 @@ html body .hero {
   background:
     radial-gradient(ellipse at 50% 42%, #243b5b 0%, #142640 43%, #080f1c 82%) !important;
 }
+
+
+/* SITE-WIDE DARK SAPPHIRE BANDS
+   Keep page-title areas and the top navigation in the same deep gradient
+   as the homepage's Find Your Way section. Headings themselves remain gold. */
+html body :is(
+  header, nav, .navigation, .topbar, .site-header,
+  .page-hero, .hero-section, .record-head, .book-header,
+  .page-heading, .title-band, .title-section, .section-heading,
+  .department-header, .district-header, .gallery-header
+) {
+  background: linear-gradient(145deg, #111a28, #0d1420) !important;
+  background-color: #0d1420 !important;
+  border-color: rgba(195,164,107,.58) !important;
+}
+
+/* Preserve the antique-gold title treatment across all pages. */
+html body :is(h1,h2,h3,h4,h5,h6,.page-title,.hero-title,.main-title,
+.section-title,.district-title,.department-title,.gallery-title) {
+  color: #dfc58f !important;
+}
