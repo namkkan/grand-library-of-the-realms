@@ -107,6 +107,23 @@
       max-width: 850px;
     }
 
+    /* The welcome copy must sit directly on the hero background, never in a panel. */
+    #home > .hero-content {
+      background: transparent !important;
+      background-color: transparent !important;
+      background-image: none !important;
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
+    }
+
+    #home {
+      background:
+        radial-gradient(ellipse at 50% 42%, #1b2d46 0%, #102039 43%, #070d18 82%) !important;
+    }
+
     .ornament {
       display: block;
       margin: 0 auto 25px;
