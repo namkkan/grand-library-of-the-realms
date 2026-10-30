@@ -6,6 +6,13 @@
     if (src) return new URL(src, window.location.href).pathname.replace(/assets\/library-usability\.js$/, '');
     return '/grand-library-of-the-realms/';
   })();
+
+  /* Apply the shared sapphire-blue visual identity across every Library page. */
+  const themeLink = document.createElement('link');
+  themeLink.rel = 'stylesheet';
+  themeLink.href = libraryBase + 'assets/library-blue-theme.css';
+  document.head.appendChild(themeLink);
+
   const setupNavigation = () => {
     const header = document.querySelector('header');
     if (!header) return;
