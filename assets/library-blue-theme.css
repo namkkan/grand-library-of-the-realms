@@ -1,0 +1,88 @@
+/* THE GRAND LIBRARY · Unified Sapphire Blue Theme
+   Shared visual palette for all pages. Character illustrations remain untouched. */
+:root {
+  color-scheme: dark;
+  --night: #0b1019 !important;
+  --navy: #0b1019 !important;
+  --panel: #121b29 !important;
+  --panel2: #182436 !important;
+  --panel-light: #182436 !important;
+  --panel2: #182436 !important;
+  --gold: #5686c5 !important;
+  --gold-dim: #304b6d !important;
+  --gold-light: #8db9f0 !important;
+  --blue: #5686c5 !important;
+  --blue-light: #8db9f0 !important;
+  --green: #8db9f0 !important;
+  --cream: #c5d3e4 !important;
+  --paper: #c5d3e4 !important;
+  --parchment: #c5d3e4 !important;
+  --muted: #8fa5c2 !important;
+  --line: rgba(86,134,197,.32) !important;
+  --library-focus: #8db9f0 !important;
+  --library-panel: #121b29 !important;
+  --library-text: #c5d3e4 !important;
+  --library-line: rgba(86,134,197,.32) !important;
+}
+html, body { background-color:#0b1019 !important; color:#c5d3e4 !important; }
+body {
+  background-image: radial-gradient(ellipse at 50% 0%, rgba(24,43,70,.72), transparent 48%) !important;
+}
+header, footer, nav, .topbar, .site-header, .navigation {
+  border-color:rgba(86,134,197,.32) !important;
+}
+header, .topbar, .site-header, .navigation, footer,
+.hero, .quote, .section, main, .panel, .card, .book-card,
+.department-card, .related-card, .related-record, .reading-desk-card,
+.catalogue-panel, .catalogue-toggle, .wayfinding, .wayfinding-map,
+.welcome-card, .content-card, .info-card, .profile-card {
+  border-color:rgba(86,134,197,.32) !important;
+}
+.hero, .hero-section, .page-hero, .quote, .catalogue-panel,
+.catalogue-toggle, .wayfinding, .reading-desk-card, .card,
+.department-card, .related-card, .related-record, .book-card {
+  background-color:#121b29 !important;
+}
+a, .brand, .eyebrow, .symbol, .discover, .section-label,
+.nav a:hover, .crumbs a, .footer-title, .header-link,
+h1, h2, h3, h4, .hero-title, .section-title {
+  color:#8db9f0 !important;
+}
+p, li, label, small, .intro, .description, .muted,
+.hero-description, .hero-motto, .crumbs, footer {
+  color:#aebfd4;
+}
+a:hover, button:hover { color:#c5dffb !important; }
+button, .button, input, select, textarea, summary,
+.wayfinding-node, .wayfinding-open, .catalogue-result,
+.catalogue-submit, .catalogue-clear {
+  border-color:rgba(86,134,197,.55) !important;
+}
+button, .button, .wayfinding-node, .wayfinding-open,
+.catalogue-submit, .catalogue-clear {
+  background-color:#182436 !important;
+  color:#c5d3e4 !important;
+}
+button:hover, .button:hover, .wayfinding-node:hover,
+.wayfinding-open:hover, .catalogue-result:hover {
+  background-color:#223249 !important;
+  border-color:#8db9f0 !important;
+}
+input, select, textarea {
+  background-color:#0b1019 !important;
+  color:#c5d3e4 !important;
+}
+::placeholder { color:#8fa5c2 !important; opacity:1; }
+hr, .divider, .rule { border-color:rgba(86,134,197,.32) !important; }
+[style*="#c3a46b"], [style*="#C3A46B"],
+[style*="#c6a66b"], [style*="#C6A66B"],
+[style*="#e3cb98"], [style*="#E3CB98"] {
+  color:#8db9f0 !important;
+  border-color:rgba(86,134,197,.5) !important;
+}
+[style*="#10251b"], [style*="#1b3828"], [style*="#1d3a2b"],
+[style*="#244631"], [style*="#202a22"], [style*="#2b372d"] {
+  background-color:#121b29 !important;
+  border-color:rgba(86,134,197,.32) !important;
+}
+:focus-visible { outline-color:#8db9f0 !important; }
