@@ -169,7 +169,7 @@
     .atrium-map {
       display: block;
       width: 100%;
-      min-width: 520px;
+      min-width: 680px;
       height: auto;
     }
 
@@ -446,7 +446,7 @@
       <a href="../index.html#departments">Departments</a>
       <a href="../index.html#peoples">Peoples & Cultures</a>
       <a href="../characters/">Characters</a>
-      <a href="../index.html#archives">Archives</a>
+      <a href="../index.html#all-books">Archives</a>
     </nav>
   </header>
 
@@ -485,118 +485,143 @@
             </div>
 
             <div class="map-scroll">
-              <svg class="atrium-map" viewBox="0 0 900 650"
+              <svg class="atrium-map" viewBox="0 0 1000 720"
                    role="img" aria-labelledby="map-title map-description"
                    xmlns="http://www.w3.org/2000/svg">
-                <title id="map-title">Ground-floor architectural plan of the Grand Atrium</title>
-                <desc id="map-description">A symmetrical palace-like floor plan. Visitors enter through the southern vestibule; the reception desk where Hyssop works is on the western side before the central hall. Select rooms to jump to their directory entries.</desc>
+                <title id="map-title">Ground-floor plan of the Grand Atrium and its surrounding public halls</title>
+                <desc id="map-description">A monumental central hall opens onto a covered public square and a network of east and west wings. The southern vestibule is the main entrance, with Hyssop's reception nook immediately to the west. Click a labelled space to open its page or directory section.</desc>
                 <defs>
-                  <pattern id="mapGrid" width="24" height="24" patternUnits="userSpaceOnUse">
-                    <path d="M24 0H0V24" fill="none" stroke="#c3a46b" stroke-opacity=".08" stroke-width=".6"/>
+                  <pattern id="mapGrid" width="28" height="28" patternUnits="userSpaceOnUse">
+                    <path d="M28 0H0V28" fill="none" stroke="#c3a46b" stroke-opacity=".07" stroke-width=".7"/>
                   </pattern>
-                  <linearGradient id="hall" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#29364a"/><stop offset="1" stop-color="#141e2c"/>
+                  <linearGradient id="mapStone" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#29394f"/><stop offset="1" stop-color="#121d2b"/>
+                  </linearGradient>
+                  <linearGradient id="mapHeart" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#35445c"/><stop offset="1" stop-color="#182536"/>
                   </linearGradient>
                 </defs>
-                <rect width="900" height="650" fill="url(#mapGrid)"/>
-                <rect x="35" y="28" width="830" height="594" fill="#111823" fill-opacity=".28" stroke="#c3a46b" stroke-opacity=".55" stroke-width="2"/>
-                <rect x="47" y="40" width="806" height="570" fill="none" stroke="#c3a46b" stroke-opacity=".2"/>
-                <g fill="none" stroke="#c3a46b" stroke-opacity=".7" stroke-width="3">
-                  <path d="M450 555V475M450 345V290M450 190V135"/>
-                  <path d="M310 345H225V255H170"/>
-                  <path d="M590 345H675V255H730"/>
-                  <path d="M310 420H245V485H170"/>
-                  <path d="M590 420H655V485H730"/>
-                  <path d="M310 190H245V125H170"/>
-                  <path d="M590 190H655V125H730"/>
+                <rect width="1000" height="720" fill="url(#mapGrid)"/>
+                <rect x="28" y="25" width="944" height="650" fill="#111823" fill-opacity=".35" stroke="#c3a46b" stroke-opacity=".65" stroke-width="2"/>
+                <rect x="42" y="39" width="916" height="622" fill="none" stroke="#c3a46b" stroke-opacity=".22"/>
+                <text x="500" y="62" fill="#c3a46b" font-size="11" text-anchor="middle" letter-spacing="3">THE PUBLIC HEART · GROUND FLOOR</text>
+
+                <!-- Covered arcades and the open circulation ring -->
+                <g fill="none" stroke="#c3a46b" stroke-opacity=".48" stroke-width="13">
+                  <path d="M300 150H700V570H300Z"/>
                 </g>
-                <g fill="#c3a46b">
-                  <circle cx="450" cy="475" r="5"/><circle cx="450" cy="290" r="5"/>
-                  <circle cx="225" cy="345" r="5"/><circle cx="675" cy="345" r="5"/>
-                  <circle cx="245" cy="485" r="5"/><circle cx="655" cy="485" r="5"/>
+                <g fill="none" stroke="#111823" stroke-width="7">
+                  <path d="M300 150H700V570H300Z"/>
                 </g>
-                <!-- Formal, symmetrical side rooms -->
+                <g fill="none" stroke="#c3a46b" stroke-opacity=".5" stroke-width="2" stroke-dasharray="7 8">
+                  <path d="M300 150H700V570H300Z"/>
+                  <path d="M300 350H210M700 350H790M500 570V625"/>
+                </g>
+
+                <!-- North: directory and reading wings -->
                 <a href="grand-directory.html" aria-label="Open the Grand Directory">
-                  <rect x="75" y="75" width="195" height="100" fill="url(#hall)" stroke="#c3a46b" stroke-width="1.5"/>
-                  <rect x="86" y="86" width="173" height="78" fill="none" stroke="#c3a46b" stroke-opacity=".35"/>
-                  <text x="172" y="111" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="1">WEST WING</text>
-                  <text x="172" y="132" fill="#e9ddc4" font-size="14" text-anchor="middle">Directory Chamber</text>
-                  <text x="172" y="151" fill="#a5a9b3" font-size="10" text-anchor="middle">Maps · Catalogues</text>
+                  <rect x="70" y="90" width="245" height="112" rx="2" fill="url(#mapStone)" stroke="#c3a46b" stroke-width="1.8"/>
+                  <rect x="81" y="101" width="223" height="90" fill="none" stroke="#c3a46b" stroke-opacity=".35"/>
+                  <text x="192" y="127" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="2">NORTH-WEST WING</text>
+                  <text x="192" y="151" fill="#e9ddc4" font-size="17" text-anchor="middle">Directory Chamber</text>
+                  <text x="192" y="173" fill="#aeb6c2" font-size="11" text-anchor="middle">Maps · Catalogues · Routes</text>
                 </a>
-                <a href="#reading" aria-label="Explore the reading rooms">
-                  <rect x="630" y="75" width="195" height="100" fill="url(#hall)" stroke="#c3a46b" stroke-width="1.5"/>
-                  <rect x="641" y="86" width="173" height="78" fill="none" stroke="#c3a46b" stroke-opacity=".35"/>
-                  <text x="727" y="111" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="1">EAST WING</text>
-                  <text x="727" y="132" fill="#e9ddc4" font-size="14" text-anchor="middle">Reading Rooms</text>
-                  <text x="727" y="151" fill="#a5a9b3" font-size="10" text-anchor="middle">Quiet study · Reference</text>
+                <a href="#reading" aria-label="Explore the public reading rooms">
+                  <rect x="685" y="90" width="245" height="112" rx="2" fill="url(#mapStone)" stroke="#c3a46b" stroke-width="1.8"/>
+                  <rect x="696" y="101" width="223" height="90" fill="none" stroke="#c3a46b" stroke-opacity=".35"/>
+                  <text x="807" y="127" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="2">NORTH-EAST WING</text>
+                  <text x="807" y="151" fill="#e9ddc4" font-size="17" text-anchor="middle">Reading Rooms</text>
+                  <text x="807" y="173" fill="#aeb6c2" font-size="11" text-anchor="middle">Quiet study · Reference</text>
                 </a>
+
+                <!-- West and east service wings -->
                 <a href="visitor-services.html" aria-label="Explore visitor services">
-                  <rect x="75" y="205" width="195" height="100" fill="url(#hall)" stroke="#c3a46b" stroke-width="1.5"/>
-                  <rect x="86" y="216" width="173" height="78" fill="none" stroke="#c3a46b" stroke-opacity=".35"/>
-                  <text x="172" y="241" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="1">WEST WING</text>
-                  <text x="172" y="262" fill="#e9ddc4" font-size="14" text-anchor="middle">Visitor Services</text>
-                  <text x="172" y="281" fill="#a5a9b3" font-size="10" text-anchor="middle">Guidance · Assistance</text>
+                  <rect x="70" y="250" width="245" height="112" rx="2" fill="url(#mapStone)" stroke="#c3a46b" stroke-width="1.8"/>
+                  <rect x="81" y="261" width="223" height="90" fill="none" stroke="#c3a46b" stroke-opacity=".35"/>
+                  <text x="192" y="287" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="2">WEST SERVICE WING</text>
+                  <text x="192" y="311" fill="#e9ddc4" font-size="17" text-anchor="middle">Visitor Services</text>
+                  <text x="192" y="333" fill="#aeb6c2" font-size="11" text-anchor="middle">Enquiries · Assistance</text>
                 </a>
                 <a href="#access" aria-label="Explore access and security">
-                  <rect x="630" y="205" width="195" height="100" fill="url(#hall)" stroke="#c3a46b" stroke-width="1.5"/>
-                  <rect x="641" y="216" width="173" height="78" fill="none" stroke="#c3a46b" stroke-opacity=".35"/>
-                  <text x="727" y="241" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="1">EAST WING</text>
-                  <text x="727" y="262" fill="#e9ddc4" font-size="14" text-anchor="middle">Access & Security</text>
-                  <text x="727" y="281" fill="#a5a9b3" font-size="10" text-anchor="middle">Threshold Wardens</text>
+                  <rect x="685" y="250" width="245" height="112" rx="2" fill="url(#mapStone)" stroke="#c3a46b" stroke-width="1.8"/>
+                  <rect x="696" y="261" width="223" height="90" fill="none" stroke="#c3a46b" stroke-opacity=".35"/>
+                  <text x="807" y="287" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="2">EAST SERVICE WING</text>
+                  <text x="807" y="311" fill="#e9ddc4" font-size="17" text-anchor="middle">Access & Security</text>
+                  <text x="807" y="333" fill="#aeb6c2" font-size="11" text-anchor="middle">Permissions · Safe passage</text>
                 </a>
-                <a href="west-gallery.html" aria-label="Explore the west gallery">
-                  <rect x="75" y="385" width="195" height="100" fill="url(#hall)" stroke="#c3a46b" stroke-width="1.5"/>
-                  <rect x="86" y="396" width="173" height="78" fill="none" stroke="#c3a46b" stroke-opacity=".35"/>
-                  <text x="172" y="421" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="1">WEST GALLERY</text>
-                  <text x="172" y="442" fill="#e9ddc4" font-size="14" text-anchor="middle">Public Passage</text>
-                  <text x="172" y="461" fill="#a5a9b3" font-size="10" text-anchor="middle">To adjoining halls</text>
+
+                <!-- Public galleries open into the indoor city -->
+                <a href="west-gallery.html" aria-label="Explore the west public gallery">
+                  <rect x="70" y="420" width="245" height="112" rx="2" fill="url(#mapStone)" stroke="#c3a46b" stroke-width="1.8"/>
+                  <rect x="81" y="431" width="223" height="90" fill="none" stroke="#c3a46b" stroke-opacity=".35"/>
+                  <text x="192" y="457" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="2">WEST GALLERY</text>
+                  <text x="192" y="481" fill="#e9ddc4" font-size="17" text-anchor="middle">Covered Passage</text>
+                  <text x="192" y="503" fill="#aeb6c2" font-size="11" text-anchor="middle">To adjoining halls</text>
                 </a>
-                <a href="east-gallery.html" aria-label="Explore the east gallery">
-                  <rect x="630" y="385" width="195" height="100" fill="url(#hall)" stroke="#c3a46b" stroke-width="1.5"/>
-                  <rect x="641" y="396" width="173" height="78" fill="none" stroke="#c3a46b" stroke-opacity=".35"/>
-                  <text x="727" y="421" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="1">EAST GALLERY</text>
-                  <text x="727" y="442" fill="#e9ddc4" font-size="14" text-anchor="middle">Public Passage</text>
-                  <text x="727" y="461" fill="#a5a9b3" font-size="10" text-anchor="middle">To adjoining halls</text>
+                <a href="east-gallery.html" aria-label="Explore the east public gallery">
+                  <rect x="685" y="420" width="245" height="112" rx="2" fill="url(#mapStone)" stroke="#c3a46b" stroke-width="1.8"/>
+                  <rect x="696" y="431" width="223" height="90" fill="none" stroke="#c3a46b" stroke-opacity=".35"/>
+                  <text x="807" y="457" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="2">EAST GALLERY</text>
+                  <text x="807" y="481" fill="#e9ddc4" font-size="17" text-anchor="middle">Bridge & Gallery</text>
+                  <text x="807" y="503" fill="#aeb6c2" font-size="11" text-anchor="middle">To adjoining halls</text>
                 </a>
-                <!-- Grand central hall -->
+
+                <!-- A monumental central hall: the civic square beneath the dome -->
                 <a href="central-hall.html" aria-label="Explore the Grand Central Hall">
-                  <rect x="310" y="135" width="280" height="340" rx="2" fill="url(#hall)" stroke="#c3a46b" stroke-width="2.5"/>
-                  <rect x="323" y="148" width="254" height="314" fill="none" stroke="#c3a46b" stroke-opacity=".5" stroke-width="1.2"/>
-                  <rect x="337" y="162" width="226" height="286" fill="none" stroke="#c3a46b" stroke-opacity=".25" stroke-dasharray="5 6"/>
-                  <g fill="none" stroke="#c3a46b" stroke-opacity=".55">
-                    <circle cx="450" cy="285" r="74" stroke-width="2"/><circle cx="450" cy="285" r="57"/>
-                    <path d="M450 224L465 285L450 346L435 285Z" fill="#c3a46b" fill-opacity=".45"/>
-                    <path d="M389 285H511M450 224V346"/>
+                  <rect x="330" y="105" width="340" height="440" rx="3" fill="url(#mapHeart)" stroke="#d0b47c" stroke-width="2.8"/>
+                  <rect x="344" y="119" width="312" height="412" fill="none" stroke="#c3a46b" stroke-opacity=".55" stroke-width="1.4"/>
+                  <rect x="360" y="135" width="280" height="380" fill="none" stroke="#c3a46b" stroke-opacity=".3" stroke-dasharray="5 7"/>
+                  <g fill="none" stroke="#c3a46b" stroke-opacity=".58">
+                    <circle cx="500" cy="300" r="108" stroke-width="2.5"/>
+                    <circle cx="500" cy="300" r="88" stroke-width="1.2"/>
+                    <path d="M500 206L522 300L500 394L478 300Z" fill="#c3a46b" fill-opacity=".2"/>
+                    <path d="M406 300H594M500 206V394"/>
+                    <path d="M424 224L576 376M576 224L424 376" stroke-opacity=".28"/>
                   </g>
-                  <text x="450" y="190" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="2">THE HEART OF THE LIBRARY</text>
-                  <text x="450" y="380" fill="#e9ddc4" font-size="20" text-anchor="middle">Grand Atrium</text>
-                  <text x="450" y="403" fill="#a5a9b3" font-size="11" text-anchor="middle">Central hall · Public crossroads</text>
-                  <text x="450" y="425" fill="#a5a9b3" font-size="10" text-anchor="middle">Ground floor</text>
+                  <g fill="#c3a46b">
+                    <circle cx="500" cy="174" r="5"/><circle cx="500" cy="426" r="5"/>
+                    <circle cx="374" cy="300" r="5"/><circle cx="626" cy="300" r="5"/>
+                  </g>
+                  <text x="500" y="161" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="2.5">BENEATH THE GREAT DOME</text>
+                  <text x="500" y="455" fill="#e9ddc4" font-size="22" text-anchor="middle">The Grand Atrium</text>
+                  <text x="500" y="479" fill="#b6bdc7" font-size="12" text-anchor="middle">Central Hall · Public Square</text>
+                  <text x="500" y="501" fill="#aeb6c2" font-size="10" text-anchor="middle">The crossroads of the Library</text>
                 </a>
-                <!-- Arrival vestibule and Hyssop's reception -->
-                <a href="welcome-arrival.html" aria-label="Open Welcome and Arrival and meet the arrival team">
-                  <rect x="310" y="500" width="280" height="76" fill="url(#hall)" stroke="#c3a46b" stroke-width="1.8"/>
-                  <text x="450" y="526" fill="#c3a46b" font-size="10" text-anchor="middle" letter-spacing="1.5">SOUTHERN VESTIBULE</text>
-                  <text x="450" y="547" fill="#e9ddc4" font-size="14" text-anchor="middle">Main Entrance · Arrival</text>
-                  <text x="450" y="563" fill="#a5a9b3" font-size="10" text-anchor="middle">First point of orientation</text>
-                </a>
-                <a href="welcome-arrival.html" aria-label="Reception desk where Hyssop welcomes visitors">
-                  <rect x="75" y="515" width="195" height="65" fill="#29364a" stroke="#e3cc98" stroke-width="2"/>
-                  <rect x="85" y="524" width="175" height="47" fill="none" stroke="#c3a46b" stroke-opacity=".55"/>
-                  <text x="172" y="538" fill="#e3cc98" font-size="10" text-anchor="middle" letter-spacing="1">RECEPTION DESK</text>
-                  <text x="172" y="555" fill="#e9ddc4" font-size="13" text-anchor="middle">Hyssop's Station</text>
-                  <text x="172" y="568" fill="#a5a9b3" font-size="9" text-anchor="middle">Welcome & enquiries</text>
-                </a>
-                <g fill="none" stroke="#e3cc98" stroke-width="2">
-                  <path d="M270 547H292V538H310"/>
+
+                <!-- Upper gallery / bridge links represented on the ground plan -->
+                <g fill="none" stroke="#d0b47c" stroke-width="3" stroke-opacity=".75">
+                  <path d="M315 306H330M670 306H685"/>
+                  <path d="M315 476H330M670 476H685"/>
                 </g>
-                <g transform="translate(810 550)" text-anchor="middle" font-family="Georgia,serif">
-                  <circle r="23" fill="none" stroke="#c3a46b" stroke-opacity=".65"/>
+                <g fill="#d0b47c">
+                  <circle cx="322" cy="306" r="3"/><circle cx="678" cy="306" r="3"/>
+                  <circle cx="322" cy="476" r="3"/><circle cx="678" cy="476" r="3"/>
+                </g>
+                <text x="500" y="91" fill="#aeb6c2" font-size="9" text-anchor="middle" letter-spacing="1.5">NORTH · INNER LIBRARY</text>
+
+                <!-- South entrance and reception, deliberately separate spaces -->
+                <a href="welcome-arrival.html" aria-label="Explore Welcome and Arrival">
+                  <rect x="380" y="575" width="240" height="65" rx="2" fill="url(#mapStone)" stroke="#d0b47c" stroke-width="2"/>
+                  <text x="500" y="599" fill="#d0b47c" font-size="10" text-anchor="middle" letter-spacing="1.8">SOUTHERN VESTIBULE</text>
+                  <text x="500" y="620" fill="#e9ddc4" font-size="15" text-anchor="middle">Main Entrance · Arrival</text>
+                </a>
+                <a href="welcome-arrival.html#hyssop-reception" aria-label="Open Hyssop's reception nook">
+                  <rect x="70" y="575" width="245" height="65" rx="2" fill="#29394f" stroke="#e3cc98" stroke-width="2"/>
+                  <rect x="80" y="584" width="225" height="47" fill="none" stroke="#c3a46b" stroke-opacity=".55"/>
+                  <text x="192" y="599" fill="#e3cc98" font-size="10" text-anchor="middle" letter-spacing="1.5">RECEPTION NOOK</text>
+                  <text x="192" y="619" fill="#e9ddc4" font-size="14" text-anchor="middle">Hyssop's Station</text>
+                </a>
+                <path d="M315 607H350V607H380" fill="none" stroke="#e3cc98" stroke-width="2.5"/>
+                <text x="500" y="657" fill="#aeb6c2" font-size="9" text-anchor="middle" letter-spacing="1.5">SOUTH · PUBLIC ENTRANCE</text>
+
+                <!-- Compass and drawing note -->
+                <g transform="translate(900 605)" text-anchor="middle" font-family="Georgia,serif">
+                  <circle r="22" fill="none" stroke="#c3a46b" stroke-opacity=".65"/>
                   <path d="M0 -16L5 0L0 16L-5 0Z" fill="#c3a46b" fill-opacity=".8"/>
-                  <text x="0" y="-31" fill="#e9ddc4" font-size="9">N</text>
+                  <text x="0" y="-30" fill="#e9ddc4" font-size="9">N</text>
                 </g>
-                <text x="75" y="600" fill="#a5a9b3" font-size="9" letter-spacing="1.5">GROUND FLOOR · ARCHITECTURAL PLAN</text>
-                <text x="825" y="600" fill="#a5a9b3" font-size="9" text-anchor="end" letter-spacing="1.5">SCHEMATIC · NOT TO SCALE</text>
+                <text x="70" y="690" fill="#aeb6c2" font-size="9" letter-spacing="1.4">GROUND FLOOR · SCHEMATIC ARCHITECTURAL PLAN</text>
+                <text x="930" y="690" fill="#aeb6c2" font-size="9" text-anchor="end" letter-spacing="1.4">NOT TO SCALE</text>
               </svg>        </svg>
             </div>
 
