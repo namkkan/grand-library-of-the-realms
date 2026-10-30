@@ -348,3 +348,11 @@ html body [style*="#354438"],html body [style*="#253b2b"] {
   background:linear-gradient(145deg,#1b2d46,#121b29) !important;
   border-color:rgba(195,164,107,.68) !important;
 }
+
+/* Finish the shared frame: even generic legacy headers and footers stay sapphire. */
+html body header, html body footer, html body .topbar,
+html body .site-header, html body .book-header {
+  background:linear-gradient(145deg,#1b2d46,#121b29) !important;
+  border-color:rgba(195,164,107,.68) !important;
+}
+html body ::selection { background:#31547d !important; color:#f1f5fb !important; }
