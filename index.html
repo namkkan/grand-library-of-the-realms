@@ -867,7 +867,13 @@
       const normaliseMap = value => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
       const accessiblePageCount = new Set(sections.map(item => item.url)).size;
       status.textContent = accessiblePageCount + " accessible pages · Search by district, department or a specific section such as Seeds.";
-      nodes.forEach(node => node.addEventListener("click", () => selectPlace(node.dataset.place)));
+      nodes.forEach(node => {
+        node.addEventListener("click", () => selectPlace(node.dataset.place));
+        node.addEventListener("dblclick", () => {
+          const place = places[node.dataset.place];
+          if (place && place.href) window.location.href = place.href;
+        });
+      });
       search.addEventListener("input", () => {
         const query = normaliseMap(search.value);
         const terms = query.split(/\\s+/).filter(Boolean);
