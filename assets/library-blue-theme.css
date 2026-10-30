@@ -282,3 +282,24 @@ section > h1, section > h2, main > h1, main > h2,
 [id*="title"], [class*="heading"] {
   color: #dfc58f !important;
 }
+
+
+/* DEFINITIVE TYPOGRAPHY OVERRIDE
+   Some individual pages define brown or blue heading colours with more specific
+   selectors (for example .paper h2, .book-page h3 and .hero h1). The scoped
+   :not() selector intentionally carries ID-level specificity so this shared
+   Library rule wins over every page stylesheet without changing paragraph text. */
+html body :not(#library-title-gold-force) :is(h1, h2, h3, h4, h5, h6) {
+  color: #dfc58f !important;
+}
+
+/* Non-heading elements used as visible titles in a few page templates. */
+html body :not(#library-title-gold-force) :is(
+  .hero-title, .page-title, .main-title, .section-title,
+  .district-title, .department-title, .gallery-title,
+  .site-title, .library-title, .brand-title,
+  .reception-toggle-title, .catalogue-toggle-title,
+  .catalogue-result-title, .record-subheading
+) {
+  color: #dfc58f !important;
+}
