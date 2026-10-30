@@ -115,3 +115,77 @@ a.gold-link, .gold-link, [style*="#c3a46b"], [style*="#C3A46B"],
 hr, .divider, .rule {
   border-color: rgba(195,164,107,.34) !important;
 }
+
+
+/* LIBRARY-WIDE FINISH: sapphire blue surfaces and unmistakable antique-gold borders */
+:root {
+  --green: #8db9f0 !important;
+  --navy: #0b1019 !important;
+  --navy-light: #182b46 !important;
+  --panel: #121b29 !important;
+  --panel2: #182436 !important;
+  --gold: #c3a46b !important;
+  --gold-light: #dfc58f !important;
+  --line: rgba(195,164,107,.68) !important;
+}
+
+/* Every structural border uses the Library's antique gold, not blue. */
+*, *::before, *::after {
+  border-color: rgba(195,164,107,.58) !important;
+}
+hr, .divider, .rule, .shelf-list, .shelf, .collection {
+  border-color: rgba(195,164,107,.58) !important;
+}
+
+/* Remove the old green Botany identity while preserving its layout and artwork. */
+.hero {
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(86,134,197,.24), transparent 55%),
+    linear-gradient(180deg, #1b2d46 0%, #0b1019 100%) !important;
+}
+.site-header, .site-header::after, .intro::before,
+.section-heading::after, .card-art, .card-art::after,
+.pillar-symbol, .card-subtitle, .botany-directory a span,
+.shelf-number, .book-arrow, .shelf-collection span {
+  color: #8db9f0 !important;
+}
+.site-header {
+  background: linear-gradient(90deg, rgba(24,43,70,.96), rgba(11,16,25,.97)) !important;
+}
+.site-header::after, .section-heading::after {
+  color: rgba(195,164,107,.72) !important;
+}
+.intro::before { color: #8db9f0 !important; }
+.department-card, .department-card:nth-child(3n + 2),
+.department-card:nth-child(3n), .place,
+.pillar, .botany-directory a, .related-records,
+.related-record, .catalogue-book, .shelf-collection {
+  background: linear-gradient(145deg, #1b2d46, #121b29) !important;
+}
+.card-art {
+  background:
+    radial-gradient(ellipse at center, rgba(86,134,197,.2), transparent 68%),
+    #121b29 !important;
+  border-bottom: 1px solid rgba(195,164,107,.7) !important;
+}
+.card-art::before { border-color: rgba(195,164,107,.48) !important; }
+.content-section.alt, .footer {
+  background: rgba(18,27,41,.82) !important;
+}
+.collection { border-top-color: rgba(195,164,107,.58) !important; }
+.botany-directory a { border-color: rgba(195,164,107,.65) !important; }
+.botany-directory a:hover, .catalogue-book:hover,
+.open-shelf-link:hover, .related-record:hover {
+  border-color: #dfc58f !important;
+  background: #223249 !important;
+}
+.catalogue-book, .first-book-link a, .open-shelf-link,
+.related-record, .place, .department-card, .botany-directory a {
+  border-color: rgba(195,164,107,.65) !important;
+}
+.shelf-collection { border-left-color: rgba(195,164,107,.72) !important; }
+.pillar { border-top-color: rgba(195,164,107,.58) !important; border-bottom-color: rgba(195,164,107,.58) !important; }
+a, .open-section, .catalogue-book strong, .book-mark,
+.collection strong, .footer-title, .eyebrow, .section-label {
+  color: #dfc58f !important;
+}
