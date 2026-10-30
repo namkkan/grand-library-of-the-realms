@@ -303,3 +303,48 @@ html body :not(#library-title-gold-force) :is(
 ) {
   color: #dfc58f !important;
 }
+
+/* FINAL SAPPHIRE AUDIT · override old green page palettes and gradients. */
+:root {
+  --forest:#0b1019 !important; --forest-light:#182436 !important;
+  --forest2:#182436 !important; --forest3:#1b2d46 !important;
+  --leaf:#8db9f0 !important; --moss:#8db9f0 !important; --green:#8db9f0 !important;
+  --navy:#0b1019 !important; --navy-light:#182b46 !important;
+  --panel:#121b29 !important; --panel2:#182436 !important; --gold-dim:#806b45 !important;
+}
+html body {
+  background-color:#0b1019 !important;
+  background-image:radial-gradient(ellipse at 50% 0%,rgba(24,43,70,.72),transparent 48%) !important;
+}
+html body :is(
+  .site-header,.topbar,.book-header,.record-head,.darkcard,.catalogue-card,
+  .empty-record,.record-symbol,.related,.related-records,.related-record,
+  .fact,.note,.notice,.profile-card,.trait-card,.fact-card,.content-card,
+  .detail-card,.info-card,.note-card,.timeline-card,.people-card,
+  .species-card,.person-card,.card,.book-controls button,
+  .book-reader-tools button,.book-reader-favourites button,
+  .reader-controls button,.reader-tools button,.controls button,.jump button
+) {
+  background:linear-gradient(145deg,#1b2d46,#121b29) !important;
+  border-color:rgba(195,164,107,.68) !important;
+}
+html body :is(
+  .eyebrow,.kicker,.chapter,.record-number,.record-symbol,.status,.tag,
+  .leaf,.moss,.green,.fact-label,.species-label,.book-mark,.section-kicker,
+  .entry-number,.folio,.portrait-mark
+) { color:#8db9f0 !important; }
+html body [style*="#687f50"],html body [style*="#536b46"],
+html body [style*="#91a86f"],html body [style*="#a8c49a"],
+html body [style*="#b7c99a"],html body [style*="#c4d9a7"] {
+  background-color:#1b2d46 !important;color:#8db9f0 !important;
+  border-color:rgba(195,164,107,.68) !important;
+}
+html body [style*="#10251b"],html body [style*="#1b3828"],
+html body [style*="#1d3a2b"],html body [style*="#244631"],
+html body [style*="#142b20"],html body [style*="#163222"],
+html body [style*="#0f2419"],html body [style*="#1c3b2b"],
+html body [style*="#202a22"],html body [style*="#2b372d"],
+html body [style*="#354438"],html body [style*="#253b2b"] {
+  background:linear-gradient(145deg,#1b2d46,#121b29) !important;
+  border-color:rgba(195,164,107,.68) !important;
+}
