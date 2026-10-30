@@ -389,11 +389,106 @@
 
     .service-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
-      align-items: stretch;
+      grid-template-columns: 1fr;
+      gap: 14px;
       margin-top: 35px;
     }
+
+    .service-item {
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(25,38,56,.72), rgba(17,26,40,.94));
+    }
+
+    .service-item > summary {
+      display: flex;
+      position: relative;
+      align-items: center;
+      gap: 18px;
+      padding: 22px 58px 22px 24px;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .service-item > summary::-webkit-details-marker { display: none; }
+
+    .service-item > summary::after {
+      content: "+";
+      position: absolute;
+      top: 50%;
+      right: 25px;
+      color: var(--gold-light);
+      font: 28px/1 var(--serif);
+      transform: translateY(-50%);
+    }
+
+    .service-item[open] > summary::after { content: "−"; }
+
+    .service-item > summary:focus-visible {
+      outline: 2px solid var(--gold-light);
+      outline-offset: -4px;
+    }
+
+    .service-symbol {
+      display: flex;
+      flex: 0 0 46px;
+      width: 46px;
+      height: 46px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--gold);
+      font-size: 20px;
+    }
+
+    .service-summary-text { min-width: 0; }
+
+    .service-summary-text .section-number {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .service-summary-text h3 {
+      margin: 0;
+      font-size: clamp(20px, 3vw, 26px);
+    }
+
+    .service-summary-text p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .service-content {
+      padding: 0 clamp(20px, 4vw, 42px) 28px;
+    }
+
+    .service-responsibility {
+      display: block;
+      margin: 0 0 14px;
+      color: var(--gold-light);
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 1px;
+      line-height: 1.6;
+      text-transform: uppercase;
+    }
+
+    .service-content p,
+    .service-content li {
+      color: #c1beb5;
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .service-content ul {
+      padding-left: 19px;
+      margin: 5px 0 0;
+    }
+
+    .service-content li { margin-bottom: 8px; }
+    .service-content li::marker { color: var(--gold); }
 
     .service-card {
       display: flex;
@@ -637,7 +732,8 @@
     /* TABLETS */
 
     @media (max-width: 900px) {
-      .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .service-item > summary { padding: 20px 48px 20px 18px; gap: 13px; }
+      .service-item > summary::after { right: 17px; }
     }
 
     /* PHONES */
@@ -663,6 +759,9 @@
       }
 
       .destination-card { min-height: 0; }
+
+      .service-symbol { flex-basis: 40px; width: 40px; height: 40px; }
+      .service-summary-text h3 { font-size: 20px; }
 
       .card-symbol { margin-bottom: 14px; }
 
@@ -907,59 +1006,80 @@
 
         <div class="service-grid">
 
-          <article class="service-card">
-            <span class="service-symbol" aria-hidden="true">✦</span>
-            <span class="section-number">01 / Personal guidance</span>
-            <h3>Visitor Assistance &amp; Guidance</h3>
-            <span class="service-responsibility">Responsible guide · Hyssop</span>
-            <p>
-              Hyssop welcomes visitors, answers their questions and
-              personally accompanies anyone who would feel more
-              comfortable exploring the Library with a guide.
-            </p>
-            <ul>
-              <li>Welcome first-time visitors and explain the Library's basic rules and services.</li>
-              <li>Help locate departments, reading rooms and public facilities.</li>
-              <li>Accompany visitors through the Library when guidance is needed.</li>
-              <li>Help visitors find accessible routes or ask for additional assistance.</li>
-            </ul>
-            <p><a class="profile-link" href="../characters/hyssop.html">Meet Hyssop <span>↗</span></a></p>
-          </article>
+          <details class="service-item">
+            <summary>
+              <span class="service-symbol" aria-hidden="true">✦</span>
+              <span class="service-summary-text">
+                <span class="section-number">01 / Personal guidance</span>
+                <h3>Visitor Assistance &amp; Guidance</h3>
+                <p>Personal help finding your way through the Library.</p>
+              </span>
+            </summary>
+            <div class="service-content">
+              <span class="service-responsibility">Responsible guide · Hyssop</span>
+              <p>
+                Hyssop welcomes visitors, answers their questions and
+                personally accompanies anyone who would feel more
+                comfortable exploring the Library with a guide.
+              </p>
+              <ul>
+                <li>Welcome first-time visitors and explain the Library's basic rules and services.</li>
+                <li>Help locate departments, reading rooms and public facilities.</li>
+                <li>Accompany visitors through the Library when guidance is needed.</li>
+                <li>Help visitors find accessible routes or ask for additional assistance.</li>
+              </ul>
+              <p><a class="profile-link" href="../characters/hyssop.html">Meet Hyssop <span>↗</span></a></p>
+            </div>
+          </details>
 
-          <article class="service-card">
-            <span class="service-symbol" aria-hidden="true">⌑</span>
-            <span class="section-number">02 / Lost property</span>
-            <h3>Lost &amp; Found</h3>
-            <span class="service-responsibility">Responsible staff member · To be appointed</span>
-            <p>
-              A central point for reporting missing belongings and
-              returning objects found in the Library's many halls,
-              reading rooms and connecting passages.
-            </p>
-            <ul>
-              <li>Report and recover lost personal belongings.</li>
-              <li>Hand in objects found by visitors or Library staff.</li>
-              <li>Report books or documents that have been misplaced.</li>
-              <li>Record unidentified objects while their owners are sought.</li>
-            </ul>
-          </article>
+          <details class="service-item">
+            <summary>
+              <span class="service-symbol" aria-hidden="true">⌑</span>
+              <span class="service-summary-text">
+                <span class="section-number">02 / Lost property</span>
+                <h3>Lost &amp; Found</h3>
+                <p>Report missing belongings or hand in something you have found.</p>
+              </span>
+            </summary>
+            <div class="service-content">
+              <span class="service-responsibility">Responsible staff member · To be appointed</span>
+              <p>
+                A central point for reporting missing belongings and
+                returning objects found in the Library's many halls,
+                reading rooms and connecting passages.
+              </p>
+              <ul>
+                <li>Report and recover lost personal belongings.</li>
+                <li>Hand in objects found by visitors or Library staff.</li>
+                <li>Report books or documents that have been misplaced.</li>
+                <li>Record unidentified objects while their owners are sought.</li>
+              </ul>
+            </div>
+          </details>
 
-          <article class="service-card">
-            <span class="service-symbol" aria-hidden="true">✧</span>
-            <span class="section-number">03 / Administration</span>
-            <h3>Administrative Services &amp; General Enquiries</h3>
-            <span class="service-responsibility">Responsible staff member · To be appointed</span>
-            <p>
-              The main point of contact for reader registration,
-              general institutional questions and messages that
-              need to reach another Library department.
-            </p>
-            <ul>
-              <li><strong>Reader Registration:</strong> register as a reader and ask about access conditions.</li>
-              <li><strong>General Enquiries:</strong> ask about Library services, procedures and institutional matters.</li>
-              <li><strong>Messages &amp; Departmental Enquiries:</strong> direct questions to the appropriate department or leave a message for its staff.</li>
-            </ul>
-          </article>
+          <details class="service-item">
+            <summary>
+              <span class="service-symbol" aria-hidden="true">✧</span>
+              <span class="service-summary-text">
+                <span class="section-number">03 / Administration</span>
+                <h3>Administrative Services &amp; General Enquiries</h3>
+                <p>Reader registration, general questions and messages to departments.</p>
+              </span>
+            </summary>
+            <div class="service-content">
+              <span class="service-responsibility">Responsible staff member · To be appointed</span>
+              <p>
+                The main point of contact for reader registration,
+                general institutional questions and messages that
+                need to reach another Library department.
+              </p>
+              <ul>
+                <li><strong>Reader Registration:</strong> register as a reader and ask about access conditions.</li>
+                <li><strong>General Enquiries:</strong> ask about Library services, procedures and institutional matters.</li>
+                <li><strong>Messages &amp; Departmental Enquiries:</strong> direct questions to the appropriate department or leave a message for its staff.</li>
+              </ul>
+            </div>
+          </details>
 
         </div>
 
