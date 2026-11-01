@@ -342,46 +342,16 @@ footer { background:rgba(16,37,27,.7); border-top:1px solid var(--border); }
 @media(max-width:600px){.related-records{padding:16px;margin:24px 0}.related-records-grid{grid-template-columns:1fr}.related-record{padding:14px}}
 
 
-/* Two-page book layout: keep the open spread, restore generous inner margins. */
-#book-spread {
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
-  gap: 0 !important;
-  width: min(100%, 1180px) !important;
-  max-width: 1180px !important;
-  margin: 28px auto !important;
-  overflow: hidden;
-}
-#book-spread .book-page {
-  box-sizing: border-box !important;
-  width: 100% !important;
-  min-width: 0 !important;
-  padding: clamp(28px, 4vw, 46px) !important;
-}
-#book-spread .book-page-content {
-  display: block !important;
-  box-sizing: border-box !important;
-  width: 100% !important;
-  min-width: 0 !important;
-  max-width: 100% !important;
-  height: 100% !important;
-  padding: 0 !important;
-  overflow: hidden !important;
-  overflow-wrap: anywhere !important;
-  word-break: normal !important;
-}
-#book-spread .book-page h2 {
-  color: #554326 !important;
-  border-bottom: 1px solid rgba(112,79,43,.4) !important;
-  padding-bottom: 10px !important;
-  overflow-wrap: anywhere;
-  text-wrap: pretty;
-}
-#book-spread .book-page h3 { color: #65502e !important; }
-@media (max-width: 800px) {
-  #book-spread { grid-template-columns: minmax(0,1fr) !important; }
-  #book-spread .book-page { padding: 30px 28px !important; }
-}
+/* Two-page book layout matched to Seed Morphology reader */
+#book-spread{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;width:100%!important;max-width:1180px!important;min-height:720px!important;margin:28px auto!important;gap:0!important;box-shadow:0 12px 30px rgba(0,0,0,.28)!important;overflow:hidden}
+#book-spread .book-page{box-sizing:border-box!important;width:auto!important;min-width:0!important;height:760px!important;padding:clamp(22px,3vw,42px)!important;border:1px solid #b9a078!important;overflow:hidden!important;position:relative!important}
+#book-spread .book-page.left{border-right:0!important;box-shadow:inset -18px 0 22px -24px #49341e!important}
+#book-spread .book-page.right{border-left:0!important;box-shadow:inset 18px 0 22px -24px #49341e!important}
+#book-spread .book-page-content{display:block!important;box-sizing:border-box!important;width:100%!important;max-width:100%!important;height:100%!important;padding:0 0 30px!important;overflow:hidden!important;font-size:.94rem!important;line-height:1.48!important;color:#352b20!important;overflow-wrap:break-word!important;word-break:normal!important}
+#book-spread .book-page-content h2{color:#554326!important;font-size:1.35rem!important;line-height:1.25!important;border-bottom:1px solid rgba(112,79,43,.4)!important;padding-bottom:10px!important;margin:0 0 12px!important}
+#book-spread .book-page-content h3{color:#65502e!important}
+#book-spread .book-page-content p{color:#352b20!important}
+@media(max-width:800px){#book-spread{grid-template-columns:minmax(0,1fr)!important;min-height:640px!important}#book-spread .book-page{height:640px!important;padding:25px 22px!important;border:1px solid #b9a078!important}#book-spread .book-page.left{display:none!important}}
 /* FINAL REPAIR — restore the Library's sapphire-and-antique-gold palette.
    Keep the printed pages parchment-coloured with dark, readable text. */
 :root {
@@ -2294,7 +2264,11 @@ reader.style.display='block';
 const pages=[];
 const pageTargets={};
 const measure=document.createElement('div');
-const pageStyle=getComputedStyle(left);\nconst pageHorizontalPadding=parseFloat(pageStyle.paddingLeft)+parseFloat(pageStyle.paddingRight);\nconst pageHorizontalBorders=parseFloat(pageStyle.borderLeftWidth)+parseFloat(pageStyle.borderRightWidth);\nconst actualPageContentWidth=Math.max(180,Math.floor(left.getBoundingClientRect().width-pageHorizontalPadding-pageHorizontalBorders));\nmeasure.style.cssText='position:absolute;left:-10000px;top:0;width:'+actualPageContentWidth+'px;font-size:.94rem;line-height:1.48;visibility:hidden;overflow-wrap:break-word;';
+const pageStyle=getComputedStyle(left);
+const pageHorizontalPadding=parseFloat(pageStyle.paddingLeft)+parseFloat(pageStyle.paddingRight);
+const pageHorizontalBorders=parseFloat(pageStyle.borderLeftWidth)+parseFloat(pageStyle.borderRightWidth);
+const actualPageContentWidth=Math.max(180,Math.floor(left.getBoundingClientRect().width-pageHorizontalPadding-pageHorizontalBorders));
+measure.style.cssText='position:absolute;left:-10000px;top:0;width:'+actualPageContentWidth+'px;font-size:.94rem;line-height:1.48;visibility:hidden;overflow-wrap:break-word;';
 document.body.appendChild(measure);
 function addPage(nodes,blank,title){pages.push({nodes,blank,title});}
 sources.forEach(section=>{
