@@ -144,3 +144,40 @@ header nav { min-width: 0; }
   min-width: 0;
   overflow-wrap: anywhere;
 }
+
+
+/* NAVIGATION REPAIR — apply through the shared stylesheet actually loaded by pages. */
+html body header nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 1.35rem !important;
+  row-gap: .55rem !important;
+}
+
+html body header nav a {
+  display: inline-block;
+  flex: 0 0 auto;
+  padding: .25rem 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  text-decoration: none;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+html body header nav a:hover,
+html body header nav a:focus-visible {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+@media (max-width: 760px) {
+  html body header nav:not(.library-nav-collapsible) {
+    column-gap: 1rem !important;
+    row-gap: .45rem !important;
+  }
+}
