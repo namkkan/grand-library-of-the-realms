@@ -340,6 +340,92 @@ footer { background:rgba(16,37,27,.7); border-top:1px solid var(--border); }
 .related-record{display:block;padding:15px;border:1px solid var(--line,rgba(200,169,107,.38));background:rgba(255,255,255,.025);text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}
 .related-record:hover{border-color:var(--gold,#c8a96b);transform:translateY(-2px)}.related-record strong{display:block;color:var(--gold,#c8a96b);margin-bottom:5px}.related-record span{display:block;font-size:.9rem;line-height:1.5;color:inherit}
 @media(max-width:600px){.related-records{padding:16px;margin:24px 0}.related-records-grid{grid-template-columns:1fr}.related-record{padding:14px}}
+
+/* FINAL REPAIR — restore the Library's sapphire-and-antique-gold palette.
+   Keep the printed pages parchment-coloured with dark, readable text. */
+:root {
+  --navy: #111a28;
+  --navy-light: #1b2d46;
+  --gold: #dfc58f;
+  --cream: #e9ddc4;
+  --muted: #b9b5aa;
+  --border: rgba(195,164,107,.58);
+}
+body {
+  background: radial-gradient(ellipse at 50% 12%, #1b2d46 0%, #111a28 72%) !important;
+  color: #e9ddc4 !important;
+}
+header {
+  background: linear-gradient(145deg,#1b2d46,#111a28) !important;
+  border-color: rgba(195,164,107,.58) !important;
+}
+.book-header {
+  background: linear-gradient(145deg,#1b2d46,#111a28) !important;
+  border: 1px solid rgba(195,164,107,.58) !important;
+  box-shadow: 0 12px 35px rgba(0,0,0,.3) !important;
+}
+.book-header h1, h1, .book-header .author, .book-header .symbol {
+  color: #dfc58f !important;
+}
+.book-header .subtitle { color: #e9ddc4 !important; }
+.book-header .edition { color: #b9b5aa !important; }
+
+/* Parchment stays parchment: dark ink and warm borders, never blue text/borders. */
+main > section,
+.front-matter-grid > section {
+  color: #352b20 !important;
+  border-color: #b9a078 !important;
+}
+main > section h2,
+.front-matter-grid > section h2 { color: #554326 !important; }
+main > section h3,
+.front-matter-grid > section h3 { color: #65502e !important; }
+main > section p,
+main > section li,
+main > section .detail-value,
+.front-matter-grid .detail-value,
+.book-page,
+.book-page p,
+.book-page li,
+.book-page .field-guide-item p {
+  color: #352b20 !important;
+}
+main > section .detail,
+.front-matter-grid .detail,
+main > section .contents {
+  border-color: rgba(112,79,43,.3) !important;
+}
+main > section a,
+.front-matter-grid a { color: #795a2e !important; }
+.book-page {
+  border-color: #b9a078 !important;
+  background: linear-gradient(100deg,#e4d2b0,#f8efd9 15%,#f5e9d0 82%,#e3d0ac) !important;
+}
+.book-page h2 { color: #554326 !important; }
+.book-page h3,
+.book-page .field-guide-item strong { color: #65502e !important; }
+.book-page .field-guide-item {
+  border-color: rgba(112,79,43,.24) !important;
+}
+.book-controls button,
+.book-reader-tools button,
+.book-reader-favourites button {
+  color: #e9ddc4 !important;
+  background: #1b2d46 !important;
+  border-color: rgba(195,164,107,.7) !important;
+}
+.related-records {
+  background: rgba(17,26,40,.92) !important;
+  border-color: rgba(195,164,107,.58) !important;
+  color: #e9ddc4 !important;
+}
+.related-record { border-color: rgba(195,164,107,.4) !important; }
+.related-record strong { color: #dfc58f !important; }
+footer {
+  background: rgba(17,26,40,.85) !important;
+  border-color: rgba(195,164,107,.58) !important;
+  color: #b9b5aa !important;
+}
 </style>
 
 <link rel="stylesheet" href="../../../../../assets/library-usability.css">
