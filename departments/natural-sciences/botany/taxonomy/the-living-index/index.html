@@ -341,6 +341,24 @@ footer { background:rgba(16,37,27,.7); border-top:1px solid var(--border); }
 .related-record:hover{border-color:var(--gold,#c8a96b);transform:translateY(-2px)}.related-record strong{display:block;color:var(--gold,#c8a96b);margin-bottom:5px}.related-record span{display:block;font-size:.9rem;line-height:1.5;color:inherit}
 @media(max-width:600px){.related-records{padding:16px;margin:24px 0}.related-records-grid{grid-template-columns:1fr}.related-record{padding:14px}}
 
+
+/* Reader pagination: keep text inside the actual width of each printed page. */
+#book-spread { width: 100%; max-width: 1180px; }
+#book-spread .book-page { min-width: 0; width: 100%; }
+#book-spread .book-page-content {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+#book-spread .book-page h2 {
+  color: #554326 !important;
+  border-bottom-color: rgba(112,79,43,.4) !important;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
+}
+#book-spread .book-page h3 { color: #65502e !important; }
 /* FINAL REPAIR — restore the Library's sapphire-and-antique-gold palette.
    Keep the printed pages parchment-coloured with dark, readable text. */
 :root {
@@ -2248,10 +2266,12 @@ if(!reader||!spread)return;
 const left=spread.querySelector('.book-page.left'),right=spread.querySelector('.book-page.right');
 const prev=document.getElementById('book-prev'),next=document.getElementById('book-next'),status=document.getElementById('book-page-status');
 const sources=Array.from(document.querySelectorAll('main > section.chapter-text, main > section[id^="chapter-"]'));
+/* Reveal the reader before measuring: pagination must use the real page width. */
+reader.style.display='block';
 const pages=[];
 const pageTargets={};
 const measure=document.createElement('div');
-measure.style.cssText='position:absolute;left:-10000px;top:0;width:calc(min(590px, 50vw) - 104px);font-size:.94rem;line-height:1.48;visibility:hidden;';
+const pageStyle=getComputedStyle(left);\nconst pageHorizontalPadding=parseFloat(pageStyle.paddingLeft)+parseFloat(pageStyle.paddingRight);\nconst actualPageContentWidth=Math.max(180,Math.floor((spread.clientWidth/2)-pageHorizontalPadding-2));\nmeasure.style.cssText='position:absolute;left:-10000px;top:0;width:'+actualPageContentWidth+'px;font-size:.94rem;line-height:1.48;visibility:hidden;overflow-wrap:break-word;';
 document.body.appendChild(measure);
 function addPage(nodes,blank,title){pages.push({nodes,blank,title});}
 sources.forEach(section=>{
@@ -2287,7 +2307,6 @@ if(section.id)pageTargets[section.id]=Math.max(0,pages.length-1);
 if(pages.length%2===0)addPage([],true,'');
 });
 if(pages.length&&pages[pages.length-1].blank)pages.pop();
-reader.style.display='block';
 const storageKey='grand-library:living-index:';
 let index=0,readerFavourites=[];
 try{index=Number(localStorage.getItem(storageKey+'progress'))||0;readerFavourites=JSON.parse(localStorage.getItem(storageKey+'favourites')||'[]');}catch(e){}
