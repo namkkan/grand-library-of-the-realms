@@ -342,23 +342,46 @@ footer { background:rgba(16,37,27,.7); border-top:1px solid var(--border); }
 @media(max-width:600px){.related-records{padding:16px;margin:24px 0}.related-records-grid{grid-template-columns:1fr}.related-record{padding:14px}}
 
 
-/* Reader pagination: keep text inside the actual width of each printed page. */
-#book-spread { width: 100%; max-width: 1180px; }
-#book-spread .book-page { min-width: 0; width: 100%; }
-#book-spread .book-page-content {
-  width: 100%;
-  min-width: 0;
+/* Two-page book layout: keep the open spread, restore generous inner margins. */
+#book-spread {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  gap: 0 !important;
+  width: min(100%, 1180px) !important;
+  max-width: 1180px !important;
+  margin: 28px auto !important;
   overflow: hidden;
-  overflow-wrap: break-word;
-  word-break: normal;
+}
+#book-spread .book-page {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  padding: clamp(28px, 4vw, 46px) !important;
+}
+#book-spread .book-page-content {
+  display: block !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
 }
 #book-spread .book-page h2 {
   color: #554326 !important;
-  border-bottom-color: rgba(112,79,43,.4) !important;
+  border-bottom: 1px solid rgba(112,79,43,.4) !important;
+  padding-bottom: 10px !important;
   overflow-wrap: anywhere;
   text-wrap: pretty;
 }
 #book-spread .book-page h3 { color: #65502e !important; }
+@media (max-width: 800px) {
+  #book-spread { grid-template-columns: minmax(0,1fr) !important; }
+  #book-spread .book-page { padding: 30px 28px !important; }
+}
 /* FINAL REPAIR — restore the Library's sapphire-and-antique-gold palette.
    Keep the printed pages parchment-coloured with dark, readable text. */
 :root {
@@ -2271,7 +2294,7 @@ reader.style.display='block';
 const pages=[];
 const pageTargets={};
 const measure=document.createElement('div');
-const pageStyle=getComputedStyle(left);\nconst pageHorizontalPadding=parseFloat(pageStyle.paddingLeft)+parseFloat(pageStyle.paddingRight);\nconst actualPageContentWidth=Math.max(180,Math.floor((spread.clientWidth/2)-pageHorizontalPadding-2));\nmeasure.style.cssText='position:absolute;left:-10000px;top:0;width:'+actualPageContentWidth+'px;font-size:.94rem;line-height:1.48;visibility:hidden;overflow-wrap:break-word;';
+const pageStyle=getComputedStyle(left);\nconst pageHorizontalPadding=parseFloat(pageStyle.paddingLeft)+parseFloat(pageStyle.paddingRight);\nconst pageHorizontalBorders=parseFloat(pageStyle.borderLeftWidth)+parseFloat(pageStyle.borderRightWidth);\nconst actualPageContentWidth=Math.max(180,Math.floor(left.getBoundingClientRect().width-pageHorizontalPadding-pageHorizontalBorders));\nmeasure.style.cssText='position:absolute;left:-10000px;top:0;width:'+actualPageContentWidth+'px;font-size:.94rem;line-height:1.48;visibility:hidden;overflow-wrap:break-word;';
 document.body.appendChild(measure);
 function addPage(nodes,blank,title){pages.push({nodes,blank,title});}
 sources.forEach(section=>{
