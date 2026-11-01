@@ -419,3 +419,51 @@ html body :is(
   background: transparent !important;
   box-shadow: none !important;
 }
+
+
+/* NAVIGATION LINKS: remove dark highlight blocks and give every link breathing room. */
+html body nav a,
+html body header nav a,
+html body .navigation a,
+html body .nav-links a,
+html body .site-nav a,
+html body .main-nav a {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+html body nav .nav-links,
+html body .navigation .nav-links,
+html body .nav-links,
+html body .site-nav,
+html body .main-nav {
+  display: flex !important;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px 26px !important;
+}
+
+html body nav .nav-links a,
+html body .navigation .nav-links a,
+html body .nav-links a,
+html body .site-nav a,
+html body .main-nav a {
+  display: inline-block !important;
+  padding: 4px 0 !important;
+  margin: 0 !important;
+  color: #dfc58f !important;
+  line-height: 1.6 !important;
+  white-space: nowrap;
+}
+
+html body nav .nav-links a:hover,
+html body .navigation .nav-links a:hover,
+html body .nav-links a:hover,
+html body .site-nav a:hover,
+html body .main-nav a:hover {
+  color: #f1dfb5 !important;
+  background: transparent !important;
+}
