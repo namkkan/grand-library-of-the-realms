@@ -120,6 +120,27 @@
       text-align: center;
     }
 
+    /* The directory introduction sits directly on the page background. */
+    #map > .atrium-directory-heading,
+    #map > .atrium-directory-heading .intro {
+      background: transparent !important;
+      background-color: transparent !important;
+      background-image: none !important;
+      border: 0 !important;
+      outline: 0 !important;
+      box-shadow: none !important;
+    }
+
+    #map > .atrium-directory-heading {
+      padding: 0 !important;
+      border-radius: 0 !important;
+    }
+
+    #map > .atrium-directory-heading .intro {
+      padding: 0 !important;
+      margin: 12px auto !important;
+    }
+
     h2 {
       margin: 8px 0;
       font-size: clamp(28px, 4vw, 40px);
@@ -467,7 +488,7 @@
     <div class="page-content">
 
       <section id="map">
-        <div class="section-heading">
+        <div class="section-heading atrium-directory-heading">
           <span class="eyebrow">The architectural directory</span>
           <h2>Find Your Way</h2>
           <p class="intro">
