@@ -392,3 +392,30 @@ html body :is(h1,h2,h3,h4,h5,h6,.page-title,.hero-title,.main-title,
 .section-title,.district-title,.department-title,.gallery-title) {
   color: #dfc58f !important;
 }
+
+
+/* TITLE HIGHLIGHTS OFF: transparent title wrappers, retain the dark page background. */
+html body :is(
+  .page-hero, .hero-section, .record-head, .book-header,
+  .page-heading, .title-band, .title-section, .section-heading,
+  .department-header, .district-header, .gallery-header,
+  .page-title-wrap, .title-wrap, .heading-wrap, .hero-content
+) {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove decorative title-strip pseudo backgrounds, not the homepage geometry. */
+html body :is(
+  .page-heading, .title-band, .title-section, .section-heading,
+  .department-header, .district-header, .gallery-header
+)::before,
+html body :is(
+  .page-heading, .title-band, .title-section, .section-heading,
+  .department-header, .district-header, .gallery-header
+)::after {
+  background: transparent !important;
+  box-shadow: none !important;
+}
