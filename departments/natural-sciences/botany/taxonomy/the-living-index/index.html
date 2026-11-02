@@ -39,7 +39,7 @@ a { color: var(--gold); }
 header a { text-decoration: none; }
 header a:hover { color: var(--cream); }
 main {
-  width: min(950px, 88%);
+  width: min(1240px, 94%);
   margin: auto;
   padding: 45px 0 75px;
 }
@@ -426,6 +426,26 @@ footer {
   border-color: rgba(195,164,107,.58) !important;
   color: #b9b5aa !important;
 }
+
+/* Editorial polish: quiet navy surroundings, warm paper, no blue framing. */
+header::after,.book-header::before,.book-header::after{display:none!important}
+.book-header{border-radius:3px!important;padding:55px clamp(22px,5vw,70px)!important}
+.book-header .eyebrow{letter-spacing:.24em}
+.book-header h1{font-size:clamp(2.5rem,5vw,4.6rem);letter-spacing:.035em}
+.book-reader{margin:42px auto 55px}
+.book-spread{width:100%;max-width:1180px;gap:0!important;border:0!important;outline:0!important;background:transparent!important;overflow:visible!important}
+.book-page{border:1px solid #b9a078!important;outline:0!important;border-radius:0!important;padding:clamp(26px,3.5vw,48px)!important;background:linear-gradient(100deg,#e7d6b6 0%,#faf1dc 13%,#f7ecd5 85%,#e6d3af 100%)!important}
+.book-page.left{border-right:0!important;box-shadow:inset -22px 0 24px -25px #49341e!important}
+.book-page.right{border-left:0!important;box-shadow:inset 22px 0 24px -25px #49341e!important}
+.book-page-content{width:100%!important;max-width:100%!important;height:100%!important;min-width:0!important;overflow-y:auto!important;overflow-x:hidden!important;padding:0 5px 30px 0!important;scrollbar-width:thin;scrollbar-color:#bda781 transparent;overflow-wrap:break-word}
+.book-page-content h2,.book-page-content h3{color:#554326!important}
+.book-page-content p,.book-page-content li{color:#352b20!important}
+.book-page-content img,.book-page-content table{max-width:100%!important}
+.book-edge{background:transparent!important;border:0!important;box-shadow:none!important}
+.book-controls button,.book-reader-tools button{border-radius:3px;transition:background .2s,border-color .2s}
+.book-controls button:hover:not(:disabled),.book-reader-tools button:hover{background:#263b56!important;border-color:#dfc58f!important}
+.book-reader-progress{border-radius:4px;overflow:hidden}
+@media(max-width:800px){.book-spread{grid-template-columns:1fr!important}.book-page{padding:25px 24px!important}.book-page.left{display:none!important}.book-page.right{border:1px solid #b9a078!important}}
 </style>
 
 <link rel="stylesheet" href="../../../../../assets/library-usability.css">
@@ -2283,10 +2303,10 @@ group.push(blocks[++i]);
 const clones=group.map(node=>node.cloneNode(true));
 let groupHeight=0;
 clones.forEach(clone=>{measure.appendChild(clone);groupHeight+=clone.getBoundingClientRect().height+12;measure.removeChild(clone);});
-if(chunk.length&&height+groupHeight>460)flush();
+if(chunk.length&&height+groupHeight>590)flush();
 if(block.id)pageTargets[block.id]=pages.length;
 group.forEach(node=>{if(node.id)pageTargets[node.id]=pages.length;chunk.push(node.cloneNode(true));});
-height+=Math.min(groupHeight,460);
+height+=groupHeight;
 }
 flush();
 if(section.id)pageTargets[section.id]=Math.max(0,pages.length-1);
