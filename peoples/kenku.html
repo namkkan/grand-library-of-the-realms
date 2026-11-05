@@ -13,6 +13,9 @@ html body .folio p,html body .folio h2,html body .folio h3,html body .folio .fac
 html body .folio .object-panel{background:#202e43!important;color:#e8e0d1!important}
 html body .folio .tabs button,html body .folio .object-tabs button{color:#e8e0d1}
 html body .folio .tabs button[aria-selected="true"],html body .folio .object-tabs button[aria-pressed="true"]{color:#101722}
+
+/* Avoid oversized empty facing columns while illustrations are pending. */
+@media(min-width:761px){.folio .spread:not(:has(.plate)){grid-template-columns:minmax(0,1fr);gap:12px}.folio .spread:not(:has(.plate))>aside{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:18px 26px;align-items:start}.folio .spread:not(:has(.plate))>aside>*{margin-top:8px;margin-bottom:8px}.folio .spread:has(.plate){align-items:start}}
 </style></head><body>
 <header><a href="../index.html">✦ THE GRAND LIBRARY OF THE REALMS</a><a href="../index.html#peoples">← Peoples & Cultures</a></header>
 <div class="intro"><span class="kicker">The wandering peoples · Volume I</span><h1>The Kenku</h1><p>Notes on a people who travel lightly, remember everything, and somehow never run out of things to collect.</p></div>
