@@ -1,311 +1,49 @@
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Humans | Grand Library of the Realms</title>
-  <style>
-    :root {
-      --night: #17120d;
-      --panel: #2b2117;
-      --gold: #e6a64b;
-      --parchment: #f0e2cc;
-      --muted: #c0ad96;
-      --line: #60462b;
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      background: var(--night);
-      color: var(--parchment);
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.8;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    a:hover { color: var(--gold); }
-
-    header {
-      padding: 20px 7%;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      align-items: center;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .brand, .eyebrow {
-      color: var(--gold);
-      font-family: Arial, sans-serif;
-      font-size: 10px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
-    .hero {
-      padding: 95px 25px;
-      text-align: center;
-      background: radial-gradient(ellipse at top, #70451f, #302014 60%, #17120d);
-      border-bottom: 1px solid var(--line);
-    }
-
-    h1 {
-      margin: 18px 0 8px;
-      font-size: clamp(50px, 8vw, 86px);
-      font-weight: normal;
-      line-height: 1.1;
-    }
-
-    .subtitle {
-      color: var(--gold);
-      font-style: italic;
-      font-size: 18px;
-    }
-
-    .hero p {
-      max-width: 590px;
-      margin: 20px auto;
-      color: #d0c8bb;
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: 210px minmax(0, 760px);
-      gap: 55px;
-      max-width: 1200px;
-      margin: auto;
-      padding: 65px 28px;
-    }
-
-    aside {
-      align-self: start;
-      position: sticky;
-      top: 20px;
-      border-left: 1px solid var(--gold);
-      padding: 12px 20px;
-    }
-
-    aside p {
-      color: var(--gold);
-      font-size: 10px;
-      letter-spacing: 2px;
-    }
-
-    aside a {
-      display: block;
-      margin: 13px 0;
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    section { margin-bottom: 65px; }
-
-    h2 {
-      margin: 10px 0 18px;
-      font-size: clamp(28px, 4vw, 38px);
-      font-weight: normal;
-      line-height: 1.25;
-    }
-
-    h3 {
-      margin: 0 0 8px;
-      color: var(--gold);
-      font-size: 19px;
-      font-weight: normal;
-    }
-
-    .lead {
-      color: #d1c9ba;
-      font-size: 17px;
-    }
-
-    .muted { color: var(--muted); }
-
-    .rule {
-      width: 65px;
-      border: 0;
-      border-top: 1px solid var(--gold);
-      margin: 24px 0;
-    }
-
-    .facts {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin: 25px 0;
-    }
-
-    .fact, .card {
-      padding: 20px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-    }
-
-    .fact span {
-      display: block;
-      margin-bottom: 7px;
-      color: var(--gold);
-      font-family: Arial, sans-serif;
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .fact p, .card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .note {
-      padding: 22px;
-      background: #261b12;
-      border-left: 2px solid var(--gold);
-      color: #d1c9ba;
-    }
-
-    .card {
-      display: block;
-      transition: border-color .2s, transform .2s;
-    }
-
-    .card:hover {
-      border-color: var(--gold);
-      transform: translateY(-3px);
-    }
-
-    .card .tag {
-      display: block;
-      margin-bottom: 12px;
-      color: var(--gold);
-      font-family: Arial, sans-serif;
-      font-size: 10px;
-      letter-spacing: 2px;
-    }
-
-    .arrow {
-      display: block;
-      margin-top: 16px;
-      color: var(--gold);
-      font-size: 12px;
-    }
-
-    footer {
-      padding: 30px 20px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      text-align: center;
-      font-size: 12px;
-    }
-
-    @media (max-width: 760px) {
-      .layout { grid-template-columns: 1fr; gap: 25px; }
-      aside { position: static; }
-      aside a { display: inline-block; margin-right: 15px; }
-      .facts { grid-template-columns: 1fr; }
-      header { flex-wrap: wrap; }
-    }
   
-/* Connected records */
-.related-records{margin:34px auto;padding:24px;max-width:1000px;border:1px solid var(--line,rgba(200,169,107,.38));background:rgba(16,37,27,.62)}
-.related-records h2{margin:0 0 8px;font-size:clamp(22px,3vw,30px)}.related-records-intro{margin:0 0 18px;color:var(--muted,#b9b5aa)}
-.related-records-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:12px}
-.related-record{display:block;padding:15px;border:1px solid var(--line,rgba(200,169,107,.38));background:rgba(255,255,255,.025);text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}
-.related-record:hover{border-color:var(--gold,#c8a96b);transform:translateY(-2px)}.related-record strong{display:block;color:var(--gold,#c8a96b);margin-bottom:5px}.related-record span{display:block;font-size:.9rem;line-height:1.5;color:inherit}
-@media(max-width:600px){.related-records{padding:16px;margin:24px 0}.related-records-grid{grid-template-columns:1fr}.related-record{padding:14px}}
-
-/* SHARED CHARACTER PALETTE · Ivory, Moss, Earth, Stone & Blue-grey */
-:root {
-  --night:#182436;
-  --panel:#182436;
-  --panel-light:#182436;
-  --gold:#91a86f;
-  --gold-dim:#8db9f0;
-  --parchment:#e0e8d7;
-  --muted:#aeb8a6;
-  --blue:#879ba1;
-  --line:rgba(145,168,111,.3);
-}
-body {
-  background:radial-gradient(ellipse at 82% 0%,#182436 0%,transparent 42%),var(--night) !important;
-  color:var(--parchment) !important;
-}
-header, .topbar {
-  background:rgba(21,27,23,.88) !important;
-  border-color:var(--line) !important;
-}
-.hero {
-  background:radial-gradient(ellipse at top,#182436 0%,#182436 58%,#182436 100%) !important;
-  border-color:var(--line) !important;
-}
-a { color:var(--gold); }
-a:hover { color:#c4d9a7; }
-h1,h2,h3,h4,.brand,.eyebrow,.section-label,.meta-label,.tag,.subtitle {
-  color:var(--gold);
-}
-p,li,dd,dt,blockquote,small { color:inherit; }
-article,section,aside,.card,.panel,.record-card,.info-card,.note-card,.fact-card,.timeline-card {
-  border-color:var(--line);
-}
-aside,.panel,.card,.record-card,.info-card,.note-card,.fact-card,.timeline-card,
-.content-card,.detail-card,.profile-card,.trait-card,.quote-card {
-  background-color:rgba(32,42,34,.78);
-}
-button,.button,.back-link,.record-id,.status,.tag,.pill {
-  border-color:var(--line);
-}
-button,.button,.back-link {
-  color:var(--parchment);
-}
-button:hover,.button:hover,.back-link:hover {
-  background:#182436;
-  color:#e0e8d7;
-}
-hr { border-color:var(--line); }
-::selection { background:#8db9f0;color:#f3f5ec; }
-
-</style>
 
 <link rel="stylesheet" href="../assets/library-usability.css">
-</head>
-<body>
+<link rel="stylesheet" href="../assets/library-blue-theme.css">
+<link rel="stylesheet" href="../assets/peoples-field-guide.css">
+
+</head><body>
 <header><a class="brand" href="../index.html">✦ The Grand Library of the Realms</a><a href="../index.html">← Home</a></header>
-<div class="hero"><span class="eyebrow">Department of Peoples & Cultures</span><h1>Humans</h1><div class="subtitle">The Many Paths of Humanity</div><p>One people, countless histories. Familiar in form, endlessly varied in culture, ambition and the ways they make their place in the realms.</p></div>
-<div class="layout"><aside><p>FIELD INDEX</p><a href="#overview">Overview</a><a href="#diversity">Life & Diversity</a><a href="#ambitions">Skills & Ambitions</a><a href="#learning">Learning &amp; Memory</a><a href="#library">At the Grand Library</a><a href="#archetypes">Adventure Archetypes</a><a href="#individuals">Known Individuals</a></aside><main>
-<section id="overview"><span class="eyebrow">01 · General classification</span><h2>Humanity has no single story.</h2><hr class="rule"><p class="lead">Humans are among the most widespread and varied peoples of the realms. They differ in appearance, customs, beliefs, languages and ways of life, shaped by the places they inhabit and the histories they inherit.</p><div class="facts"><div class="fact"><span>Classification</span>Humanoid</div><div class="fact"><span>Lifespan</span>Typically less than a century</div><div class="fact"><span>Adulthood</span>Generally reached in the late teens</div><div class="fact"><span>Origins</span>Many kingdoms, cultures and realms</div></div><div class="note"><em>“Humanity is not a single story. It is a collection of millions of different ones.”</em><p class="muted">— An inscription in the Grand Library</p></div><p>There is no single human culture, nor any one trait that defines humanity. Humans can be cautious or reckless, scholarly or practical, generous or selfish, traditional or eager for change. Their adaptability allows them to make homes in isolated villages, wandering settlements, vast cities and distant planes.</p></section>
-<section id="diversity"><span class="eyebrow">02 · Culture & community</span><h2>Many lives, many ways of belonging</h2><p>Human communities differ greatly in traditions, social structures, clothing, architecture and relationships with magic. Some preserve customs passed down through generations; others embrace new ideas and reinvent themselves.</p><p>Humans are physically diverse, with a wide range of skin tones, facial features, body types and hair textures. Their names and languages reflect their varied origins and cultural backgrounds. No culture, appearance or tradition can represent all humans.</p></section>
-<section id="ambitions"><span class="eyebrow">03 · Skills & aspirations</span><h2>Made by choices, not destiny</h2><p>Humans possess no universal innate magical gift or defining supernatural ability. Their strengths emerge through individual talent, training, opportunity, cooperation and determination.</p><p>A human might become a formidable wizard, a skilled craftsperson, a wandering adventurer, a quiet archivist, or someone who follows no extraordinary calling at all.</p><p>Their relatively short lives, compared with some long-lived peoples, can influence how they approach ambition, legacy and change—but never determine what an individual must value. Ageing is generally natural and gradual, without supernatural longevity as a defining trait of the species.</p></section>
-<section id="learning"><span class="eyebrow">Life histories · Learning &amp; memory</span><h2>Knowledge across a human lifetime</h2>
+<div class="intro"><span class="kicker">Department of Peoples &amp; Cultures</span><h1>Humans</h1><span class="subtitle">The Many Paths of Humanity</span><p>One people, countless histories. Familiar in form, endlessly varied in culture, ambition and the ways they make their place in the realms.</p></div>
+<article class="folio" aria-label="Humans field guide"><div class="folio-inner">
+<div class="folio-head"><span>Field guide to the peoples of the realms</span><span>Plate HUM—001 · Ethnographic collection</span></div>
+<details class="field-index"><summary>FIELD INDEX</summary><div class="links"><a href="#overview">Overview</a><a href="#diversity">Life & Diversity</a><a href="#ambitions">Skills & Ambitions</a><a href="#learning">Learning &amp; Memory</a><a href="#library">At the Grand Library</a><a href="#archetypes">Adventure Archetypes</a><a href="#individuals">Known Individuals</a></div></details>
+<section id="overview" class="spread"><div><span class="section-num">01 · General classification</span><h2>Humanity has no single story.</h2><p class="dropcap">Humans are among the most widespread and varied peoples of the realms. They differ in appearance, customs, beliefs, languages and ways of life, shaped by the places they inhabit and the histories they inherit.</p><div class="factline"><b>Classification</b><span>Humanoid</span></div><div class="factline"><b>Lifespan</b><span>Typically less than a century</span></div><div class="factline"><b>Adulthood</b><span>Generally reached in the late teens</span></div><div class="factline"><b>Origins</b><span>Many kingdoms, cultures and realms</span></div><p>There is no single human culture, nor any one trait that defines humanity. Humans can be cautious or reckless, scholarly or practical, generous or selfish, traditional or eager for change. Their adaptability allows them to make homes in isolated villages, wandering settlements, vast cities and distant planes.</p></div><aside aria-label="Human field annotations"><div class="plate"><span class="bird" aria-hidden="true">✦</span><small>Plate I · Human study</small><em>Space reserved for an original illustration</em></div><div class="margin-note"><b>From the field notebook</b>A familiar outline tells you very little about the person standing in front of you. Ask where their story begins.</div><div class="pullquote"><em>“Humanity is not a single story. It is a collection of millions of different ones.”</em><p class="muted">— An inscription in the Grand Library</p></div></aside></section>
+<section id="diversity" class="spread"><div><span class="section-num">02 · Culture & community</span><h2>Many lives, many ways of belonging</h2><p>Human communities differ greatly in traditions, social structures, clothing, architecture and relationships with magic. Some preserve customs passed down through generations; others embrace new ideas and reinvent themselves.</p><p>Humans are physically diverse, with a wide range of skin tones, facial features, body types and hair textures. Their names and languages reflect their varied origins and cultural backgrounds. No culture, appearance or tradition can represent all humans.</p></div><aside aria-label="Human field annotations"><div class="margin-note"><b>One record, many communities</b>A custom belongs to the people who practise it. It need not travel with every human who leaves the same homeland.</div><details class="fieldnote"><summary>Reading a community record ↗</summary><p>Look for the place, language and people being described before treating a tradition as widespread.</p></details></aside></section>
+<section id="ambitions" class="spread"><div><span class="section-num">03 · Skills & aspirations</span><h2>Made by choices, not destiny</h2><p>Humans possess no universal innate magical gift or defining supernatural ability. Their strengths emerge through individual talent, training, opportunity, cooperation and determination.</p><p>A human might become a formidable wizard, a skilled craftsperson, a wandering adventurer, a quiet archivist, or someone who follows no extraordinary calling at all.</p><p>Their relatively short lives, compared with some long-lived peoples, can influence how they approach ambition, legacy and change—but never determine what an individual must value. Ageing is generally natural and gradual, without supernatural longevity as a defining trait of the species.</p></div><aside aria-label="Human field annotations"><div class="margin-note"><b>Leave room for an ordinary life</b>Not every life in the archive needs an extraordinary calling. A quiet craft, a family story or years of useful work can matter just as much.</div></aside></section>
+<section id="learning" class="spread"><div><span class="section-num">Life histories · Learning &amp; memory</span><h2>Knowledge across a human lifetime</h2>
 <p>A human scholar may spend decades refining a skill while still feeling there is too much left to learn. Professor Elowen Thorne, now seventy-four, brings a lifetime of field observations to her botanical work. Her expertise comes from returning to plants, comparing records and correcting descriptions, rather than from age alone.</p>
 <p>Books, apprenticeships, family stories and shared practical work can carry knowledge beyond one person's lifetime. They can also disagree. A carefully preserved account may contain an old mistake, while someone with little formal education may know a place through years of daily attention.</p>
 <p>Map conservator Maren Vell meets that problem at her workbench: a chart can survive long after the road it describes has changed. Her concern is to preserve what the maker recorded while showing a present-day reader where the evidence stops.</p>
 <p>Neither scholar represents a universal human attitude to knowledge. They offer two different examples of how a person can learn, question an inherited record and leave something useful for whoever comes next.</p>
-</section>
-<section id="library"><span class="eyebrow">04 · Life at the Library</span><h2>Visitors from every corner of the realms</h2><p>The Grand Library welcomes humans as visitors, researchers, apprentices, diplomats, travellers and staff members, bringing countless languages, questions and perspectives.</p><p>Some seek forgotten histories; others pursue magical studies, practical knowledge, artistic inspiration, or simply a quiet place to read. Their reasons for coming are as varied as humanity itself.</p><div class="note">The Library records individuals and communities on their own terms. No single human tradition, ambition or belief is treated as universal.</div></section>
-<section id="archetypes"><span class="eyebrow">05 · Storytelling & roleplay</span><h2>Adventure takes many paths</h2><p>These archetypes are prompts for stories and roleplay, not fixed human types or required occupations. A person may fit several, or none at all.</p><div class="facts"><div class="fact"><span>The Wanderer</span><p>Explorers and travellers crossing borders in search of fortune, answers, or a place to belong.</p></div><div class="fact"><span>The Scholar</span><p>Researchers, wizards, historians and students pursuing knowledge—and debating how it should be used.</p></div><div class="fact"><span>The Opportunist</span><p>Merchants, bards, diplomats and negotiators who find possibilities in changing circumstances.</p></div><div class="fact"><span>The Maker</span><p>Artisans, inventors, builders and creators who turn ideas into tools, objects and new ways of living.</p></div></div></section><section id="individuals"><span class="eyebrow">06 · Individual records</span><h2>Humans known to the Library</h2><p>Individuals are shaped by their own histories and choices; no single person represents humanity as a whole.</p><a class="card" href="../characters/elowen-thorne/index.html"><span class="tag">INDIVIDUAL RECORD</span><h3>Professor Elowen Thorne</h3><p>Botany professor, taxonomist and author of <em>The Living Index</em>.</p><span class="arrow">OPEN INDIVIDUAL RECORD ↗</span></a>
-<a class="card" href="../characters/maren-vell.html"><span class="tag">INDIVIDUAL RECORD</span><h3>Maren Vell</h3><p>An independent map conservator who repairs worn charts and studies the difference between an old route and a reliable one.</p><span class="arrow">OPEN INDIVIDUAL RECORD ↗</span></a></section>
-<section class="related-records" aria-labelledby="related-records-title">
+</div><aside aria-label="Human field annotations"><div class="margin-note"><b>At the workbench</b>Elowen returns to a specimen; Maren returns to a damaged line. Both ask whether the record still supports the claim.</div><div class="links"><a href="../characters/elowen-thorne/index.html">Read Elowen's record ↗</a><a href="../characters/maren-vell.html">Read Maren's record ↗</a></div></aside></section>
+<section id="library" class="spread"><div><span class="section-num">04 · Life at the Library</span><h2>Visitors from every corner of the realms</h2><p>The Grand Library welcomes humans as visitors, researchers, apprentices, diplomats, travellers and staff members, bringing countless languages, questions and perspectives.</p><p>Some seek forgotten histories; others pursue magical studies, practical knowledge, artistic inspiration, or simply a quiet place to read. Their reasons for coming are as varied as humanity itself.</p></div><aside aria-label="Human field annotations"><div class="margin-note"><b>A visitor's question</b>The reason for arriving is often more useful than a label: a book to find, a problem to solve, or a little peace in which to read.</div><details class="fieldnote"><summary>Research status ↗</summary><p>The Library records individuals and communities on their own terms. No single human tradition, ambition or belief is treated as universal.</p></details></aside></section>
+<section id="archetypes" class="spread"><div><span class="section-num">05 · Storytelling & roleplay</span><h2>Adventure takes many paths</h2><p>These archetypes are prompts for stories and roleplay, not fixed human types or required occupations. A person may fit several, or none at all.</p><div class="tabs" role="tablist" aria-label="Human adventure archetypes" data-field-guide-tabs hidden><button type="button" role="tab" id="tab-archetype-1" aria-controls="panel-archetype-1" aria-selected="true" tabindex="0">The Wanderer</button><button type="button" role="tab" id="tab-archetype-2" aria-controls="panel-archetype-2" aria-selected="false" tabindex="-1">The Scholar</button><button type="button" role="tab" id="tab-archetype-3" aria-controls="panel-archetype-3" aria-selected="false" tabindex="-1">The Opportunist</button><button type="button" role="tab" id="tab-archetype-4" aria-controls="panel-archetype-4" aria-selected="false" tabindex="-1">The Maker</button></div><div class="tab-panel field-guide-panel" id="panel-archetype-1" role="tabpanel" aria-labelledby="tab-archetype-1" tabindex="0"><h3>The Wanderer</h3><p>Explorers and travellers crossing borders in search of fortune, answers, or a place to belong.</p></div><div class="tab-panel field-guide-panel" id="panel-archetype-2" role="tabpanel" aria-labelledby="tab-archetype-2" tabindex="0"><h3>The Scholar</h3><p>Researchers, wizards, historians and students pursuing knowledge—and debating how it should be used.</p></div><div class="tab-panel field-guide-panel" id="panel-archetype-3" role="tabpanel" aria-labelledby="tab-archetype-3" tabindex="0"><h3>The Opportunist</h3><p>Merchants, bards, diplomats and negotiators who find possibilities in changing circumstances.</p></div><div class="tab-panel field-guide-panel" id="panel-archetype-4" role="tabpanel" aria-labelledby="tab-archetype-4" tabindex="0"><h3>The Maker</h3><p>Artisans, inventors, builders and creators who turn ideas into tools, objects and new ways of living.</p></div></div><aside aria-label="Human field annotations"><div class="margin-note"><b>For the storyteller</b>These are starting points, not boxes to keep a person in. Let a choice, a mistake or a change of mind take the story elsewhere.</div></aside></section>
+<section id="individuals" class="spread"><div><span class="section-num">06 · Individual records</span><h2>Humans known to the Library</h2><p>Individuals are shaped by their own histories and choices; no single person represents humanity as a whole.</p><a class="field-guide-card" href="../characters/elowen-thorne/index.html"><span class="tag">INDIVIDUAL RECORD</span><h3>Professor Elowen Thorne</h3><p>Botany professor, taxonomist and author of <em>The Living Index</em>.</p><span class="arrow">OPEN INDIVIDUAL RECORD ↗</span></a>
+<a class="field-guide-card" href="../characters/maren-vell.html"><span class="tag">INDIVIDUAL RECORD</span><h3>Maren Vell</h3><p>An independent map conservator who repairs worn charts and studies the difference between an old route and a reliable one.</p><span class="arrow">OPEN INDIVIDUAL RECORD ↗</span></a></div><aside aria-label="Human field annotations"><div class="margin-note"><b>Follow the individual</b>A species record gives context. A personal record shows what someone has actually done with their life.</div></aside></section>
+<section id="related" class="spread"><div>
   <h2 id="related-records-title">✦ Connected people & records</h2>
   <p class="related-records-intro">Follow the connections between people, books and departments of the Grand Library.</p>
-  <div class="related-records-grid">
-    <a class="related-record" href="../characters/maren-vell.html"><strong>Maren Vell ↗</strong><span>Human map conservator and visiting reader</span></a>
-    <a class="related-record" href="mycelials.html"><strong>The Mycelials ↗</strong><span>Fungal lives and individual histories</span></a>
-    <a class="related-record" href="kenku.html"><strong>The Kenku ↗</strong><span>Travelling communities and their collections</span></a>
-    <a class="related-record" href="../characters/elowen-thorne/index.html"><strong>Professor Elowen Thorne ↗</strong><span>Human scholar and botanical taxonomist</span></a>
-    <a class="related-record" href="../departments/natural-sciences/botany/index.html"><strong>Department of Botany ↗</strong><span>Explore Elowen’s field of study</span></a>
-    <a class="related-record" href="../departments/natural-sciences/botany/taxonomy/the-living-index/index.html"><strong>The Living Index ↗</strong><span>A botanical reference authored by Elowen</span></a>
-    <a class="related-record" href="../departments/natural-sciences/botany/seeds/seed-morphology-classification/index.html"><strong>Seed Morphology & Classification ↗</strong><span>Seed identification and morphology</span></a>
+  <div class="reference-links">
+    <a class="reference-link" href="../characters/maren-vell.html"><strong>Maren Vell ↗</strong><span>Human map conservator and visiting reader</span></a>
+    <a class="reference-link" href="mycelials.html"><strong>The Mycelials ↗</strong><span>Fungal lives and individual histories</span></a>
+    <a class="reference-link" href="kenku.html"><strong>The Kenku ↗</strong><span>Travelling communities and their collections</span></a>
+    <a class="reference-link" href="../characters/elowen-thorne/index.html"><strong>Professor Elowen Thorne ↗</strong><span>Human scholar and botanical taxonomist</span></a>
+    <a class="reference-link" href="../departments/natural-sciences/botany/index.html"><strong>Department of Botany ↗</strong><span>Explore Elowen’s field of study</span></a>
+    <a class="reference-link" href="../departments/natural-sciences/botany/taxonomy/the-living-index/index.html"><strong>The Living Index ↗</strong><span>A botanical reference authored by Elowen</span></a>
+    <a class="reference-link" href="../departments/natural-sciences/botany/seeds/seed-morphology-classification/index.html"><strong>Seed Morphology & Classification ↗</strong><span>Seed identification and morphology</span></a>
   </div>
-</section>
-<a href="../index.html">← Return to the Grand Library</a></main></div>
-<footer><p style="color:#e6a64b">✦ The Grand Library of the Realms ✦</p><p>Department of Peoples & Cultures · Ethnographic Archive</p></footer>
-
+</div><aside aria-label="Human field annotations"><div class="margin-note"><b>Across the shelves</b>Follow a person into their work, then follow the work into another part of the Library.</div></aside></section>
+<div class="bottom"><span>HUM—001 · General field record</span><a href="../index.html">← Return to the Grand Library</a></div>
+</div></article>
+<footer class="field-guide-footer"><p>✦ The Grand Library of the Realms ✦</p><p>Department of Peoples & Cultures · Ethnographic Archive</p></footer>
+<script src="../assets/peoples-field-guide.js" defer></script>
 <script src="../assets/library-usability.js" defer></script>
-</body>
-</html>
+</body></html>

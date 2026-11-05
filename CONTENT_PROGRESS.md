@@ -1,5 +1,13 @@
 # Character and species content progress
 
+## 2026-11-05 — Required visual templates
+
+User instruction: every character record must use Sapphiron's exact visual template, including the effective palette and layout. Sapphiron's original CSS is now shared in `assets/character-record.css`; all four individual records and `characters/character-template.html` load it, plus the existing usability script/theme. Keep the hero portrait on the right, record index on the left, personal facts in the main profile, identical spacing/type/components and original portrait reservations. Do not introduce a separate character design. Existing character prose and unresolved creator decisions are retained.
+
+User instruction: Humans and Mycelials must use the Kenku field-guide design, including its double folio border, section spreads and tilted margin annotations. Their shared assets are `assets/peoples-field-guide.css` and `assets/peoples-field-guide.js`. Use dark sapphire-blue surfaces and gold accents; no green index/aside panels. The Kenku page itself remains unchanged. Preserve all species prose, anchors and links.
+
+Validation: all five character pages have matching computed Sapphiron styles at desktop width; all four individual records and both species pages fit a 390px viewport without horizontal overflow. Human tabs support clicks and arrow-key navigation. Original portraits remain reserved. Deployment results are reported in the chat.
+
 ## 2026-11-05 — First scheduled batch
 
 Base: `3f1159ddad29589017676c7438398d8d6ac98519`.

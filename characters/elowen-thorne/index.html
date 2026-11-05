@@ -4,65 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Professor Elowen Thorne | Grand Library of the Realms</title>
-<style>
-:root {
-  --night:#182436; --panel:#182436; --panel-light:#182436;
-  --gold:#91a86f; --gold-dim:#8db9f0; --parchment:#e0e8d7;
-  --muted:#aeb8a6; --blue:#8db9f0; --line:rgba(145,168,111,.3);
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:24px}
-body{margin:0;background:radial-gradient(ellipse at 80% 0%,#182436 0%,transparent 42%),var(--night);color:var(--parchment);font-family:Georgia,"Times New Roman",serif;line-height:1.75}
-a{color:var(--gold)} a:hover{color:#c4d9a7}
-.topbar{padding:16px 7%;border-bottom:1px solid var(--line);background:rgba(7,11,18,.8);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-.brand{color:var(--gold);text-decoration:none;letter-spacing:2px;font-size:12px;text-transform:uppercase}
-.topbar nav{display:flex;gap:22px;flex-wrap:wrap}.topbar nav a{font-size:12px;text-transform:uppercase;letter-spacing:1px;text-decoration:none}
-.hero{padding:65px 8%;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
-.hero-content{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:48px}
-.hero-text{max-width:720px}.eyebrow,.section-label{color:var(--gold);font-size:10px;letter-spacing:2px;text-transform:uppercase}
-h1{font-size:clamp(38px,6vw,68px);font-weight:normal;line-height:1.08;margin:14px 0}
-.subtitle{color:#b7c99a;font-size:16px;margin:14px 0}
-.hero-note{font-style:italic;color:var(--muted);margin:20px 0}
-.status{display:inline-block;border:1px solid var(--line);padding:6px 12px;color:var(--gold);font-size:10px;letter-spacing:1px;text-transform:uppercase}
-.portrait-placeholder{width:260px;min-width:220px;aspect-ratio:3/4;border:1px solid var(--gold-dim);background:linear-gradient(145deg,rgba(24,36,54,.92),rgba(11,16,25,.95));display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--muted);position:relative}
-.portrait-placeholder:before{content:"";position:absolute;inset:9px;border:1px dashed rgba(145,168,111,.35);pointer-events:none}
-.portrait-mark{font-size:42px;color:var(--gold);line-height:1;margin-bottom:16px}.portrait-placeholder strong{font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:normal;color:var(--parchment)}.portrait-placeholder small{font-size:11px;margin-top:8px}
-.layout{max-width:1400px;margin:0 auto;padding:40px 5%;display:grid;grid-template-columns:220px minmax(0,1fr);gap:42px}
-.sidebar{align-self:start;position:sticky;top:24px;border:1px solid var(--line);background:rgba(18,27,41,.72);padding:22px}
-.sidebar h3{font-size:12px;font-weight:normal;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin:0 0 16px}
-.sidebar a{display:block;color:var(--muted);text-decoration:none;font-size:12px;padding:7px 0;border-bottom:1px solid rgba(145,168,111,.1)}
-.sidebar a:hover{color:var(--parchment)}
-main{min-width:0}.content-section{padding:0 0 42px;margin:0 0 38px;border-bottom:1px solid var(--line)}
-.content-section h2{font-size:29px;font-weight:normal;margin:7px 0 18px}
-.content-section h3{font-size:18px;font-weight:normal;color:#d3dfc5;margin:25px 0 8px}
-.content-section p,.content-section li{color:#c1cdb8;font-size:14px}
-.content-section ul{padding-left:22px}.content-section li{padding:3px 0}
-.quote,blockquote{border-left:2px solid var(--gold);margin:24px 0;padding:10px 20px;color:#c7d9b2;font-style:italic;background:rgba(145,168,111,.045)}
-.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:20px 0 28px}
-.fact{background:var(--panel);border:1px solid rgba(145,168,111,.16);padding:13px 16px}
-.fact small{display:block;color:var(--gold);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px}
-.fact span{font-size:13px}
-.notice{padding:18px 20px;background:var(--panel);border:1px solid var(--line);margin:20px 0}
-.notice h3{margin-top:0}.notice p{margin-bottom:0}
-.palette{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
-.swatch{width:76px;height:65px;border:1px solid rgba(233,221,196,.25);display:flex;align-items:flex-end;padding:5px}
-.swatch span{font:9px Arial,sans-serif;color:#fff;text-shadow:0 1px 3px #000}
-.related-card{display:block;text-decoration:none;background:var(--panel);border:1px solid var(--line);padding:20px;margin:22px 0}
-.related-card h3{margin:0 0 5px}.related-card p{margin:0}
-.back-link{display:inline-block;margin-top:15px;text-decoration:none;font-size:12px;letter-spacing:1px;text-transform:uppercase}
-footer{border-top:1px solid var(--line);padding:28px 20px;text-align:center;color:var(--muted);font-size:11px}
-@media(max-width:850px){.hero-content{flex-direction:column-reverse;align-items:flex-start}.portrait-placeholder{width:200px;min-width:0}.layout{grid-template-columns:1fr;gap:25px}.sidebar{position:static}.sidebar nav{display:flex;flex-wrap:wrap;gap:0 16px}.facts{grid-template-columns:1fr}}
-@media(max-width:500px){.topbar{padding:14px 5%}.topbar nav{gap:12px}.hero{padding:42px 6%}.layout{padding:30px 6%}h1{font-size:40px}}
-
-/* Connected records */
-.related-records{margin:34px auto;padding:24px;max-width:1000px;border:1px solid var(--line,rgba(200,169,107,.38));background:rgba(16,37,27,.62)}
-.related-records h2{margin:0 0 8px;font-size:clamp(22px,3vw,30px)}.related-records-intro{margin:0 0 18px;color:var(--muted,#b9b5aa)}
-.related-records-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:12px}
-.related-record{display:block;padding:15px;border:1px solid var(--line,rgba(200,169,107,.38));background:rgba(255,255,255,.025);text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}
-.related-record:hover{border-color:var(--gold,#c8a96b);transform:translateY(-2px)}.related-record strong{display:block;color:var(--gold,#c8a96b);margin-bottom:5px}.related-record span{display:block;font-size:.9rem;line-height:1.5;color:inherit}
-@media(max-width:600px){.related-records{padding:16px;margin:24px 0}.related-records-grid{grid-template-columns:1fr}.related-record{padding:14px}}
-</style>
-
+<link rel="stylesheet" href="../../assets/character-record.css">
 <link rel="stylesheet" href="../../assets/library-usability.css">
 </head>
 <body>
@@ -71,7 +13,7 @@ footer{border-top:1px solid var(--line);padding:28px 20px;text-align:center;colo
   <nav>
     <a href="../../index.html">Home</a>
     <a href="../../departments/grand-atrium.html">Grand Atrium</a>
-    <a href="../sapphiron.html">Sapphiron’s Record</a>
+    <a href="../../peoples/humans.html">Human Archive</a>
   </nav>
 </header>
 
@@ -84,11 +26,14 @@ footer{border-top:1px solid var(--line);padding:28px 20px;text-align:center;colo
       <div class="hero-note">“If we don't know what we're looking at, how are we supposed to protect it?”</div>
       <div class="status">Faculty · Department of Botany</div>
     </div>
-    <div class="portrait-placeholder" role="img" aria-label="Reserved space for the creator's portrait of Professor Elowen Thorne">
-      <div class="portrait-mark">❧</div>
-      <strong>Portrait to come</strong>
-      <small>Professor Elowen Thorne<br>Original illustration by the creator</small>
-    </div>
+    <svg class="sapphiron-portrait" width="260" height="320" viewBox="0 0 260 320" role="img" aria-label="Reserved space for the creator's original illustration of Professor Elowen Thorne" xmlns="http://www.w3.org/2000/svg">
+      <title>Portrait Pending — Professor Elowen Thorne</title>
+      <desc>Original illustration by the creator.</desc>
+      <rect width="260" height="320" fill="var(--panel)"/>
+      <text x="130" y="130" text-anchor="middle" fill="var(--gold)" font-family="Georgia, serif" font-size="42">✧</text>
+      <text x="130" y="180" text-anchor="middle" fill="var(--parchment)" font-family="Georgia, serif" font-size="17">Portrait Pending</text>
+      <text x="130" y="211" text-anchor="middle" fill="var(--muted)" font-family="Georgia, serif" font-size="12">Original illustration by the creator</text>
+    </svg>
   </div>
 </header>
 
@@ -136,12 +81,12 @@ footer{border-top:1px solid var(--line);padding:28px 20px;text-align:center;colo
         <li>Some kind of magical botanical tool — I haven't decided what it is yet.</li>
       </ul>
       <h3>Colours</h3>
-      <div class="palette">
-        <div class="swatch" style="background:#e0e8d7"><span>Ivory</span></div>
-        <div class="swatch" style="background:#8db9f0"><span>Moss</span></div>
-        <div class="swatch" style="background:#80684b"><span>Earth</span></div>
-        <div class="swatch" style="background:#747d70"><span>Stone</span></div>
-        <div class="swatch" style="background:#8db9f0"><span>Blue-grey</span></div>
+      <div class="palette-grid" aria-label="Elowen's personal colour references">
+        <div class="palette-swatch"><div class="palette-colour" style="background:#e0e8d7"></div><div class="palette-info"><strong>Ivory</strong><code>#E0E8D7</code></div></div>
+        <div class="palette-swatch"><div class="palette-colour" style="background:#8db9f0"></div><div class="palette-info"><strong>Moss</strong><code>#8DB9F0</code></div></div>
+        <div class="palette-swatch"><div class="palette-colour" style="background:#80684b"></div><div class="palette-info"><strong>Earth</strong><code>#80684B</code></div></div>
+        <div class="palette-swatch"><div class="palette-colour" style="background:#747d70"></div><div class="palette-info"><strong>Stone</strong><code>#747D70</code></div></div>
+        <div class="palette-swatch"><div class="palette-colour" style="background:#8db9f0"></div><div class="palette-info"><strong>Blue-grey</strong><code>#8DB9F0</code></div></div>
       </div>
     </section>
 
@@ -205,6 +150,11 @@ footer{border-top:1px solid var(--line);padding:28px 20px;text-align:center;colo
         <p>Her close relationships, more details of her past, and the exact nature of her magical research tool are still open. This record can grow as those parts of her story take shape.</p>
       </div>
 
+<a class="related-card" href="../../peoples/humans.html">
+  <div class="symbol">✧</div>
+  <h3>The Human Archive →</h3>
+  <p>Species overview · Life &amp; diversity · Skills · Communities and individual lives</p>
+</a>
 <section class="related-records" aria-labelledby="related-records-title">
   <h2 id="related-records-title">✦ Works & affiliations</h2>
   <p class="related-records-intro">Follow the connections between people, books and departments of the Grand Library.</p>
