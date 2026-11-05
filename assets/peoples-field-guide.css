@@ -41,3 +41,21 @@ html body .folio .tabs button:focus-visible{outline:2px solid #8db9f0;outline-of
 .field-guide-footer p{margin:0}
 .field-guide-footer p+p{margin-top:6px}
 @media(max-width:760px){.reference-links{grid-template-columns:1fr}.margin-note{margin-right:6px}.field-index .links a{font-size:11px}.folio .spread > aside{padding-top:0}}
+
+/* Compact field-guide layout until original illustrations are available.
+   Text-only spreads flow full width; marginalia follows the prose instead
+   of forcing a tall, mostly empty facing column. */
+@media (min-width:761px){
+  .folio .spread:not(:has(.plate)){
+    grid-template-columns:minmax(0,1fr);
+    gap:12px;
+  }
+  .folio .spread:not(:has(.plate)) > aside{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));
+    gap:18px 26px;
+    align-items:start;
+  }
+  .folio .spread:not(:has(.plate)) > aside > *{margin-top:8px;margin-bottom:8px}
+  .folio .spread:has(.plate){align-items:start}
+}
