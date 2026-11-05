@@ -12,6 +12,10 @@
   themeLink.rel = 'stylesheet';
   themeLink.href = libraryBase + 'assets/library-blue-theme.css';
   document.head.appendChild(themeLink);
+  const readerContrastLink = document.createElement('link');
+  readerContrastLink.rel = 'stylesheet';
+  readerContrastLink.href = libraryBase + 'assets/book-legibility.css';
+  document.head.appendChild(readerContrastLink);
 
   const setupNavigation = () => {
     const header = document.querySelector('header');
@@ -77,7 +81,16 @@
     }, { passive: true });
     update();
   };
-  const init = () => { setupNavigation(); setupBackToTop(); };
+  const recordVisit = () => {
+    try {
+      const key = 'grand-library:visited-pages';
+      const stored = JSON.parse(localStorage.getItem(key) || '[]');
+      const history = Array.isArray(stored) ? stored : [];
+      const page = { title: document.title.replace(/\s*\|\s*(?:The )?Grand Library(?: of the Realms)?$/, ''), url: location.pathname, visitedAt: new Date().toISOString() };
+      localStorage.setItem(key, JSON.stringify([page, ...history.filter(item => item && item.url !== page.url)].slice(0, 20)));
+    } catch (error) {}
+  };
+  const init = () => { recordVisit(); setupNavigation(); setupBackToTop(); };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();

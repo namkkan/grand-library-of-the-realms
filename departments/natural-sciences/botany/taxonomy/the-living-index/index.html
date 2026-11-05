@@ -2284,6 +2284,7 @@ sources.forEach(section=>{
 const blocks=Array.from(section.children).filter(el=>!el.classList.contains('back-to-top'));
 if(!blocks.length)return;
 if(pages.length%2===0)addPage([],true,'');
+const sectionStart=pages.length;
 let chunk=[],height=0;
 const flush=()=>{if(chunk.length){addPage(chunk,false,section.querySelector('h2')?.textContent||'');chunk=[];height=0;}};
 for(let i=0;i<blocks.length;i++){
@@ -2309,13 +2310,15 @@ group.forEach(node=>{if(node.id)pageTargets[node.id]=pages.length;chunk.push(nod
 height+=groupHeight;
 }
 flush();
-if(section.id)pageTargets[section.id]=Math.max(0,pages.length-1);
+if(section.id)pageTargets[section.id]=sectionStart;
 if(pages.length%2===0)addPage([],true,'');
 });
 if(pages.length&&pages[pages.length-1].blank)pages.pop();
 const storageKey='grand-library:living-index:';
 let index=0,readerFavourites=[];
 try{index=Number(localStorage.getItem(storageKey+'progress'))||0;readerFavourites=JSON.parse(localStorage.getItem(storageKey+'favourites')||'[]');}catch(e){}
+const requestedPage=new URLSearchParams(location.search).get('readerPage');
+if(requestedPage!==null&&/^\d+$/.test(requestedPage))index=Number(requestedPage);
 const tools=document.createElement('div');tools.className='book-reader-tools';tools.innerHTML='<button type="button" id="book-reader-bookmark" aria-pressed="false">☆ Save this page</button><button type="button" id="book-reader-favourites-toggle" aria-expanded="false">🔖 Favourites (<span id="book-reader-favourite-count">0</span>)</button><button type="button" id="book-reader-top">↑ Back to book start</button>';
 const progress=document.createElement('div');progress.className='book-reader-progress';progress.setAttribute('role','progressbar');progress.setAttribute('aria-label','Reading progress');progress.setAttribute('aria-valuemin','0');progress.setAttribute('aria-valuemax',String(pages.length));progress.innerHTML='<span></span>';
 const panel=document.createElement('section');panel.className='book-reader-favourites';panel.id='book-reader-favourites';panel.setAttribute('aria-label','Saved pages');panel.innerHTML='<h3>Saved pages</h3><ul></ul><p class="book-favourites-empty">No saved pages yet. Save a page while reading.</p>';
@@ -2334,14 +2337,23 @@ el.classList.toggle('left',side==='left');el.classList.toggle('right',side==='ri
 function render(){
 const mobile=window.innerWidth<=800,step=mobile?1:2;
 index=Math.max(0,Math.min(index,pages.length-1));
+if(mobile&&pages[index]?.blank){
+  const forward=pages.findIndex((page,i)=>i>=index&&!page.blank);
+  if(forward>=0)index=forward;else{while(index>0&&pages[index]?.blank)index--;}
+}
 if(mobile){paint(left,null,'','left');paint(right,pages[index],index+1,'right');status.textContent='Page '+(index+1)+' of '+pages.length;}
 else{if(index%2!==0)index=Math.max(0,index-1);paint(left,pages[index],index+1,'left');paint(right,pages[index+1],index+2,'right');status.textContent='Pages '+(index+1)+'–'+Math.min(index+2,pages.length)+' of '+pages.length;}
-prev.disabled=index===0;next.disabled=index>=pages.length-step;
+prev.disabled=mobile?!pages.slice(0,index).some(page=>!page.blank):index===0;next.disabled=mobile?!pages.slice(index+1).some(page=>!page.blank):index>=pages.length-step;
 const isSaved=readerFavourites.includes(index);bookmark.setAttribute('aria-pressed',String(isSaved));bookmark.textContent=isSaved?'★ Saved to favourites':'☆ Save this page';
 progress.firstElementChild.style.width=((Math.min(index+(mobile?1:2),pages.length))/pages.length*100)+'%';progress.setAttribute('aria-valuenow',String(Math.min(index+(mobile?1:2),pages.length)));
 saveReaderState();renderReaderFavourites();
 }
-function turn(dir){const step=window.innerWidth<=800?1:2;index=Math.max(0,Math.min(index+dir*step,pages.length-step));render();}
+function turn(dir){
+const mobile=window.innerWidth<=800,step=mobile?1:2;
+let target=Math.max(0,Math.min(index+dir*step,pages.length-step));
+if(mobile){while(target>=0&&target<pages.length&&pages[target].blank)target+=dir;if(target<0||target>=pages.length)return;}
+index=target;render();
+}
 prev.addEventListener('click',()=>turn(-1));next.addEventListener('click',()=>turn(1));
 spread.querySelector('.left-edge').addEventListener('click',()=>turn(-1));spread.querySelector('.right-edge').addEventListener('click',()=>turn(1));
 window.addEventListener('resize',render);

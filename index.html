@@ -624,7 +624,7 @@
         <div class="wayfinding-subresults" id="wayfinding-subresults" aria-live="polite" hidden></div>
         <div class="wayfinding-detail" aria-live="polite">
           <div><h3 id="wayfinding-title">The Grand Atrium</h3><p id="wayfinding-description">Begin at the heart of the Library, where visitors gather before setting out into its many districts.</p></div>
-          <a class="wayfinding-open" id="wayfinding-open" href="#departments">Explore district ↗</a>
+          <a class="wayfinding-open" id="wayfinding-open" href="departments/grand-atrium.html">Explore district ↗</a>
         </div>
         <p class="wayfinding-status" id="wayfinding-status" aria-live="polite">11 accessible pages</p>
       </div>
@@ -643,8 +643,8 @@
           <div class="illustration-slot" aria-label="Reserved space for an original illustration"><span>Illustration to come</span></div>
           <span class="symbol">✦</span>
           <h3>Histories of the Realms</h3>
-          <p>Ancient kingdoms, forgotten cities and the chronicles they left behind.</p>
-          <span class="discover">Explore this field ↗</span>
+          <p>The historical archive is in preparation. Browse related curiosities in Random Discoveries.</p>
+          <span class="discover">Open related discoveries ↗</span>
         </a>
 
         <a class="card" href="departments/grand-atrium.html">
@@ -691,6 +691,7 @@
     </section>
 
     <section class="section" id="all-books">
+      <span id="catalogue"></span><span id="archives"></span>
       <div class="section-heading">
         <span class="eyebrow">The Grand Catalogue</span>
         <h2>All Books & Records</h2>
@@ -704,7 +705,7 @@
           <p>See all currently available books and records, organised by department.</p>
           <span class="discover">Open the catalogue ↗</span>
         </a>
-        <a class="card" href="departments/west-gallery.html">
+        <a class="card" href="#departments">
           <div class="illustration-slot" aria-label="Reserved space for an original illustration"><span>Illustration to come</span></div>
           <span class="symbol">❧</span>
           <h3>The Departments</h3>
@@ -849,7 +850,7 @@
       const places = {
         atrium: { title: "The Grand Atrium", description: "Begin at the heart of the Library, where visitors gather before setting out into its many districts.", href: "departments/grand-atrium.html" },
         arcane: { title: "Arcane Arts & Alchemy", description: "Explore magical disciplines, alchemical research and the study of enchanted things.", href: "departments/natural-sciences/botany/magical-anomalous-botany/index.html" },
-        histories: { title: "Histories of the Realms", description: "Follow the chronicles of ancient kingdoms, forgotten cities and the worlds that came before.", href: "discoveries.html" },
+        histories: { title: "Histories of the Realms", description: "The historical archive is in preparation. Random Discoveries currently gathers related curiosities and fragments of lore.", href: "discoveries.html" },
         natural: { title: "Natural Sciences", description: "Enter the study of plants, animals, minerals and the wonders of the natural world.", href: "departments/west-gallery.html" },
         restricted: { title: "Restricted Collections", description: "A guarded district for sealed records, dangerous artefacts and knowledge requiring special permission.", href: "restricted-collections/" },
         celestial: { title: "Celestial Studies", description: "Explore star charts, lunar calendars and the mysteries of the heavens.", href: "departments/natural-sciences/astronomy-cosmology/index.html" },
@@ -892,7 +893,7 @@
       });
       search.addEventListener("input", () => {
         const query = normaliseMap(search.value);
-        const terms = query.split(/\\s+/).filter(Boolean);
+        const terms = query.split(/\s+/).filter(Boolean);
         let visible = 0;
         nodes.forEach(node => {
           const match = !terms.length || terms.every(term => normaliseMap(node.textContent).includes(term));
@@ -936,5 +937,6 @@
 
 
 <script src="assets/library-usability.js" defer></script>
+<script src="assets/reading-desk.js" defer></script>
 </body>
 </html>

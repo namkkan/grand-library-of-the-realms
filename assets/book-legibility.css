@@ -1,0 +1,154 @@
+/* Book legibility: printed surfaces keep dark ink; the surrounding Library
+   retains its sapphire and antique-gold theme. These selectors target actual
+   paper wrappers, never generic .page elements or character/species records.
+   ID-bearing reader scopes also outrank the theme's forced gold heading rule. */
+
+html body:not(#book-ink-exterior) :is(
+  .paper,
+  .paper-panel,
+  #book-reader .book-page,
+  #field-guide .page,
+  #book .page,
+  .species-record .chapter
+),
+html body:has(#book-reader):not(#book-ink-exterior) :is(
+  .front-matter-grid > section,
+  main > #contents,
+  main > .chapter-text
+) {
+  --paper: #f8efd9;
+  --paper2: #dfcba5;
+  --ink: #352b20;
+  --ink-soft: #65533e;
+  color: #352b20 !important;
+}
+
+html body:not(#book-ink-exterior) :is(
+  .paper,
+  .paper-panel,
+  #book-reader .book-page,
+  #field-guide .page,
+  #book .page,
+  .species-record .chapter
+) :is(p, li, dd, dt, td, th, blockquote, figcaption, small, strong, em, span, code),
+html body:has(#book-reader):not(#book-ink-exterior) :is(
+  .front-matter-grid > section,
+  main > #contents,
+  main > .chapter-text
+) :is(p, li, dd, dt, td, th, blockquote, figcaption, small, strong, em, span, code) {
+  color: #352b20 !important;
+}
+
+html body:not(#book-ink-exterior) :is(
+  .paper,
+  .paper-panel,
+  #book-reader .book-page,
+  #field-guide .page,
+  #book .page,
+  .species-record .chapter
+) :is(h1, h2, h3, h4, h5, h6, .section-title, .record-subheading, .entry-title),
+html body:has(#book-reader):not(#book-ink-exterior) :is(
+  .front-matter-grid > section,
+  main > #contents,
+  main > .chapter-text
+) :is(h1, h2, h3, h4, h5, h6, .section-title, .record-subheading, .entry-title) {
+  color: #554326 !important;
+}
+
+/* Notes and record cards inside a printed page are paper-tinted, not navy.
+   This prevents their inherited dark ink being drawn on a theme-darkened box. */
+html body:not(#book-ink-exterior) :is(
+  .paper,
+  .paper-panel,
+  #book-reader .book-page,
+  #field-guide .page,
+  #book .page,
+  .species-record .chapter
+) :is(.quote, .note, .record-card, .contents, .field-record-intro, .detail),
+html body:has(#book-reader):not(#book-ink-exterior) :is(
+  .front-matter-grid > section,
+  main > #contents,
+  main > .chapter-text
+) :is(.quote, .note, .record-card, .contents, .field-record-intro, .detail) {
+  background: rgba(164, 128, 75, .10) !important;
+  color: #352b20 !important;
+  border-color: rgba(112, 79, 43, .34) !important;
+}
+
+html body:not(#book-ink-exterior) :is(
+  .paper,
+  .paper-panel,
+  #book-reader .book-page,
+  #field-guide .page,
+  #book .page,
+  .species-record .chapter
+) :is(.section-label, .section-kicker, .entry-number, .detail-label, .plate-label,
+       .illustration-label, .page-number, .book-page-number, .folio, .kicker, .latin),
+html body:has(#book-reader):not(#book-ink-exterior) :is(
+  .front-matter-grid > section,
+  main > #contents,
+  main > .chapter-text
+) :is(.section-label, .section-kicker, .detail-label, .illustration-label) {
+  color: #65533e !important;
+}
+
+html body:not(#book-ink-exterior) :is(
+  .paper,
+  .paper-panel,
+  #book-reader .book-page,
+  #field-guide .page,
+  #book .page,
+  .species-record .chapter
+) a,
+html body:has(#book-reader):not(#book-ink-exterior) :is(
+  .front-matter-grid > section,
+  main > #contents,
+  main > .chapter-text
+) a {
+  color: #795a2e !important;
+  text-decoration-color: currentColor;
+}
+
+html body:not(#book-ink-exterior) :is(
+  .paper,
+  .paper-panel,
+  #book-reader .book-page,
+  #field-guide .page,
+  #book .page,
+  .species-record .chapter
+) a:hover,
+html body:has(#book-reader):not(#book-ink-exterior) :is(
+  .front-matter-grid > section,
+  main > #contents,
+  main > .chapter-text
+) a:hover {
+  color: #352b20 !important;
+}
+
+/* Preserve the light labels on actual navy controls within paper content. */
+html body:not(#book-ink-exterior) :is(
+  .paper,
+  .paper-panel,
+  #book-reader .book-page,
+  #field-guide .page,
+  #book .page,
+  .species-record .chapter
+) :is(button, a.button),
+html body:not(#book-ink-exterior) :is(
+  .paper,
+  .paper-panel,
+  #book-reader .book-page,
+  #field-guide .page,
+  #book .page,
+  .species-record .chapter
+) :is(button, a.button) :is(span, strong, em, small) {
+  color: #c5d3e4 !important;
+}
+
+/* Dahlia advances spreads, not single sides. Stack both sides on a phone so
+   none of the left-hand text disappears when the .single layout is enabled. */
+@media (max-width: 720px) {
+  html body #book.single .page.left {
+    display: block !important;
+  }
+}

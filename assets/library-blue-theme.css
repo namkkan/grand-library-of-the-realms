@@ -467,3 +467,14 @@ html body .main-nav a:hover {
   color: #f1dfb5 !important;
   background: transparent !important;
 }
+
+/* Keep selected controls distinct from the unselected sapphire buttons. */
+html body .folio .tabs button[aria-selected="true"],
+html body .folio .object-tabs button[aria-pressed="true"],
+html body .wayfinding-node[aria-pressed="true"],
+html body .reader-tools button[aria-pressed="true"],
+html body .book-reader-tools button[aria-pressed="true"] {
+  background: #c3a46b !important;
+  color: #0b1019 !important;
+  border-color: #dfc58f !important;
+}
