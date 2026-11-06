@@ -541,6 +541,10 @@
     .wayfinding-status { margin: 10px 0 0; color: var(--muted); font: 12px Arial, sans-serif; }
     @media (max-width: 700px) { .wayfinding { padding: 14px; } .wayfinding-map { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 12px; gap: 9px; } .wayfinding-map::before { inset: 8%; } .wayfinding-detail { grid-template-columns: 1fr; } .wayfinding-open { justify-self: start; } }
     @media (max-width: 390px) { .wayfinding-map { grid-template-columns: 1fr 1fr; } .wayfinding-node { font-size: 12px; } }
+  .kenku-feature{display:flex;justify-content:center;padding:42px 7% 14px;background:var(--night)}
+  .kenku-feature-link{display:block;width:min(440px,85vw);transition:transform .2s ease}
+  .kenku-feature-link:hover{transform:translateY(-4px)}
+  .kenku-feature img{display:block;width:100%;height:auto;max-height:530px;object-fit:contain;filter:drop-shadow(0 12px 30px #0008)}
 </style>
 
   <link rel="stylesheet" href="assets/library-usability.css">
@@ -594,6 +598,11 @@
       </div>
     </section>
 
+
+    <!-- FEATURED KENKU ILLUSTRATION -->
+    <section class="kenku-feature" aria-label="Kenku illustration">
+      <a href="peoples/kenku.html" class="kenku-feature-link" aria-label="Explore the Kenku field guide"><img src="assets/IMG_4197.png" alt="Original illustration of a Kenku with outstretched wings" loading="lazy" decoding="async"></a>
+    </section>
 
     <!-- LIBRARY DISTRICTS -->
 
