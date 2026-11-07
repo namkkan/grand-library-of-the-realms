@@ -25,3 +25,13 @@ Read the current main branch and recent changes before editing. Check this log a
 Creator reservations to preserve: Sapphiron's pendant promise and other party; Elowen's close relationships, further past and undecided botanical tool; original portraits. Sapphiron is an independent reader, not staff. Hyssop handles welcome, public guidance and authorised everyday keys; lost property, messages and correspondence belong to other staff, whose named appointments remain open. His awakening location does not establish his biological origin. Mycelial network memory remains uncertain. Do not import outside-franchise Kenku canon or use Sapphiron's unusual age as a species lifespan.
 
 Validation and publication outcome are reported in the scheduled chat. A GitHub commit alone is not proof that Pages has deployed.
+
+## 2026-11-07 — Connect human biology with individual lives
+
+Base: `0ce81f4a80892fde1b0a5213ae10075e8d874369`. Read current main, recent commits, both human records and Elowen/Maren records; no AGENTS.md exists in the current tree. This batch changes two species records only, plus this log.
+
+- HUM—001: explained the already-established distinction between study, innate affinity, direct casting and artefact use, with a link to HUM—002. Kept occupations and personal worth separate from affinity.
+- HUM—002: added existing field-guide margin annotations linking Elowen\'s established age and work to the lifespan discussion, and Maren\'s craft to the distinction between expertise and casting ability. Neither character is assigned an unrecorded magical affinity or ability.
+- Preserved English, all existing sections/IDs/scripts/styles, sapphire/gold field-guide layout, original illustration reservations and creator decisions. No new biological rules or character relationships were invented.
+
+Validation: changed HTML tag nesting, duplicate IDs, internal fragment targets and added relative links checked before publication. Shared assets and character templates unchanged. Deployment outcome is reported in chat. Next content batch: inspect current Mycelial/Hyssop connections and creator changes before adding material; avoid repeating the human affinity explanations.
