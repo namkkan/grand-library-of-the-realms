@@ -541,10 +541,10 @@
     .wayfinding-status { margin: 10px 0 0; color: var(--muted); font: 12px Arial, sans-serif; }
     @media (max-width: 700px) { .wayfinding { padding: 14px; } .wayfinding-map { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 12px; gap: 9px; } .wayfinding-map::before { inset: 8%; } .wayfinding-detail { grid-template-columns: 1fr; } .wayfinding-open { justify-self: start; } }
     @media (max-width: 390px) { .wayfinding-map { grid-template-columns: 1fr 1fr; } .wayfinding-node { font-size: 12px; } }
-  .kenku-feature{display:flex;justify-content:center;padding:42px 7% 14px;background:var(--night)}
-  .kenku-feature-link{display:block;width:min(440px,85vw);padding:20px;background:#e9dfca;border:1px solid #c3a46b;border-radius:4px;box-shadow:0 16px 38px #0005;transition:transform .2s ease}
-  .kenku-feature-link:hover{transform:translateY(-4px)}
-  .kenku-feature img{display:block;width:100%;height:auto;max-height:530px;object-fit:contain}
+  /* Small decorative Kenku in the welcome hero, with its parchment keyed out. */
+  .hero-kenku-decoration{position:absolute;right:clamp(12px,4vw,65px);bottom:10px;width:clamp(95px,15vw,185px);z-index:1;pointer-events:none;opacity:.85}
+  .hero-kenku-decoration img{display:block;width:100%;height:auto;filter:url(#kenku-parchment-key)}
+  @media(max-width:760px){.hero-kenku-decoration{width:90px;right:8px;bottom:5px;opacity:.5}}
 </style>
 
   <link rel="stylesheet" href="assets/library-usability.css">
@@ -596,13 +596,10 @@
           Explore · Discover · Preserve · Understand
         </p>
       </div>
+      <svg aria-hidden="true" width="0" height="0" style="position:absolute;overflow:hidden"><defs><filter id="kenku-parchment-key" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -0.6 -0.6 -0.6 0 1.55"/></filter></defs></svg>
+      <div class="hero-kenku-decoration" aria-hidden="true"><img src="assets/IMG_4197.png" alt="" loading="lazy" decoding="async"></div>
     </section>
 
-
-    <!-- FEATURED KENKU ILLUSTRATION -->
-    <section class="kenku-feature" aria-label="Kenku illustration">
-      <a href="peoples/kenku.html" class="kenku-feature-link" aria-label="Explore the Kenku field guide"><img src="assets/IMG_4197.png" alt="Original illustration of a Kenku with outstretched wings" loading="lazy" decoding="async"></a>
-    </section>
 
     <!-- LIBRARY DISTRICTS -->
 
