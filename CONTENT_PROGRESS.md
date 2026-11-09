@@ -35,3 +35,7 @@ Base: `0ce81f4a80892fde1b0a5213ae10075e8d874369`. Read current main, recent comm
 - Preserved English, all existing sections/IDs/scripts/styles, sapphire/gold field-guide layout, original illustration reservations and creator decisions. No new biological rules or character relationships were invented.
 
 Validation: changed HTML tag nesting, duplicate IDs, internal fragment targets and added relative links checked before publication. Shared assets and character templates unchanged. Deployment outcome is reported in chat. Next content batch: inspect current Mycelial/Hyssop connections and creator changes before adding material; avoid repeating the human affinity explanations.
+
+## 2026-11-09 — Mycelial workplace connections
+
+Reviewed unchanged main 7651078741fc7bdb2efd7a561e5f33fda8fb8b9d and current Hyssop/Mycelial records against existing creator reservations. Expanded MYC—001 with Hyssop's established reception skills as an individual example of belonging, linked his duties and Welcome & Arrival, and aligned card labels with his official receptionist role. No new biology, relationships or staff responsibilities. Existing shared styles, illustrations, scripts and section IDs preserved. Added destinations and duties fragment checked against existing records; changes are confined to one species page and this log. Publication outcome reported separately.
