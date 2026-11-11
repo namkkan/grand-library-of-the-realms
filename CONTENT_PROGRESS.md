@@ -39,3 +39,7 @@ Validation: changed HTML tag nesting, duplicate IDs, internal fragment targets a
 ## 2026-11-09 — Mycelial workplace connections
 
 Reviewed unchanged main 7651078741fc7bdb2efd7a561e5f33fda8fb8b9d and current Hyssop/Mycelial records against existing creator reservations. Expanded MYC—001 with Hyssop's established reception skills as an individual example of belonging, linked his duties and Welcome & Arrival, and aligned card labels with his official receptionist role. No new biology, relationships or staff responsibilities. Existing shared styles, illustrations, scripts and section IDs preserved. Added destinations and duties fragment checked against existing records; changes are confined to one species page and this log. Publication outcome reported separately.
+
+## 2026-11-11 — Maren's working life
+
+Base: 9cba4355e9a42cff485995a26c2e3ac55461d9ed. Reviewed recent department/homepage changes in the preceding quality run; current character record and progress log read before editing. Added one original fictional commission anecdote under Maren's existing Curatorial Notes: distinguish a cheaper crossing from a safer one, preserve the client's annotation, and show her continuing difficulty communicating deadlines. No new named characters, geography, magical ability or staff appointment. Shared Sapphiron CSS, portrait reservation, sections, IDs, links and scripts unchanged. Checked paragraph balance, unique IDs and exact preservation of links/assets/portrait markup. Next batch should prioritise another record rather than repeat Maren's accuracy theme.
