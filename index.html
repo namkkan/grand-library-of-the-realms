@@ -514,7 +514,7 @@
 
     /* The Grand Atrium sits at the centre: the map's main orientation point. */
     @media (min-width: 701px) {
-      .wayfinding-map { grid-template-areas: "arcane histories natural" "restricted atrium celestial" ". peoples ."; }
+      .wayfinding-map { grid-template-areas: "arcane histories natural" "restricted atrium celestial" "culinary peoples ."; }
       .wayfinding-node[data-place="arcane"] { grid-area: arcane; }
       .wayfinding-node[data-place="histories"] { grid-area: histories; }
       .wayfinding-node[data-place="natural"] { grid-area: natural; }
@@ -523,6 +523,7 @@
       .wayfinding-node[data-place="atrium"] span { font-size: 29px; color: #e0edf2; }
       .wayfinding-node[data-place="atrium"]::after { content: "MAIN ORIENTATION POINT"; display: block; margin-top: 7px; color: #c4dce7; font: 9px Arial,sans-serif; letter-spacing: 1.3px; }
       .wayfinding-node[data-place="celestial"] { grid-area: celestial; }
+      .wayfinding-node[data-place="culinary"] { grid-area: culinary; }
       .wayfinding-node[data-place="peoples"] { grid-area: peoples; }
       .wayfinding-node[data-place="atrium"][aria-pressed="true"] { background: linear-gradient(145deg,#63869b,#2b4659); box-shadow: 0 0 0 4px #b8d2df28, 0 0 34px #8fb8d030; }
     }
@@ -621,6 +622,7 @@
           <button class="wayfinding-node" type="button" data-place="natural" aria-pressed="false"><span>❧</span>Natural Sciences</button>
           <button class="wayfinding-node" type="button" data-place="restricted" aria-pressed="false"><span>⚿</span>Restricted Collections</button>
           <button class="wayfinding-node" type="button" data-place="celestial" aria-pressed="false"><span>☾</span>Celestial Studies</button>
+          <button class="wayfinding-node" type="button" data-place="culinary" aria-pressed="false"><span>♨</span>The Culinary Arts</button>
           <button class="wayfinding-node" type="button" data-place="peoples" aria-pressed="false"><span>✦</span>Peoples & Cultures</button>
         </div>
         <div class="wayfinding-subresults" id="wayfinding-subresults" aria-live="polite" hidden></div>
@@ -679,6 +681,14 @@
           <h3>Celestial Studies</h3>
           <p>Star charts, lunar calendars and the mysteries of the heavens.</p>
           <span class="discover">Explore this field ↗</span>
+        </a>
+
+        <a class="card" href="departments/culinary-arts/index.html">
+          <div class="illustration-slot" aria-label="Reserved space for an original illustration"><span>Illustration to come</span></div>
+          <span class="symbol">♨</span>
+          <h3>The Culinary Arts</h3>
+          <p>Recipes, ingredients and culinary knowledge under the guidance of Bai, the White Tiger.</p>
+          <span class="discover">Enter the district ↗</span>
         </a>
 
         <a class="card" href="#peoples">
@@ -819,6 +829,7 @@
         natural: { title: "Natural Sciences", description: "Enter the study of plants, animals, minerals and the wonders of the natural world.", href: "departments/west-gallery.html" },
         restricted: { title: "Restricted Collections", description: "A guarded district for sealed records, dangerous artefacts and knowledge requiring special permission.", href: "restricted-collections/" },
         celestial: { title: "Celestial Studies", description: "Explore star charts, lunar calendars and the mysteries of the heavens.", href: "departments/natural-sciences/astronomy-cosmology/index.html" },
+        culinary: { title: "The Culinary Arts", description: "Recipes and culinary knowledge with Head Chef Bai.", href: "departments/culinary-arts/index.html" },
         peoples: { title: "Peoples & Cultures", description: "Discover the languages, traditions and communities of the many realms.", href: "#peoples" }
       };
       function selectPlace(key) {
@@ -831,6 +842,7 @@
         status.textContent = "Selected: " + place.title + ".";
       }
       const sections = [
+        {title:"The Culinary Arts", category:"Department", description:"Bai's kitchen, cookbook and pantry.", url:"departments/culinary-arts/index.html", keywords:"cooking cocina recipes recetas chef bai food culinary"},
         {title:"Natural Sciences", category:"Department", description:"The complete Natural Sciences department directory.", url:"departments/west-gallery.html", keywords:"science sciences nature natural"},
         {title:"Botany", category:"Natural Sciences · Department", description:"Plant studies, botanical collections and research.", url:"departments/natural-sciences/botany/index.html", keywords:"botany botanical plant plants"},
         {title:"Seeds", category:"Natural Sciences · Botany", description:"Browse the seed collections and botanical records.", url:"departments/natural-sciences/botany/seeds/index.html", keywords:"seed seeds seed collection"},
